@@ -1,6 +1,6 @@
 # HANDOFF
 
-Live link (deployed 24 Oct 2026; v1.2 with 353 questions and UI polish verified live): **https://ngoyal100894.github.io/cfa-revision/**
+Live link (deployed 24 Oct 2026; v1.4: momentum layer and visual redesign): **https://ngoyal100894.github.io/cfa-revision/**
 
 ## What was built
 This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026. It is designed for about 15 minutes a day while she finishes reading the books.
@@ -42,6 +42,10 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
   - **Combo runs** ("🔥 4 in a row"), personal-best runs, milestones (50, 100, 200… questions answered) and confetti on real wins.
   - The result screen leads with **Keep going · 5 more** (or **Hit today's goal · N more**) and **Retry N missed**.
   - Tapping ✕ mid-round asks "Only N to go?" with **Keep going** first. Stopping is always one tap, and her answers are saved either way.
+- **Look** (new in v1.4). Warm, rounded and colourful, with a matching dark mode:
+  - A gradient hero card on Home with the countdown, today's ring and her level.
+  - A colour per topic, so she can tell at a glance where a question sits.
+  - Varied praise on right answers, and a gentler tone on misses.
 - **Home**: a countdown and a suggestion that changes as the exam gets closer (more exam practice in the last stretch). It also shows her streak and a "Tick new readings" link.
 
 ## Opening it on her iPhone and adding it to the Home Screen

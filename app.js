@@ -44,7 +44,15 @@
     close: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l12 12M17 5 5 17"/></svg>',
     gear: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 14.6a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h0a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5h0a1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v0a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg>',
     tick: '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.4 5.6 10.4 11.5 3.8"/></svg>',
-    tickCircle: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" opacity=".35"/><path d="M7.6 12.4 10.6 15.3 16.4 9"/></svg>'
+    tickCircle: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" opacity=".35"/><path d="M7.6 12.4 10.6 15.3 16.4 9"/></svg>',
+    flame: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.6 2.3c.4 3.1-1.2 4.9-2.8 6.6C8.2 10.6 6.5 12.4 6.5 15a5.5 5.5 0 0 0 11 0c0-1.9-.8-3.3-1.7-4.4-.2 1.3-.9 2.3-2 2.8.6-3.6-.2-7.9-1.2-11.1z"/></svg>',
+    // Home mode tiles
+    recap: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 5h6a3.5 3.5 0 0 1 3.5 3.5V20a2.5 2.5 0 0 0-2.5-2.5h-7z"/><path d="M21.5 5h-6A3.5 3.5 0 0 0 12 8.5V20a2.5 2.5 0 0 1 2.5-2.5h7z"/></svg>',
+    remember: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2V16h5v-.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg>',
+    calc: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7h7M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01M8.5 15h.01M12 15h.01M15.5 15v2.5M8.5 18h.01M12 18h.01"/></svg>',
+    sheet: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
+    weak: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg>',
+    exam: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M10 2.5h4M18.5 6l1.5-1.5"/></svg>'
   };
   function icon(name) { var s = h('span', { 'aria-hidden': 'true', style: 'display:inline-flex' }); s.innerHTML = ICONS[name]; return s; }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
@@ -241,8 +249,16 @@
   function streakChip() {
     var n = Sched.streak(Store.state, today());
     if (!n) return null;
-    return h('div', { class: 'streak' }, h('span', { class: 'dot' }), n + '-day streak');
+    return h('div', { class: 'streak', 'aria-label': n + '-day streak' }, icon('flame'), plural(n, 'day', 'days'));
   }
+  function greeting() {
+    var hr = new Date().getHours();
+    return hr < 5 ? 'Up late' : hr < 12 ? 'Good morning' : hr < 17 ? 'Good afternoon' : 'Good evening';
+  }
+  // Soft colour wash behind the top of a screen (home, results).
+  function glow() { return h('div', { class: 'glow', 'aria-hidden': 'true' }); }
+  function pick(list) { return list[Math.floor(Math.random() * list.length)]; }
+  var PRAISE = ['Correct', 'Spot on', 'Nailed it', 'Exactly right', 'Yes!', 'Well done', 'Right on', 'Correct'];
 
   /* ---------- Momentum: levels, daily goal ring, celebrations ---------- */
   function levelFloor(L) { return 50 * L * (L - 1); }   // XP needed to reach level L: 0, 100, 300, 600, 1000...
@@ -277,6 +293,20 @@
       : n ? left + ' more to today’s goal of ' + GOAL + '.'
       : 'Today’s goal: ' + GOAL + ' questions.';
     return h('div', { class: 'momentum' }, goalRing(n), h('div', { class: 'mo-body' }, levelBar(st.xp || 0), h('p', { class: 'mo-msg', text: msg })));
+  }
+  // Home hero: the countdown, today's goal ring, level and one line of what to do next.
+  function heroCard() {
+    var d = Sched.daysBetween(today(), D.curriculum.examDate);
+    var dateText = new Date(D.curriculum.examDate + 'T12:00:00').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+    var count = d > 0
+      ? h('div', { class: 'hc-count' }, h('span', { class: 'hc-n', text: String(d) }),
+          h('span', { class: 'hc-l' }, d === 1 ? 'day to go' : 'days to go', h('small', { text: 'Exam ' + dateText })))
+      : h('div', { class: 'hc-count' }, h('span', { class: 'hc-l big', text: daysToExamText() }));
+    if (!coveredCount()) return h('div', { class: 'hero-card' }, h('div', { class: 'hc-top' }, count));
+    var m = momentumCard();
+    return h('div', { class: 'hero-card' },
+      h('div', { class: 'hc-top' }, count, m.querySelector('.ring')),
+      m.querySelector('.mo-body'));
   }
   // Confetti from the top of the screen. Skipped when the phone asks for reduced motion.
   function burst(n) {
@@ -347,7 +377,7 @@
             h('div', { class: 'topic-meta' }, t.weightMin + '–' + t.weightMax + '% of exam',
               ts.n ? [' · ', h('b', { text: ts.n + ' of ' + t.readings.length })] : null)),
           h('span', { class: 'chev' }, icon('chev')));
-        var box = h('section', { class: 'topic' + (open ? ' open' : '') }, h('div', { class: 'topic-row' }, main, whole));
+        var box = h('section', { class: 'topic' + (open ? ' open' : ''), 'data-t': t.id }, h('div', { class: 'topic-row' }, main, whole));
         if (open) {
           box.appendChild(h('div', { class: 'readings' }, t.readings.map(function (r) {
             var on = !!st.coverage[r.id];
@@ -509,11 +539,13 @@
     var modes = h('div', { class: 'modes' }, order.map(function (m) {
       var c = MODE_CARDS[m], ok = avail[m];
       var tagged = !!(sug && sug.mode === m && ok);
-      return h('button', { class: 'mode' + (tagged ? ' suggested' : ''), 'aria-disabled': ok ? null : 'true',
+      return h('button', { class: 'mode' + (tagged ? ' suggested' : ''), 'data-m': m, 'aria-disabled': ok ? null : 'true',
         onclick: function () { if (!ok) return; if (m === 'recap') Recap.start(); else if (m === 'sheet') Router.go('sheet'); else Session.start(m); } },
-        h('div', { class: 'mode-head' }, h('div', { class: 'mode-name', text: NAMES[m] }), tagged ? h('span', { class: 'tag', text: 'Suggested' }) : null),
-        h('div', { class: 'mode-note', text: c.note }),
-        ok ? null : h('div', { class: 'mode-reason', text: c.empty }));
+        h('span', { class: 'mode-ic' }, icon(m)),
+        h('span', { class: 'mode-main' },
+          h('div', { class: 'mode-head' }, h('div', { class: 'mode-name', text: NAMES[m] }), tagged ? h('span', { class: 'tag', text: 'Suggested' }) : null),
+          h('div', { class: 'mode-note', text: c.note }),
+          ok ? null : h('div', { class: 'mode-reason', text: c.empty })));
     }));
 
     var mc = mapCounts();
@@ -541,13 +573,14 @@
           h('button', { class: 'btn-link muted', text: 'Not now', onclick: function () { st.nudge.export = true; Store.save(); Router.render(); } }))));
     }
     var body = [
+      glow(),
       h('div', { class: 'home-top' },
-        h('div', null, h('h1', { class: 'hello', text: 'Hi Ishita' }),
-          h('div', { class: 'home-meta' }, h('p', { class: 'exam-line', text: daysToExamText() }), streakChip())),
-        h('button', { class: 'icon-btn', 'aria-label': 'Settings', onclick: function () { Router.go('settings'); } }, icon('gear'))),
-      coveredCount() ? momentumCard() : null,
+        h('div', null, h('p', { class: 'greet', text: greeting() + ',' }), h('h1', { class: 'hello', text: 'Ishita' })),
+        h('div', { class: 'home-actions' }, streakChip(),
+          h('button', { class: 'icon-btn', 'aria-label': 'Settings', onclick: function () { Router.go('settings'); } }, icon('gear')))),
+      heroCard(),
       h('div', { class: 'cover-row' },
-        h('span', { text: coveredCount() + ' of ' + D.readingCount + ' readings ticked' }),
+        h('span', { text: coveredCount() + ' of ' + D.readingCount + ' readings' }),
         h('button', { class: 'btn-link', text: 'Tick new readings', onclick: function () { Router.go('coverage'); } })),
       sug ? h('div', { class: 'suggest' + (sug.week ? ' week' : '') }, h('div', { class: 'eyebrow', text: 'Suggested' }), h('p', { text: sug.text })) : null,
       nudges,
@@ -721,7 +754,7 @@
     if (exam) root.appendChild(h('div', { class: 'pace', 'aria-hidden': 'true', title: PACE_SECONDS + ' seconds per question' }, h('i', { style: 'animation-duration:' + PACE_SECONDS + 's' })));
 
     var label = exam ? 'Exam practice · ' + PACE_SECONDS + ' seconds each' : (info ? info.topic.short + ' · ' + info.reading.short : '');
-    var top = [h('div', { class: 's-label', text: label }), h('p', { class: 'stem', text: q.stem })];
+    var top = [h('div', { class: 's-label', 'data-t': exam || !info ? null : info.topic.id, text: label }), h('p', { class: 'stem', text: q.stem })];
 
     if (!answered) {
       var opts = h('div', { class: 'options at-bottom', role: 'group', 'aria-label': 'Answer options' },
@@ -761,7 +794,7 @@
     if (correct) {
       extras.appendChild(luckyControl());
       fb = h('div', { class: 'fb' },
-        h('div', { class: 'verdict' + (fresh ? ' pop' : '') }, icon('tickCircle'), 'Correct',
+        h('div', { class: 'verdict' + (fresh ? ' pop' : '') }, icon('tickCircle'), a.praise || (a.praise = pick(PRAISE)),
           h('span', { class: 'xp-chip' + (a.lucky ? ' lucky' : ''), text: '+' + a.xp + ' XP' + (a.lucky ? ' · 2× bonus' : '') }),
           a.combo >= 3 ? h('span', { class: 'combo', text: '🔥 ' + a.combo + ' in a row' }) : null),
         h('p', { class: 'plain-expl', text: q.explanation }), extras, tests, remember);
@@ -770,7 +803,7 @@
         extras.appendChild(h('button', { class: 'btn-small', text: 'Recap this reading', onclick: function () { openRecapSheet(q.reading); } }));
       }
       fb = h('div', { class: 'fb' },
-        h('div', { class: 'why' }, h('div', { class: 'eyebrow', text: 'Why' }), h('p', { text: q.explanation })),
+        h('div', { class: 'why' }, h('div', { class: 'eyebrow', text: 'Not quite. Here’s why' }), h('p', { text: q.explanation })),
         extras, tests, remember, missControl(),
         h('p', { class: 'calm', text: 'This one comes back next session. +' + (a.xp || XP.wrong) + ' XP for the attempt.' }));
     }
@@ -844,9 +877,13 @@
       if (lvNow > lvBefore || goalHit || (!missed.length && r.n >= 5)) burst(90);
       else if (r.finished) burst(30);
     }
+    var pct = r.n ? r.right / r.n : 0;
+    var headline = pct === 1 ? 'Flawless!' : pct >= 0.8 ? 'Brilliant round' : pct >= 0.6 ? 'Solid work' : pct >= 0.4 ? 'Good effort' : 'Tough one. That’s how it sticks.';
     var body = [
-      h('div', { class: 'score-card' },
+      glow(),
+      h('div', { class: 'score-card' + (pct >= 0.8 ? ' great' : '') },
         h('div', { class: 'eyebrow', text: resultTitle(r) }),
+        h('h1', { class: 'headline', text: headline }),
         h('div', { class: 'score' }, r.right + ' ', h('small', { text: '/ ' + r.n })),
         h('div', { class: 'score-track', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.round(r.right / r.n * 100) + '%' })),
         h('p', { class: 'result-line', text: line }),
@@ -929,9 +966,11 @@
       var shaky = c.marks.filter(function (m) { return m === 'shaky'; }).length;
       var streakN = Sched.streak(Store.state, today());
       screenFrame(root, [
-        h('div', { class: 'score-card' },
+        glow(),
+        h('div', { class: 'score-card great' },
           h('div', { class: 'eyebrow', text: 'Recap' }),
-          h('div', { class: 'score' }, String(c.marks.length), ' ', h('small', { text: c.marks.length === 1 ? 'reading recapped' : 'readings recapped' })),
+          h('h1', { class: 'headline', text: 'Recap done' }),
+          h('div', { class: 'score' }, String(c.marks.length), ' ', h('small', { text: c.marks.length === 1 ? 'reading' : 'readings' })),
           h('p', { class: 'result-line', text: shaky ? plural(shaky, 'reading', 'readings') + ' marked shaky. Their questions come back sooner.' : 'All marked solid. The questions will tell if that holds.' }),
           h('div', { class: 'xp-gain' }, h('span', { class: 'xp-num', text: '+' + c.marks.length * XP.recap }), ' XP')),
         h('div', { class: 'wins' }, levelBar(Store.state.xp || 0)),
@@ -948,7 +987,7 @@
         h('i', { style: 'width:' + Math.round(c.i / c.ids.length * 100) + '%' })),
       h('div', { class: 'count', text: (c.i + 1) + ' / ' + c.ids.length })));
     var sc = h('div', { class: 'scroll s-body' },
-      h('div', { class: 's-label', text: info.topic.short + ' · Reading ' + info.reading.n }),
+      h('div', { class: 's-label', 'data-t': info.topic.id, text: info.topic.short + ' · Reading ' + info.reading.n }),
       h('h1', { class: 'card-title', text: info.reading.title }),
       h('div', { class: 'recap-card' }, recapBody(rid, false)));
     sc.style.paddingTop = '14px';
@@ -1046,7 +1085,7 @@
       list.innerHTML = '';
       D.curriculum.topics.forEach(function (t) {
         var n = t.readings.filter(function (r) { return st.coverage[r.id]; }).length;
-        list.appendChild(h('section', { class: 'map-topic' },
+        list.appendChild(h('section', { class: 'map-topic', 'data-t': t.id },
           h('div', { class: 'map-topic-head' }, h('div', { class: 'map-topic-name', text: t.name }), h('div', { class: 'map-topic-n', text: n + ' of ' + t.readings.length })),
           h('div', { class: 'grid' }, t.readings.map(function (r) {
             var status = readingStatus(r.id, stats);
@@ -1119,7 +1158,7 @@
         });
         var acc = att >= 5 ? Math.round(100 * right / att) : null;
         var accText = acc === null ? (n ? 'not enough answers yet' : '') : acc + '% right';
-        body.appendChild(h('div', { class: 'stand-row' },
+        body.appendChild(h('div', { class: 'stand-row', 'data-t': t.id },
           h('div', { class: 'stand-top' },
             h('span', { class: 'stand-name', text: t.name }),
             h('span', { class: 'stand-w', text: t.weightMin + '–' + t.weightMax + '%' })),
@@ -1192,7 +1231,7 @@
             rows.push(line);
           });
         });
-        if (rows.length) body.appendChild(h('section', { class: 'map-topic' },
+        if (rows.length) body.appendChild(h('section', { class: 'map-topic', 'data-t': t.id },
           h('div', { class: 'map-topic-head' }, h('div', { class: 'map-topic-name', text: t.name }), h('div', { class: 'map-topic-n', text: String(rows.length) })),
           rows));
       });
