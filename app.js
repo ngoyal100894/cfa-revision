@@ -457,7 +457,7 @@
     var body = [
       h('div', { class: 'home-top' },
         h('div', null, h('h1', { class: 'hello', text: 'Hi Ishita' }),
-          h('p', { class: 'exam-line', text: daysToExamText() }), streakChip()),
+          h('div', { class: 'home-meta' }, h('p', { class: 'exam-line', text: daysToExamText() }), streakChip())),
         h('button', { class: 'icon-btn', 'aria-label': 'Settings', onclick: function () { Router.go('settings'); } }, icon('gear'))),
       h('div', { class: 'cover-row' },
         h('span', { text: coveredCount() + ' of ' + D.readingCount + ' readings ticked' }),
@@ -465,8 +465,7 @@
       sug ? h('div', { class: 'suggest' + (sug.week ? ' week' : '') }, h('div', { class: 'eyebrow', text: 'Suggested' }), h('p', { text: sug.text })) : null,
       nudges,
       modes,
-      strip,
-      standStrip
+      h('div', { class: 'strips' }, strip, standStrip)
     ];
     var bar = h('div', { class: 'bar hero' },
       h('button', { class: 'btn btn-primary', text: NAMES.daily, onclick: function () { Session.start('daily'); } }),
@@ -709,9 +708,11 @@
       ? 'Wrong ones' + (guesses ? ' and lucky guesses' : '') + ' come back next session'
       : 'A clean round. Nothing to repeat.';
     var body = [
-      h('div', { class: 'eyebrow', text: resultTitle(r) }),
-      h('div', { class: 'score' }, r.right + ' ', h('small', { text: '/ ' + r.n })),
-      h('p', { class: 'result-line', text: line }),
+      h('div', { class: 'score-card' },
+        h('div', { class: 'eyebrow', text: resultTitle(r) }),
+        h('div', { class: 'score' }, r.right + ' ', h('small', { text: '/ ' + r.n })),
+        h('div', { class: 'score-track', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.round(r.right / r.n * 100) + '%' })),
+        h('p', { class: 'result-line', text: line })),
       (function () {
         var e = errCounts(r.answers), top = null;
         ['know', 'mix', 'rush'].forEach(function (k) { if (e[k] && (!top || e[k] > e[top])) top = k; });
@@ -779,9 +780,10 @@
       var shaky = c.marks.filter(function (m) { return m === 'shaky'; }).length;
       var streakN = Sched.streak(Store.state, today());
       screenFrame(root, [
-        h('div', { class: 'eyebrow', text: 'Recap' }),
-        h('div', { class: 'score' }, String(c.marks.length), ' ', h('small', { text: c.marks.length === 1 ? 'reading recapped' : 'readings recapped' })),
-        h('p', { class: 'result-line', text: shaky ? plural(shaky, 'reading', 'readings') + ' marked shaky. Their questions come back sooner.' : 'All marked solid. The questions will tell if that holds.' }),
+        h('div', { class: 'score-card' },
+          h('div', { class: 'eyebrow', text: 'Recap' }),
+          h('div', { class: 'score' }, String(c.marks.length), ' ', h('small', { text: c.marks.length === 1 ? 'reading recapped' : 'readings recapped' })),
+          h('p', { class: 'result-line', text: shaky ? plural(shaky, 'reading', 'readings') + ' marked shaky. Their questions come back sooner.' : 'All marked solid. The questions will tell if that holds.' })),
         streakN ? h('div', null, streakChip(), streakN >= 3 ? h('span', { class: 'muted small', style: 'margin-left:10px', text: 'Nice streak!' }) : null) : null
       ], h('div', { class: 'bar' },
         h('button', { class: 'btn btn-primary', text: NAMES.daily, onclick: function () { Recap.cur = null; Session.start('daily'); } }),
