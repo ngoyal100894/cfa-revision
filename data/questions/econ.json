@@ -380,6 +380,36 @@
       ],
       "answer": 2,
       "explanation": "The euro is the base currency, so its change is 1.21 / 1.10 - 1 = +10%. The trap is 9.1%, which is the dollar's fall against the euro, a different currency's move."
+    },
+    {
+      "id": "econ-026",
+      "topic": "econ",
+      "reading": "econ-2",
+      "los": "econ-2-e",
+      "kind": "concept",
+      "stem": "A factory worker is laid off in a recession and cannot find work until demand recovers. What type of unemployment is this?",
+      "options": [
+        "Frictional",
+        "Cyclical",
+        "Structural"
+      ],
+      "answer": 1,
+      "explanation": "Cyclical unemployment rises and falls with the business cycle. Frictional is the short gap while people move between jobs; structural comes from a lasting mismatch of skills or location with available jobs."
+    },
+    {
+      "id": "econ-027",
+      "topic": "econ",
+      "reading": "econ-5",
+      "los": "econ-5-a",
+      "kind": "concept",
+      "stem": "In geopolitics, how is a multinational company or an international NGO that influences cross-border relations classified?",
+      "options": [
+        "As a state actor",
+        "As a non-state actor",
+        "As a hegemon"
+      ],
+      "answer": 1,
+      "explanation": "Non-state actors are participants other than national governments, such as companies, NGOs and individuals. State actors are governments; a hegemon is a dominant state that shapes the rules for others."
     }
   ],
   "recaps": [

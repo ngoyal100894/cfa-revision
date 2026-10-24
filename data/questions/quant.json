@@ -379,6 +379,142 @@
       ],
       "answer": 1,
       "explanation": "Finding structure in unlabelled data, such as clustering, is unsupervised learning. The trap is supervised learning, which needs labelled target values at training time."
+    },
+    {
+      "id": "quant-026",
+      "topic": "quant",
+      "reading": "quant-2",
+      "los": "quant-2-b",
+      "kind": "concept",
+      "stem": "The constant-growth (Gordon) model values a share as V0 = D1 ÷ (r − g). What must be true for it to give a sensible value?",
+      "options": [
+        "The required return r is greater than the growth rate g",
+        "The growth rate g is greater than the required return r",
+        "Dividends are expected to stay constant forever (g = 0)"
+      ],
+      "answer": 0,
+      "explanation": "The model needs r > g; otherwise the denominator is zero or negative and the value is meaningless. g = 0 is allowed (it becomes the perpetuity formula D ÷ r) but is not required."
+    },
+    {
+      "id": "quant-027",
+      "topic": "quant",
+      "reading": "quant-3",
+      "los": "quant-3-b",
+      "kind": "concept",
+      "stem": "What does target downside deviation measure?",
+      "options": [
+        "The spread of all returns around the mean",
+        "The spread of only those returns that are above the mean",
+        "The spread of only those returns that fall below a chosen target"
+      ],
+      "answer": 2,
+      "explanation": "Target downside deviation squares only the shortfalls below a target (for example 0% or a hurdle rate), so it measures bad-side risk. The trap is ordinary standard deviation, which counts good surprises as risk too."
+    },
+    {
+      "id": "quant-028",
+      "topic": "quant",
+      "reading": "quant-4",
+      "los": "quant-4-b",
+      "kind": "calc",
+      "stem": "There is a 60% chance of a strong economy, when a stock is expected to return 10%, and a 40% chance of a weak economy, when it is expected to return −5%. What is its expected return?",
+      "options": [
+        "2.5%",
+        "4.0%",
+        "7.0%"
+      ],
+      "answer": 1,
+      "explanation": "Total probability rule: E(R) = 0.6 × 10% + 0.4 × (−5%) = 6% − 2% = 4%. 2.5% is the simple average of the two scenarios, ignoring the probabilities."
+    },
+    {
+      "id": "quant-029",
+      "topic": "quant",
+      "reading": "quant-5",
+      "los": "quant-5-c",
+      "kind": "memorise",
+      "stem": "Returns are normally distributed. Roughly what is the chance that a return falls more than 2 standard deviations below the mean?",
+      "options": [
+        "About 2.5%",
+        "About 5%",
+        "About 16%"
+      ],
+      "answer": 0,
+      "explanation": "About 95% of outcomes lie within ±2σ, so 5% lie outside, split equally between the two tails: about 2.5% below. 5% counts both tails; 16% is the chance of falling below −1σ.",
+      "remember": "Normal: ±1σ ≈ 68%, ±2σ ≈ 95%, ±3σ ≈ 99.7%. One tail beyond 2σ ≈ 2.5%; beyond 1σ ≈ 16%."
+    },
+    {
+      "id": "quant-030",
+      "topic": "quant",
+      "reading": "quant-6",
+      "los": "quant-6-c",
+      "kind": "concept",
+      "stem": "What is a key limitation of Monte Carlo simulation?",
+      "options": [
+        "It can only reuse returns that actually happened in the past",
+        "It cannot value assets whose payoffs depend on the path of prices",
+        "Its results are only as good as the distributions and inputs the analyst assumes"
+      ],
+      "answer": 2,
+      "explanation": "Monte Carlo draws from distributions the analyst specifies, so wrong assumptions give wrong answers. Reusing only past data describes bootstrapping, and Monte Carlo is in fact well suited to path-dependent payoffs."
+    },
+    {
+      "id": "quant-031",
+      "topic": "quant",
+      "reading": "quant-7",
+      "los": "quant-7-d",
+      "kind": "concept",
+      "stem": "How does jackknife resampling estimate the standard error of a statistic?",
+      "options": [
+        "By drawing many new samples with replacement from the original data",
+        "By recomputing it repeatedly, each time leaving out one observation",
+        "By simulating new data from an assumed probability distribution"
+      ],
+      "answer": 1,
+      "explanation": "The jackknife leaves out one observation at a time and recomputes. Drawing with replacement is the bootstrap; simulating from an assumed distribution is Monte Carlo."
+    },
+    {
+      "id": "quant-032",
+      "topic": "quant",
+      "reading": "quant-9",
+      "los": "quant-9-a",
+      "kind": "concept",
+      "stem": "A t-test checks whether a sample correlation between two variables differs from zero. With n observations, how many degrees of freedom does the test use?",
+      "options": [
+        "n − 2",
+        "n − 1",
+        "n"
+      ],
+      "answer": 0,
+      "explanation": "The test t = r√(n − 2) ÷ √(1 − r²) has n − 2 degrees of freedom. n − 1 is what a test of a single mean uses."
+    },
+    {
+      "id": "quant-033",
+      "topic": "quant",
+      "reading": "quant-10",
+      "los": "quant-10-e",
+      "kind": "concept",
+      "stem": "In a regression, the dependent variable is the natural log of Y and the independent variable is X itself. What is this functional form called?",
+      "options": [
+        "Lin-log (linear-log)",
+        "Log-log",
+        "Log-lin (log-linear)"
+      ],
+      "answer": 2,
+      "explanation": "The name follows the order dependent–independent: ln Y on X is log-lin, so the slope is the relative change in Y per unit change in X. Lin-log is Y on ln X; log-log logs both sides."
+    },
+    {
+      "id": "quant-034",
+      "topic": "quant",
+      "reading": "quant-11",
+      "los": "quant-11-a",
+      "kind": "concept",
+      "stem": "Among the features of Big Data, what does \"velocity\" refer to?",
+      "options": [
+        "How much data there is in total",
+        "How fast the data are created and need to be processed",
+        "How many different formats and sources the data come in"
+      ],
+      "answer": 1,
+      "explanation": "Velocity is speed: data arriving in real time or near it. Volume is quantity and variety is the range of formats (structured, unstructured, text, images)."
     }
   ],
   "recaps": [

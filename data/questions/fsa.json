@@ -608,6 +608,36 @@
       ],
       "answer": 1,
       "explanation": "Confirmation bias is favouring evidence that supports an existing view and discounting contrary data. Anchoring is sticking to an initial number. The trap is calling selective evidence anchoring."
+    },
+    {
+      "id": "fsa-041",
+      "topic": "fsa",
+      "reading": "fsa-10",
+      "los": "fsa-10-a",
+      "kind": "concept",
+      "stem": "Can a company have high reporting quality but low earnings quality?",
+      "options": [
+        "Yes: it can report faithfully and usefully on earnings that are weak or unsustainable",
+        "No: high reporting quality always means high earnings quality",
+        "Only if the auditor gives a qualified opinion"
+      ],
+      "answer": 0,
+      "explanation": "Reporting quality is about how faithfully and usefully results are presented; earnings quality is about whether the earnings are sustainable. Honest, clear reporting of poor results is high reporting quality with low earnings quality."
+    },
+    {
+      "id": "fsa-042",
+      "topic": "fsa",
+      "reading": "fsa-12",
+      "los": "fsa-12-c",
+      "kind": "concept",
+      "stem": "Prices of a key raw material jump. Which company is most likely to see its gross margin fall?",
+      "options": [
+        "One with a strong brand that can pass costs on to customers",
+        "One that owns its own supply of the raw material",
+        "One with weak pricing power and unhedged input costs"
+      ],
+      "answer": 2,
+      "explanation": "Input cost inflation squeezes margins when the company can neither pass it on nor hedge it. Strong pricing power or vertical integration protects the margin."
     }
   ],
   "recaps": [

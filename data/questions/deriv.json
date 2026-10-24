@@ -228,6 +228,234 @@
       ],
       "answer": 2,
       "explanation": "Higher volatility widens the range of outcomes while the buyer's loss stays capped at the premium, so both options gain. The trap is treating volatility as directional, which it is not."
+    },
+    {
+      "id": "deriv-016",
+      "topic": "deriv",
+      "reading": "deriv-1",
+      "los": "deriv-1-d",
+      "kind": "concept",
+      "stem": "After the 2008 crisis, what did regulators require for most standardised OTC derivatives?",
+      "options": [
+        "Central clearing through a CCP and reporting to trade repositories",
+        "Trading only on stock exchanges",
+        "A ban on their use by non-financial companies"
+      ],
+      "answer": 0,
+      "explanation": "Reforms pushed standardised OTC derivatives into central clearing, with trades reported to repositories, to cut counterparty risk and improve transparency. Non-financial hedgers can still use them, often with exemptions."
+    },
+    {
+      "id": "deriv-017",
+      "topic": "deriv",
+      "reading": "deriv-2",
+      "los": "deriv-2-a",
+      "kind": "concept",
+      "stem": "Which of these is a contingent claim rather than a forward commitment?",
+      "options": [
+        "A futures contract",
+        "An interest rate swap",
+        "A put option"
+      ],
+      "answer": 2,
+      "explanation": "A contingent claim pays only if a condition is met, and its holder has a right, not an obligation: options and credit default swaps. Forwards, futures and swaps are firm commitments for both sides."
+    },
+    {
+      "id": "deriv-018",
+      "topic": "deriv",
+      "reading": "deriv-3",
+      "los": "deriv-3-d",
+      "kind": "concept",
+      "stem": "An investor expects a share price to rise but wants a known maximum loss. Which derivative position fits?",
+      "options": [
+        "Sell a put option",
+        "Buy a call option",
+        "Sell a futures contract"
+      ],
+      "answer": 1,
+      "explanation": "A long call gains if the price rises, and the most it can lose is the premium. Selling a put also profits from a rise, but losses can be large if the price falls; selling futures bets on a fall."
+    },
+    {
+      "id": "deriv-019",
+      "topic": "deriv",
+      "reading": "deriv-4",
+      "los": "deriv-4-b",
+      "kind": "concept",
+      "stem": "How can a long forward on a non-dividend-paying share be replicated?",
+      "options": [
+        "Buy the share and borrow the cash to pay for it",
+        "Short-sell the share and lend the proceeds",
+        "Buy a put and sell a call with the same strike"
+      ],
+      "answer": 0,
+      "explanation": "Buying the share with borrowed money gives the same payoff as a long forward. Shorting and lending replicates a short forward; long put plus short call is also a synthetic short forward."
+    },
+    {
+      "id": "deriv-020",
+      "topic": "deriv",
+      "reading": "deriv-5",
+      "los": "deriv-5-b",
+      "kind": "calc",
+      "stem": "Six months ago you went long a 1-year forward at 102. The spot price is now 104 and the annual risk-free rate is 4%. What is your position worth (no income or storage costs)?",
+      "options": [
+        "2.00",
+        "1.96",
+        "3.98"
+      ],
+      "answer": 2,
+      "explanation": "Value = spot − PV of forward price = 104 − 102 ÷ 1.04^0.5 = 104 − 100.02 = 3.98. 2.00 forgets to discount the forward price; 1.96 discounts the whole difference instead."
+    },
+    {
+      "id": "deriv-021",
+      "topic": "deriv",
+      "reading": "deriv-5",
+      "los": "deriv-5-c",
+      "kind": "concept",
+      "stem": "Who gains on a long FRA (forward rate agreement) at settlement?",
+      "options": [
+        "The long, if the market reference rate is below the FRA rate",
+        "The long, if the market reference rate is above the FRA rate",
+        "The long, if the borrower’s credit rating improves"
+      ],
+      "answer": 1,
+      "explanation": "A long FRA pays fixed and receives floating, like a borrower locking in a rate, so it gains when the reference rate ends above the FRA rate. Credit rating changes do not enter the payoff."
+    },
+    {
+      "id": "deriv-022",
+      "topic": "deriv",
+      "reading": "deriv-6",
+      "los": "deriv-6-a",
+      "kind": "concept",
+      "stem": "What is a key difference between futures and forwards?",
+      "options": [
+        "Futures are marked to market daily, so gains and losses are settled each day",
+        "Futures are customised contracts traded over the counter",
+        "Futures have no clearinghouse standing between the two sides"
+      ],
+      "answer": 0,
+      "explanation": "Futures trade on exchanges, are standardised and settle gains and losses daily through margin accounts with a clearinghouse. Forwards are customised OTC deals that usually settle only at expiry."
+    },
+    {
+      "id": "deriv-023",
+      "topic": "deriv",
+      "reading": "deriv-6",
+      "los": "deriv-6-c",
+      "kind": "memorise",
+      "stem": "If interest rates are positively correlated with futures prices, how do futures prices compare with forward prices?",
+      "options": [
+        "Futures prices are lower than forward prices",
+        "They are always equal",
+        "Futures prices are higher than forward prices"
+      ],
+      "answer": 2,
+      "explanation": "With positive correlation, futures gains arrive when rates are high (reinvested at more) and losses when rates are low (financed cheaply), so the long prefers futures and pays more. They are equal only if rates are constant or uncorrelated.",
+      "remember": "Rates positively correlated with futures prices: futures > forward. Negatively correlated: futures < forward."
+    },
+    {
+      "id": "deriv-024",
+      "topic": "deriv",
+      "reading": "deriv-7",
+      "los": "deriv-7-a",
+      "kind": "concept",
+      "stem": "An interest rate swap can be viewed as which of these?",
+      "options": [
+        "A single option on interest rates",
+        "A series of forward rate agreements",
+        "A bond with an embedded call option"
+      ],
+      "answer": 1,
+      "explanation": "Each swap settlement is like an FRA: fixed versus the reference rate for that period. The FRAs are off-market individually, but together they have zero value at the start."
+    },
+    {
+      "id": "deriv-025",
+      "topic": "deriv",
+      "reading": "deriv-7",
+      "los": "deriv-7-c",
+      "kind": "concept",
+      "stem": "Soon after you enter a pay-fixed, receive-floating swap, market swap rates rise. What happens to the swap’s value to you?",
+      "options": [
+        "It becomes positive",
+        "It becomes negative",
+        "It stays zero until maturity"
+      ],
+      "answer": 0,
+      "explanation": "You now pay a fixed rate below the current market rate, while your floating receipts are expected to be higher, so the swap is an asset to you. It started at zero, but its value changes as rates move."
+    },
+    {
+      "id": "deriv-026",
+      "topic": "deriv",
+      "reading": "deriv-8",
+      "los": "deriv-8-d",
+      "kind": "memorise",
+      "stem": "For a share that pays no dividends, when is it optimal to exercise an American call early?",
+      "options": [
+        "Always, as soon as it is deep in the money",
+        "Just before expiry, to capture the time value",
+        "Never, so it is worth the same as a European call"
+      ],
+      "answer": 2,
+      "explanation": "Exercising early throws away time value and the interest saved by paying the strike later, so it is never optimal without dividends. American puts are different: early exercise can make sense when deep in the money.",
+      "remember": "No dividends: American call = European call (never exercise early). An American put can be worth more than a European one."
+    },
+    {
+      "id": "deriv-027",
+      "topic": "deriv",
+      "reading": "deriv-9",
+      "los": "deriv-9-a",
+      "kind": "memorise",
+      "stem": "What is a fiduciary call?",
+      "options": [
+        "A share plus a put on that share",
+        "A call plus a zero-coupon bond that pays the strike at expiry",
+        "A share plus a short call on that share"
+      ],
+      "answer": 1,
+      "explanation": "Fiduciary call = call + bond paying X, so it is worth max(S, X) at expiry. Share + put is the protective put, which pays the same; equating them gives put–call parity. Share + short call is a covered call.",
+      "remember": "Fiduciary call = call + bond(X). Protective put = share + put. Parity: c + PV(X) = p + S."
+    },
+    {
+      "id": "deriv-028",
+      "topic": "deriv",
+      "reading": "deriv-9",
+      "los": "deriv-9-d",
+      "kind": "concept",
+      "stem": "Using put–call parity ideas, how can a company’s equity be viewed?",
+      "options": [
+        "As a call option on the company’s assets, with the face value of debt as the strike",
+        "As a put option on the company’s assets",
+        "As a risk-free bond"
+      ],
+      "answer": 0,
+      "explanation": "Shareholders get assets minus debt if positive, and nothing otherwise (limited liability): a call on the assets struck at the debt. Risky debt is a risk-free bond minus a put on the assets."
+    },
+    {
+      "id": "deriv-029",
+      "topic": "deriv",
+      "reading": "deriv-10",
+      "los": "deriv-10-d",
+      "kind": "concept",
+      "stem": "In a one-period binomial model, what effect does the real-world probability of an up move have on the option’s value?",
+      "options": [
+        "A higher probability of an up move raises the call value",
+        "It must equal the risk-neutral probability for the model to work",
+        "None: the value comes from the hedge and risk-neutral probabilities"
+      ],
+      "answer": 2,
+      "explanation": "The option is priced by no-arbitrage against a hedged portfolio, so investors’ real-world probabilities and risk preferences drop out. Risk-neutral probabilities come only from u, d and r."
+    },
+    {
+      "id": "deriv-030",
+      "topic": "deriv",
+      "reading": "deriv-10",
+      "los": "deriv-10-c",
+      "kind": "calc",
+      "stem": "A share is at 100 and will move to 120 or 90 in one year. The risk-free rate is 5%. What is a one-year call with a strike of 100 worth?",
+      "options": [
+        "10.00",
+        "9.52",
+        "6.35"
+      ],
+      "answer": 1,
+      "explanation": "π = (1.05 − 0.90) ÷ (1.20 − 0.90) = 0.5. Call payoffs are 20 and 0, so value = 0.5 × 20 ÷ 1.05 = 9.52. 10.00 forgets to discount; 6.35 uses π = 1/3."
     }
   ],
   "recaps": [

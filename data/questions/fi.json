@@ -532,6 +532,337 @@
       ],
       "answer": 2,
       "explanation": "Commercial mortgages usually restrict prepayment through lockout, defeasance or yield maintenance. The trap is the other two points: CMBS loans are typically non-recourse and often balloon."
+    },
+    {
+      "id": "fi-036",
+      "topic": "fi",
+      "reading": "fi-1",
+      "los": "fi-1-b",
+      "kind": "concept",
+      "stem": "What is the main role of the trustee named in a bond indenture?",
+      "options": [
+        "To act for the issuer and keep its borrowing costs low",
+        "To guarantee repayment if the issuer defaults",
+        "To act for the bondholders and monitor that the issuer keeps to the indenture"
+      ],
+      "answer": 2,
+      "explanation": "The trustee is a fiduciary for bondholders: it monitors covenants and acts for them on a default. It does not guarantee payment; that would be a guarantor or credit enhancement."
+    },
+    {
+      "id": "fi-037",
+      "topic": "fi",
+      "reading": "fi-1",
+      "los": "fi-1-d",
+      "kind": "memorise",
+      "stem": "In a bankruptcy, which of these claims ranks highest?",
+      "options": [
+        "Senior unsecured debt",
+        "Subordinated debt",
+        "First lien (senior secured) debt"
+      ],
+      "answer": 2,
+      "explanation": "Secured debt with a first lien on assets is paid first, then second lien, senior unsecured and subordinated debt. Equity comes last.",
+      "remember": "Priority: first lien > second lien > senior unsecured > senior subordinated > subordinated > equity."
+    },
+    {
+      "id": "fi-038",
+      "topic": "fi",
+      "reading": "fi-3",
+      "los": "fi-3-c",
+      "kind": "concept",
+      "stem": "In a best-efforts bond offering, what does the investment bank do?",
+      "options": [
+        "Buys the whole issue from the issuer and resells it",
+        "Sells the bonds as an agent, without promising to buy any unsold ones",
+        "Sells the bonds only to a small group of qualified investors"
+      ],
+      "answer": 1,
+      "explanation": "Under best efforts the bank acts as broker, so the issuer bears the risk of unsold bonds. Buying the whole issue is an underwritten (firm commitment) offering; selling to a few qualified investors is a private placement."
+    },
+    {
+      "id": "fi-039",
+      "topic": "fi",
+      "reading": "fi-3",
+      "los": "fi-3-d",
+      "kind": "concept",
+      "stem": "How do most bonds trade in the secondary market?",
+      "options": [
+        "Over the counter, through dealers who quote bid and ask prices",
+        "On exchanges, through a central limit order book",
+        "Directly back to the issuer at par"
+      ],
+      "answer": 0,
+      "explanation": "Most bond trading is over the counter: dealers quote bid and ask prices and earn the spread. Unlike shares, few bonds trade on exchanges, because each issue trades rarely."
+    },
+    {
+      "id": "fi-040",
+      "topic": "fi",
+      "reading": "fi-4",
+      "los": "fi-4-a",
+      "kind": "concept",
+      "stem": "Why do commercial paper issuers usually keep a backup bank line of credit?",
+      "options": [
+        "Because commercial paper must legally be secured by bank loans",
+        "To lower the coupon on their long-term bonds",
+        "To cover rollover risk if they cannot issue new paper to repay maturing paper"
+      ],
+      "answer": 2,
+      "explanation": "Commercial paper is short-term and usually repaid by issuing new paper. If markets seize up, the backup line repays investors; rating agencies look for it."
+    },
+    {
+      "id": "fi-041",
+      "topic": "fi",
+      "reading": "fi-4",
+      "los": "fi-4-c",
+      "kind": "concept",
+      "stem": "What is a syndicated loan?",
+      "options": [
+        "A bond sold to the public through a government-style auction",
+        "A loan funded by a group of lenders under one agreement, arranged by one or more banks",
+        "A loan from a single bank to a group of related borrowers"
+      ],
+      "answer": 1,
+      "explanation": "In a syndicated loan, lead banks arrange and share the loan among several lenders, spreading the credit risk. Syndicated loans are often later traded or packaged into CLOs."
+    },
+    {
+      "id": "fi-042",
+      "topic": "fi",
+      "reading": "fi-5",
+      "los": "fi-5-b",
+      "kind": "concept",
+      "stem": "Which of these is a supranational issuer?",
+      "options": [
+        "The World Bank",
+        "A US state such as California",
+        "A government-sponsored enterprise of one country"
+      ],
+      "answer": 0,
+      "explanation": "Supranationals are owned by several governments, such as the World Bank and IMF. States and provinces are non-sovereign issuers; agencies or GSEs of one country are quasi-government issuers."
+    },
+    {
+      "id": "fi-043",
+      "topic": "fi",
+      "reading": "fi-5",
+      "los": "fi-5-c",
+      "kind": "concept",
+      "stem": "What is the role of primary dealers in government bond markets?",
+      "options": [
+        "They set the coupon rate before each auction",
+        "They guarantee the government’s debt if it defaults",
+        "They are expected to bid in auctions and help make a market in the bonds"
+      ],
+      "answer": 2,
+      "explanation": "Primary dealers are approved banks and dealers that commit to bid at auctions and support secondary trading. The auction sets the yield; dealers do not guarantee the debt."
+    },
+    {
+      "id": "fi-044",
+      "topic": "fi",
+      "reading": "fi-13",
+      "los": "fi-13-b",
+      "kind": "concept",
+      "stem": "What are key rate durations used for?",
+      "options": [
+        "Measuring a bond’s sensitivity to changes in its credit spread",
+        "Measuring sensitivity to yield changes at specific maturities, so non-parallel curve shifts are captured",
+        "Giving a single duration number that assumes only parallel curve shifts"
+      ],
+      "answer": 1,
+      "explanation": "Key rate (partial) durations measure the price effect of shifting one maturity point on the curve at a time, so they capture twists and bends. Effective duration assumes a parallel shift."
+    },
+    {
+      "id": "fi-045",
+      "topic": "fi",
+      "reading": "fi-13",
+      "los": "fi-13-d",
+      "kind": "concept",
+      "stem": "When interest rates fall sharply, how does a callable bond’s price usually behave?",
+      "options": [
+        "It shows negative convexity: price gains are capped near the call price",
+        "It shows more positive convexity than an identical non-callable bond",
+        "Its duration rises sharply, so the price climbs faster"
+      ],
+      "answer": 0,
+      "explanation": "As rates fall, the call becomes likely and the price is capped near the call price, so the price–yield curve bends the wrong way (negative convexity). A putable bond, by contrast, has more positive convexity when rates rise."
+    },
+    {
+      "id": "fi-046",
+      "topic": "fi",
+      "reading": "fi-15",
+      "los": "fi-15-b",
+      "kind": "concept",
+      "stem": "When analysing a sovereign’s fiscal strength, which measures matter most?",
+      "options": [
+        "Debt to EBITDA and EBITDA interest coverage",
+        "The current ratio and the quick ratio",
+        "Government debt to GDP and interest payments relative to government revenue"
+      ],
+      "answer": 2,
+      "explanation": "Fiscal strength looks at the debt burden and its affordability: debt-to-GDP and interest as a share of revenue. Debt to EBITDA and coverage are corporate measures; current and quick ratios are company liquidity measures."
+    },
+    {
+      "id": "fi-047",
+      "topic": "fi",
+      "reading": "fi-15",
+      "los": "fi-15-d",
+      "kind": "concept",
+      "stem": "How is a municipal revenue bond repaid?",
+      "options": [
+        "From the issuer’s general taxing power",
+        "From the revenue of the specific project it financed",
+        "From a guarantee by the national government"
+      ],
+      "answer": 1,
+      "explanation": "Revenue bonds are repaid only from project revenues (tolls, fees), so analysts look at the project like a business. General obligation bonds are backed by the issuer’s taxing power."
+    },
+    {
+      "id": "fi-048",
+      "topic": "fi",
+      "reading": "fi-18",
+      "los": "fi-18-b",
+      "kind": "concept",
+      "stem": "Auto loan ABS are backed by amortising collateral. What does that mean for investors?",
+      "options": [
+        "Borrowers repay principal over the loan life, so investors receive principal throughout",
+        "No principal is paid to investors until a lockout period ends",
+        "The pool is topped up with new loans so its balance never falls"
+      ],
+      "answer": 0,
+      "explanation": "Car loans amortise: each payment includes principal, so the pool shrinks and investors receive principal (plus any prepayments) over time. A lockout with reinvested principal describes non-amortising credit card ABS."
+    },
+    {
+      "id": "fi-049",
+      "topic": "fi",
+      "reading": "fi-18",
+      "los": "fi-18-d",
+      "kind": "concept",
+      "stem": "What mainly backs a collateralised loan obligation (CLO)?",
+      "options": [
+        "Residential mortgages",
+        "Credit card receivables",
+        "Leveraged (below investment grade) corporate loans"
+      ],
+      "answer": 2,
+      "explanation": "CLOs hold pools of leveraged, mostly senior secured, corporate loans, actively managed by a CLO manager. Mortgages back MBS; credit card receivables back credit card ABS."
+    },
+    {
+      "id": "fi-050",
+      "topic": "fi",
+      "reading": "fi-2",
+      "los": "fi-2-b",
+      "kind": "concept",
+      "stem": "An inflation-linked bond adjusts its principal for inflation and pays a fixed coupon rate on the adjusted principal. What is this structure called?",
+      "options": [
+        "Interest-indexed",
+        "Capital-indexed",
+        "Indexed-annuity"
+      ],
+      "answer": 1,
+      "explanation": "Capital-indexed bonds (such as US TIPS) uplift the principal with inflation, so the coupon amount rises too. Interest-indexed bonds adjust only the coupon rate; indexed-annuity bonds pay level, inflation-adjusted amounts that include principal."
+    },
+    {
+      "id": "fi-051",
+      "topic": "fi",
+      "reading": "fi-7",
+      "los": "fi-7-c",
+      "kind": "concept",
+      "stem": "Why does a bond’s true yield differ from its street-convention yield?",
+      "options": [
+        "True yield uses the actual payment dates, including weekend and holiday delays",
+        "True yield assumes coupons are reinvested at zero",
+        "True yield is quoted on a 360-day year"
+      ],
+      "answer": 0,
+      "explanation": "Street convention assumes payments land on scheduled dates. True yield uses actual dates, so a delayed payment makes it slightly lower, never higher. Day-count basis is a separate issue."
+    },
+    {
+      "id": "fi-052",
+      "topic": "fi",
+      "reading": "fi-8",
+      "los": "fi-8-a",
+      "kind": "concept",
+      "stem": "Why does a floating-rate note’s price stay close to par on reset dates?",
+      "options": [
+        "Its reference rate never changes between reset dates",
+        "Its coupon is fixed for its whole life",
+        "Its coupon resets to the market rate, so if credit risk is unchanged the required margin equals the quoted margin"
+      ],
+      "answer": 2,
+      "explanation": "On each reset the coupon catches up with the market reference rate. If the issuer’s credit is unchanged, the required margin equals the quoted margin and the price returns to par. A price away from par signals a change in credit risk."
+    },
+    {
+      "id": "fi-053",
+      "topic": "fi",
+      "reading": "fi-10",
+      "los": "fi-10-b",
+      "kind": "concept",
+      "stem": "An investor holds a bond for a horizon much shorter than its Macaulay duration. Rates rise right after purchase. Which effect dominates?",
+      "options": [
+        "Reinvestment risk, so the realised return rises",
+        "Price risk, so the realised return falls",
+        "Neither, because the two always offset exactly"
+      ],
+      "answer": 1,
+      "explanation": "With a short horizon there is little time to reinvest coupons at the higher rate, so the price drop dominates. The two effects offset only when the horizon equals Macaulay duration."
+    },
+    {
+      "id": "fi-054",
+      "topic": "fi",
+      "reading": "fi-12",
+      "los": "fi-12-d",
+      "kind": "concept",
+      "stem": "Portfolio duration is often computed as the market-value-weighted average of the bonds’ durations. What does this assume?",
+      "options": [
+        "A parallel shift in the yield curve, so all yields change by the same amount",
+        "That all the bonds have the same maturity",
+        "That yields do not change at all"
+      ],
+      "answer": 0,
+      "explanation": "Weighting durations assumes every bond’s yield moves by the same amount (a parallel shift). In practice short and long yields often move differently, which is why analysts use key rate durations."
+    },
+    {
+      "id": "fi-055",
+      "topic": "fi",
+      "reading": "fi-14",
+      "los": "fi-14-b",
+      "kind": "concept",
+      "stem": "How do credit spreads usually behave going into a recession?",
+      "options": [
+        "They narrow, because central banks cut policy rates",
+        "They widen by about the same amount for every rating",
+        "They widen, and more so for high-yield bonds than investment-grade bonds"
+      ],
+      "answer": 2,
+      "explanation": "Spreads widen as expected defaults and risk aversion rise, and they widen most for lower-rated issuers. Lower policy rates affect government yields, not the credit spread."
+    },
+    {
+      "id": "fi-056",
+      "topic": "fi",
+      "reading": "fi-16",
+      "los": "fi-16-b",
+      "kind": "calc",
+      "stem": "A company has total debt of 900, cash of 100 and EBITDA of 200. What is its net debt to EBITDA?",
+      "options": [
+        "4.5×",
+        "4.0×",
+        "0.25×"
+      ],
+      "answer": 1,
+      "explanation": "Net debt = 900 − 100 = 800, and 800 ÷ 200 = 4.0×. 4.5× uses gross debt; 0.25× flips the ratio. Higher leverage ratios mean weaker credit."
+    },
+    {
+      "id": "fi-057",
+      "topic": "fi",
+      "reading": "fi-17",
+      "los": "fi-17-d",
+      "kind": "concept",
+      "stem": "How do covered bonds differ from typical asset-backed securities?",
+      "options": [
+        "Covered bond investors have a claim on both the issuing bank and the cover pool",
+        "Covered bond investors can claim only on the pool of assets",
+        "Covered bonds are moved off the bank’s balance sheet into an SPE"
+      ],
+      "answer": 0,
+      "explanation": "Covered bonds give dual recourse, to the issuer and to a ring-fenced cover pool that stays on the bank’s balance sheet. Typical ABS sit in a bankruptcy-remote SPE with recourse only to the pool."
     }
   ],
   "recaps": [

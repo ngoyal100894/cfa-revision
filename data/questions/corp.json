@@ -304,6 +304,51 @@
       ],
       "answer": 1,
       "explanation": "In a network effect, value grows with the number of users, which can lock in a winner. The trap is confusing it with economies of scale, which lower cost and do not depend on other users."
+    },
+    {
+      "id": "corp-021",
+      "topic": "corp",
+      "reading": "corp-1",
+      "los": "corp-1-d",
+      "kind": "concept",
+      "stem": "Compared with shareholders, how do a company’s lenders’ claims differ?",
+      "options": [
+        "Lenders have unlimited upside and a residual claim after shareholders",
+        "Lenders elect the board and control the company’s strategy",
+        "Lenders have a capped return but a prior claim on cash flows and assets"
+      ],
+      "answer": 2,
+      "explanation": "Debt holders get contractual interest and principal (capped upside) and rank ahead of equity. Shareholders have the residual claim with unlimited upside and they elect the board."
+    },
+    {
+      "id": "corp-022",
+      "topic": "corp",
+      "reading": "corp-3",
+      "los": "corp-3-a",
+      "kind": "concept",
+      "stem": "The shareholders of a highly indebted company push it into a very risky project: if it succeeds they gain, and if it fails most of the loss falls on creditors. Which conflict is this?",
+      "options": [
+        "Shareholders versus managers (principal–agent)",
+        "Controlling versus minority shareholders",
+        "Shareholders versus creditors"
+      ],
+      "answer": 2,
+      "explanation": "Risk-shifting by shareholders transfers value away from creditors, the classic shareholder–creditor conflict. The principal–agent conflict is between owners and the managers acting for them."
+    },
+    {
+      "id": "corp-023",
+      "topic": "corp",
+      "reading": "corp-7",
+      "los": "corp-7-c",
+      "kind": "concept",
+      "stem": "A company lets independent operators run outlets under its brand and system in return for upfront fees and ongoing royalties. Which business model is this?",
+      "options": [
+        "Platform",
+        "Franchise",
+        "Direct sales"
+      ],
+      "answer": 1,
+      "explanation": "A franchisor licenses its brand and operating system to franchisees for fees and royalties. A platform connects separate user groups; direct sales means the company sells to end customers itself."
     }
   ],
   "recaps": [

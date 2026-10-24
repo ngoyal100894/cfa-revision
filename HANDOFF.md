@@ -6,9 +6,10 @@ Live link (deployed 24 Oct 2026, verified: 300 questions, 93 recaps load): **htt
 This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026. It is designed for about 15 minutes a day while she finishes reading the books.
 - It is plain HTML, CSS and JS, with no build step and no accounts. It is hosted on GitHub Pages.
 - Her progress lives on her phone, in the browser's storage. She can back it up from Settings.
-- It has 300 original questions across all 10 topics, and a recap card for each of the 93 readings.
-- The questions break down as 114 concept, 54 quick-calc, 67 must-remember and 65 exam-style.
-- Every question and card was reviewed for correctness in a second pass. Three mis-keyed answers and a handful of wording slips were fixed.
+- It has 353 original questions across all 10 topics, and a recap card for each of the 93 readings. Every reading has at least 3 questions.
+- The questions break down as 158 concept, 58 quick-calc, 72 must-remember and 65 exam-style.
+- The first 300 questions and all cards were reviewed for correctness in a second pass. Three mis-keyed answers and a handful of wording slips were fixed.
+- The 53 added later for thin readings were checked against their LOS and self-reviewed, but have not had a separate review pass.
 
 ## What each feature does and why it helps Ishita
 - **Coverage checklist** (first screen, editable from Home). She ticks the readings she has finished, and only those readings ever appear. Readings she ticks fresh get priority in her next session, so what she just read gets tested while it's new.
@@ -32,7 +33,7 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
   - Green: solid.
   
   She taps a reading to see it, then "Practice this".
-- **Formula sheet** (new in v1.1). Every formula (52) and must-remember fact (67) from her covered readings, grouped by topic. The cue is shown and the answer is blurred: she says it, then taps. It's a 3-minute sweep for a queue, and it's what Home suggests for exam eve. A toggle shows everything, including unread readings.
+- **Formula sheet** (new in v1.1). Every formula (52) and must-remember fact (72) from her covered readings, grouped by topic. The cue is shown and the answer is blurred: she says it, then taps. It's a 3-minute sweep for a queue, and it's what Home suggests for exam eve. A toggle shows everything, including unread readings.
 - **Where you stand** (new in v1.1; Home strip and Map). Shows how much of the exam she has covered by weight, her accuracy per topic (amber below 70%), and **Read next in the books**: the unread readings worth the most exam marks each. Tapping one lets her mark it covered.
 - **Why did you miss it?** (new in v1.1; optional chips on the wrong-answer screen). Didn't know it / Mixed two things up / Misread or rushed. The result screen turns her most common reason into one line of advice. If misreads pile up over a week, Home suggests Exam practice.
 - **Home**: a countdown and a suggestion that changes as the exam gets closer (more exam practice in the last stretch). It also shows her streak and a "Tick new readings" link.
@@ -58,7 +59,7 @@ Home → **Tick new readings**, or Settings → Edit what you've covered. Each t
 
 ## Known gaps
 - **Needs internet to open.** There is no offline mode.
-- **Small question pools for some readings.** 300 questions spread over 93 readings means 41 of the 93 readings have only 1 or 2 questions. "Practice this" on such a reading gives a very short session. The Recap cards cover every reading.
+- **Small question pools for some readings.** Every reading now has at least 3 questions, but many have only 3 or 4, so "Practice this" on one reading gives a short session. The Recap cards cover every reading.
 - **Swiping back mid-session.** If she swipes back out of a session, the answers she gave are still saved and counted.
 - **No sync between devices.** It is one phone. Backup and restore is manual (see above).
 - **AI-written content.** See below.
@@ -78,12 +79,12 @@ The questions are AI-written and AI-reviewed. They are not official CFA Institut
 - A 30-question weighted half-mock with a per-topic result.
 - A Sure/Unsure tap before answering, feeding the scheduler.
 - Offline mode.
-- 60–80 more questions for the thin readings, Ethics vignettes first.
+- More Ethics vignettes, and more questions per reading.
 - A "report this question" button.
 
 ## v2 in one line
 If v1 sticks, v2 could add the following, all on the same link with her progress kept:
-- More questions for the thin readings.
+- More questions per reading.
 - A full-length timed mock.
 - Offline support.
 - A "report this question" button.
