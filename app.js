@@ -6,7 +6,9 @@
 
   var Sched = window.Scheduler;
   var KEY = 'cfa-rev-v1';
-  var NAMES = { daily: "Today's 15", calc: 'Quick-calc', remember: 'Must-remember', weak: 'Weak spots', exam: 'Exam practice' };
+  var NAMES = { daily: "Today's 15", recap: 'Recap', calc: 'Quick-calc', remember: 'Must-remember', weak: 'Weak spots', exam: 'Exam practice' };
+  var LETTERS = ['A', 'B', 'C', 'D'];
+  var PACE_SECONDS = 90;   // exam practice pace bar (visual only)
 
   /* =====================================================================
      Helpers
@@ -80,6 +82,8 @@
     out.sessions = Array.isArray(s.sessions) ? s.sessions : [];
     out.lastSessionDate = typeof s.lastSessionDate === 'string' ? s.lastSessionDate : null;
     out.onboarded = !!s.onboarded;
+    out.recap = isObj(s.recap) ? s.recap : {};
+    out.nudge = isObj(s.nudge) ? s.nudge : {};
     return out;
   }
   // Does this look like a progress file from this app?
@@ -123,7 +127,7 @@
   /* =====================================================================
      Data
      ===================================================================== */
-  var D = { curriculum: null, questions: [], q: {}, lo: {}, reading: {}, topic: {}, readingCount: 0 };
+  var D = { curriculum: null, questions: [], q: {}, lo: {}, reading: {}, topic: {}, readingCount: 0, recaps: {}, recapList: [] };
 
   function fetchJson(url) {
     return fetch(url, { cache: 'no-cache' }).then(function (r) {
@@ -144,10 +148,22 @@
       });
       return fetchJson('data/questions/index.json');
     }).then(function (idx) {
-      return Promise.all(idx.files.map(function (f) { return fetchJson('data/questions/' + f); }));
+      // A file that is missing or broken is skipped, so the app works with whatever is present.
+      return Promise.all(idx.files.map(function (f) {
+        return fetchJson('data/questions/' + f).catch(function (e) {
+          if (window.console) console.warn('Skipping ' + f + ': ' + (e && e.message ? e.message : e));
+          return null;
+        });
+      }));
     }).then(function (files) {
-      D.questions = [].concat.apply([], files.map(function (f) { return f.questions || []; }));
+      files = files.filter(function (f) { return isObj(f); });
+      D.questions = [].concat.apply([], files.map(function (f) { return Array.isArray(f.questions) ? f.questions : []; }));
       D.questions.forEach(function (q) { D.q[q.id] = q; });
+      files.forEach(function (f) {
+        (Array.isArray(f.recaps) ? f.recaps : []).forEach(function (c) {
+          if (c && D.reading[c.reading] && Array.isArray(c.ideas)) { D.recaps[c.reading] = c; D.recapList.push(c); }
+        });
+      });
     });
   }
   function coveredCount() {
@@ -269,6 +285,69 @@
   }
 
   /* =====================================================================
+     Reading status (shared by Home strip and the map)
+     none = not covered | untested = covered, under 3 attempts | shaky | solid
+     ===================================================================== */
+  function readingStatus(rid, stats) {
+    var st = Store.state;
+    if (!st.coverage[rid]) return 'none';
+    var s = stats[rid] || { attempts: 0, acc: 0.5 };
+    var r = st.recap && st.recap[rid];
+    var markedShaky = !!r && r.mark === 'shaky' && Sched.daysBetween(r.last, today()) <= 7;
+    if (markedShaky || (s.attempts >= 3 && s.acc < 0.7)) return 'shaky';
+    if (s.attempts >= 3) return 'solid';
+    return 'untested';
+  }
+  function mapCounts() {
+    var stats = Sched.readingStats(D.questions, Store.state);
+    var c = { covered: 0, solid: 0, shaky: 0, untested: 0, none: 0 };
+    Object.keys(D.reading).forEach(function (rid) {
+      var s = readingStatus(rid, stats);
+      c[s]++;
+      if (s !== 'none') c.covered++;
+    });
+    return c;
+  }
+
+  /* =====================================================================
+     Bottom sheet (reading recap, map cell). build(api) fills it via api.set(body, foot).
+     ===================================================================== */
+  function openSheet(build) {
+    var root = el('modal-root');
+    var body = h('div', { class: 'sheet-body' }), foot = h('div', { class: 'sheet-foot' });
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    function close() { root.innerHTML = ''; document.removeEventListener('keydown', onKey); }
+    var x = h('button', { class: 'icon-btn sheet-x', 'aria-label': 'Close', onclick: close }, icon('close'));
+    var box = h('div', { class: 'sheet', role: 'dialog', 'aria-modal': 'true' }, x, body, foot);
+    var scrim = h('div', { class: 'scrim', onclick: function (e) { if (e.target === scrim) close(); } }, box);
+    var api = {
+      close: close,
+      set: function (b, f) { body.innerHTML = ''; foot.innerHTML = ''; add(body, b); add(foot, f); body.scrollTop = 0; }
+    };
+    root.innerHTML = ''; root.appendChild(scrim);
+    document.addEventListener('keydown', onKey);
+    build(api);
+  }
+
+  // The recap card itself: reading title, 3 ideas, formula (if any), trap.
+  function recapBody(rid, withTitle) {
+    var info = D.reading[rid], c = D.recaps[rid];
+    return [
+      withTitle === false ? null : [h('div', { class: 'eyebrow', text: info.topic.name }), h('h2', { class: 'sheet-title', text: info.reading.title })],
+      h('ol', { class: 'ideas' }, c.ideas.map(function (t, i) {
+        return h('li', null, h('span', { class: 'n', text: String(i + 1) }), h('span', { text: t }));
+      })),
+      c.formula ? h('div', { class: 'formula' }, h('div', { class: 'eyebrow', text: 'Formula' }), h('div', { class: 'f', text: c.formula })) : null,
+      c.trap ? h('div', { class: 'trap' }, h('b', { text: 'Classic trap: ' }), c.trap) : null
+    ];
+  }
+  function openRecapSheet(rid) {
+    openSheet(function (sh) {
+      sh.set(recapBody(rid), h('button', { class: 'btn btn-quiet', text: 'Close', onclick: sh.close }));
+    });
+  }
+
+  /* =====================================================================
      Screen: Home
      ===================================================================== */
   function daysToExamText() {
@@ -283,35 +362,96 @@
     if (mode === 'weak' && !Sched.weakReadings(D.questions, st, true).length) return 0;
     return Sched.buildSession({ questions: D.questions, curriculum: D.curriculum, state: st, today: today(), mode: mode }).ids.length;
   }
+  function recapDeck() {
+    return Sched.buildRecapDeck({ recaps: D.recapList, state: Store.state, curriculum: D.curriculum, questions: D.questions, today: today(), size: 10 });
+  }
+
+  var MODE_CARDS = {
+    recap: { note: 'One minute per reading: the key ideas, the formula, the classic trap. Tap Shaky and its questions come back sooner.', empty: 'Tick some readings first' },
+    remember: { note: "Facts the exam asks directly: rules, lists, thresholds. You can't reason your way to these; learn them cold.", empty: 'No must-remember questions in what you’ve covered yet' },
+    calc: { note: "Formula drills with easy numbers. On exam day you'll have your calculator; this trains knowing which formula and which number goes where.", empty: 'No formula questions in what you’ve covered yet' },
+    weak: { note: 'Only your 3 weakest readings, until they aren’t.', empty: 'Answer a few more first' },
+    exam: { note: '10 exam-style questions at real pace, 90 seconds each. Answers at the end, like the real thing.', empty: 'No questions in what you’ve covered yet' }
+  };
+  var MODE_ORDER = ['recap', 'remember', 'calc', 'weak', 'exam'];
+
+  // One suggested step, driven by days to the exam. Returns { mode, text, week } (mode may be null).
+  function suggestion(avail) {
+    var st = Store.state, t = today();
+    var d = Sched.daysBetween(t, D.curriculum.examDate);
+    if (d < 0) return null;
+    if (d === 0) return { mode: 'remember', text: 'Exam day. A quick Must-remember if you want a warm-up. Good luck, Ishita.', week: true };
+    if (d === 1) return { mode: 'remember', text: 'Tomorrow. Must-remember and a Recap sweep; nothing new tonight.', week: true };
+    if (d <= 3) return { mode: 'exam', text: 'Exam week. Mix Today’s 15 with Exam practice; sweep Recap for anything shaky.', week: true };
+    // Readings ticked in the last 3 days that have a card but no recap yet.
+    var fresh = Object.keys(st.coverage).filter(function (r) {
+      return D.recaps[r] && !(st.recap && st.recap[r]) && Sched.daysBetween(st.coverage[r], t) <= 3;
+    });
+    if (fresh.length && avail.recap) return { mode: 'recap', text: 'Recap the readings you just ticked: one minute each.' };
+    var done = st.sessions.filter(function (x) { return typeof x.right === 'number' && x.n >= 5; });
+    var lastDone = done[done.length - 1];
+    if (lastDone && lastDone.right / lastDone.n < 0.6 && Sched.daysBetween(lastDone.date, t) <= 1 && avail.weak) {
+      return { mode: 'weak', text: 'Last session was a tough one. Weak spots will firm up the readings that need it.' };
+    }
+    var recentExam = st.sessions.some(function (x) { return x.mode === 'exam' && Sched.daysBetween(x.date, t) <= 7; });
+    if (d <= 14 && !recentExam && avail.exam) return { mode: 'exam', text: 'Try Exam practice once this week to feel the pace.' };
+    return { mode: null, text: 'Start with Today’s 15. It picks what needs you most.' };
+  }
 
   function renderHome(root) {
-    var covered = coveredCount();
-    var cards = [
-      { mode: 'calc', note: "Formula drills with easy numbers. On exam day you'll have your calculator. This trains knowing which formula and which number goes where.", empty: 'No formula questions in what you’ve covered yet' },
-      { mode: 'remember', note: "Facts the exam asks directly: rules, lists, thresholds. You can't reason your way to these; learn them cold.", empty: 'No must-remember questions in what you’ve covered yet' },
-      { mode: 'weak', note: 'Only your 3 weakest readings.', empty: 'Answer a few more first' }
-    ];
-    var modes = h('div', { class: 'modes' }, cards.map(function (c) {
-      var ok = modePool(c.mode) > 0;
-      return h('button', { class: 'mode', 'aria-disabled': ok ? null : 'true', onclick: function () { if (ok) Session.start(c.mode); } },
-        h('div', { class: 'mode-name', text: NAMES[c.mode] }),
+    var st = Store.state;
+    var avail = {
+      recap: recapDeck().length > 0,
+      remember: modePool('remember') > 0,
+      calc: modePool('calc') > 0,
+      weak: modePool('weak') > 0,
+      exam: modePool('exam') > 0
+    };
+    var sug = suggestion(avail);
+    var order = MODE_ORDER.slice();
+    if (sug && sug.mode && avail[sug.mode]) order = [sug.mode].concat(order.filter(function (m) { return m !== sug.mode; }));
+
+    var modes = h('div', { class: 'modes' }, order.map(function (m) {
+      var c = MODE_CARDS[m], ok = avail[m];
+      var tagged = !!(sug && sug.mode === m && ok);
+      return h('button', { class: 'mode' + (tagged ? ' suggested' : ''), 'aria-disabled': ok ? null : 'true',
+        onclick: function () { if (!ok) return; if (m === 'recap') Recap.start(); else Session.start(m); } },
+        h('div', { class: 'mode-head' }, h('div', { class: 'mode-name', text: NAMES[m] }), tagged ? h('span', { class: 'tag', text: 'Suggested' }) : null),
         h('div', { class: 'mode-note', text: c.note }),
         ok ? null : h('div', { class: 'mode-reason', text: c.empty }));
     }));
 
+    var mc = mapCounts();
+    var strip = h('button', { class: 'map-strip', onclick: function () { Router.go('map'); } },
+      h('div', { class: 'ms-text' },
+        h('div', { text: mc.covered + ' of ' + D.readingCount + ' covered' }),
+        h('div', { class: 'ms-sub' },
+          h('span', { class: 'ms-i' }, h('span', { class: 'sw solid' }), mc.solid + ' solid'),
+          h('span', { class: 'ms-i' }, h('span', { class: 'sw shaky' }), mc.shaky + ' shaky'),
+          h('span', { class: 'ms-i' }, h('span', { class: 'sw untested' }), mc.untested + ' untested'))),
+      h('span', { class: 'ms-link' }, 'Your map', icon('chev')));
+
+    var nudges = [];
+    if (st.sessions.length >= 5 && !st.nudge.export) {
+      nudges.push(h('div', { class: 'nudge' },
+        h('p', { text: 'Save a progress file in Settings, in case Safari clears it.' }),
+        h('div', { class: 'nudge-btns' },
+          h('button', { class: 'btn-link', text: 'Open Settings', onclick: function () { st.nudge.export = true; Store.save(); Router.go('settings'); } }),
+          h('button', { class: 'btn-link muted', text: 'Not now', onclick: function () { st.nudge.export = true; Store.save(); Router.render(); } }))));
+    }
     var body = [
       h('div', { class: 'home-top' },
         h('div', null, h('h1', { class: 'hello', text: 'Hi Ishita' }),
           h('p', { class: 'exam-line', text: daysToExamText() }), streakChip()),
         h('button', { class: 'icon-btn', 'aria-label': 'Settings', onclick: function () { Router.go('settings'); } }, icon('gear'))),
-      h('div', { class: 'cov-sum' },
-        h('span', { class: 'small', text: covered + ' of ' + D.readingCount + ' readings covered' }),
-        h('button', { class: 'btn-link', text: 'Update', onclick: function () { Router.go('coverage'); } })),
-      modes
+      sug ? h('div', { class: 'suggest' + (sug.week ? ' week' : '') }, h('div', { class: 'eyebrow', text: 'Suggested' }), h('p', { text: sug.text })) : null,
+      nudges,
+      modes,
+      strip
     ];
     var bar = h('div', { class: 'bar hero' },
       h('button', { class: 'btn btn-primary', text: NAMES.daily, onclick: function () { Session.start('daily'); } }),
-      h('p', { class: 'note', text: 'Your daily mix. Mistakes come back tomorrow; what you know well fades out.' }));
+      h('p', { class: 'note', text: 'Your daily mix. Mistakes come back next session; what you know well fades out.' }));
     screenFrame(root, body, bar);
   }
 
@@ -330,20 +470,31 @@
     },
     start: function (mode, opts) {
       opts = opts || {};
-      var b = Sched.buildSession({ questions: D.questions, curriculum: D.curriculum, state: Store.state, today: today(), mode: mode, readings: opts.readings });
+      var b = Sched.buildSession({ questions: D.questions, curriculum: D.curriculum, state: Store.state, today: today(), mode: mode, readings: opts.readings, size: opts.size });
       if (!b.ids.length) { notice(this.EMPTY[mode] || this.EMPTY.daily); return false; }
       this.cur = { mode: mode, opts: opts, ids: b.ids, i: 0, answers: [], picked: null, recorded: false };
       Router.go('session');
       return true;
     },
     // Grade one answer and save straight away: quitting mid-session loses nothing.
+    // The question's earlier state is kept so "Lucky guess" can re-grade it.
     answer: function (pick) {
       var c = this.cur, q = D.q[c.ids[c.i]], st = Store.state;
       var correct = pick === q.answer;
-      st.q[q.id] = Sched.grade(st.q[q.id], correct, today());
+      var prev = st.q[q.id];
+      st.q[q.id] = Sched.grade(prev, correct, today());
       Store.save();
       c.picked = pick;
-      c.answers.push({ id: q.id, pick: pick, correct: correct });
+      c.answers.push({ id: q.id, pick: pick, correct: correct, guess: false, prev: prev });
+    },
+    // Lucky guess on the answer just given: scheduled as a miss, still counted right in the score. Tap again to undo.
+    toggleGuess: function () {
+      var c = this.cur, a = c && c.answers[c.answers.length - 1], st = Store.state;
+      if (!a || !a.correct) return false;
+      a.guess = !a.guess;
+      st.q[a.id] = Sched.grade(a.prev, !a.guess, today());
+      Store.save();
+      return a.guess;
     },
     // Add the session record (once). Called at the end, or on quit if anything was answered.
     record: function () {
@@ -378,14 +529,29 @@
     return h('div', attrs, inner);
   }
 
+  // Small secondary button on the right-answer screen. Updates in place so the screen doesn't jump.
+  function luckyControl() {
+    var marked = false;
+    var btn = h('button', { class: 'btn-small', onclick: function () { marked = Session.toggleGuess(); paint(); } });
+    var hint = h('p', { class: 'lucky-hint' });
+    function paint() {
+      btn.textContent = marked ? 'Marked as a lucky guess' : 'Lucky guess';
+      btn.setAttribute('aria-pressed', String(marked));
+      btn.classList.toggle('on', marked);
+      hint.textContent = marked ? 'It comes back next session. Tap again to undo.' : 'Guessed? Tap and it comes back next session.';
+    }
+    paint();
+    return h('div', { class: 'lucky' }, btn, hint);
+  }
+
   function renderSession(root) {
     var c = Session.cur;
     if (!c) { Router.go('home', true); return; }
     var q = D.q[c.ids[c.i]];
     var info = D.reading[q.reading];
+    var exam = c.mode === 'exam';
     var answered = c.picked !== null;
     var done = c.i + (answered ? 1 : 0);
-    var letters = ['A', 'B', 'C', 'D'];
 
     var head = h('div', { class: 's-head' },
       h('button', { class: 'icon-btn', 'aria-label': 'Stop', onclick: function () { Session.quit(); } }, icon('close')),
@@ -393,13 +559,21 @@
         h('i', { style: 'width:' + Math.round(done / c.ids.length * 100) + '%' })),
       h('div', { class: 'count', text: (c.i + 1) + ' / ' + c.ids.length }));
     root.appendChild(head);
+    // Exam practice: a calm pace bar. It only shows time; it never locks or skips anything.
+    if (exam) root.appendChild(h('div', { class: 'pace', 'aria-hidden': 'true', title: PACE_SECONDS + ' seconds per question' }, h('i', { style: 'animation-duration:' + PACE_SECONDS + 's' })));
 
-    var label = info ? info.topic.short + ' · ' + info.reading.short : '';
+    var label = exam ? 'Exam practice · ' + PACE_SECONDS + ' seconds each' : (info ? info.topic.short + ' · ' + info.reading.short : '');
     var top = [h('div', { class: 's-label', text: label }), h('p', { class: 'stem', text: q.stem })];
 
     if (!answered) {
       var opts = h('div', { class: 'options at-bottom', role: 'group', 'aria-label': 'Answer options' },
-        q.options.map(function (t, i) { return optionEl(letters[i], t, '', null, function () { Session.answer(i); Router.render(); }); }));
+        q.options.map(function (t, i) {
+          return optionEl(LETTERS[i], t, '', null, function () {
+            Session.answer(i);
+            if (exam) Session.next();       // no feedback until the end
+            else Router.render();
+          });
+        }));
       var scroll = h('div', { class: 'scroll s-body' }, top, opts);
       scroll.style.paddingTop = '14px';
       scroll.style.paddingBottom = 'calc(14px + env(safe-area-inset-bottom))';
@@ -409,26 +583,29 @@
 
     var correct = c.picked === q.answer;
     var optsFb = h('div', { class: 'options' }, q.options.map(function (t, i) {
-      if (i === q.answer) return optionEl(letters[i], t, 'right', correct ? null : 'Correct answer');
-      if (i === c.picked) return optionEl(letters[i], t, 'wrong', 'Your answer');
-      return optionEl(letters[i], t, 'dim');
+      if (i === q.answer) return optionEl(LETTERS[i], t, 'right', correct ? null : 'Correct answer');
+      if (i === c.picked) return optionEl(LETTERS[i], t, 'wrong', 'Your answer');
+      return optionEl(LETTERS[i], t, 'dim');
     }));
 
     var lo = D.lo[q.los];
     var tests = lo ? h('p', { class: 'tests' }, h('b', { text: 'Tests: ' }), lo.text) : null;
     var extras = h('div', { class: 'feedback-extras' });
+    var remember = q.remember ? h('div', { class: 'remember' }, h('b', { text: 'Remember: ' }), q.remember) : null;
     var fb;
     if (correct) {
+      extras.appendChild(luckyControl());
       fb = h('div', { class: 'fb' },
         h('div', { class: 'verdict' }, icon('tickCircle'), 'Correct'),
-        h('p', { class: 'plain-expl', text: q.explanation }), extras, tests,
-        q.remember ? h('div', { class: 'remember' }, h('b', { text: 'Remember: ' }), q.remember) : null);
+        h('p', { class: 'plain-expl', text: q.explanation }), extras, tests, remember);
     } else {
+      if (D.recaps[q.reading]) {
+        extras.appendChild(h('button', { class: 'btn-small', text: 'Recap this reading', onclick: function () { openRecapSheet(q.reading); } }));
+      }
       fb = h('div', { class: 'fb' },
         h('div', { class: 'why' }, h('div', { class: 'eyebrow', text: 'Why' }), h('p', { text: q.explanation })),
-        extras, tests,
-        q.remember ? h('div', { class: 'remember' }, h('b', { text: 'Remember: ' }), q.remember) : null,
-        h('p', { class: 'calm', text: 'This one comes back tomorrow.' }));
+        extras, tests, remember,
+        h('p', { class: 'calm', text: 'This one comes back next session.' }));
     }
     var last = c.i + 1 >= c.ids.length;
     var bar = h('div', { class: 'bar' }, h('button', { class: 'btn btn-primary', text: last ? 'See results' : 'Next', onclick: function () { Session.next(); } }));
@@ -441,36 +618,57 @@
   /* =====================================================================
      Screen: Result
      ===================================================================== */
+  // One expandable question row: used for "missed" lists and the full exam review.
+  function reviewItem(a, showStatus) {
+    var q = D.q[a.id], info = D.reading[q.reading], lo = D.lo[q.los];
+    var box = h('div', { class: 'miss' });
+    var ans = a.correct
+      ? h('p', { class: 'ans' }, 'You chose the right answer: ', h('b', { text: LETTERS[q.answer] + '. ' + q.options[q.answer] }))
+      : h('p', { class: 'ans' }, 'Correct answer: ', h('b', { text: LETTERS[q.answer] + '. ' + q.options[q.answer] }), h('br'),
+          'You chose: ', h('s', { text: LETTERS[a.pick] + '. ' + q.options[a.pick] }));
+    var detail = h('div', { class: 'miss-detail' }, ans,
+      h('p', { class: 'ex', text: q.explanation }),
+      lo ? h('p', { class: 'tests' }, h('b', { text: 'Tests: ' }), lo.text) : null,
+      q.remember ? h('div', { class: 'remember' }, h('b', { text: 'Remember: ' }), q.remember) : null);
+    detail.hidden = true;
+    var head = h('button', { class: 'miss-head', 'aria-expanded': 'false', onclick: function () {
+      var open = detail.hidden; detail.hidden = !open; box.classList.toggle('open', open); head.setAttribute('aria-expanded', String(open));
+    } }, h('div', { class: 't' },
+      h('div', { class: 'l' }, info ? info.reading.short : '',
+        showStatus ? h('span', { class: 'badge ' + (a.correct ? 'ok' : 'no'), text: a.correct ? 'Right' : 'Missed' }) : null),
+      h('div', { class: 's', text: q.stem })),
+      h('span', { class: 'chev' }, icon('chev')));
+    box.appendChild(head); box.appendChild(detail);
+    return box;
+  }
+
+  function resultTitle(r) {
+    if (r.opts && r.opts.readings && r.opts.readings.length === 1 && D.reading[r.opts.readings[0]]) return 'Practice · ' + D.reading[r.opts.readings[0]].reading.short;
+    return NAMES[r.mode] || 'Session';
+  }
+
   function renderResult(root) {
     var r = Session.last;
     if (!r) { Router.go('home', true); return; }
+    var exam = r.mode === 'exam';
     var missed = r.answers.filter(function (a) { return !a.correct; });
-    var letters = ['A', 'B', 'C', 'D'];
+    var guesses = r.answers.filter(function (a) { return a.correct && a.guess; }).length;
     var streakN = Sched.streak(Store.state, today());
+    var line = missed.length || guesses
+      ? 'Wrong ones' + (guesses ? ' and lucky guesses' : '') + ' come back next session'
+      : 'A clean round. Nothing to repeat.';
     var body = [
-      h('div', { class: 'eyebrow', text: NAMES[r.mode] || 'Session' }),
+      h('div', { class: 'eyebrow', text: resultTitle(r) }),
       h('div', { class: 'score' }, r.right + ' ', h('small', { text: '/ ' + r.n })),
-      h('p', { class: 'result-line', text: missed.length ? 'Wrong ones come back next session' : 'A clean round. Nothing to repeat.' }),
+      h('p', { class: 'result-line', text: line }),
       streakN ? h('div', null, streakChip(), streakN >= 3 ? h('span', { class: 'muted small', style: 'margin-left:10px', text: 'Nice streak!' }) : null) : null
     ];
-    if (missed.length) {
-      body.push(h('div', { class: 'missed' }, h('div', { class: 'eyebrow', text: 'To look at again' }), missed.map(function (a) {
-        var q = D.q[a.id], info = D.reading[q.reading], lo = D.lo[q.los];
-        var box = h('div', { class: 'miss' });
-        var detail = h('div', { class: 'miss-detail' },
-          h('p', { class: 'ans' }, 'Correct answer: ', h('b', { text: letters[q.answer] + '. ' + q.options[q.answer] }), h('br'),
-            'You chose: ', h('s', { text: letters[a.pick] + '. ' + q.options[a.pick] })),
-          h('p', { class: 'ex', text: q.explanation }),
-          lo ? h('p', { class: 'tests' }, h('b', { text: 'Tests: ' }), lo.text) : null,
-          q.remember ? h('div', { class: 'remember' }, h('b', { text: 'Remember: ' }), q.remember) : null);
-        detail.hidden = true;
-        var head = h('button', { class: 'miss-head', 'aria-expanded': 'false', onclick: function () {
-          var open = detail.hidden; detail.hidden = !open; box.classList.toggle('open', open); head.setAttribute('aria-expanded', String(open));
-        } }, h('div', { class: 't' }, h('div', { class: 'l', text: info ? info.reading.short : '' }), h('div', { class: 's', text: q.stem })),
-          h('span', { class: 'chev' }, icon('chev')));
-        box.appendChild(head); box.appendChild(detail);
-        return box;
-      })));
+    if (exam) {
+      body.push(h('div', { class: 'missed' }, h('div', { class: 'eyebrow', text: 'Every question' }),
+        r.answers.map(function (a) { return reviewItem(a, true); })));
+    } else if (missed.length) {
+      body.push(h('div', { class: 'missed' }, h('div', { class: 'eyebrow', text: 'To look at again' }),
+        missed.map(function (a) { return reviewItem(a, false); })));
     } else {
       body.push(h('div', { class: 'perfect', text: 'Everything you answered was right. These will show up less often now.' }));
     }
@@ -478,6 +676,177 @@
       h('button', { class: 'btn btn-primary', text: 'Another round', onclick: function () { Session.start(r.mode, r.opts); } }),
       h('button', { class: 'btn btn-quiet', text: 'Done', onclick: function () { Session.last = null; Router.go('home', true); } }));
     screenFrame(root, body, bar);
+  }
+
+  /* =====================================================================
+     Recap mode: a deck of recap cards, Solid or Shaky on each
+     ===================================================================== */
+  var Recap = {
+    cur: null,   // {ids, i, marks[], recorded}
+    start: function () {
+      var ids = recapDeck();
+      if (!ids.length) { notice('No recap cards for what you’ve covered yet.'); return false; }
+      this.cur = { ids: ids, i: 0, marks: [], recorded: false, finished: false };
+      Router.go('recap');
+      return true;
+    },
+    mark: function (mark) {
+      var c = this.cur, st = Store.state, rid = c.ids[c.i];
+      st.recap[rid] = { last: today(), mark: mark };
+      c.marks.push(mark);
+      Store.save();
+      c.i++;
+      if (c.i >= c.ids.length) { this.record(); c.finished = true; }
+      Router.render();
+    },
+    // Counts towards the streak; right is null because nothing was scored. Nothing else is touched.
+    record: function () {
+      var c = this.cur, st = Store.state;
+      if (!c || c.recorded || !c.marks.length) return;
+      c.recorded = true;
+      st.sessions.push({ date: today(), mode: 'recap', n: c.marks.length, right: null });
+      Store.save();
+    },
+    quit: function () {
+      var self = this;
+      confirmDialog('Stop here?', 'Cards so far are saved.', 'Stop and go home', 'Keep going').then(function (yes) {
+        if (!yes) return;
+        self.record(); self.cur = null; Router.go('home', true);
+      });
+    }
+  };
+
+  function renderRecap(root) {
+    var c = Recap.cur;
+    if (!c) { Router.go('home', true); return; }
+    if (c.finished) {
+      var shaky = c.marks.filter(function (m) { return m === 'shaky'; }).length;
+      var streakN = Sched.streak(Store.state, today());
+      screenFrame(root, [
+        h('div', { class: 'eyebrow', text: 'Recap' }),
+        h('div', { class: 'score' }, String(c.marks.length), ' ', h('small', { text: c.marks.length === 1 ? 'reading recapped' : 'readings recapped' })),
+        h('p', { class: 'result-line', text: shaky ? plural(shaky, 'reading', 'readings') + ' marked shaky. Their questions come back sooner.' : 'All marked solid. The questions will tell if that holds.' }),
+        streakN ? h('div', null, streakChip(), streakN >= 3 ? h('span', { class: 'muted small', style: 'margin-left:10px', text: 'Nice streak!' }) : null) : null
+      ], h('div', { class: 'bar' },
+        h('button', { class: 'btn btn-primary', text: NAMES.daily, onclick: function () { Recap.cur = null; Session.start('daily'); } }),
+        h('button', { class: 'btn btn-quiet', text: 'Done', onclick: function () { Recap.cur = null; Router.go('home', true); } })));
+      return;
+    }
+    var rid = c.ids[c.i], info = D.reading[rid];
+    root.appendChild(h('div', { class: 's-head' },
+      h('button', { class: 'icon-btn', 'aria-label': 'Stop', onclick: function () { Recap.quit(); } }, icon('close')),
+      h('div', { class: 'progress', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': String(c.ids.length), 'aria-valuenow': String(c.i) },
+        h('i', { style: 'width:' + Math.round(c.i / c.ids.length * 100) + '%' })),
+      h('div', { class: 'count', text: (c.i + 1) + ' / ' + c.ids.length })));
+    var sc = h('div', { class: 'scroll s-body' },
+      h('div', { class: 's-label', text: info.topic.short + ' · Reading ' + info.reading.n }),
+      h('h1', { class: 'card-title', text: info.reading.title }),
+      h('div', { class: 'recap-card' }, recapBody(rid, false)));
+    sc.style.paddingTop = '14px';
+    root.appendChild(sc);
+    root.appendChild(h('div', { class: 'bar' },
+      h('div', { class: 'btn-row stack' },
+        h('button', { class: 'btn btn-solid', text: 'Solid', onclick: function () { Recap.mark('solid'); } }),
+        h('button', { class: 'btn btn-shaky', text: 'Shaky · bring its questions forward', onclick: function () { Recap.mark('shaky'); } }))));
+  }
+
+  /* =====================================================================
+     Screen: Your map (all readings, coloured)
+     ===================================================================== */
+  var STATUS_TEXT = {
+    none: 'Not covered yet',
+    untested: 'Covered, not tested much yet',
+    shaky: 'Shaky',
+    solid: 'Solid'
+  };
+
+  function openReadingSheet(rid, redraw) {
+    var info = D.reading[rid], st = Store.state;
+    var stats = Sched.readingStats(D.questions, st);
+    var status = readingStatus(rid, stats), s = stats[rid];
+    var nQ = D.questions.filter(function (q) { return q.reading === rid; }).length;
+    var rec = st.recap && st.recap[rid];
+
+    openSheet(function (sh) {
+      function showSummary() {
+        var facts = [];
+        if (!st.coverage[rid]) facts.push('You haven’t marked this reading as covered.');
+        else if (s && s.attempts) facts.push('You’ve answered ' + plural(s.attempts, 'question', 'questions') + ' from it, ' + s.right + ' right.');
+        else facts.push('No questions answered from it yet.');
+        if (rec) {
+          var ago = Sched.daysBetween(rec.last, today());
+          facts.push('Recapped ' + (ago === 0 ? 'today' : ago === 1 ? 'yesterday' : ago + ' days ago') + ', marked ' + rec.mark + '.');
+        }
+        var foot = [];
+        if (!st.coverage[rid]) {
+          foot.push(h('button', { class: 'btn btn-primary', text: 'Mark as covered', onclick: function () {
+            st.coverage[rid] = today(); Store.save(); sh.close(); notice('Marked as covered.'); redraw();
+          } }));
+        } else {
+          if (nQ) foot.push(h('button', { class: 'btn btn-primary', text: 'Practice this', onclick: function () {
+            sh.close(); Session.start('daily', { readings: [rid], size: 10 });
+          } }));
+        }
+        if (D.recaps[rid]) foot.push(h('button', { class: 'btn btn-quiet', text: 'Recap', onclick: showRecap }));
+        foot.push(h('button', { class: 'btn btn-quiet', text: 'Close', onclick: sh.close }));
+        sh.set([
+          h('div', { class: 'eyebrow', text: info.topic.name + ' · Reading ' + info.reading.n }),
+          h('h2', { class: 'sheet-title', text: info.reading.title }),
+          h('div', { class: 'status-line' }, h('span', { class: 'sw ' + status }), STATUS_TEXT[status]),
+          facts.map(function (f) { return h('p', { class: 'fact', text: f }); }),
+          st.coverage[rid] && !nQ ? h('p', { class: 'fact muted', text: 'No practice questions for this reading yet.' }) : null
+        ], foot);
+      }
+      function showRecap() {
+        function mark(m) {
+          st.recap[rid] = { last: today(), mark: m }; Store.save();
+          sh.close(); notice(m === 'solid' ? 'Marked solid.' : 'Marked shaky. Its questions come back sooner.'); redraw();
+        }
+        var foot = [];
+        if (st.coverage[rid]) {
+          foot.push(h('button', { class: 'btn btn-solid', text: 'Solid', onclick: function () { mark('solid'); } }));
+          foot.push(h('button', { class: 'btn btn-shaky', text: 'Shaky · bring its questions forward', onclick: function () { mark('shaky'); } }));
+        }
+        foot.push(h('button', { class: 'btn btn-quiet', text: 'Back', onclick: showSummary }));
+        sh.set(recapBody(rid), foot);
+      }
+      showSummary();
+    });
+  }
+
+  function renderMap(root) {
+    var st = Store.state;
+    var list = h('div');
+    var summary = h('p', { class: 'map-sum' });
+    function legendItem(cls, text) { return h('span', { class: 'lg' }, h('span', { class: 'sw ' + cls }), text); }
+    var head = h('div', { class: 'cov-head' },
+      h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: function () { history.length > 1 ? history.back() : Router.go('home'); } }, icon('back')),
+      h('div', null, h('h1', { class: 'title', text: 'Your map' }),
+        h('p', { class: 'subtitle', text: 'Every reading, coloured by how you’re doing. Tap one to recap it or practise it.' })));
+    var legend = h('div', { class: 'legend', role: 'group', 'aria-label': 'Colour key' },
+      legendItem('solid', 'Solid'), legendItem('shaky', 'Shaky'), legendItem('untested', 'Covered, not tested yet'), legendItem('none', 'Not covered'));
+    var foot = h('button', { class: 'btn-link map-foot', text: 'Update what you’ve covered', onclick: function () { Router.go('coverage'); } });
+    var scroll = screenFrame(root, [head, summary, legend, list, foot]);
+    scroll.style.paddingBottom = 'calc(28px + env(safe-area-inset-bottom))';
+
+    function draw() {
+      var top = scroll.scrollTop;
+      var stats = Sched.readingStats(D.questions, st), mc = mapCounts();
+      summary.textContent = mc.covered + ' of ' + D.readingCount + ' covered · ' + mc.solid + ' solid · ' + mc.shaky + ' shaky · ' + mc.untested + ' untested';
+      list.innerHTML = '';
+      D.curriculum.topics.forEach(function (t) {
+        var n = t.readings.filter(function (r) { return st.coverage[r.id]; }).length;
+        list.appendChild(h('section', { class: 'map-topic' },
+          h('div', { class: 'map-topic-head' }, h('div', { class: 'map-topic-name', text: t.name }), h('div', { class: 'map-topic-n', text: n + ' of ' + t.readings.length })),
+          h('div', { class: 'grid' }, t.readings.map(function (r) {
+            var status = readingStatus(r.id, stats);
+            return h('button', { class: 'cell ' + status, 'aria-label': 'Reading ' + r.n + ', ' + r.short + ': ' + STATUS_TEXT[status],
+              onclick: function () { openReadingSheet(r.id, draw); } }, String(r.n));
+          }))));
+      });
+      scroll.scrollTop = top;
+    }
+    draw();
   }
 
   /* =====================================================================
@@ -497,7 +866,10 @@
     });
   }
 
+  function markExported() { Store.state.nudge.export = true; Store.state.lastExport = today(); Store.save(); }
+
   function doExport() {
+    markExported();
     var name = 'cfa-progress-' + today() + '.json';
     try {
       var blob = new Blob([exportText()], { type: 'application/json' });
@@ -511,6 +883,7 @@
     }
   }
   function doCopy(fallback) {
+    markExported();
     copyText(exportText()).then(function () {
       notice(fallback ? "Couldn't save a file, so your progress is copied. Paste it into Notes." : 'Progress copied. Paste it into Notes to keep it safe.');
     }, function () { notice("Couldn't copy. Try saving the progress file instead."); });
@@ -563,7 +936,7 @@
             if (!a) return;
             return confirmDialog('Are you really sure?', "This can't be undone unless you saved a progress file.", 'Yes, clear everything', 'No, keep it', true).then(function (b) {
               if (!b) return;
-              Store.reset(); Session.cur = null; Session.last = null; covOpen = {};
+              Store.reset(); Session.cur = null; Session.last = null; Recap.cur = null; covOpen = {};
               Router.go('coverage', true);
             });
           });
@@ -584,6 +957,8 @@
   Router.register('home', renderHome);
   Router.register('session', renderSession);
   Router.register('result', renderResult);
+  Router.register('recap', renderRecap);
+  Router.register('map', renderMap);
   Router.register('settings', renderSettings);
 
   function boot() {
