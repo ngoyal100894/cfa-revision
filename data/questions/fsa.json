@@ -1,0 +1,732 @@
+{
+  "topic": "fsa",
+  "questions": [
+    {
+      "id": "fsa-001",
+      "topic": "fsa",
+      "reading": "fsa-1",
+      "los": "fsa-1-a",
+      "kind": "concept",
+      "stem": "How do the three main statements link together at period end?",
+      "options": [
+        "Retained earnings come from the cash flow statement and net income comes from the balance sheet",
+        "Cash flow from operations always equals net income, so the statements need no link",
+        "Net income, less dividends, updates retained earnings, and the cash flow statement explains the change in balance sheet cash"
+      ],
+      "answer": 2,
+      "explanation": "Earnings feed retained earnings, and the cash flow statement reconciles opening to closing cash. The trap is treating net income and operating cash flow as the same number."
+    },
+    {
+      "id": "fsa-002",
+      "topic": "fsa",
+      "reading": "fsa-1",
+      "los": "fsa-1-d",
+      "kind": "concept",
+      "stem": "What is the first step in the financial statement analysis framework?",
+      "options": [
+        "Articulate the purpose and context of the analysis",
+        "Collect the company's financial data",
+        "Compute the key ratios"
+      ],
+      "answer": 0,
+      "explanation": "The framework runs purpose and context, collect data, process data, analyse, communicate conclusions, then follow up. The trap is starting with ratios, since the purpose decides which data and ratios matter."
+    },
+    {
+      "id": "fsa-003",
+      "topic": "fsa",
+      "reading": "fsa-1",
+      "los": "fsa-1-b",
+      "kind": "memorise",
+      "stem": "An auditor concludes the statements are materially misstated and the problem is pervasive. Which opinion does the auditor give?",
+      "options": [
+        "Qualified",
+        "Adverse",
+        "Disclaimer"
+      ],
+      "answer": 1,
+      "explanation": "Adverse means the statements are not fairly presented. Qualified is a limited exception, and a disclaimer means the auditor could not form an opinion. The trap is calling a bad opinion qualified.",
+      "remember": "Unqualified = clean; qualified = \"except for\"; adverse = misstated; disclaimer = no opinion."
+    },
+    {
+      "id": "fsa-004",
+      "topic": "fsa",
+      "reading": "fsa-2",
+      "los": "fsa-2-a",
+      "kind": "exam",
+      "stem": "Nova Tech sells a laptop and a two-year support plan in one contract for 1,200. Stand-alone selling prices are 1,000 for the laptop and 500 for the support. How is the price handled under the revenue recognition model?",
+      "options": [
+        "Laptop 1,000 on delivery and the residual 200 for support over the term",
+        "Allocated by relative stand-alone prices: laptop 800 on delivery, support 400 over the term",
+        "All 1,200 recognised when the laptop is delivered"
+      ],
+      "answer": 1,
+      "explanation": "Step 4 allocates the transaction price to each obligation by relative stand-alone selling prices, and each is recognised as satisfied. The trap is pushing the whole discount to one item or recognising everything upfront."
+    },
+    {
+      "id": "fsa-005",
+      "topic": "fsa",
+      "reading": "fsa-2",
+      "los": "fsa-2-b",
+      "kind": "calc",
+      "stem": "A machine costs 100,000, has a residual value of 10,000 and a 5-year life. What is year-1 depreciation under double-declining balance?",
+      "options": [
+        "40,000",
+        "36,000",
+        "18,000"
+      ],
+      "answer": 0,
+      "explanation": "The DDB rate is twice the straight-line rate, 40%, applied to opening book value without deducting residual value: 40% × 100,000. The trap is deducting residual first (36,000) or using straight-line (18,000)."
+    },
+    {
+      "id": "fsa-006",
+      "topic": "fsa",
+      "reading": "fsa-2",
+      "los": "fsa-2-d",
+      "kind": "calc",
+      "stem": "Net income is 5,000 and there are 1,000 basic shares. Options on 100 shares have a strike of 40, and the average share price is 50. What is diluted EPS?",
+      "options": [
+        "4.55",
+        "5.00",
+        "4.90"
+      ],
+      "answer": 2,
+      "explanation": "Treasury stock method: 100 × 40 = 4,000 buys back 80 shares at 50, so net new shares are 20. 5,000 ÷ 1,020 is about 4.90. The trap is adding all 100 option shares (4.55)."
+    },
+    {
+      "id": "fsa-007",
+      "topic": "fsa",
+      "reading": "fsa-2",
+      "los": "fsa-2-c",
+      "kind": "concept",
+      "stem": "How should an analyst treat a company's discontinued operations when judging future earnings?",
+      "options": [
+        "They are part of operating income because they affected this year's result",
+        "They are spread across the continuing operations line items",
+        "They are shown separately after continuing operations, net of tax, so they are excluded when forecasting"
+      ],
+      "answer": 2,
+      "explanation": "Discontinued operations appear below income from continuing operations, net of tax, so they say little about future recurring earnings. The trap is folding them into operating income."
+    },
+    {
+      "id": "fsa-008",
+      "topic": "fsa",
+      "reading": "fsa-2",
+      "los": "fsa-2-e",
+      "kind": "concept",
+      "stem": "A firm's COGS rises from 60% to 65% of revenue, while SG&A and other costs stay at 25% of revenue. What happens to operating margin?",
+      "options": [
+        "It stays at 15% because SG&A is unchanged",
+        "It falls from 15% to 10%",
+        "It falls from 40% to 35%"
+      ],
+      "answer": 1,
+      "explanation": "Operating margin = 100% − 65% − 25% = 10%, down from 15%. The 40% to 35% option is the gross margin, which is a different measure."
+    },
+    {
+      "id": "fsa-009",
+      "topic": "fsa",
+      "reading": "fsa-3",
+      "los": "fsa-3-b",
+      "kind": "exam",
+      "stem": "Delta Insurance buys a corporate bond under a hold-to-collect business model. The bond's cash flows are solely principal and interest. Under IFRS 9, how is the bond measured?",
+      "options": [
+        "At amortised cost",
+        "At fair value through profit or loss",
+        "At fair value through OCI, since all debt is marked to market"
+      ],
+      "answer": 0,
+      "explanation": "A hold-to-collect model with solely principal-and-interest cash flows gives amortised cost. FVPL fits trading or failed cash-flow tests, and FVOCI fits hold-and-sell models. The trap is assuming all debt is marked to market."
+    },
+    {
+      "id": "fsa-010",
+      "topic": "fsa",
+      "reading": "fsa-3",
+      "los": "fsa-3-a",
+      "kind": "memorise",
+      "stem": "For a public company reporting under IFRS or US GAAP, how is goodwill treated after initial recognition?",
+      "options": [
+        "Amortised straight-line over 10 years",
+        "Not amortised; tested for impairment at least annually",
+        "Amortised over its useful life, plus an annual impairment test"
+      ],
+      "answer": 1,
+      "explanation": "Both frameworks forbid amortising goodwill for these companies and require impairment testing at least annually. Impairment losses on goodwill are never reversed. The trap is borrowing the amortisation idea from other intangibles.",
+      "remember": "Goodwill: never amortised; tested at least yearly; impairment never reversed."
+    },
+    {
+      "id": "fsa-011",
+      "topic": "fsa",
+      "reading": "fsa-3",
+      "los": "fsa-3-d",
+      "kind": "concept",
+      "stem": "A firm has a current ratio of 1.5 and uses cash to pay down accounts payable. What happens to the current ratio?",
+      "options": [
+        "It falls, because cash is the most liquid asset",
+        "It is unchanged, since both sides fall by the same amount",
+        "It rises, because current assets and current liabilities fall by the same amount from a ratio above 1"
+      ],
+      "answer": 2,
+      "explanation": "With 150 over 100, paying 50 gives 100 over 50, or 2.0. Equal reductions raise a ratio above 1. The trap is assuming equal changes leave the ratio unchanged."
+    },
+    {
+      "id": "fsa-012",
+      "topic": "fsa",
+      "reading": "fsa-4",
+      "los": "fsa-4-a",
+      "kind": "memorise",
+      "stem": "Which statement about interest paid is correct for the cash flow statement?",
+      "options": [
+        "US GAAP: operating only; IFRS: operating or financing",
+        "US GAAP: operating or financing; IFRS: operating only",
+        "Both frameworks: financing only"
+      ],
+      "answer": 0,
+      "explanation": "US GAAP requires interest paid in operating activities, while IFRS lets firms choose operating or financing. The trap is reversing the two frameworks.",
+      "remember": "US GAAP: interest paid in CFO, dividends paid in CFF. IFRS allows choice for both."
+    },
+    {
+      "id": "fsa-013",
+      "topic": "fsa",
+      "reading": "fsa-4",
+      "los": "fsa-4-c",
+      "kind": "calc",
+      "stem": "Net income is 200, depreciation 50, gain on sale of equipment 10, increase in receivables 30, increase in payables 10. What is CFO using the indirect method?",
+      "options": [
+        "240",
+        "260",
+        "220"
+      ],
+      "answer": 2,
+      "explanation": "200 + 50 − 10 − 30 + 10 = 220. Gains are subtracted, a receivables rise uses cash, and a payables rise supplies cash. The trap is adding the gain (240) or reversing the working capital signs (260)."
+    },
+    {
+      "id": "fsa-014",
+      "topic": "fsa",
+      "reading": "fsa-4",
+      "los": "fsa-4-d",
+      "kind": "calc",
+      "stem": "COGS is 800. Inventory rose from 150 to 200, and accounts payable fell from 100 to 70. How much cash was paid to suppliers?",
+      "options": [
+        "850",
+        "880",
+        "820"
+      ],
+      "answer": 1,
+      "explanation": "Purchases = COGS + increase in inventory = 850. Payables fell by 30, so cash paid = 850 + 30 = 880. The trap is ignoring the payables change (850) or subtracting it (820)."
+    },
+    {
+      "id": "fsa-015",
+      "topic": "fsa",
+      "reading": "fsa-4",
+      "los": "fsa-4-c",
+      "kind": "concept",
+      "stem": "A company sells equipment and records a 30 gain. How is this handled in the indirect cash flow statement?",
+      "options": [
+        "The gain is subtracted from net income in CFO, and the full sale proceeds appear in investing",
+        "The gain is added back in CFO, and the proceeds appear in investing",
+        "The gain stays in CFO, and only the gain amount appears in investing"
+      ],
+      "answer": 0,
+      "explanation": "The gain is a non-operating item whose cash is in the proceeds, so it is removed from CFO to avoid counting it twice. The trap is leaving it in CFO as well as in investing."
+    },
+    {
+      "id": "fsa-016",
+      "topic": "fsa",
+      "reading": "fsa-5",
+      "los": "fsa-5-c",
+      "kind": "calc",
+      "stem": "Under US GAAP, CFO is 500 including interest paid of 40, the tax rate is 25% and capex is 200. What is free cash flow to the firm?",
+      "options": [
+        "340",
+        "330",
+        "300"
+      ],
+      "answer": 1,
+      "explanation": "FCFF = CFO + interest × (1 − t) − capex = 500 + 30 − 200. The trap is adding interest before tax (340) or leaving it out (300)."
+    },
+    {
+      "id": "fsa-017",
+      "topic": "fsa",
+      "reading": "fsa-5",
+      "los": "fsa-5-a",
+      "kind": "exam",
+      "stem": "Quartz Retail reports operating cash flow of −80, investing cash flow of +60 from selling a warehouse, and financing cash flow of +100 from new loans. Cash rose by 80. What does this pattern suggest?",
+      "options": [
+        "Healthy: cash increased, so operations are sound",
+        "Strong growth: investing inflows show the firm is expanding",
+        "The business is not generating cash; liquidity is being funded by asset sales and borrowing, which cannot last"
+      ],
+      "answer": 2,
+      "explanation": "Negative operating cash flow means the core business consumed cash, and the rise came from selling assets and borrowing. The trap is judging only by the change in cash."
+    },
+    {
+      "id": "fsa-018",
+      "topic": "fsa",
+      "reading": "fsa-5",
+      "los": "fsa-5-d",
+      "kind": "concept",
+      "stem": "Which pairing of ratio and meaning is correct?",
+      "options": [
+        "CFO ÷ net income: how much of reported earnings is backed by operating cash",
+        "CFO ÷ total debt: the firm's profitability on its assets",
+        "CFO ÷ capital expenditures: the share of earnings paid out as dividends"
+      ],
+      "answer": 0,
+      "explanation": "CFO ÷ net income tests cash backing for earnings, CFO ÷ total debt tests debt coverage, and CFO ÷ capex tests self-funding of investment. The trap is mismatching names and meanings."
+    },
+    {
+      "id": "fsa-019",
+      "topic": "fsa",
+      "reading": "fsa-6",
+      "los": "fsa-6-a",
+      "kind": "calc",
+      "stem": "A firm buys 100 units at 10, then 100 units at 14, and sells 100 units. FIFO COGS is 1,000. What is COGS under weighted average?",
+      "options": [
+        "1,000, the same as FIFO",
+        "1,200, higher than FIFO",
+        "1,400, higher than FIFO"
+      ],
+      "answer": 1,
+      "explanation": "Average unit cost is (1,000 + 1,400) ÷ 200 = 12, so COGS is 1,200. With rising prices FIFO gives the lowest COGS. The trap is mistaking 1,400, which is the LIFO figure."
+    },
+    {
+      "id": "fsa-020",
+      "topic": "fsa",
+      "reading": "fsa-6",
+      "los": "fsa-6-b",
+      "kind": "calc",
+      "stem": "A LIFO company reports inventory of 500 and COGS of 2,000. Its LIFO reserve rose from 100 to 120. What are FIFO inventory and FIFO COGS?",
+      "options": [
+        "620 and 2,020",
+        "380 and 1,980",
+        "620 and 1,980"
+      ],
+      "answer": 2,
+      "explanation": "FIFO inventory = 500 + 120 reserve. FIFO COGS = LIFO COGS − increase in reserve = 2,000 − 20. The trap is subtracting the reserve from inventory or adding the change to COGS."
+    },
+    {
+      "id": "fsa-021",
+      "topic": "fsa",
+      "reading": "fsa-6",
+      "los": "fsa-6-a",
+      "kind": "memorise",
+      "stem": "Which inventory cost method is NOT permitted under IFRS?",
+      "options": [
+        "LIFO",
+        "FIFO",
+        "Weighted average cost"
+      ],
+      "answer": 0,
+      "explanation": "IFRS permits FIFO, weighted average and specific identification but bans LIFO. US GAAP permits LIFO. The trap is thinking IFRS restricts weighted average.",
+      "remember": "IFRS bans LIFO; US GAAP allows FIFO, LIFO and weighted average."
+    },
+    {
+      "id": "fsa-022",
+      "topic": "fsa",
+      "reading": "fsa-6",
+      "los": "fsa-6-c",
+      "kind": "exam",
+      "stem": "Under IFRS, Marlin Co wrote inventory down by 40 last year because net realisable value fell below cost. This year NRV has recovered above the original cost. What should Marlin do?",
+      "options": [
+        "Keep the written-down value, since reversals are prohibited",
+        "Reverse the write-down, but only up to original cost, recognising the gain in profit",
+        "Write the inventory up to the recovered NRV even above original cost"
+      ],
+      "answer": 1,
+      "explanation": "IFRS allows reversal limited to original cost, while US GAAP prohibits reversal after a write-down. The trap is applying the US GAAP ban to an IFRS company."
+    },
+    {
+      "id": "fsa-023",
+      "topic": "fsa",
+      "reading": "fsa-7",
+      "los": "fsa-7-c",
+      "kind": "memorise",
+      "stem": "Which statement about revaluing property, plant and equipment to fair value is correct?",
+      "options": [
+        "US GAAP permits it; IFRS requires cost only",
+        "Both frameworks require annual revaluation",
+        "IFRS permits the revaluation model; US GAAP does not"
+      ],
+      "answer": 2,
+      "explanation": "IFRS allows revaluation above cost, with the surplus going to OCI, while US GAAP keeps assets at cost less depreciation. The trap is swapping the frameworks.",
+      "remember": "Revaluation above cost: IFRS allows (surplus to OCI); US GAAP does not."
+    },
+    {
+      "id": "fsa-024",
+      "topic": "fsa",
+      "reading": "fsa-7",
+      "los": "fsa-7-b",
+      "kind": "memorise",
+      "stem": "A firm incurs development costs for a new product. Under IFRS, what is the treatment?",
+      "options": [
+        "Capitalise once the technical and commercial criteria are met; research is expensed",
+        "Expense all of it as incurred",
+        "Capitalise all research and development costs"
+      ],
+      "answer": 0,
+      "explanation": "IFRS expenses research but capitalises development once criteria such as feasibility and intent are met. US GAAP generally expenses R&D. The trap is applying the US GAAP rule to IFRS.",
+      "remember": "IFRS capitalises development once feasible; US GAAP expenses R&D (software excepted)."
+    },
+    {
+      "id": "fsa-025",
+      "topic": "fsa",
+      "reading": "fsa-7",
+      "los": "fsa-7-a",
+      "kind": "concept",
+      "stem": "A firm capitalises a 100 cost that it could have expensed. Compared with expensing, what is the effect in the first year?",
+      "options": [
+        "Lower net income and lower CFO",
+        "Higher net income and assets, with higher CFO and lower investing cash flow",
+        "Higher net income but identical cash flows in every section"
+      ],
+      "answer": 1,
+      "explanation": "Capitalising defers the expense, so early profit and assets rise, and the outflow moves into investing, which lifts CFO. The trap is thinking only the income statement is affected."
+    },
+    {
+      "id": "fsa-026",
+      "topic": "fsa",
+      "reading": "fsa-8",
+      "los": "fsa-8-b",
+      "kind": "memorise",
+      "stem": "How does a lessee report an operating lease under US GAAP (ASC 842)?",
+      "options": [
+        "Right-of-use asset and liability on the balance sheet, with a single straight-line lease expense",
+        "Off balance sheet, with rent expense only",
+        "Right-of-use asset on the balance sheet, with depreciation and interest shown separately"
+      ],
+      "answer": 0,
+      "explanation": "US GAAP puts operating leases on the balance sheet with one straight-line expense; finance leases show depreciation plus interest. The trap is believing operating leases stay off balance sheet.",
+      "remember": "IFRS: all leases = depreciation + interest. US GAAP: operating leases = single straight-line expense."
+    },
+    {
+      "id": "fsa-027",
+      "topic": "fsa",
+      "reading": "fsa-8",
+      "los": "fsa-8-c",
+      "kind": "exam",
+      "stem": "Aspen offers a defined benefit pension plan and Birch a defined contribution plan. Plan assets at both earn far less than expected. What is the likely effect?",
+      "options": [
+        "Both firms face higher pension expense, since employers always bear investment risk",
+        "Birch must top up the shortfall, while Aspen's employees bear the loss",
+        "Aspen must cover the shortfall through higher obligations and costs; Birch's expense is limited to its contributions"
+      ],
+      "answer": 2,
+      "explanation": "In a defined benefit plan the employer bears investment risk, but in a defined contribution plan the employees do. The trap is thinking employers carry risk under both."
+    },
+    {
+      "id": "fsa-028",
+      "topic": "fsa",
+      "reading": "fsa-8",
+      "los": "fsa-8-a",
+      "kind": "concept",
+      "stem": "A company issues bonds at a discount and uses the effective interest method. Over time, what happens to carrying value and interest expense?",
+      "options": [
+        "Carrying value falls and interest expense falls",
+        "Carrying value rises toward face value, and interest expense rises, staying above the coupon",
+        "Carrying value rises but interest expense stays equal to the coupon"
+      ],
+      "answer": 1,
+      "explanation": "The discount amortises, so carrying value climbs to face value. Expense is the market rate times opening carrying value, so it rises and exceeds the cash coupon. The trap is treating expense as the coupon."
+    },
+    {
+      "id": "fsa-029",
+      "topic": "fsa",
+      "reading": "fsa-9",
+      "los": "fsa-9-b",
+      "kind": "calc",
+      "stem": "The tax rate is 30% and taxable income is 1,000, so tax payable is 300. A deferred tax liability grows by 60 and there are no other deferred items. What is income tax expense?",
+      "options": [
+        "300",
+        "240",
+        "360"
+      ],
+      "answer": 2,
+      "explanation": "Tax expense = tax payable + increase in DTL = 300 + 60. The trap is subtracting the DTL increase (240) or ignoring it (300)."
+    },
+    {
+      "id": "fsa-030",
+      "topic": "fsa",
+      "reading": "fsa-9",
+      "los": "fsa-9-c",
+      "kind": "calc",
+      "stem": "A firm has a DTL of 200 at a 40% tax rate. New law cuts the rate to 30%. What happens?",
+      "options": [
+        "The DTL falls to 150 and income tax expense falls by 50",
+        "The DTL falls to 150 and income tax expense rises by 50",
+        "The DTL stays at 200, since it reflects past rates"
+      ],
+      "answer": 0,
+      "explanation": "The temporary difference is 200 ÷ 0.40 = 500, so the DTL becomes 500 × 0.30 = 150. The 50 reduction lowers tax expense. The trap is keeping the old rate or reversing the sign."
+    },
+    {
+      "id": "fsa-031",
+      "topic": "fsa",
+      "reading": "fsa-9",
+      "los": "fsa-9-a",
+      "kind": "concept",
+      "stem": "A company uses straight-line depreciation for reporting and accelerated depreciation for tax. In the early years, what arises?",
+      "options": [
+        "Taxable income is above accounting profit, creating a deferred tax asset",
+        "Taxable income is below accounting profit, creating a deferred tax liability",
+        "No temporary difference, because total depreciation is the same"
+      ],
+      "answer": 1,
+      "explanation": "Faster tax depreciation lowers taxable income now, deferring tax into a liability that reverses later. The trap is that equal total depreciation still leaves a timing difference."
+    },
+    {
+      "id": "fsa-032",
+      "topic": "fsa",
+      "reading": "fsa-9",
+      "los": "fsa-9-d",
+      "kind": "exam",
+      "stem": "Cobalt Industries has a deferred tax asset of 80 from tax losses. After three loss-making years, management believes it is more likely than not that 30 of the benefit will never be used. Under US GAAP, what should it do?",
+      "options": [
+        "Write off the entire 80",
+        "Leave the DTA unchanged, since the losses can legally be carried forward",
+        "Record a valuation allowance of 30 against the DTA, which reduces net income"
+      ],
+      "answer": 2,
+      "explanation": "US GAAP keeps the DTA and reduces it with a valuation allowance for the portion more likely than not to go unused. The charge hits earnings. The trap is writing off all of it or none."
+    },
+    {
+      "id": "fsa-033",
+      "topic": "fsa",
+      "reading": "fsa-10",
+      "los": "fsa-10-c",
+      "kind": "memorise",
+      "stem": "Which three elements make up the fraud triangle?",
+      "options": [
+        "Pressure, opportunity and rationalisation",
+        "Opportunity, motive and concealment",
+        "Pressure, rationalisation and audit failure"
+      ],
+      "answer": 0,
+      "explanation": "Fraud typically needs a motive or pressure, an opportunity such as weak controls, and a way to rationalise it. The trap is swapping in concealment or audit failure.",
+      "remember": "Fraud triangle: pressure, opportunity, rationalisation."
+    },
+    {
+      "id": "fsa-034",
+      "topic": "fsa",
+      "reading": "fsa-10",
+      "los": "fsa-10-d",
+      "kind": "exam",
+      "stem": "Brightline Co's revenue grew 8%, but receivables grew 35%, and operating cash flow has been well below net income for three years. Inventory days also rose sharply. What should an analyst conclude?",
+      "options": [
+        "Strong sales momentum, since higher receivables show customers trust the firm",
+        "These are warning signs of aggressive revenue recognition and weak earnings quality, needing investigation",
+        "Conservative accounting, because reported profit exceeds the cash earned"
+      ],
+      "answer": 1,
+      "explanation": "Receivables outpacing sales and cash lagging profit often signal aggressive accruals. The trap is calling it conservative; conservative accounting would show cash at or above earnings."
+    },
+    {
+      "id": "fsa-035",
+      "topic": "fsa",
+      "reading": "fsa-11",
+      "los": "fsa-11-b",
+      "kind": "calc",
+      "stem": "A firm has net margin of 5%, asset turnover of 2.0 and financial leverage (assets ÷ equity) of 2.5. What is ROE?",
+      "options": [
+        "12.5%",
+        "10%",
+        "25%"
+      ],
+      "answer": 2,
+      "explanation": "ROE = net margin × asset turnover × leverage = 5% × 2.0 × 2.5 = 25%. The trap is dropping a factor: margin × turnover is 10%, margin × leverage is 12.5%."
+    },
+    {
+      "id": "fsa-036",
+      "topic": "fsa",
+      "reading": "fsa-11",
+      "los": "fsa-11-b",
+      "kind": "exam",
+      "stem": "Ridge Co's ROE rose from 12% to 18%. Net margin and asset turnover were unchanged, but the firm borrowed to fund a large buyback. How should an analyst view the improvement?",
+      "options": [
+        "It comes from higher leverage, which adds financial risk, not from better operations",
+        "It reflects better profitability and efficiency",
+        "It reflects a lower tax burden"
+      ],
+      "answer": 0,
+      "explanation": "In the DuPont breakdown, margin and turnover did not move, so only leverage can explain the higher ROE. The trap is reading a higher ROE as better operations."
+    },
+    {
+      "id": "fsa-037",
+      "topic": "fsa",
+      "reading": "fsa-11",
+      "los": "fsa-11-a",
+      "kind": "concept",
+      "stem": "A firm's receivables turnover falls from 10 to 8 times a year. What happens to days sales outstanding, and what might it mean?",
+      "options": [
+        "DSO falls, meaning customers pay faster",
+        "DSO is unchanged, since turnover and DSO measure different things",
+        "DSO rises from about 37 to 46 days; collections may be slowing or credit has loosened"
+      ],
+      "answer": 2,
+      "explanation": "DSO = 365 ÷ turnover, so it rises from 36.5 to about 46 days. Lower turnover means slower collection. The trap is reading a fall in turnover as a faster cycle."
+    },
+    {
+      "id": "fsa-038",
+      "topic": "fsa",
+      "reading": "fsa-11",
+      "los": "fsa-11-e",
+      "kind": "concept",
+      "stem": "Which is a genuine limitation of ratio analysis?",
+      "options": [
+        "Ratios cannot be calculated from audited statements",
+        "Different accounting policies or business mixes can make ratios across firms not comparable",
+        "Ratios are valid only for firms that report under IFRS"
+      ],
+      "answer": 1,
+      "explanation": "Ratios inherit the accounting choices behind them, and diversified firms blend different businesses. The trap is that ratios work on audited data and under either framework."
+    },
+    {
+      "id": "fsa-039",
+      "topic": "fsa",
+      "reading": "fsa-12",
+      "los": "fsa-12-a",
+      "kind": "concept",
+      "stem": "Which describes a bottom-up revenue forecast?",
+      "options": [
+        "Building up from the firm's own drivers, such as units, prices and stores, then summing",
+        "Starting from industry sales and applying an expected market share",
+        "Blending macro growth with segment-level detail"
+      ],
+      "answer": 0,
+      "explanation": "Bottom-up forecasting builds from the firm's own volume and price drivers. Starting from the market is top-down, and blending the two is hybrid. The trap is mixing up the labels."
+    },
+    {
+      "id": "fsa-040",
+      "topic": "fsa",
+      "reading": "fsa-12",
+      "los": "fsa-12-d",
+      "kind": "concept",
+      "stem": "An analyst dismisses data showing slowing demand and highlights only data that supports her existing buy thesis. Which bias is this?",
+      "options": [
+        "Anchoring",
+        "Confirmation bias",
+        "Availability bias"
+      ],
+      "answer": 1,
+      "explanation": "Confirmation bias is favouring evidence that supports an existing view and discounting contrary data. Anchoring is sticking to an initial number. The trap is calling selective evidence anchoring."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "fsa-1",
+      "ideas": [
+        "The income statement, balance sheet and cash flow statement link: net income feeds retained earnings and cash ties out.",
+        "Auditor opinions run from unqualified (clean) to qualified, adverse and disclaimer; notes and MD&A add context.",
+        "Analysis follows a framework: purpose and context, collect, process, interpret, conclude, follow up."
+      ],
+      "trap": "Do not start with ratios: purpose and context come first, and a clean audit opinion does not guarantee accuracy."
+    },
+    {
+      "reading": "fsa-2",
+      "ideas": [
+        "Revenue follows five steps and is recognised when each performance obligation is satisfied, not when cash arrives.",
+        "Costs with future benefit are capitalised and depreciated; others are expensed, which shifts profit between periods.",
+        "Basic EPS uses weighted shares; diluted EPS adds dilutive securities, with the treasury stock method for options."
+      ],
+      "trap": "Do not count discontinued operations as recurring earnings, and do not add all option shares in diluted EPS.",
+      "formula": "Net new shares from options = options − (options × strike ÷ average price)"
+    },
+    {
+      "reading": "fsa-3",
+      "ideas": [
+        "Goodwill and indefinite-life intangibles are not amortised; they are tested for impairment at least annually.",
+        "Financial assets are measured at amortised cost, FVOCI or FVPL, depending on business model and cash flow features.",
+        "Liquidity ratios use current items; solvency ratios such as debt-to-equity show leverage and long-run risk."
+      ],
+      "trap": "Do not amortise goodwill, and remember that paying a current liability with cash lifts a current ratio above 1.",
+      "formula": "Current ratio = current assets ÷ current liabilities"
+    },
+    {
+      "reading": "fsa-4",
+      "ideas": [
+        "Cash flows are operating, investing or financing; IFRS lets firms choose where interest and dividends sit.",
+        "The indirect method starts at net income, adds back non-cash items and adjusts for working capital changes.",
+        "Cash paid or received for an item comes from its income statement figure and the change in the related balance."
+      ],
+      "trap": "Gains on asset sales are subtracted from CFO with the cash going to investing, and US GAAP puts interest paid in operating.",
+      "formula": "CFO = NI + non-cash charges − gains − increase in net working capital"
+    },
+    {
+      "reading": "fsa-5",
+      "ideas": [
+        "Read the three sections together: healthy firms fund investment and dividends from operating cash flow.",
+        "FCFF is cash available to all capital providers; FCFE is cash available to equity holders after debt flows.",
+        "Performance ratios such as CFO ÷ net income test how well profits are backed by cash."
+      ],
+      "trap": "Add back interest after tax, not before, when moving from CFO to FCFF.",
+      "formula": "FCFF = CFO + interest × (1 − t) − capex; FCFE = CFO − capex + net borrowing"
+    },
+    {
+      "reading": "fsa-6",
+      "ideas": [
+        "In rising prices FIFO gives lower COGS and higher profit than LIFO or weighted average.",
+        "To restate LIFO as FIFO, add the LIFO reserve to inventory and subtract the change in reserve from COGS.",
+        "IFRS bans LIFO and allows reversal of write-downs; US GAAP permits LIFO and bans reversals."
+      ],
+      "trap": "Do not apply IFRS reversal rules to US GAAP inventory, and do not forget that IFRS does not allow LIFO.",
+      "formula": "FIFO inventory = LIFO inventory + reserve; FIFO COGS = LIFO COGS − change in reserve"
+    },
+    {
+      "reading": "fsa-7",
+      "ideas": [
+        "Capitalising a cost raises assets and early profit and moves the cash outflow to investing, lifting CFO.",
+        "IFRS allows revaluation and reversal of impairments (not goodwill); US GAAP generally allows neither.",
+        "Average age and remaining life come from accumulated depreciation, depreciation expense and gross cost."
+      ],
+      "trap": "IFRS capitalises development costs after feasibility, while US GAAP expenses most R&D; both expense research.",
+      "formula": "Average age = accumulated depreciation ÷ depreciation expense"
+    },
+    {
+      "reading": "fsa-8",
+      "ideas": [
+        "Bond interest expense is the market rate times opening carrying value, and a discount amortises up to face value.",
+        "Lessees put most leases on the balance sheet; US GAAP keeps one straight-line expense for operating leases.",
+        "Defined benefit plans leave investment risk with the employer; defined contribution plans move it to employees."
+      ],
+      "trap": "Interest expense is not the coupon: with a discount it exceeds the cash coupon and grows each year.",
+      "formula": "Interest expense = market yield at issue × opening carrying value"
+    },
+    {
+      "reading": "fsa-9",
+      "ideas": [
+        "Tax expense on the income statement can differ from tax payable because of temporary differences.",
+        "A DTL arises when taxable income is below accounting profit, for example from accelerated tax depreciation.",
+        "A tax rate cut shrinks DTLs and DTAs, and a valuation allowance trims a DTA that may not be realised."
+      ],
+      "trap": "A lower tax rate reduces a DTL and lowers tax expense, but it shrinks a DTA and raises expense; do not mix the two.",
+      "formula": "Tax expense = tax payable + increase in DTL − increase in DTA"
+    },
+    {
+      "reading": "fsa-10",
+      "ideas": [
+        "Reporting quality is about faithful, complete disclosure; earnings quality is about sustainable, repeatable profit.",
+        "The fraud triangle has three sides: pressure, opportunity and rationalisation.",
+        "Warning signs include receivables outpacing sales, cash flow lagging profit and inventory piling up."
+      ],
+      "trap": "Do not call cash flow well below net income conservative; it often signals aggressive accruals."
+    },
+    {
+      "reading": "fsa-11",
+      "ideas": [
+        "Activity, liquidity, solvency and profitability ratios each answer a different question about the firm.",
+        "The DuPont breakdown splits ROE into margin, asset turnover and leverage to show what drives returns.",
+        "Ratios have limits: accounting choices, business mix and one-off items hamper comparisons."
+      ],
+      "trap": "A rising ROE driven by leverage is not better operations; check which DuPont driver actually moved.",
+      "formula": "ROE = net margin × asset turnover × financial leverage (assets ÷ equity)"
+    },
+    {
+      "reading": "fsa-12",
+      "ideas": [
+        "Top-down forecasts start from the market and share; bottom-up builds from the firm's own units and prices.",
+        "Cost forecasts use margins and efficiency ratios, and inflation and input prices flow into costs and revenue.",
+        "Biases such as overconfidence, anchoring and confirmation bias distort forecasts; model disruption explicitly."
+      ],
+      "trap": "Do not label selective use of supportive evidence as anchoring; that is confirmation bias."
+    }
+  ]
+}

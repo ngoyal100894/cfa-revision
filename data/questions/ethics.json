@@ -1,0 +1,817 @@
+{
+  "topic": "ethics",
+  "questions": [
+    {
+      "id": "ethics-001",
+      "topic": "ethics",
+      "reading": "ethics-1",
+      "los": "ethics-1-b",
+      "kind": "concept",
+      "stem": "A trader finds a practice that breaks no law and no firm rule but misleads clients about risk. How should an ethical professional see it?",
+      "options": [
+        "If no law is broken, the practice is ethical by definition",
+        "Legality is only the minimum; the practice can still be unethical and should be avoided",
+        "It is acceptable as long as the compliance team has not objected"
+      ],
+      "answer": 1,
+      "explanation": "Laws set a floor, not the full standard of ethical conduct. Misleading clients is wrong even where no rule bans it. The trap is equating legal with ethical."
+    },
+    {
+      "id": "ethics-002",
+      "topic": "ethics",
+      "reading": "ethics-1",
+      "los": "ethics-1-a",
+      "kind": "concept",
+      "stem": "Why is trust especially important in the investment profession?",
+      "options": [
+        "Regulators require every client to sign a trust agreement with each adviser",
+        "Trustworthy advisers are able to guarantee their clients' returns",
+        "Clients hand over money and rely on advice they cannot easily judge, so they depend on the adviser's integrity"
+      ],
+      "answer": 2,
+      "explanation": "Clients struggle to verify advice quality, so reliance rests on honesty and competence. Trust keeps people willing to invest at all. The trap is thinking trust implies guaranteed returns."
+    },
+    {
+      "id": "ethics-003",
+      "topic": "ethics",
+      "reading": "ethics-1",
+      "los": "ethics-1-c",
+      "kind": "concept",
+      "stem": "Which is the best example of a situational influence that can push a well-meaning analyst toward unethical behaviour?",
+      "options": [
+        "A bonus tied to short-term results and a boss who pressures the team to hit targets",
+        "Years of experience applying the Code and Standards",
+        "A written firm policy requiring pre-clearance of personal trades"
+      ],
+      "answer": 0,
+      "explanation": "Situational influences are outside pressures such as pay structures and pressure from superiors or peers. Training and policies are safeguards. The trap is blaming only the person's character."
+    },
+    {
+      "id": "ethics-004",
+      "topic": "ethics",
+      "reading": "ethics-1",
+      "los": "ethics-1-d",
+      "kind": "concept",
+      "stem": "Which approach best matches a sound ethical decision-making process?",
+      "options": [
+        "Choose the cheapest action for the firm, then check later whether a rule was broken",
+        "Identify the issue and who is affected, weigh pressures and alternatives, act, then reflect on the outcome",
+        "Follow what most colleagues do, since the firm's norm defines what is acceptable"
+      ],
+      "answer": 1,
+      "explanation": "A framework starts by spotting the ethical issue and stakeholders, weighs alternatives, then acts and reviews. Cost and peer behaviour are not ethical tests. The trap is using the group norm as the standard."
+    },
+    {
+      "id": "ethics-005",
+      "topic": "ethics",
+      "reading": "ethics-2",
+      "los": "ethics-2-a",
+      "kind": "memorise",
+      "stem": "In the Code of Ethics, whose interests must a member place ahead of their own?",
+      "options": [
+        "Only the interests of the member's employer and its shareholders",
+        "Clients' interests, but only where a written client agreement requires it",
+        "Clients' interests and the integrity of the investment profession"
+      ],
+      "answer": 2,
+      "explanation": "The Code puts the profession's integrity and clients' interests above personal interests. The trap is ranking the employer first; employer loyalty is limited by duties to clients.",
+      "remember": "Code: the profession's integrity and clients' interests come before your own."
+    },
+    {
+      "id": "ethics-006",
+      "topic": "ethics",
+      "reading": "ethics-2",
+      "los": "ethics-2-b",
+      "kind": "memorise",
+      "stem": "Which Standard of Professional Conduct is titled Conflicts of Interest?",
+      "options": [
+        "Standard VI",
+        "Standard IV",
+        "Standard III"
+      ],
+      "answer": 0,
+      "explanation": "Standard VI covers disclosure of conflicts, priority of transactions and referral fees. IV is duties to employers and III is duties to clients. The trap is mixing up neighbouring numbers.",
+      "remember": "I Professionalism, II Markets, III Clients, IV Employers, V Analysis, VI Conflicts, VII CFA conduct."
+    },
+    {
+      "id": "ethics-007",
+      "topic": "ethics",
+      "reading": "ethics-2",
+      "los": "ethics-2-c",
+      "kind": "memorise",
+      "stem": "Which of these is NOT a sanction CFA Institute can impose after a Professional Conduct Program review?",
+      "options": [
+        "Public censure",
+        "A monetary fine",
+        "Suspension of membership"
+      ],
+      "answer": 1,
+      "explanation": "Sanctions include private or public censure, suspension of membership or candidacy, and revocation of the charter. Fines are not on the list. The trap is assuming the program works like a regulator that fines.",
+      "remember": "Sanctions: private censure, public censure, suspension, charter revocation. No fines."
+    },
+    {
+      "id": "ethics-008",
+      "topic": "ethics",
+      "reading": "ethics-2",
+      "los": "ethics-2-c",
+      "kind": "concept",
+      "stem": "Priya, a charterholder, has been charged with a criminal offence involving tax. Her annual Professional Conduct Statement is due. What must she do?",
+      "options": [
+        "Wait for a conviction before disclosing anything",
+        "Leave it off, because tax matters are unrelated to client work",
+        "Disclose the charge on the statement, as such legal matters must be reported to CFA Institute"
+      ],
+      "answer": 2,
+      "explanation": "The statement asks members to disclose legal and regulatory matters such as criminal charges, and self-disclosure is a main way the program learns of issues. The trap is waiting for a conviction or judging relevance yourself."
+    },
+    {
+      "id": "ethics-009",
+      "topic": "ethics",
+      "reading": "ethics-2",
+      "los": "ethics-2-d",
+      "kind": "concept",
+      "stem": "Dev, a Level II candidate, says the Standards bind only charterholders and he will follow them once he qualifies. Is he right?",
+      "options": [
+        "No. The Code and Standards apply to CFA members and to candidates in the CFA Program",
+        "Yes. Candidates are bound only by exam-day rules",
+        "Partly. Candidates must follow Standard VII and nothing else"
+      ],
+      "answer": 0,
+      "explanation": "The Code and Standards cover members and candidates, and candidates can be sanctioned. The trap is assuming Standard VII is the only one that reaches candidates."
+    },
+    {
+      "id": "ethics-010",
+      "topic": "ethics",
+      "reading": "ethics-2",
+      "los": "ethics-2-b",
+      "kind": "concept",
+      "stem": "An analyst publishes a target price but keeps no notes, models or sources behind it. Under which Standard is this most directly a problem?",
+      "options": [
+        "Standard II, which governs market manipulation",
+        "Standard V, which requires a reasonable basis and records supporting recommendations",
+        "Standard VI, which governs priority of transactions"
+      ],
+      "answer": 1,
+      "explanation": "Standard V(C) requires records that support the analysis, and V(A) a reasonable basis. II and VI concern markets and conflicts. The trap is choosing a Standard by a keyword such as price."
+    },
+    {
+      "id": "ethics-011",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-a",
+      "kind": "concept",
+      "stem": "Mei works where local law on selective disclosure is looser than the Code and Standards. Which rule should she follow?",
+      "options": [
+        "Local law, because a member must obey the law where they work",
+        "Either one, since complying with local law satisfies the Standards",
+        "The Code and Standards, because the stricter rule governs"
+      ],
+      "answer": 2,
+      "explanation": "Standard I(A) says to follow the stricter of applicable law and the Code and Standards. The trap is treating local legality as sufficient."
+    },
+    {
+      "id": "ethics-012",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-b",
+      "kind": "concept",
+      "stem": "Ravi builds a view on a retailer by combining public filings, store channel checks and non-material remarks from managers at an investor day. Is this a problem?",
+      "options": [
+        "No. Combining public information with non-material nonpublic information is allowed",
+        "Yes. Any information not yet widely published is material nonpublic information",
+        "Yes. Conclusions drawn from private conversations must first be disclosed to clients"
+      ],
+      "answer": 0,
+      "explanation": "An analyst may piece together public and non-material nonpublic data into a conclusion. It becomes a problem only if a key piece is both material and nonpublic. The trap is treating every nonpublic scrap as MNPI."
+    },
+    {
+      "id": "ethics-013",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-c",
+      "kind": "concept",
+      "stem": "A firm offers a premium advisory tier with faster access to research and a basic tier with later access. It discloses this to all clients and offers both tiers to everyone. Under fair dealing, this is...",
+      "options": [
+        "A violation, because all clients must receive recommendations at exactly the same time",
+        "Acceptable, because different service levels are allowed when disclosed and open to all",
+        "A violation, unless premium clients are told only after trades are placed"
+      ],
+      "answer": 1,
+      "explanation": "Fair dealing means fair, not identical, treatment. Tiered service is fine when disclosed and available to all clients. The trap is equating fair with equal."
+    },
+    {
+      "id": "ethics-014",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-d",
+      "kind": "concept",
+      "stem": "Hana plans to leave her firm and start a competing practice. While still employed, what may she do?",
+      "options": [
+        "Prepare on her own time, such as arranging office space and a business plan, but not solicit clients",
+        "Contact current clients about moving, as long as she uses a personal phone",
+        "Copy the client list to use after leaving, since she built those relationships"
+      ],
+      "answer": 0,
+      "explanation": "Preparing to compete is allowed; soliciting clients or taking records while employed breaches loyalty under IV(A). The trap is believing a personal device or personal relationships release her from the duty."
+    },
+    {
+      "id": "ethics-015",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-e",
+      "kind": "concept",
+      "stem": "Which action respects the priority of transactions?",
+      "options": [
+        "Trading personally first, provided the client order later fills at a similar price",
+        "Buying for the member's account just before recommending the stock, then disclosing it afterwards",
+        "Placing client orders in a stock before trading the same stock in the member's own account"
+      ],
+      "answer": 2,
+      "explanation": "Clients come first, then the employer, then the member, so personal trades follow client trades. A similar price or later disclosure does not cure front-running. The trap is thinking disclosure fixes the order."
+    },
+    {
+      "id": "ethics-016",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-a",
+      "kind": "memorise",
+      "stem": "Standard I(D), Misconduct, covers which of these?",
+      "options": [
+        "Only dishonest acts committed during working hours for the employer",
+        "Dishonesty, fraud or deceit, even when unrelated to the member's work",
+        "Any private lawful behaviour a colleague finds embarrassing"
+      ],
+      "answer": 1,
+      "explanation": "Misconduct means dishonesty, fraud, deceit or acts reflecting badly on honesty, trustworthiness or competence, wherever they occur. It is not a general morality test. The trap is limiting it to on-the-job acts.",
+      "remember": "I(D): dishonesty, fraud or deceit counts even outside work; mere private embarrassment does not."
+    },
+    {
+      "id": "ethics-017",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-b",
+      "kind": "memorise",
+      "stem": "Under Standard II(A), information is \"material\" when it:",
+      "options": [
+        "Would likely affect a security's price, or a reasonable investor would want it before deciding",
+        "Comes from an inside source such as an officer or director",
+        "Has not yet been shared with the firm's compliance department"
+      ],
+      "answer": 0,
+      "explanation": "Materiality is about the impact on price or on a reasonable investor's decision, not who supplied it. Nonpublic is a separate test. The trap is merging inside source with material.",
+      "remember": "MNPI = would move the price or matter to a reasonable investor, and is not yet public."
+    },
+    {
+      "id": "ethics-018",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-c",
+      "kind": "memorise",
+      "stem": "Which situation lets a member disclose client information under Standard III(E)?",
+      "options": [
+        "The relationship with the client has ended",
+        "The information might help the firm win a new client",
+        "The information concerns illegal activity by the client"
+      ],
+      "answer": 2,
+      "explanation": "Confidentiality gives way when the client consents, the law requires disclosure, or the information involves illegal activity. It does not end with the relationship. The trap is thinking former clients lose protection.",
+      "remember": "Confidentiality gives way to: client consent, legal requirement, or client's illegal activity."
+    },
+    {
+      "id": "ethics-019",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-c",
+      "kind": "memorise",
+      "stem": "At the start of a client relationship, what must a member gather to meet Standard III(C), Suitability?",
+      "options": [
+        "Only the client's current holdings and recent returns",
+        "The client's objectives and constraints, including risk tolerance, return needs and time horizon",
+        "The client's views on which asset classes the firm currently favours"
+      ],
+      "answer": 1,
+      "explanation": "Suitability rests on knowing objectives and constraints and updating them regularly, ideally in an IPS. The trap is judging suitability from past returns or the firm's product shelf.",
+      "remember": "Suitability: learn objectives and constraints first, review regularly, judge in portfolio context."
+    },
+    {
+      "id": "ethics-020",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-d",
+      "kind": "memorise",
+      "stem": "For how long does CFA Institute recommend keeping records that support investment recommendations, unless local rules require longer?",
+      "options": [
+        "At least seven years",
+        "Three years",
+        "Until the client relationship ends"
+      ],
+      "answer": 0,
+      "explanation": "Standard V(C) recommends at least seven years unless law requires longer, and the records belong to the firm. The trap is thinking a departing analyst takes them along.",
+      "remember": "Records: keep at least 7 years; they belong to the firm, not the analyst."
+    },
+    {
+      "id": "ethics-021",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-d",
+      "kind": "memorise",
+      "stem": "Before taking a fee from a third party for work that could conflict with the employer's interests, a member needs:",
+      "options": [
+        "Verbal approval from a supervisor",
+        "Disclosure to the client only",
+        "Written consent from the employer"
+      ],
+      "answer": 2,
+      "explanation": "Standard IV(B) requires written consent from the employer, and any other parties involved, before accepting such extra compensation. The trap is relying on a verbal OK.",
+      "remember": "IV(B): extra pay for potentially conflicting work needs written consent from the employer."
+    },
+    {
+      "id": "ethics-022",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-e",
+      "kind": "memorise",
+      "stem": "A member agrees to pay a broker for client referrals. Who must be told, and when?",
+      "options": [
+        "Only the employer, after the first referral fee is paid",
+        "The employer, clients and prospects, before services are provided",
+        "Only prospective clients, in the first annual report"
+      ],
+      "answer": 1,
+      "explanation": "Standard VI(C) requires disclosure to the employer, clients and prospects before any service, so each can weigh the member's objectivity. The trap is disclosing late or to only one party.",
+      "remember": "Referral fees: disclose to employer, clients and prospects before the service."
+    },
+    {
+      "id": "ethics-023",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-e",
+      "kind": "memorise",
+      "stem": "Which statement about the CFA Program is acceptable for a candidate who passed Level I and is registered for Level II?",
+      "options": [
+        "\"I passed Level I of the CFA Program and am a Level II candidate\"",
+        "\"I hold the CFA Level I designation\"",
+        "\"I passed Level I first time, which shows I will be a top manager\""
+      ],
+      "answer": 0,
+      "explanation": "Standard VII(B) bars implying a designation or superior ability from the program. Passing a level or being a candidate may be stated factually. The trap is using CFA Level I as a title.",
+      "remember": "Say \"passed Level I of the CFA Program\". Never imply a designation or superior ability."
+    },
+    {
+      "id": "ethics-024",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-a",
+      "kind": "exam",
+      "stem": "Ankita, an analyst at Lotus Capital, puts a competitor's industry growth forecast and two charts from a published broker report into her client note without naming the source. The numbers are accurate. Has she violated the Standards?",
+      "options": [
+        "No. Accuracy of the figures is all the Standards require",
+        "No. Charts and forecasts are public, so no credit is needed",
+        "Yes. Using another firm's work without attribution is misrepresentation, even when accurate"
+      ],
+      "answer": 2,
+      "explanation": "Standard I(C) bars presenting others' work as your own, and accuracy does not cure missing attribution. The trap is believing public availability means free use."
+    },
+    {
+      "id": "ethics-025",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-b",
+      "kind": "exam",
+      "stem": "At a weekend dinner, Rahul, a portfolio manager, hears the CFO of a listed company say quarterly earnings will miss badly. It has not been announced. On Monday Rahul sells his clients' holdings in the stock. What is the best assessment?",
+      "options": [
+        "No violation, because selling protects clients and serves their interests",
+        "Violation: he acted on material nonpublic information instead of refraining and consulting compliance",
+        "No violation, because the CFO volunteered it, so it became public"
+      ],
+      "answer": 1,
+      "explanation": "Standard II(A) bars acting on MNPI, even for clients' benefit. He should refrain from trading and escalate. The trap is thinking client benefit justifies the trade."
+    },
+    {
+      "id": "ethics-026",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-c",
+      "kind": "exam",
+      "stem": "Lena, an adviser at Orchid Partners, downgrades a stock from buy to sell. She phones her three largest clients first and emails everyone else later that day, after some have traded. The firm has no disclosed tiered service. Best assessment?",
+      "options": [
+        "Violation: changes in recommendations must reach clients fairly, not first to favoured clients",
+        "No violation, since large clients are entitled to quicker service without disclosure",
+        "No violation, since email reaches everyone on the same day"
+      ],
+      "answer": 0,
+      "explanation": "Standard III(B) requires fair dissemination of recommendation changes. Calling favoured clients first disadvantages others when no tiering is disclosed. The trap is thinking same-day delivery is fair."
+    },
+    {
+      "id": "ethics-027",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-d",
+      "kind": "exam",
+      "stem": "Omar supervises six analysts at Cedar Asset Management. The firm has a compliance manual, but he never explains it and leaves monitoring to a junior colleague. An analyst later trades on a leaked tip. Best assessment of Omar?",
+      "options": [
+        "He is fine, because having a written manual satisfies the supervisor's duty",
+        "He is fine, because delegating the monitoring transfers the responsibility",
+        "He likely violated IV(C): a supervisor must take reasonable steps to prevent and detect violations"
+      ],
+      "answer": 2,
+      "explanation": "Supervisors need reasonable procedures that are communicated and monitored. A manual alone, or delegation, does not discharge the duty. The trap is believing delegation moves responsibility."
+    },
+    {
+      "id": "ethics-028",
+      "topic": "ethics",
+      "reading": "ethics-3",
+      "los": "ethics-3-e",
+      "kind": "exam",
+      "stem": "Tomas sat the Level I exam this morning. That evening he posts one exam question, from memory and with its answer choices, in a study forum. Which is the best assessment?",
+      "options": [
+        "No violation, because the exam is over and no longer confidential",
+        "Violation of Standard VII(A): disclosing exam content compromises the program's integrity",
+        "No violation, because he shared it only with fellow candidates"
+      ],
+      "answer": 1,
+      "explanation": "Standard VII(A) protects the integrity and validity of the exams, and exam content stays confidential after the sitting. The trap is thinking a limited audience or a finished exam lifts the duty."
+    },
+    {
+      "id": "ethics-029",
+      "topic": "ethics",
+      "reading": "ethics-4",
+      "los": "ethics-4-a",
+      "kind": "concept",
+      "stem": "What problem is GIPS mainly designed to address?",
+      "options": [
+        "Firms charging different fees for identical mandates",
+        "Weak control over which firms may sell securities to retail clients",
+        "Inconsistent, selective ways firms present performance, which make comparing firms unreliable"
+      ],
+      "answer": 2,
+      "explanation": "GIPS gives common, voluntary rules for calculating and presenting performance so prospects can compare firms fairly. It does not set fees or license firms. The trap is treating GIPS as a regulation."
+    },
+    {
+      "id": "ethics-030",
+      "topic": "ethics",
+      "reading": "ethics-4",
+      "los": "ethics-4-c",
+      "kind": "concept",
+      "stem": "Why must a firm include all its fee-paying discretionary portfolios of a strategy in a composite?",
+      "options": [
+        "To stop the firm from showing only its best-performing accounts",
+        "To make sure every client pays the same fee",
+        "To let the verifier avoid testing individual portfolios"
+      ],
+      "answer": 0,
+      "explanation": "Composites prevent cherry-picking: every actual, fee-paying, discretionary portfolio in the strategy is included, good or bad. The trap is thinking composites are about fees or verifier convenience."
+    },
+    {
+      "id": "ethics-031",
+      "topic": "ethics",
+      "reading": "ethics-4",
+      "los": "ethics-4-b",
+      "kind": "memorise",
+      "stem": "Who can claim compliance with GIPS?",
+      "options": [
+        "A single fund or composite that meets the requirements on its own",
+        "A firm as a whole that meets all the requirements",
+        "A firm that meets most requirements and discloses which it skips"
+      ],
+      "answer": 1,
+      "explanation": "Compliance is firm-wide and all-or-nothing; there is no partial compliance. The trap is claiming compliance for one strong composite.",
+      "remember": "GIPS compliance is firm-wide and all-or-nothing; no partial claims."
+    },
+    {
+      "id": "ethics-032",
+      "topic": "ethics",
+      "reading": "ethics-4",
+      "los": "ethics-4-d",
+      "kind": "memorise",
+      "stem": "Verification under GIPS is:",
+      "options": [
+        "Optional, done by an independent third party on a firm-wide basis",
+        "Required every year and done by the firm's compliance team",
+        "Optional, but carried out one composite at a time"
+      ],
+      "answer": 0,
+      "explanation": "Verification is voluntary and covers the firm as a whole, not single composites. The trap is thinking it is mandatory or composite-specific.",
+      "remember": "Verification: optional, independent third party, firm-wide."
+    },
+    {
+      "id": "ethics-033",
+      "topic": "ethics",
+      "reading": "ethics-4",
+      "los": "ethics-4-c",
+      "kind": "memorise",
+      "stem": "Which portfolio may a firm leave out of its GIPS composites?",
+      "options": [
+        "A fee-paying discretionary portfolio that lost money last year",
+        "A discretionary portfolio that was terminated during the year",
+        "A non-discretionary portfolio where the client restricts the manager's decisions"
+      ],
+      "answer": 2,
+      "explanation": "Only non-discretionary portfolios may be excluded. Poor performers and terminated accounts stay in until they leave, which avoids survivorship bias. The trap is dropping the losers.",
+      "remember": "Composite: all fee-paying discretionary portfolios in; non-discretionary out; terminated ones stay until exit."
+    },
+    {
+      "id": "ethics-034",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-c",
+      "kind": "concept",
+      "stem": "Sunil, an adviser, receives a small thank-you gift from a long-standing client after a strong year and tells his employer in writing. Is this acceptable?",
+      "options": [
+        "No. Any gift from a client breaches independence",
+        "Yes. Client gifts are acceptable when disclosed to the employer",
+        "Yes, and disclosure is unnecessary since the gift comes from a client"
+      ],
+      "answer": 1,
+      "explanation": "Client gifts are a grey area; disclosure lets the employer judge any conflict. The trap is thinking client gifts are either always banned or never need disclosure."
+    },
+    {
+      "id": "ethics-035",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-c",
+      "kind": "concept",
+      "stem": "Pavel's firm pays him a bonus linked to sales of a product that is suitable for his clients. He explains the arrangement to clients in plain terms. Acceptable?",
+      "options": [
+        "Yes. Disclosing the compensation link lets clients judge his objectivity",
+        "No. Any commission-linked pay violates the Standards",
+        "Yes. Telling his employer alone is enough"
+      ],
+      "answer": 0,
+      "explanation": "Standard VI(A) requires disclosure of compensation arrangements that could affect objectivity, and the clients need it. The trap is thinking such pay is banned or that employer disclosure alone is enough."
+    },
+    {
+      "id": "ethics-036",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-b",
+      "kind": "concept",
+      "stem": "A fund buys a large block of a thinly traded stock, expecting it to rise, and the price moves up as it buys. Is this market manipulation?",
+      "options": [
+        "Yes. Any trade that moves the price distorts the market",
+        "Yes. Thinly traded stocks may never be bought in size",
+        "No. A large trade that moves the price is not manipulation unless meant to mislead the market"
+      ],
+      "answer": 2,
+      "explanation": "Manipulation under II(B) needs intent to mislead or distort, such as false rumours or artificial volume. A genuine investment trade that moves a price is not that. The trap is judging by price impact alone."
+    },
+    {
+      "id": "ethics-037",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-a",
+      "kind": "concept",
+      "stem": "An analyst feeds a company into the firm's valuation model and publishes the output without understanding its assumptions or testing it against other data. Which Standard is most directly at stake?",
+      "options": [
+        "V(A), Diligence and Reasonable Basis",
+        "III(C), Suitability",
+        "II(B), Market Manipulation"
+      ],
+      "answer": 0,
+      "explanation": "V(A) requires thorough analysis and a reasonable basis, including understanding a model's limits. The problem lies in the process, not the client's profile or market conduct."
+    },
+    {
+      "id": "ethics-038",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-a",
+      "kind": "concept",
+      "stem": "A portfolio manager inflates the expense claims for a personal trip. No client is affected. Is Standard I(D) engaged?",
+      "options": [
+        "No. No client was harmed",
+        "Yes. Dishonesty or fraud is misconduct even when it does not involve clients",
+        "No. Expense claims are an employer matter, not an ethics matter"
+      ],
+      "answer": 1,
+      "explanation": "Standard I(D) covers dishonest acts that reflect on honesty and trustworthiness, whoever is affected. The trap is requiring client harm."
+    },
+    {
+      "id": "ethics-039",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-b",
+      "kind": "concept",
+      "stem": "Kiran learns that a colleague is backdating client records to hide errors. What should Kiran do?",
+      "options": [
+        "Stay silent, since it is the colleague's responsibility",
+        "Quietly correct the records himself and tell no one",
+        "Dissociate from the activity and escalate to a supervisor or compliance"
+      ],
+      "answer": 2,
+      "explanation": "Members must not knowingly take part in violations and should dissociate and escalate through proper channels. Silence or quiet fixes conceal the problem. The trap is staying passive or acting privately."
+    },
+    {
+      "id": "ethics-040",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-d",
+      "kind": "memorise",
+      "stem": "Which firm policy most directly stops material nonpublic information passing from an investment banking unit to the research unit?",
+      "options": [
+        "Annual ethics training only",
+        "An information barrier (firewall) backed by restricted and watch lists",
+        "A requirement that analysts sign the Code once at hiring"
+      ],
+      "answer": 1,
+      "explanation": "A firewall controls the flow of information, and lists restrict trading and research on affected firms. Training helps but does not block flow. The trap is choosing awareness over control.",
+      "remember": "MNPI control: firewall plus restricted list and watch list."
+    },
+    {
+      "id": "ethics-041",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-a",
+      "kind": "exam",
+      "stem": "Arjun, an adviser at Maple Wealth, sends clients a note praising a model's last three years of returns. It omits the model's risks and assumptions and the fact that it failed in two earlier downturns. Which Standard is most directly violated?",
+      "options": [
+        "V(B), Communication with Clients, because key factors and limitations were left out",
+        "III(C), Suitability, because the model may not fit every client",
+        "VI(A), because a conflict of interest was not disclosed"
+      ],
+      "answer": 0,
+      "explanation": "V(B) requires communicating the important factors and limits of the process behind recommendations. No conflict or client profile is described. The trap is picking a Standard that sounds related."
+    },
+    {
+      "id": "ethics-042",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-b",
+      "kind": "exam",
+      "stem": "Beacon Advisers uses client brokerage commissions to pay for a data terminal its managers use only for the firm's own marketing analytics. Client disclosures say nothing about this. Best assessment?",
+      "options": [
+        "No violation, since any research-related purchase is fine when paid from commissions",
+        "No violation, if the broker's execution price is competitive",
+        "Violation: client brokerage should be used only for services that benefit clients"
+      ],
+      "answer": 2,
+      "explanation": "Standard III(A) requires using client commissions for client benefit. A competitive price does not make a firm-benefit purchase acceptable. The trap is judging only by execution quality."
+    },
+    {
+      "id": "ethics-043",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-b",
+      "kind": "exam",
+      "stem": "Lakshmi advises Mr Sharma, 72, retired and needing steady income, whose IPS shows low risk tolerance. She puts 60% in one speculative small-cap fund because its past return was high, and 40% in bonds. Best assessment?",
+      "options": [
+        "No violation, since high past returns serve his return needs",
+        "Violation of III(C): the investment does not match his objectives and constraints",
+        "No violation, since the 40% in bonds offsets the risk"
+      ],
+      "answer": 1,
+      "explanation": "Suitability is judged against objectives and constraints in portfolio context. A 60% speculative stake does not fit a low-risk retiree. The trap is relying on past return or a small safe sleeve."
+    },
+    {
+      "id": "ethics-044",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-c",
+      "kind": "exam",
+      "stem": "During a review, a client of Vasquez Advisory tells adviser Elena that he is hiding income from the tax authorities and means to keep doing so. What does Standard III(E) allow?",
+      "options": [
+        "She may disclose it to the proper authorities, since confidentiality gives way for illegal activity",
+        "She must stay silent, because client confidentiality is absolute",
+        "She must report it to the tax authority within 24 hours"
+      ],
+      "answer": 0,
+      "explanation": "III(E) lets a member reveal information about illegal activity, though not necessarily compelling it unless law requires. The trap is treating confidentiality as absolute or reporting as mandatory."
+    },
+    {
+      "id": "ethics-045",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-b",
+      "kind": "exam",
+      "stem": "Daniel, a portfolio manager at Quill Capital, expects his firm to buy a large block of a small stock for its funds. Before the orders go in he buys shares for his own account, then places the fund orders. Best assessment?",
+      "options": [
+        "No violation, since his purchase was small relative to the fund's",
+        "No violation, because he reported the trade to compliance the next week",
+        "Violation of VI(B): trading personally ahead of client orders puts his interests first"
+      ],
+      "answer": 2,
+      "explanation": "Standard VI(B) gives client transactions priority over personal ones. Size and later reporting do not cure trading ahead. The trap is thinking disclosure after the fact makes it acceptable."
+    },
+    {
+      "id": "ethics-046",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-a",
+      "kind": "exam",
+      "stem": "Sofia, a trader at Harbor Securities, posts messages online falsely claiming a rival's small-cap stock is about to face a regulatory probe. She holds a short position in it. Which Standard applies most directly?",
+      "options": [
+        "II(A): she traded on material nonpublic information",
+        "II(B): spreading false information to move prices is market manipulation",
+        "VI(A): she should have disclosed her short position"
+      ],
+      "answer": 1,
+      "explanation": "False rumours meant to move a price are manipulation under II(B). The trap is II(A): a made-up rumour is not genuine inside information."
+    },
+    {
+      "id": "ethics-047",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-c",
+      "kind": "exam",
+      "stem": "Ben, an equity analyst at Orion Securities, joins the board of a company he covers and earns director fees. He tells his employer, but his research notes do not mention the board seat. Best assessment?",
+      "options": [
+        "He should also disclose it to clients and prospects in his research; omitting it violates VI(A)",
+        "No further step is needed, since telling his employer is enough",
+        "Any board seat violates the Standards, so he must resign it"
+      ],
+      "answer": 0,
+      "explanation": "Standard VI(A) requires disclosure to clients and prospects as well as the employer, so readers can judge his objectivity. The trap is thinking employer disclosure alone is enough."
+    },
+    {
+      "id": "ethics-048",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-b",
+      "kind": "exam",
+      "stem": "Cleo, a research analyst at Summit Bank, is told by investment bankers that an IPO mandate may be lost unless she moves a client company from hold to buy. Her analysis supports hold. What should she do?",
+      "options": [
+        "Upgrade to buy but add a note disclosing the banking relationship",
+        "Publish her independent hold view and report the pressure to compliance",
+        "Drop coverage without explanation to keep the peace"
+      ],
+      "answer": 1,
+      "explanation": "Standard I(B) requires independence and objectivity. Disclosing a relationship does not cure a rating bent by pressure. The trap is thinking disclosure replaces independence."
+    },
+    {
+      "id": "ethics-049",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-b",
+      "kind": "exam",
+      "stem": "Marek at Fenwick Funds buys a bond using a broker's research note, taking its credit view and target as given without reviewing assumptions or the broker's record. The bond defaults. Best assessment?",
+      "options": [
+        "No violation, since a reputable broker's research satisfies diligence",
+        "No violation, since defaults are market risk and diligence is judged by outcomes",
+        "Likely violation of V(A): he should have assessed whether the research had a reasonable basis"
+      ],
+      "answer": 2,
+      "explanation": "Members may use third-party research but must make reasonable efforts to check it. Diligence is about process, not the result. The trap is judging by the outcome."
+    },
+    {
+      "id": "ethics-050",
+      "topic": "ethics",
+      "reading": "ethics-5",
+      "los": "ethics-5-a",
+      "kind": "exam",
+      "stem": "Isabel, a salesperson at Redwood Funds, tells a prospect, \"Our diversified corporate bond fund will return at least 8% a year and cannot lose money.\" Which Standard is most directly breached?",
+      "options": [
+        "I(C), Misrepresentation: guaranteeing returns misleads the prospect",
+        "III(D), Performance Presentation, because past returns were omitted",
+        "III(C), Suitability, because her risk profile was not checked"
+      ],
+      "answer": 0,
+      "explanation": "Guaranteeing returns on a fund that can lose money is a misrepresentation under I(C). III(D) concerns presenting past performance. The trap is choosing a Standard that merely sounds related."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "ethics-1",
+      "ideas": [
+        "Trust is the foundation of investing, because clients cannot easily judge the quality of the advice they buy.",
+        "Laws set a minimum; ethical conduct often asks for more, so meeting the law is never enough on its own.",
+        "Pressures like bonuses, bosses and peers push good people astray, so use a framework: spot, weigh, act, reflect."
+      ],
+      "trap": "Do not equate legal with ethical: an action can break no law and still be an ethical breach."
+    },
+    {
+      "reading": "ethics-2",
+      "ideas": [
+        "The Code has six parts, led by acting with integrity and putting clients and the profession ahead of your own interests.",
+        "The seven Standards: I Professionalism, II Markets, III Clients, IV Employers, V Analysis, VI Conflicts, VII CFA conduct.",
+        "Members and candidates are both bound; sanctions run from private censure to suspension or charter revocation."
+      ],
+      "trap": "Do not think only charterholders are bound: candidates are covered too, and CFA Institute sanctions do not include fines."
+    },
+    {
+      "reading": "ethics-3",
+      "ideas": [
+        "Follow the stricter of law and Code, never act on material nonpublic information, and keep your opinions independent.",
+        "Clients come first: fair dealing, suitability, loyalty and confidentiality, with exceptions for illegal activity or consent.",
+        "Get written consent for outside pay, keep records seven years, disclose conflicts, and trade for clients before yourself."
+      ],
+      "trap": "Fair does not mean equal, and disclosure does not cure everything; client interests still rank above employer and self."
+    },
+    {
+      "reading": "ethics-4",
+      "ideas": [
+        "GIPS is a voluntary global standard that makes performance reporting fair, complete and comparable between managers.",
+        "Compliance belongs to the whole firm and is all-or-nothing; there is no claim of partial compliance.",
+        "Composites hold all fee-paying discretionary portfolios of a strategy; independent verification is optional and firm-wide."
+      ],
+      "trap": "Do not call verification mandatory or composite-level, and do not claim GIPS compliance for a single fund."
+    },
+    {
+      "reading": "ethics-5",
+      "ideas": [
+        "Find the facts first, then name the Standard: the answer usually turns on one detail such as consent, timing or intent.",
+        "Many grey areas become acceptable with disclosure or consent, such as client gifts and disclosed compensation links.",
+        "If a colleague breaches, dissociate and escalate; good policies include firewalls, restricted lists and pre-clearance."
+      ],
+      "trap": "Do not pick the Standard by keywords; read for what the person actually did and who was disadvantaged."
+    }
+  ]
+}
