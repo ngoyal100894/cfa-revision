@@ -402,69 +402,205 @@
 
   /* =====================================================================
      Screen: Coverage
+     A summary of what she has read, one row per topic with a progress ring, and a bottom
+     sheet per topic to tick readings. She reads the books in order, so ticking a reading
+     offers to tick the unticked ones before it.
      ===================================================================== */
-  var covOpen = {};   // topic ids currently expanded (kept across re-renders)
+  function setCovered(id, on) {
+    var c = Store.state.coverage;
+    if (on) { if (!c[id]) c[id] = today(); } else delete c[id];
+  }
+  function topicCount(t) {
+    var c = Store.state.coverage;
+    return t.readings.filter(function (r) { return c[r.id]; }).length;
+  }
+  function haptic() { try { if (navigator.vibrate) navigator.vibrate(8); } catch (e) { /* not supported (iPhone): fine */ } }
+  // Small ring in the topic's colour: the count inside, a tick once every reading is ticked.
+  function topicRing(n, total) {
+    var C = 2 * Math.PI * 17, f = total ? n / total : 0;
+    var w = h('span', { class: 'cv-ring' + (f >= 1 ? ' done' : ''), 'aria-hidden': 'true' });
+    w.innerHTML = '<svg viewBox="0 0 40 40"><circle class="cv-ring-bg" cx="20" cy="20" r="17"/><circle class="cv-ring-fg" cx="20" cy="20" r="17" stroke-dasharray="' +
+      C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - f)).toFixed(1) + '" transform="rotate(-90 20 20)"/></svg>';
+    w.appendChild(h('span', { class: 'cv-ring-n' }, f >= 1 ? icon('tick') : String(n)));
+    return w;
+  }
+  function tickedWhen(d) {
+    if (!/^\d{4}-\d\d-\d\d$/.test(d)) return 'Ticked';
+    var ago = Sched.daysBetween(d, today());
+    if (ago <= 0) return 'Ticked today';
+    if (ago === 1) return 'Ticked yesterday';
+    return 'Ticked ' + new Date(d + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  }
 
   function renderCoverage(root) {
     var st = Store.state;
     var onboarded = st.onboarded;
-    var list = h('div');
     var startBtn = h('button', { class: 'btn btn-primary', text: "Start today's 15", onclick: start });
     var hint = h('div', { class: 'hint' });
-
-    var head = h('div', { class: 'cov-head' + (onboarded ? '' : ' no-back') },
+    var navTitle = h('span', { class: 'cv-nav-title', 'aria-hidden': 'true' });
+    var nav = h('div', { class: 'cv-nav' + (onboarded ? '' : ' no-back') },
       onboarded ? h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: function () { history.length > 1 ? history.back() : Router.go('home'); } }, icon('back')) : null,
-      h('div', null, h('h1', { class: 'title', text: 'What have you covered so far?' }),
-        h('p', { class: 'subtitle', text: "Questions only come from what you tick. You can change this any time." })));
+      navTitle);
+    var summary = h('div', { class: 'cv-sum' });
+    var list = h('div', { class: 'cv-list' });
 
-    var scroll = screenFrame(root, [head, list], h('div', { class: 'bar' }, startBtn, hint));
+    // Wrapper, not root: the router clones root's classes onto the next screen.
+    var wrap = h('div', { class: 'cv' + (onboarded ? '' : ' no-back') }, nav);
+    root.appendChild(wrap);
+    var scroll = screenFrame(wrap, [
+      h('h1', { class: 'title cv-title', text: 'What have you covered so far?' }),
+      h('p', { class: 'subtitle', text: 'Questions only come from what you tick. You can change this any time.' }),
+      summary,
+      h('div', { class: 'eyebrow cv-eyebrow', text: 'Tap a topic to tick its readings' }),
+      list], h('div', { class: 'bar' }, startBtn, hint));
+    // Large title scrolls away; a compact one appears in the top bar (as in iOS Settings).
+    scroll.addEventListener('scroll', function () { nav.classList.toggle('scrolled', scroll.scrollTop > 64); }, { passive: true });
 
-    function topicState(t) {
-      var n = t.readings.filter(function (r) { return st.coverage[r.id]; }).length;
-      return { n: n, all: n === t.readings.length };
-    }
-    function setReading(id, on) {
-      if (on) { if (!st.coverage[id]) st.coverage[id] = today(); } else delete st.coverage[id];
-    }
     function draw() {
-      var top = scroll.scrollTop;
+      var n = coveredCount();
+      navTitle.textContent = 'Covered · ' + n + ' of ' + D.readingCount;
+      summary.innerHTML = '';
+      summary.appendChild(h('div', { class: 'cv-sum-top' },
+        h('div', { class: 'cv-sum-n' }, h('span', { class: 'cv-big', text: String(n) }), h('span', { class: 'cv-of', text: 'of ' + D.readingCount + ' readings' })),
+        h('div', { class: 'cv-sum-w' }, h('b', { text: weightCovered() + '%' }), h('span', { text: 'of the exam, by weight' }))));
+      // One segment per topic, as wide as its exam weight, filled as far as she has read.
+      summary.appendChild(h('div', { class: 'cv-bar', 'aria-hidden': 'true' }, D.curriculum.topics.map(function (t) {
+        return h('span', { class: 'cv-seg', 'data-t': t.id, style: 'flex-grow:' + midWeight(t) },
+          h('i', { style: 'width:' + Math.round(100 * topicCount(t) / t.readings.length) + '%' }));
+      })));
+
       list.innerHTML = '';
       D.curriculum.topics.forEach(function (t) {
-        var ts = topicState(t);
-        var open = !!covOpen[t.id];
-        var wholeState = ts.all ? 'true' : (ts.n ? 'mixed' : 'false');
-        var whole = h('button', { class: 'whole', role: 'switch', 'aria-checked': wholeState, 'aria-label': 'Whole topic: ' + t.name,
-          onclick: function () {
-            var turnOn = !ts.all;
-            t.readings.forEach(function (r) { setReading(r.id, turnOn); });
-            Store.save(); draw();
-          } }, h('span', { class: 'switch' }), h('span', { class: 'cap', text: 'Whole topic' }));
-        var main = h('button', { class: 'topic-main', 'aria-expanded': String(open),
-          onclick: function () { covOpen[t.id] = !covOpen[t.id]; draw(); } },
-          h('div', { style: 'flex:1;min-width:0' },
-            h('div', { class: 'topic-name', text: t.name }),
-            h('div', { class: 'topic-meta' }, t.weightMin + '–' + t.weightMax + '% of exam',
-              ts.n ? [' · ', h('b', { text: ts.n + ' of ' + t.readings.length })] : null)),
-          h('span', { class: 'chev' }, icon('chev')));
-        var box = h('section', { class: 'topic' + (open ? ' open' : ''), 'data-t': t.id }, h('div', { class: 'topic-row' }, main, whole));
-        if (open) {
-          box.appendChild(h('div', { class: 'readings' }, t.readings.map(function (r) {
-            var on = !!st.coverage[r.id];
-            return h('button', { class: 'reading', role: 'checkbox', 'aria-checked': String(on),
-              onclick: function () { setReading(r.id, !on); Store.save(); draw(); } },
-              h('span', { class: 'check' }, icon('tick')),
-              h('span', { style: 'flex:1;min-width:0' },
-                h('div', { class: 'reading-short', text: r.short }),
-                h('div', { class: 'reading-title', text: r.title })));
-          })));
-        }
-        list.appendChild(box);
+        var k = topicCount(t), all = t.readings.length;
+        var status = !k ? 'Not started' : k === all ? 'All ' + all + ' read' : k + ' of ' + all + ' read';
+        list.appendChild(h('button', { class: 'cv-row', 'data-t': t.id, 'aria-haspopup': 'dialog',
+          'aria-label': t.name + ', ' + t.weightMin + ' to ' + t.weightMax + '% of exam, ' + k + ' of ' + all + ' readings ticked',
+          onclick: function () { openTopic(t); } },
+          topicRing(k, all),
+          h('span', { class: 'cv-row-body' },
+            h('span', { class: 'cv-row-name', text: t.name }),
+            h('span', { class: 'cv-row-meta' }, t.weightMin + '–' + t.weightMax + '% of exam · ', h('b', { class: k ? '' : 'none', text: status }))),
+          h('span', { class: 'chev' }, icon('chev'))));
       });
-      var n = coveredCount();
       startBtn.disabled = n === 0;
       hint.textContent = n === 0 ? 'Tick at least one reading' : plural(n, 'reading', 'readings') + ' ticked';
-      scroll.scrollTop = top;
     }
+
+    // Bottom sheet for one topic: its readings in book order, Tick all, swipe down or Done to close.
+    function openTopic(t) {
+      var mroot = el('modal-root');
+      var tipTimer = null, closed = false;
+      var count = h('span', { class: 'ts-count' });
+      var allBtn = h('button', { class: 'btn-small ts-all', onclick: toggleAll });
+      var snack = h('div', { class: 'ts-snack', role: 'status', hidden: true });
+      var title = h('h2', { class: 'ts-title', id: 'ts-title', tabindex: '-1', text: t.name });
+      var grab = h('div', { class: 'ts-grab' }, h('span', { class: 'ts-handle', 'aria-hidden': 'true' }),
+        h('div', { class: 'eyebrow ts-eyebrow', text: t.weightMin + '–' + t.weightMax + '% of exam · ' + plural(t.readings.length, 'reading', 'readings') }),
+        title, h('div', { class: 'ts-tools' }, count, allBtn));
+      var items = t.readings.map(function (r, i) {
+        var num = h('span', { class: 'ts-num' }), when = h('span', { class: 'ts-when' });
+        var b = h('button', { class: 'ts-item', role: 'checkbox', onclick: function () { toggle(i); } },
+          num, h('span', { class: 'ts-text' }, h('span', { class: 'ts-short', text: r.short }), r.title !== r.short ? h('span', { class: 'ts-long', text: r.title }) : null, when));
+        return { b: b, num: num, when: when, r: r };
+      });
+      var listEl = h('div', { class: 'ts-list' }, items.map(function (x) { return x.b; }));
+      var sheet = h('div', { class: 'tsheet', 'data-t': t.id, role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'ts-title' },
+        grab, listEl, snack, h('div', { class: 'ts-foot' }, h('button', { class: 'btn btn-primary', text: 'Done', onclick: close })));
+      var scrim = h('div', { class: 'ts-scrim', onclick: function (e) { if (e.target === scrim) close(); } }, sheet);
+
+      function paintItem(x, pop) {
+        var d = st.coverage[x.r.id];
+        x.b.setAttribute('aria-checked', String(!!d));
+        x.num.innerHTML = '';
+        add(x.num, d ? icon('tick') : String(x.r.n));
+        x.when.textContent = d ? tickedWhen(d) : '';
+        if (pop && d && !reducedMotion()) { x.num.classList.remove('pop'); void x.num.offsetWidth; x.num.classList.add('pop'); }
+      }
+      function refresh() {
+        var k = topicCount(t), all = t.readings.length;
+        count.textContent = k + ' of ' + all + ' ticked';
+        allBtn.textContent = k === all ? 'Untick all' : 'Tick all';
+        draw();
+      }
+      function toggle(i) {
+        var x = items[i], on = !st.coverage[x.r.id];
+        setCovered(x.r.id, on); Store.save(); haptic(); paintItem(x, true); hideTip();
+        if (on) {
+          var before = items.slice(0, i).filter(function (y) { return !st.coverage[y.r.id]; });
+          if (before.length) showTip(before);
+        }
+        refresh();
+      }
+      function toggleAll() {
+        var turnOn = topicCount(t) < t.readings.length;
+        t.readings.forEach(function (r) { setCovered(r.id, turnOn); });
+        Store.save(); haptic(); hideTip();
+        items.forEach(function (x) { paintItem(x, turnOn); });
+        refresh();
+      }
+      function showTip(before) {
+        snack.innerHTML = '';
+        add(snack, [h('span', { text: before.length === 1 ? 'Also tick Reading ' + before[0].r.n + '?' : 'Also tick the ' + before.length + ' earlier readings?' }),
+          h('button', { class: 'ts-snack-btn', text: before.length === 1 ? 'Tick it' : 'Tick them', onclick: function () {
+            before.forEach(function (y) { setCovered(y.r.id, true); });
+            Store.save(); haptic(); hideTip();
+            before.forEach(function (y) { paintItem(y, true); });
+            refresh();
+          } })]);
+        snack.hidden = false;
+        clearTimeout(tipTimer); tipTimer = setTimeout(hideTip, 8000);
+      }
+      function hideTip() { clearTimeout(tipTimer); snack.hidden = true; }
+      function onKey(e) { if (e.key === 'Escape') close(); }
+      function close() {
+        if (closed) return;
+        closed = true;
+        hideTip();
+        document.removeEventListener('keydown', onKey);
+        window.removeEventListener('hashchange', close);
+        var ms = reducedMotion() ? 0 : 260;
+        sheet.style.transition = 'transform .26s cubic-bezier(.4, 0, 1, 1)';
+        sheet.style.transform = 'translateY(105%)';
+        scrim.classList.add('out');
+        setTimeout(function () {
+          if (scrim.parentNode) scrim.parentNode.removeChild(scrim);
+          var row = list.querySelector('.cv-row[data-t="' + t.id + '"]');
+          if (row && document.contains(row)) { try { row.focus({ preventScroll: true }); } catch (e) { /* fine */ } }
+        }, ms);
+      }
+
+      // Drag the header down to dismiss, like a native sheet. The reading list keeps its own scroll.
+      var pid = null, y0 = 0, dy = 0, t0 = 0;
+      grab.addEventListener('pointerdown', function (e) {
+        if (closed || e.target.closest('button') || (e.pointerType === 'mouse' && e.button !== 0)) return;
+        pid = e.pointerId; y0 = e.clientY; dy = 0; t0 = Date.now();
+        try { grab.setPointerCapture(pid); } catch (err) { /* fine */ }
+        sheet.style.transition = 'none';
+      });
+      grab.addEventListener('pointermove', function (e) {
+        if (e.pointerId !== pid) return;
+        dy = Math.max(0, e.clientY - y0);
+        sheet.style.transform = dy ? 'translateY(' + dy + 'px)' : '';
+      });
+      function end(e) {
+        if (e.pointerId !== pid) return;
+        pid = null;
+        var fast = dy > 40 && dy / Math.max(1, Date.now() - t0) > 0.5;
+        if (e.type === 'pointerup' && (dy > 110 || fast)) { close(); return; }
+        sheet.style.transition = 'transform .3s cubic-bezier(.2, .8, .2, 1)';
+        sheet.style.transform = '';
+      }
+      grab.addEventListener('pointerup', end);
+      grab.addEventListener('pointercancel', end);
+
+      items.forEach(function (x) { paintItem(x, false); });
+      refresh();
+      mroot.innerHTML = ''; mroot.appendChild(scrim);
+      document.addEventListener('keydown', onKey);
+      window.addEventListener('hashchange', close);   // left the screen another way: don't leave the sheet behind
+      try { title.focus({ preventScroll: true }); } catch (e) { /* fine */ }
+    }
+
     function start() {
       st.onboarded = true; Store.save();
       if (!Session.start('daily')) Router.go('home', true);
@@ -1509,7 +1645,7 @@
             if (!a) return;
             return confirmDialog('Are you really sure?', "This can't be undone unless you saved a progress file.", 'Yes, clear everything', 'No, keep it', true).then(function (b) {
               if (!b) return;
-              Store.reset(); Session.cur = null; Session.last = null; Recap.cur = null; covOpen = {};
+              Store.reset(); Session.cur = null; Session.last = null; Recap.cur = null;
               Router.go('coverage', true);
             });
           });

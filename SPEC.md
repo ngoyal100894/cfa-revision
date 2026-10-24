@@ -35,7 +35,7 @@ Kinds:
 `{ v, coverage: {readingId: "YYYY-MM-DD ticked"}, q: {qid: {box, due, seen, right, last}}, sessions: [{date, mode, n, right}], lastSessionDate, onboarded: bool }`. Save after every answer, so closing the tab mid-session loses nothing graded. Wrap every write in try/catch. If storage fails, show a calm banner saying "Progress can't be saved in this browser mode. Export from Settings."
 
 ## Screens
-1. **Coverage** is the first-run screen and is reachable from Home. Title: "What have you covered so far?" Each of the 10 topics is a row showing the topic name, its exam weight ("15–20% of exam") and a "Whole topic" toggle; tapping the row expands its readings as checkboxes. A sticky bottom button says "Start today's 15". It's disabled until at least one reading is ticked, with the hint "Tick at least one reading". Ticking a reading stores today's date, so the scheduler gives it first-session priority.
+1. **Coverage** is the first-run screen and is reachable from Home. Title: "What have you covered so far?" Each of the 10 topics is a row showing the topic name, its exam weight ("15–20% of exam") and a progress ring; tapping the row opens a bottom sheet of its readings as checkboxes, with Tick all (v1.6; was an inline expand with a "Whole topic" toggle). A sticky bottom button says "Start today's 15". It's disabled until at least one reading is ticked, with the hint "Tick at least one reading". Ticking a reading stores today's date, so the scheduler gives it first-session priority.
 2. **Home** has:
    - "Hi Ishita", "N days to the exam" and the streak ("3-day streak", hidden at 0).
    - A big primary button, **Today's 15**, with a one-line note: "Your daily mix. Mistakes come back tomorrow; what you know well fades out."

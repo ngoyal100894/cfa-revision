@@ -1,6 +1,6 @@
 # HANDOFF
 
-Live link (deployed 24 Oct 2026; v1.5: flashcard deck, swipe gestures and an opening prelude): **https://ngoyal100894.github.io/cfa-revision/**
+Live link (deployed 24 Oct 2026; v1.6: redesigned coverage screen): **https://ngoyal100894.github.io/cfa-revision/**
 
 ## What was built
 This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026. It is designed for about 15 minutes a day while she finishes reading the books.
@@ -13,6 +13,10 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
 
 ## What each feature does and why it helps Ishita
 - **Coverage checklist** (first screen, editable from Home). She ticks the readings she has finished, and only those readings ever appear. Readings she ticks fresh get priority in her next session, so what she just read gets tested while it's new.
+  - Redesigned in v1.6. A summary card at the top shows readings ticked, the share of the exam they cover by weight, and a bar with one coloured segment per topic.
+  - Each topic is a row with a progress ring in its colour. Tapping a row opens a bottom sheet listing its readings in book order, with **Tick all** / **Untick all**. Each ticked reading shows when she ticked it.
+  - Ticking a reading with unticked readings before it offers "Also tick the N earlier readings?", since she reads the books in order.
+  - She closes the sheet with **Done**, by swiping its top down, or by tapping outside it.
 - **Today's 15** (main button). This is a spaced-repetition mix (Leitner boxes at 0, 2 and 4 days):
   - Wrong answers come back next session.
   - About 20% of the mix comes from her weakest reading.
@@ -72,7 +76,7 @@ Why step 3 matters: on iPhone, the Home Screen icon keeps its own storage, separ
 **Updates:** any later version is pushed to the same link. Her progress stays because it lives on her phone, not in the app files.
 
 ## Ticking new readings as she covers them
-Home → **Tick new readings**, or Settings → Edit what you've covered. Each topic has a whole-topic toggle. Newly ticked readings take up to 60% of the next Today's 15 and go near the front of the Recap deck.
+Home → **Tick new readings**, or Settings → Edit what you've covered. Tap a topic, then tick readings; **Tick all** covers the whole topic. Newly ticked readings take up to 60% of the next Today's 15 and go near the front of the Recap deck.
 
 ## Known gaps
 - **Needs internet to open.** There is no offline mode.
