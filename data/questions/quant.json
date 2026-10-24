@@ -1,0 +1,495 @@
+{
+  "topic": "quant",
+  "questions": [
+    {
+      "id": "quant-001",
+      "topic": "quant",
+      "reading": "quant-1",
+      "los": "quant-1-c",
+      "kind": "calc",
+      "stem": "A share bought for 40 pays a dividend of 2 and is sold a year later for 44. What is the holding period return?",
+      "options": [
+        "10%",
+        "15%",
+        "5%"
+      ],
+      "answer": 1,
+      "explanation": "Return = (ending - beginning + income) / beginning = (4 + 2) / 40 = 15%. The trap is leaving out the dividend (10%) or counting only the income (5%)."
+    },
+    {
+      "id": "quant-002",
+      "topic": "quant",
+      "reading": "quant-1",
+      "los": "quant-1-c",
+      "kind": "calc",
+      "stem": "A fund returns +100% in year 1 and -50% in year 2. What is its geometric mean annual return?",
+      "options": [
+        "0%",
+        "25%",
+        "50%"
+      ],
+      "answer": 0,
+      "explanation": "Growth factors are 2.0 and 0.5, so the product is 1.0 and the geometric mean is 0%. The trap is the arithmetic mean (25%) or simply adding the returns (50%)."
+    },
+    {
+      "id": "quant-003",
+      "topic": "quant",
+      "reading": "quant-1",
+      "los": "quant-1-e",
+      "kind": "memorise",
+      "stem": "An investor puts the same amount of money into a fund every month while the unit price changes. Which mean gives her average cost per unit?",
+      "options": [
+        "Arithmetic mean of the prices",
+        "Geometric mean of the prices",
+        "Harmonic mean of the prices"
+      ],
+      "answer": 2,
+      "explanation": "Equal money buys more units when the price is low, so cost is pulled toward low prices. That is the harmonic mean. The trap is the arithmetic mean, which overstates cost.",
+      "remember": "Equal money each period: average cost = harmonic mean. Order: arithmetic ≥ geometric ≥ harmonic."
+    },
+    {
+      "id": "quant-004",
+      "topic": "quant",
+      "reading": "quant-1",
+      "los": "quant-1-c",
+      "kind": "exam",
+      "stem": "Priya Nair is judging a fund manager who had no say over when clients added money. Clients added a large sum just before a sharp market fall. The money-weighted return is -4% and the time-weighted return is +3%. Which measure better shows the manager's skill, and why?",
+      "options": [
+        "Time-weighted, because it removes the effect of when clients added or withdrew money",
+        "Money-weighted, because it gives more weight to periods when balances were large",
+        "Either one, because they only differ when the manager makes withdrawals"
+      ],
+      "answer": 0,
+      "explanation": "Time-weighted return neutralises cash-flow timing, which the manager does not control. Money-weighted return is an IRR and is hit by the badly timed client deposit. The trap is thinking the larger-balance weighting is fairer."
+    },
+    {
+      "id": "quant-005",
+      "topic": "quant",
+      "reading": "quant-2",
+      "los": "quant-2-d",
+      "kind": "calc",
+      "stem": "A deposit has a stated annual rate of 20%, compounded semiannually. What is the effective annual rate?",
+      "options": [
+        "20%",
+        "10%",
+        "21%"
+      ],
+      "answer": 2,
+      "explanation": "Each half-year earns 10%, so EAR = 1.10² - 1 = 21%. The trap is reading 20% as the EAR, or quoting the 10% periodic rate."
+    },
+    {
+      "id": "quant-006",
+      "topic": "quant",
+      "reading": "quant-2",
+      "los": "quant-2-a",
+      "kind": "calc",
+      "stem": "A perpetuity pays 5 a year, with the first payment one year from today. The required return is 10%. What is it worth today?",
+      "options": [
+        "55",
+        "50",
+        "0.5"
+      ],
+      "answer": 1,
+      "explanation": "Perpetuity value = payment / rate = 5 / 0.10 = 50, one period before the first payment. The trap is 55 (assuming a payment today) or multiplying by the rate (0.5)."
+    },
+    {
+      "id": "quant-007",
+      "topic": "quant",
+      "reading": "quant-3",
+      "los": "quant-3-d",
+      "kind": "concept",
+      "stem": "A return distribution has positive skew and excess kurtosis of +2. What does this imply?",
+      "options": [
+        "Mean below median, a long left tail, and fewer extreme outcomes than a normal distribution",
+        "Mean above median, a long right tail, and more extreme outcomes than a normal distribution",
+        "Mean equal to median, a symmetric shape, but fatter tails than a normal distribution"
+      ],
+      "answer": 1,
+      "explanation": "Positive skew pulls the mean above the median with a long right tail. Positive excess kurtosis means fat tails. The trap is mixing up the direction of skew with where the mean sits."
+    },
+    {
+      "id": "quant-008",
+      "topic": "quant",
+      "reading": "quant-3",
+      "los": "quant-3-e",
+      "kind": "concept",
+      "stem": "Ice-cream sales and sunburn cases show a correlation of 0.9 across summer weeks. What is the most sensible reading?",
+      "options": [
+        "Ice-cream raises sunburn risk, because a correlation this high shows causation",
+        "Ice-cream sales explain 90% of the variation in sunburn cases",
+        "A common driver such as hot weather probably moves both, so the link may be spurious"
+      ],
+      "answer": 2,
+      "explanation": "A third factor, like hot sunny weather, can drive both series. Correlation is not causation. The trap on the last option is that variation explained is r², which is 81%, not 90%."
+    },
+    {
+      "id": "quant-009",
+      "topic": "quant",
+      "reading": "quant-4",
+      "los": "quant-4-a",
+      "kind": "calc",
+      "stem": "A stock returns 20% with probability 0.25, 10% with probability 0.50 and -4% with probability 0.25. What is the expected return?",
+      "options": [
+        "9%",
+        "8.7%",
+        "10%"
+      ],
+      "answer": 0,
+      "explanation": "EV = 0.25 × 20 + 0.50 × 10 + 0.25 × (-4) = 5 + 5 - 1 = 9%. The trap is averaging the three outcomes equally (8.7%) instead of weighting by probability."
+    },
+    {
+      "id": "quant-010",
+      "topic": "quant",
+      "reading": "quant-4",
+      "los": "quant-4-d",
+      "kind": "exam",
+      "stem": "Analyst Marta Silva estimates that 10% of firms in a sector are financially distressed. A credit downgrade follows for 90% of distressed firms but also for 10% of healthy firms. One firm has just been downgraded. What is the updated probability that it is distressed?",
+      "options": [
+        "90%",
+        "9%",
+        "50%"
+      ],
+      "answer": 2,
+      "explanation": "Distressed and downgraded is 0.10 × 0.90 = 0.09, and healthy and downgraded is 0.90 × 0.10 = 0.09. The posterior is 0.09 / 0.18 = 50%. The trap is quoting 90% and ignoring the base rate."
+    },
+    {
+      "id": "quant-011",
+      "topic": "quant",
+      "reading": "quant-5",
+      "los": "quant-5-b",
+      "kind": "calc",
+      "stem": "Two assets each have a standard deviation of 10% and are held 50/50 with a correlation of +1. What is the portfolio standard deviation?",
+      "options": [
+        "5%",
+        "10%",
+        "7.1%"
+      ],
+      "answer": 1,
+      "explanation": "With a correlation of +1, portfolio risk is the weighted average of the standard deviations: 5% + 5% = 10%. The trap is halving it (5%) or assuming zero correlation (7.1%)."
+    },
+    {
+      "id": "quant-012",
+      "topic": "quant",
+      "reading": "quant-5",
+      "los": "quant-5-d",
+      "kind": "memorise",
+      "stem": "Under Roy's safety-first criterion, an investor with a minimum acceptable return picks the portfolio with the:",
+      "options": [
+        "Highest (expected return - threshold return) / standard deviation",
+        "Lowest standard deviation of returns",
+        "Highest (expected return - risk-free rate) / standard deviation"
+      ],
+      "answer": 0,
+      "explanation": "Roy's ratio measures how many standard deviations the expected return sits above the investor's threshold. The trap is the third option, which is the Sharpe ratio and uses the risk-free rate.",
+      "remember": "SFRatio = (E(Rp) − RL) ÷ σp. Pick the highest; it minimises shortfall probability if returns are normal."
+    },
+    {
+      "id": "quant-013",
+      "topic": "quant",
+      "reading": "quant-6",
+      "los": "quant-6-a",
+      "kind": "concept",
+      "stem": "Why is the lognormal distribution often preferred to the normal for modelling asset prices?",
+      "options": [
+        "It is perfectly symmetric, so up and down moves of equal size are equally likely",
+        "It has zero skewness, so the mean price equals the median price",
+        "It is bounded at zero and right-skewed, so prices cannot go negative"
+      ],
+      "answer": 2,
+      "explanation": "Prices cannot fall below zero, and a lognormal variable cannot either, with a long right tail for big gains. The trap is picking symmetry, which is a feature of the normal and not of prices."
+    },
+    {
+      "id": "quant-014",
+      "topic": "quant",
+      "reading": "quant-6",
+      "los": "quant-6-d",
+      "kind": "concept",
+      "stem": "Which statement correctly separates bootstrap resampling from Monte Carlo simulation?",
+      "options": [
+        "Bootstrap draws from an assumed distribution; Monte Carlo resamples the observed data with replacement",
+        "Bootstrap resamples the observed data with replacement; Monte Carlo draws from an assumed distribution",
+        "Bootstrap resamples the observed data without replacement; Monte Carlo draws from an assumed distribution"
+      ],
+      "answer": 1,
+      "explanation": "Bootstrap treats the sample as the population and resamples it with replacement. Monte Carlo needs a distribution chosen by the analyst. The trap is swapping the two descriptions."
+    },
+    {
+      "id": "quant-015",
+      "topic": "quant",
+      "reading": "quant-7",
+      "los": "quant-7-b",
+      "kind": "concept",
+      "stem": "A population of returns is heavily skewed but has a finite variance. An analyst computes the mean of many random samples of 100. What does the central limit theorem say about those sample means?",
+      "options": [
+        "They are approximately normal, centred on the population mean",
+        "They are skewed in the same way as the population",
+        "They are normal only if the population itself is normal"
+      ],
+      "answer": 0,
+      "explanation": "For a large n the sample mean is approximately normal, whatever the shape of the population. The trap is believing normality of the population is required."
+    },
+    {
+      "id": "quant-016",
+      "topic": "quant",
+      "reading": "quant-7",
+      "los": "quant-7-a",
+      "kind": "concept",
+      "stem": "Mei sorts a bond universe into rating buckets, then randomly picks bonds from each bucket in proportion to the bucket's size. Which sampling method is this?",
+      "options": [
+        "Cluster sampling",
+        "Judgmental sampling",
+        "Stratified random sampling"
+      ],
+      "answer": 2,
+      "explanation": "Drawing from every subgroup in proportion is stratified sampling. The trap is cluster sampling, which picks whole groups at random and then samples within or takes all of the chosen groups."
+    },
+    {
+      "id": "quant-017",
+      "topic": "quant",
+      "reading": "quant-8",
+      "los": "quant-8-c",
+      "kind": "calc",
+      "stem": "A sample of 25 returns has mean 6% and standard deviation 5%. Test H0: mean = 4%. The two-tailed 5% critical t-value is about 2.06. What is the decision?",
+      "options": [
+        "Reject: t = 10, since the standard error is 0.2%",
+        "Fail to reject: t = 2.0 lies inside ±2.06",
+        "Reject: t = 2.0 exceeds the z-value of 1.96"
+      ],
+      "answer": 1,
+      "explanation": "Standard error = 5 / √25 = 1, so t = (6 - 4) / 1 = 2.0, below 2.06. The trap is dividing by n instead of √n (t = 10) or borrowing the z-value for a small sample."
+    },
+    {
+      "id": "quant-018",
+      "topic": "quant",
+      "reading": "quant-8",
+      "los": "quant-8-b",
+      "kind": "memorise",
+      "stem": "Which expression gives the power of a hypothesis test?",
+      "options": [
+        "1 minus the probability of a Type II error",
+        "1 minus the probability of a Type I error",
+        "The probability of a Type I error"
+      ],
+      "answer": 0,
+      "explanation": "Power is the chance of correctly rejecting a false null, so it equals 1 - β. The trap is the second option, which is the confidence level, not the power.",
+      "remember": "Type I: reject a true H0 (prob = α). Type II: keep a false H0 (β). Power = 1 − β."
+    },
+    {
+      "id": "quant-019",
+      "topic": "quant",
+      "reading": "quant-8",
+      "los": "quant-8-d",
+      "kind": "exam",
+      "stem": "Kenji Ota has 60 monthly returns for one fund, assumed normal. He wants to test whether the variance of those returns equals a stated value of 4. Which test should he use?",
+      "options": [
+        "F-test",
+        "t-test on the mean",
+        "Chi-square test on a single variance"
+      ],
+      "answer": 2,
+      "explanation": "A single sample variance against a stated value uses the chi-square test with n - 1 degrees of freedom. The trap is the F-test, which compares the variances of two samples."
+    },
+    {
+      "id": "quant-020",
+      "topic": "quant",
+      "reading": "quant-9",
+      "los": "quant-9-c",
+      "kind": "memorise",
+      "stem": "A chi-square test of independence uses a contingency table with 3 rows and 4 columns. How many degrees of freedom does the test have?",
+      "options": [
+        "12",
+        "6",
+        "5"
+      ],
+      "answer": 1,
+      "explanation": "Degrees of freedom = (3 - 1) × (4 - 1) = 6. The trap is adding rather than multiplying (5) or counting every cell (12).",
+      "remember": "Chi-square independence: df = (rows − 1) × (columns − 1); statistic = Σ(O − E)² ÷ E; right tail."
+    },
+    {
+      "id": "quant-021",
+      "topic": "quant",
+      "reading": "quant-9",
+      "los": "quant-9-b",
+      "kind": "concept",
+      "stem": "When is the Spearman rank correlation test preferred to a test on the ordinary (Pearson) correlation?",
+      "options": [
+        "When the data are ranks, or are non-normal with outliers, so Pearson assumptions fail",
+        "When both variables are normal and the relationship is linear",
+        "When testing independence between two unordered categories"
+      ],
+      "answer": 0,
+      "explanation": "Spearman works on ranks, so it copes with ordinal data and outliers without normality. The trap is the last option, which calls for a chi-square test."
+    },
+    {
+      "id": "quant-022",
+      "topic": "quant",
+      "reading": "quant-10",
+      "los": "quant-10-c",
+      "kind": "calc",
+      "stem": "A regression ANOVA table shows total sum of squares of 200 and sum of squared errors of 50. What is R²?",
+      "options": [
+        "25%",
+        "33%",
+        "75%"
+      ],
+      "answer": 2,
+      "explanation": "Explained variation is 200 - 50 = 150, so R² = 150 / 200 = 75%. The trap is using the unexplained share (25%) or the ratio of unexplained to explained (33%)."
+    },
+    {
+      "id": "quant-023",
+      "topic": "quant",
+      "reading": "quant-10",
+      "los": "quant-10-b",
+      "kind": "exam",
+      "stem": "Dana Whitfield regresses 60 months of a stock's returns on market returns. The slope is 1.2 with a standard error of 0.3, and the 5% two-tailed critical t is about 2.0. She tests H0: slope = 1.0. What is the conclusion?",
+      "options": [
+        "Reject; t = 4.0 exceeds 2.0",
+        "Fail to reject; t ≈ 0.67 lies inside ±2.0",
+        "Reject; the estimate of 1.2 is above 1.0, so beta is higher"
+      ],
+      "answer": 1,
+      "explanation": "Test statistic = (1.2 - 1.0) / 0.3 ≈ 0.67, well inside ±2.0. The trap is testing against zero (t = 4.0) or treating any gap in the estimate as significant."
+    },
+    {
+      "id": "quant-024",
+      "topic": "quant",
+      "reading": "quant-11",
+      "los": "quant-11-c",
+      "kind": "exam",
+      "stem": "A quant team at Harbor Funds trains a model on ten years of data. It fits the training data very well (R² of 0.95), but on a held-out period R² falls to 0.20. What is the likely problem and the right response?",
+      "options": [
+        "Overfitting; simplify or regularise the model and judge it on out-of-sample data",
+        "Underfitting; add more features until the training fit improves further",
+        "No problem; in-sample R² is the proper basis for choosing a model"
+      ],
+      "answer": 0,
+      "explanation": "A big gap between training and hold-out results signals overfitting: the model learned noise. The trap is rewarding the higher in-sample fit."
+    },
+    {
+      "id": "quant-025",
+      "topic": "quant",
+      "reading": "quant-11",
+      "los": "quant-11-b",
+      "kind": "concept",
+      "stem": "A model gets customer trading records with no labels and is asked to find natural groupings of clients. Which approach is this?",
+      "options": [
+        "Supervised learning, since labels can be added after the groups are found",
+        "Unsupervised learning",
+        "Neither; unlabelled data cannot be modelled"
+      ],
+      "answer": 1,
+      "explanation": "Finding structure in unlabelled data, such as clustering, is unsupervised learning. The trap is supervised learning, which needs labelled target values at training time."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "quant-1",
+      "ideas": [
+        "Holding period return is (ending value − beginning value + income) ÷ beginning value; keep income in.",
+        "Geometric mean measures compound growth over several periods and never exceeds the arithmetic mean.",
+        "Time-weighted return ignores cash-flow timing and judges managers; money-weighted is an IRR and reflects client timing."
+      ],
+      "formula": "HPR = (P1 − P0 + income) ÷ P0; GM = [(1+R1)×(1+R2)×…]^(1/n) − 1",
+      "trap": "Using the arithmetic mean for multi-period compound growth, or judging a manager by money-weighted return when clients control the flows."
+    },
+    {
+      "reading": "quant-2",
+      "ideas": [
+        "Present value discounts each cash flow at the required return; a bond or stock price is the PV of what it pays.",
+        "A perpetuity is worth payment ÷ rate, valued one period before its first payment arrives.",
+        "More frequent compounding lifts the effective rate above the stated rate; continuous compounding gives e^r − 1."
+      ],
+      "formula": "FV = PV × (1+r)^N; perpetuity PV = PMT ÷ r; EAR = (1 + r/m)^m − 1",
+      "trap": "Plugging a stated annual rate into a periodic formula without dividing by m and scaling N, or mistiming the first cash flow."
+    },
+    {
+      "reading": "quant-3",
+      "ideas": [
+        "Mean, median and mode match only for symmetric data; positive skew puts the mean above the median.",
+        "Standard deviation measures spread; the coefficient of variation divides it by the mean to compare risk per unit of return.",
+        "Excess kurtosis above zero means fat tails: extreme returns occur more often than a normal model predicts."
+      ],
+      "formula": "CV = standard deviation ÷ mean",
+      "trap": "Treating a high correlation as proof of causation; correlation only measures linear association and can be spurious."
+    },
+    {
+      "reading": "quant-4",
+      "ideas": [
+        "Expected value is the probability-weighted average of outcomes; variance weights squared deviations the same way.",
+        "Total probability rule: unconditional expectation is each scenario probability times its conditional expectation, summed.",
+        "Bayes updates a prior using how likely the evidence is under each scenario, so the base rate matters."
+      ],
+      "formula": "P(A|B) = P(B|A) × P(A) ÷ P(B)",
+      "trap": "Confusing P(evidence given event) with P(event given evidence) and ignoring how rare the event was to begin with."
+    },
+    {
+      "reading": "quant-5",
+      "ideas": [
+        "Portfolio variance depends on weights, each asset variance and the covariance; correlation below +1 cuts risk.",
+        "Covariance equals correlation times both standard deviations; correlation is the scaled, unit-free version.",
+        "Roy's safety-first picks the highest (return − threshold) ÷ standard deviation, which minimises shortfall risk."
+      ],
+      "formula": "σp² = w1²σ1² + w2²σ2² + 2w1w2ρσ1σ2; SFRatio = (E(Rp) − RL) ÷ σp",
+      "trap": "Using the risk-free rate in Roy's ratio instead of the threshold return, or averaging standard deviations when ρ is below 1."
+    },
+    {
+      "reading": "quant-6",
+      "ideas": [
+        "Asset prices are modelled as lognormal because prices cannot fall below zero and returns compound.",
+        "Monte Carlo simulation draws random inputs from an assumed distribution, so it is only as good as its assumptions.",
+        "Bootstrap resamples with replacement from the observed data and needs no distributional assumption."
+      ],
+      "formula": "Continuous return = ln(P1 ÷ P0); P1 = P0 × e^r",
+      "trap": "Mixing up the two methods: Monte Carlo draws from an assumed distribution, while bootstrap resamples the actual sample."
+    },
+    {
+      "reading": "quant-7",
+      "ideas": [
+        "Stratified sampling draws from every subgroup in proportion; cluster sampling picks whole groups at random.",
+        "Central limit theorem: sample means are roughly normal for large n, whatever the shape of the population.",
+        "The standard error of the mean is s ÷ √n, so quadrupling the sample size only halves it."
+      ],
+      "formula": "Standard error of the mean = s ÷ √n",
+      "trap": "Confusing the standard deviation of the data with the standard error of the sample mean, or forgetting the square root of n."
+    },
+    {
+      "reading": "quant-8",
+      "ideas": [
+        "Put the claim you hope to show in the alternative; the null always carries the equals sign.",
+        "Type I error rejects a true null (probability α); Type II keeps a false null (β); power is 1 − β.",
+        "Reject the null when the test statistic is beyond the critical value, or when the p-value is below α."
+      ],
+      "formula": "t = (sample mean − hypothesised mean) ÷ (s ÷ √n)",
+      "trap": "Dividing by n instead of √n in the standard error, or treating a failure to reject as proof the null is true."
+    },
+    {
+      "reading": "quant-9",
+      "ideas": [
+        "Test a correlation with t = r√(n−2) ÷ √(1−r²), using n − 2 degrees of freedom.",
+        "Spearman rank correlation works on ranks, so it copes with outliers, ordinal data and non-normal returns.",
+        "Chi-square tests independence of two categories by comparing observed with expected counts in a contingency table."
+      ],
+      "formula": "t = r × √(n−2) ÷ √(1−r²); df = (rows − 1) × (columns − 1)",
+      "trap": "Using Pearson correlation on ordinal or outlier-heavy data, or forgetting that the chi-square independence test is one-tailed."
+    },
+    {
+      "reading": "quant-10",
+      "ideas": [
+        "Simple regression fits one line by minimising squared errors; the slope is the change in Y per unit of X.",
+        "R² is explained variation over total variation; with one regressor it equals the squared correlation.",
+        "Test the slope with t = (b − hypothesised value) ÷ standard error of b, using n − 2 degrees of freedom."
+      ],
+      "formula": "R² = RSS ÷ SST; t = (b − b0) ÷ s(b); df = n − 2",
+      "trap": "Testing the slope against zero when the question asks about another value, such as a beta of 1."
+    },
+    {
+      "reading": "quant-11",
+      "ideas": [
+        "Big data is described by volume, velocity and variety, and much of it is unstructured.",
+        "Supervised learning uses labelled targets; unsupervised finds structure in unlabelled data; deep learning stacks neural layers.",
+        "Overfitting fits noise in the training data and fails out of sample; separate test data exposes it."
+      ],
+      "trap": "Judging a model by its in-sample fit; a high training score can hide overfitting that only a hold-out set reveals."
+    }
+  ]
+}

@@ -1,0 +1,464 @@
+{
+  "topic": "econ",
+  "questions": [
+    {
+      "id": "econ-001",
+      "topic": "econ",
+      "reading": "econ-1",
+      "los": "econ-1-a",
+      "kind": "concept",
+      "stem": "In the short run, a perfectly competitive firm's price is below its average total cost but above its average variable cost. What should it do?",
+      "options": [
+        "Shut down, because any loss means revenue is below total cost",
+        "Keep producing for now, because it covers variable costs and loses less than by shutting",
+        "Keep producing and raise the price above average total cost"
+      ],
+      "answer": 1,
+      "explanation": "Revenue covers variable cost and part of fixed cost, so producing loses less than shutting. The trap is shutting at any loss. The shutdown rule is price below AVC, and a price taker cannot simply raise its price."
+    },
+    {
+      "id": "econ-002",
+      "topic": "econ",
+      "reading": "econ-1",
+      "los": "econ-1-d",
+      "kind": "exam",
+      "stem": "Marlowe & Co. sells branded organic snacks in a market with many sellers, differentiated products and free entry. It is currently earning economic profits. What do economists expect over the long run?",
+      "options": [
+        "New entrants erode the profit to zero, yet price stays above marginal cost",
+        "Brand differentiation blocks entry, so the profit persists",
+        "Entry pushes price down to marginal cost, as in perfect competition"
+      ],
+      "answer": 0,
+      "explanation": "Free entry shifts demand away from each firm until economic profit is zero. Differentiation still gives some pricing power, so price stays above MC. The trap is treating monopolistic competition as perfect competition."
+    },
+    {
+      "id": "econ-003",
+      "topic": "econ",
+      "reading": "econ-1",
+      "los": "econ-1-d",
+      "kind": "concept",
+      "stem": "A single-price monopolist produces where marginal revenue equals marginal cost. Where does it set its price?",
+      "options": [
+        "At marginal cost, as a perfect competitor would",
+        "Where marginal revenue equals price",
+        "At the point on the demand curve for that output, which is above marginal cost"
+      ],
+      "answer": 2,
+      "explanation": "MR sits below price because selling more means cutting the price on all units. The firm reads its price off the demand curve at the chosen quantity. The trap is setting price equal to MC."
+    },
+    {
+      "id": "econ-004",
+      "topic": "econ",
+      "reading": "econ-1",
+      "los": "econ-1-c",
+      "kind": "concept",
+      "stem": "Which feature most clearly marks an oligopoly, as opposed to monopolistic competition?",
+      "options": [
+        "Products are always identical across firms",
+        "Free entry removes long-run economic profit",
+        "Each firm's best price or output depends on how rivals are likely to react"
+      ],
+      "answer": 2,
+      "explanation": "Few large firms means strategic interdependence. The trap is thinking oligopoly requires identical products, which is only one form; free entry with zero long-run profit describes the other two structures."
+    },
+    {
+      "id": "econ-005",
+      "topic": "econ",
+      "reading": "econ-1",
+      "los": "econ-1-e",
+      "kind": "concept",
+      "stem": "Which statement about the N-firm concentration ratio and the HHI is correct?",
+      "options": [
+        "The N-firm ratio gives large firms more weight than the HHI does",
+        "The HHI ignores how many firms are in the market",
+        "Both can understate market power because they ignore entry barriers and import competition"
+      ],
+      "answer": 2,
+      "explanation": "Neither measure sees barriers to entry or foreign rivals. The HHI squares shares, so it weights big firms more than the N-firm ratio, which ignores everyone outside the top N. The trap is trusting a low ratio."
+    },
+    {
+      "id": "econ-006",
+      "topic": "econ",
+      "reading": "econ-2",
+      "los": "econ-2-a",
+      "kind": "concept",
+      "stem": "Why does the unemployment rate often keep rising for a while after the economy reaches the trough of the cycle?",
+      "options": [
+        "Output is still falling after the trough",
+        "Employers wait to confirm the recovery before hiring again",
+        "Inflation is accelerating, which destroys jobs"
+      ],
+      "answer": 1,
+      "explanation": "At the trough output starts to grow, but firms hold off hiring until they trust the upturn, so unemployment lags. The trap is assuming output is still falling; that would be before the trough."
+    },
+    {
+      "id": "econ-007",
+      "topic": "econ",
+      "reading": "econ-2",
+      "los": "econ-2-d",
+      "kind": "memorise",
+      "stem": "Which of the following is a leading economic indicator?",
+      "options": [
+        "Unemployment rate",
+        "Industrial production",
+        "Residential building permits"
+      ],
+      "answer": 2,
+      "explanation": "Building permits signal future construction and turn before the cycle does. Industrial production is coincident and unemployment is lagging. The trap is picking whatever sounds most important.",
+      "remember": "Leading: permits, new orders, equities. Coincident: output, income, sales. Lagging: unemployment, unit labour cost, loans."
+    },
+    {
+      "id": "econ-008",
+      "topic": "econ",
+      "reading": "econ-3",
+      "los": "econ-3-a",
+      "kind": "calc",
+      "stem": "The marginal propensity to consume is 0.8 and the tax rate is 25%. The government raises spending by 20. What is the approximate increase in GDP?",
+      "options": [
+        "50",
+        "100",
+        "25"
+      ],
+      "answer": 0,
+      "explanation": "Multiplier = 1 / (1 - 0.8 × 0.75) = 1 / 0.4 = 2.5, so GDP rises by 20 × 2.5 = 50. The trap is ignoring tax (multiplier 5, giving 100) or misplacing the tax term (25)."
+    },
+    {
+      "id": "econ-009",
+      "topic": "econ",
+      "reading": "econ-3",
+      "los": "econ-3-d",
+      "kind": "exam",
+      "stem": "During a recession Country X's deficit widens from 2% to 5% of GDP, mostly because tax receipts fell and jobless benefits rose. No new laws were passed. An analyst says the fiscal stance is strongly expansionary. Is she right?",
+      "options": [
+        "Not necessarily; most of the change is automatic, so the structural balance is the better gauge",
+        "Yes, a larger deficit proves the stance is expansionary",
+        "No; automatic stabilisers make policy contractionary"
+      ],
+      "answer": 1,
+      "explanation": "With no new measures, most of the swing comes from stabilisers reacting to the cycle. The cyclically adjusted balance shows the stance. The trap is reading any bigger deficit as a policy choice."
+    },
+    {
+      "id": "econ-010",
+      "topic": "econ",
+      "reading": "econ-3",
+      "los": "econ-3-c",
+      "kind": "concept",
+      "stem": "Why can discretionary fiscal policy be badly timed?",
+      "options": [
+        "Approval and implementation take time, so effects may arrive after the cycle has turned",
+        "Automatic stabilisers must be voted on at each downturn",
+        "Spending changes act on demand at once but are hard to reverse"
+      ],
+      "answer": 0,
+      "explanation": "Recognition, action and impact lags delay discretionary measures. The trap is the second option: automatic stabilisers need no new legislation, which is their advantage."
+    },
+    {
+      "id": "econ-011",
+      "topic": "econ",
+      "reading": "econ-4",
+      "los": "econ-4-d",
+      "kind": "memorise",
+      "stem": "The neutral nominal policy rate is approximately equal to:",
+      "options": [
+        "Real trend growth minus the target inflation rate",
+        "Real trend growth plus the current actual inflation rate",
+        "Real trend growth plus the target inflation rate"
+      ],
+      "answer": 2,
+      "explanation": "The neutral rate neither stimulates nor restrains, so it is trend growth plus target inflation. The trap is using actual inflation, which can differ from the target.",
+      "remember": "Neutral rate = real trend growth + target inflation. Policy rate above neutral = contractionary; below = expansionary."
+    },
+    {
+      "id": "econ-012",
+      "topic": "econ",
+      "reading": "econ-4",
+      "los": "econ-4-a",
+      "kind": "concept",
+      "stem": "A central bank raises the reserve requirement from 10% to 20%, all else equal. What happens to the money multiplier and lending capacity?",
+      "options": [
+        "The multiplier falls, so banks can lend less per unit of deposits",
+        "The multiplier rises, because banks hold more reserves per deposit",
+        "Neither changes, because only the policy rate matters"
+      ],
+      "answer": 1,
+      "explanation": "The simple multiplier is 1 / reserve requirement, so it falls from 10 to 5 and the change is contractionary. The trap is thinking more reserves means more money creation."
+    },
+    {
+      "id": "econ-013",
+      "topic": "econ",
+      "reading": "econ-4",
+      "los": "econ-4-c",
+      "kind": "exam",
+      "stem": "The central bank of Country Z cuts its policy rate by 50 basis points, a bigger move than markets expected. Analyst Tomas lists the typical transmission effects. Which list is most consistent with the standard mechanism?",
+      "options": [
+        "Lower bank lending rates, higher asset prices, a weaker currency and higher import prices",
+        "Lower bank lending rates, lower asset prices and a stronger currency",
+        "Higher bank lending rates, higher asset prices and a weaker currency"
+      ],
+      "answer": 0,
+      "explanation": "Lower rates cut borrowing costs and lift asset values, and capital outflow weakens the currency, making imports dearer. The trap is thinking lower discount rates reduce asset prices."
+    },
+    {
+      "id": "econ-014",
+      "topic": "econ",
+      "reading": "econ-5",
+      "los": "econ-5-b",
+      "kind": "concept",
+      "stem": "Which description fits autarky?",
+      "options": [
+        "A dominant state that shapes the rules for everyone else",
+        "A state that relies on itself, with minimal trade and capital links to others",
+        "A group of states cooperating through a trade agreement"
+      ],
+      "answer": 1,
+      "explanation": "Autarky is self-sufficiency and isolation. The dominant rule-setter is a hegemon, and a trade pact is cooperation. The trap is treating any trade restriction as autarky."
+    },
+    {
+      "id": "econ-015",
+      "topic": "econ",
+      "reading": "econ-5",
+      "los": "econ-5-d",
+      "kind": "concept",
+      "stem": "When assessing a geopolitical risk, what does velocity describe?",
+      "options": [
+        "How fast the event unfolds and reaches investments",
+        "How likely the event is to occur",
+        "How large the eventual loss would be"
+      ],
+      "answer": 0,
+      "explanation": "Velocity is speed of onset, which sets how much time there is to react. The trap is blending it with likelihood or impact; a low-likelihood event can still be fast and severe."
+    },
+    {
+      "id": "econ-016",
+      "topic": "econ",
+      "reading": "econ-6",
+      "los": "econ-6-b",
+      "kind": "concept",
+      "stem": "Compared with a tariff, a quota that cuts imports by the same amount and whose licences go free to foreign exporters differs because:",
+      "options": [
+        "The importing government collects the price-gap revenue",
+        "Domestic consumers pay lower prices",
+        "The price-gap revenue goes to licence holders rather than to the importing government"
+      ],
+      "answer": 2,
+      "explanation": "Both raise the domestic price and cut imports. Only the tariff pays the gap to the importing government; free quota licences hand it to licence holders. The trap is assuming the two are identical."
+    },
+    {
+      "id": "econ-017",
+      "topic": "econ",
+      "reading": "econ-6",
+      "los": "econ-6-c",
+      "kind": "memorise",
+      "stem": "Which type of trading bloc is the first to add a common external trade policy to free trade among members?",
+      "options": [
+        "Common market",
+        "Customs union",
+        "Free trade area"
+      ],
+      "answer": 1,
+      "explanation": "A free trade area drops internal barriers, and a customs union adds a common external tariff. A common market goes further with free movement of labour and capital.",
+      "remember": "FTA → customs union (common external tariff) → common market (labour, capital) → economic union → monetary union."
+    },
+    {
+      "id": "econ-018",
+      "topic": "econ",
+      "reading": "econ-6",
+      "los": "econ-6-a",
+      "kind": "exam",
+      "stem": "Country A opens its car market to imports and domestic car prices fall. Analyst Rosa summarises the effects for a client. Which statement is most accurate?",
+      "options": [
+        "Consumers gain, import-competing producers and workers lose, and national welfare rises overall",
+        "All domestic groups gain because efficiency improves",
+        "National welfare falls, because producer losses outweigh consumer gains"
+      ],
+      "answer": 0,
+      "explanation": "Gains to consumers exceed losses to protected producers, but the losses are concentrated. The trap is claiming everyone gains, which hides the winners and losers."
+    },
+    {
+      "id": "econ-019",
+      "topic": "econ",
+      "reading": "econ-7",
+      "los": "econ-7-c",
+      "kind": "memorise",
+      "stem": "Which exchange rate regime has a country using another country's currency as its legal tender?",
+      "options": [
+        "Currency board",
+        "Conventional fixed peg",
+        "Dollarisation"
+      ],
+      "answer": 2,
+      "explanation": "Dollarisation means giving up the domestic currency altogether. A currency board keeps its own notes fully backed by foreign reserves, and a peg keeps its own currency too.",
+      "remember": "Dollarisation: foreign currency is legal tender. Currency board: own notes backed fully by foreign reserves at a fixed rate."
+    },
+    {
+      "id": "econ-020",
+      "topic": "econ",
+      "reading": "econ-7",
+      "los": "econ-7-d",
+      "kind": "exam",
+      "stem": "Analyst Imran sees that Country Q's currency has depreciated 10%. The sum of the price elasticities of demand for its exports and imports is 1.4. What does he expect for the trade balance over time?",
+      "options": [
+        "It improves, because the Marshall-Lerner condition is met",
+        "It worsens, because imports cost more in domestic currency",
+        "It stays unchanged, because the elasticities offset the exchange rate move"
+      ],
+      "answer": 1,
+      "explanation": "When the elasticities sum to more than 1, a depreciation improves the trade balance as volumes adjust. The trap is looking only at the higher import price."
+    },
+    {
+      "id": "econ-021",
+      "topic": "econ",
+      "reading": "econ-7",
+      "los": "econ-7-b",
+      "kind": "concept",
+      "stem": "The nominal rate, quoted as domestic per foreign currency, is unchanged while domestic inflation exceeds foreign inflation. What happens to the real exchange rate (domestic per foreign)?",
+      "options": [
+        "It falls, so the domestic currency rises in real terms and domestic goods get dearer",
+        "It rises, so the domestic currency weakens in real terms",
+        "It is unchanged, because the nominal rate is unchanged"
+      ],
+      "answer": 0,
+      "explanation": "Real rate = nominal × foreign prices / domestic prices, so higher domestic prices lower it. The trap is ignoring prices when the nominal rate is flat."
+    },
+    {
+      "id": "econ-022",
+      "topic": "econ",
+      "reading": "econ-8",
+      "los": "econ-8-b",
+      "kind": "calc",
+      "stem": "EUR/USD is 1.25 (USD per EUR) and USD/JPY is 100 (JPY per USD). What is the cross rate in JPY per EUR?",
+      "options": [
+        "80",
+        "0.008",
+        "125"
+      ],
+      "answer": 2,
+      "explanation": "JPY per EUR = 1.25 × 100 = 125. The USD cancels. The trap is dividing the quotes (80) or giving the inverse quote, EUR per JPY (0.008)."
+    },
+    {
+      "id": "econ-023",
+      "topic": "econ",
+      "reading": "econ-8",
+      "los": "econ-8-c",
+      "kind": "calc",
+      "stem": "Spot is 100 units of currency P per 1 unit of currency B. One-year rates are 21% in P and 10% in B. What is the one-year forward rate, in P per B?",
+      "options": [
+        "111",
+        "110",
+        "90.9"
+      ],
+      "answer": 1,
+      "explanation": "Forward = spot × (1 + i of price currency) / (1 + i of base currency) = 100 × 1.21 / 1.10 = 110. The trap is inverting the ratio (90.9) or subtracting the rates (111)."
+    },
+    {
+      "id": "econ-024",
+      "topic": "econ",
+      "reading": "econ-8",
+      "los": "econ-8-d",
+      "kind": "memorise",
+      "stem": "Under covered interest rate parity, a currency whose interest rate is lower than its trading partner's trades at a:",
+      "options": [
+        "Forward premium",
+        "Forward discount",
+        "Forward rate equal to spot"
+      ],
+      "answer": 0,
+      "explanation": "The lower-rate currency must be worth more forward to offset the interest it gives up. The trap is linking a high rate with a strong forward price.",
+      "remember": "Lower interest rate → forward premium. Higher interest rate → forward discount (covered interest parity)."
+    },
+    {
+      "id": "econ-025",
+      "topic": "econ",
+      "reading": "econ-8",
+      "los": "econ-8-a",
+      "kind": "calc",
+      "stem": "USD/EUR is quoted as USD per EUR and moves from 1.10 to 1.21. By how much did the euro change against the dollar?",
+      "options": [
+        "Appreciated by 9.1%",
+        "Depreciated by 10%",
+        "Appreciated by 10%"
+      ],
+      "answer": 2,
+      "explanation": "The euro is the base currency, so its change is 1.21 / 1.10 - 1 = +10%. The trap is 9.1%, which is the dollar's fall against the euro, a different currency's move."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "econ-1",
+      "ideas": [
+        "In the short run a firm shuts down only when price falls below average variable cost, not average total cost.",
+        "Perfect and monopolistic competition earn zero long-run economic profit; monopoly and oligopoly keep pricing power.",
+        "Concentration measures such as the N-firm ratio and HHI ignore entry barriers and import competition."
+      ],
+      "formula": "Profit is maximised where MR = MC; HHI = sum of squared market shares",
+      "trap": "Shutting down whenever a firm makes a loss, instead of comparing price with average variable cost."
+    },
+    {
+      "reading": "econ-2",
+      "ideas": [
+        "The cycle runs expansion, peak, contraction, trough; unemployment typically turns after output does.",
+        "Leading indicators turn first, coincident ones move with the cycle, and lagging ones confirm it afterwards.",
+        "Credit cycles amplify the business cycle: easy lending feeds booms and tight credit deepens downturns."
+      ],
+      "trap": "Calling unemployment a leading indicator; it lags and can keep rising after output has started to recover."
+    },
+    {
+      "reading": "econ-3",
+      "ideas": [
+        "Fiscal policy uses spending, taxes and transfers to steer demand; expansionary means a more stimulative stance.",
+        "Automatic stabilisers need no new law, whereas discretionary changes face recognition, action and impact lags.",
+        "A higher tax rate or other leakage lowers the spending multiplier."
+      ],
+      "formula": "Multiplier = 1 ÷ [1 − MPC × (1 − t)]",
+      "trap": "Calling a recession-driven deficit expansionary policy; judge the stance by the structural, cyclically adjusted balance."
+    },
+    {
+      "reading": "econ-4",
+      "ideas": [
+        "Banks create money by lending out deposits; the simple money multiplier is 1 ÷ reserve requirement.",
+        "Central banks steer short rates with the policy rate, open market operations and reserve requirements.",
+        "Policy is expansionary when the policy rate sits below neutral: real trend growth plus target inflation."
+      ],
+      "formula": "Neutral rate = real trend growth + target inflation; MV = PY",
+      "trap": "Calling a rate cut expansionary without checking whether the policy rate is still above the neutral rate."
+    },
+    {
+      "reading": "econ-5",
+      "ideas": [
+        "Geopolitics studies how states and other actors cooperate or compete, from closed autarky to dominant hegemons.",
+        "Tools include national security (force, cyber), economic (sanctions, tariffs) and financial (capital controls) measures.",
+        "Rate a geopolitical risk by likelihood, velocity (speed of onset) and impact, then plan the response."
+      ],
+      "trap": "Ignoring a low-likelihood risk even though high velocity and high impact leave little time to react."
+    },
+    {
+      "reading": "econ-6",
+      "ideas": [
+        "Trade raises total welfare through lower prices and more variety, but import-competing workers and firms lose.",
+        "Tariffs raise government revenue; quotas hand the price gap to licence holders; both cut imports and lift prices.",
+        "Blocs deepen from free trade area to customs union, common market, economic union and monetary union."
+      ],
+      "trap": "Assuming a quota and a tariff are identical; only the tariff pays the price-gap revenue to the importing government."
+    },
+    {
+      "reading": "econ-7",
+      "ideas": [
+        "The FX market is dominated by dealers and large institutions trading for commerce, investment, hedging and speculation.",
+        "The real exchange rate adjusts the nominal rate for relative price levels, so it tracks competitiveness.",
+        "Regimes run from dollarisation and currency boards through pegs to free floats."
+      ],
+      "formula": "Real rate (d/f) = nominal (d/f) × foreign prices ÷ domestic prices",
+      "trap": "Assuming a weaker currency always fixes a trade deficit; Marshall-Lerner needs elasticities summing above 1."
+    },
+    {
+      "reading": "econ-8",
+      "ideas": [
+        "Check the quote direction first: a rate is price currency per one unit of base currency.",
+        "A cross rate multiplies or divides two quotes so that the common currency cancels.",
+        "Forward rates follow interest rate parity: the lower-rate currency trades at a forward premium."
+      ],
+      "formula": "F = S × (1 + i price currency) ÷ (1 + i base currency)",
+      "trap": "Inverting a quote or the interest-rate ratio, which flips both the cross rate and the premium or discount conclusion."
+    }
+  ]
+}
