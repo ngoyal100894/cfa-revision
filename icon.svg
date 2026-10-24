@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <rect width="180" height="180" fill="#4553d6"/>
+  <text x="90" y="104" text-anchor="middle" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#ffffff" letter-spacing="1">CFA</text>
+  <rect x="58" y="122" width="64" height="8" rx="4" fill="#ffffff" opacity=".55"/>
+</svg>

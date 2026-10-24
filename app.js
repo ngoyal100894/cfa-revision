@@ -190,6 +190,9 @@
       var p = this.parse(), name = p.name;
       if (!Store.state.onboarded && name !== 'coverage' && name !== 'settings') name = 'coverage';
       else if (!this.routes[name]) name = 'home';
+      // Left a session another way (iOS swipe-back, Back button): still count what was done.
+      if (name !== 'session' && Session.cur) { Session.record(); Session.cur = null; }
+      if (name !== 'recap' && Recap.cur) { Recap.record(); Recap.cur = null; }
       var root = el('screen');
       var fresh = root.cloneNode(false);        // new node restarts the fade-in animation
       root.parentNode.replaceChild(fresh, root);
@@ -380,6 +383,7 @@
     var st = Store.state, t = today();
     var d = Sched.daysBetween(t, D.curriculum.examDate);
     if (d < 0) return null;
+    if (!coveredCount()) return { mode: null, text: 'Tick the readings you’ve finished in the books, and their questions start coming.' };
     if (d === 0) return { mode: 'remember', text: 'Exam day. A quick Must-remember if you want a warm-up. Good luck, Ishita.', week: true };
     if (d === 1) return { mode: 'remember', text: 'Tomorrow. Must-remember and a Recap sweep; nothing new tonight.', week: true };
     if (d <= 3) return { mode: 'exam', text: 'Exam week. Mix Today’s 15 with Exam practice; sweep Recap for anything shaky.', week: true };
@@ -895,22 +899,30 @@
   function doImport(file) {
     var reader = new FileReader();
     reader.onerror = function () { notice("Couldn't read that file."); };
-    reader.onload = function () {
-      var data;
-      try { data = JSON.parse(reader.result); } catch (e) { data = null; }
-      if (!looksLikeState(data)) { notice("That doesn't look like a progress file from this app."); return; }
-      var n = Object.keys(data.q).length, cov = Object.keys(data.coverage).length;
-      confirmDialog('Replace your progress?',
-        'This file has ' + plural(cov, 'covered reading', 'covered readings') + ' and ' + plural(n, 'answered question', 'answered questions') + '. It will replace what is on this phone now.',
-        'Replace', 'Cancel', true).then(function (yes) {
-        if (!yes) return;
-        if (!('onboarded' in data)) data.onboarded = cov > 0;
-        Store.replace(data);
-        notice('Progress restored.');
-        Router.go('home');
-      });
-    };
+    reader.onload = function () { importText(reader.result, "That doesn't look like a progress file from this app."); };
     reader.readAsText(file);
+  }
+  // Restore from progress copied into Notes earlier: she copies the text there, then taps this.
+  function doPaste() {
+    if (!navigator.clipboard || !navigator.clipboard.readText) { notice("This phone can't paste here. Use a progress file instead."); return; }
+    navigator.clipboard.readText().then(function (t) {
+      importText(t, 'Copy the whole progress text from Notes first, then tap this again.');
+    }, function () { notice("Couldn't paste. Copy the progress text from Notes, then try again."); });
+  }
+  function importText(text, badMsg) {
+    var data;
+    try { data = JSON.parse(text); } catch (e) { data = null; }
+    if (!looksLikeState(data)) { notice(badMsg); return; }
+    var n = Object.keys(data.q).length, cov = Object.keys(data.coverage).length;
+    confirmDialog('Replace your progress?',
+      'This backup has ' + plural(cov, 'covered reading', 'covered readings') + ' and ' + plural(n, 'answered question', 'answered questions') + '. It will replace what is on this phone now.',
+      'Replace', 'Cancel', true).then(function (yes) {
+      if (!yes) return;
+      if (!('onboarded' in data)) data.onboarded = cov > 0;
+      Store.replace(data);
+      notice('Progress restored.');
+      Router.go('home');
+    });
   }
 
   function renderSettings(root) {
@@ -929,7 +941,8 @@
         h('div', { class: 'list' },
           row('Save a progress file', 'Downloads a backup of everything you’ve done', doExport),
           row('Copy progress instead', 'If saving a file doesn’t work on this phone', function () { doCopy(false); }),
-          row('Restore from a progress file', 'Pick a file you saved earlier', function () { file.click(); })),
+          row('Restore from a progress file', 'Pick a file you saved earlier', function () { file.click(); }),
+          row('Restore from copied progress', 'Copy the progress text from Notes, then tap here', doPaste)),
         h('p', { class: 'reminder', text: 'Safari can clear a web app’s saved data if you don’t open it for about a week. Save a progress file now and then.' }), file),
       h('div', { class: 'group' }, h('div', { class: 'eyebrow', text: 'Study' }),
         h('div', { class: 'list' }, row('Edit what you’ve covered', coveredCount() + ' of ' + D.readingCount + ' readings ticked', function () { Router.go('coverage'); }))),
