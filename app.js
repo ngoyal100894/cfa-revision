@@ -6,7 +6,7 @@
 
   var Sched = window.Scheduler;
   var KEY = 'cfa-rev-v1';
-  var NAMES = { daily: "Today's 15", recap: 'Recap', calc: 'Quick-calc', remember: 'Must-remember', weak: 'Weak spots', exam: 'Exam practice' };
+  var NAMES = { daily: "Today's 15", recap: 'Recap', calc: 'Quick-calc', remember: 'Must-remember', weak: 'Weak spots', exam: 'Exam practice', sheet: 'Formula sheet' };
   var LETTERS = ['A', 'B', 'C', 'D'];
   var PACE_SECONDS = 90;   // exam practice pace bar (visual only)
 
@@ -374,9 +374,10 @@
     remember: { note: "Facts the exam asks directly: rules, lists, thresholds. You can't reason your way to these; learn them cold.", empty: 'No must-remember questions in what you’ve covered yet' },
     calc: { note: "Formula drills with easy numbers. On exam day you'll have your calculator; this trains knowing which formula and which number goes where.", empty: 'No formula questions in what you’ve covered yet' },
     weak: { note: 'Only your 3 weakest readings, until they aren’t.', empty: 'Answer a few more first' },
-    exam: { note: '10 exam-style questions at real pace, 90 seconds each. Answers at the end, like the real thing.', empty: 'No questions in what you’ve covered yet' }
+    exam: { note: '10 exam-style questions at real pace, 90 seconds each. Answers at the end, like the real thing.', empty: 'No questions in what you’ve covered yet' },
+    sheet: { note: 'Every formula and must-remember fact from what you’ve covered, answers hidden. Say it, then tap. Three minutes, anywhere.', empty: 'Tick some readings first' }
   };
-  var MODE_ORDER = ['recap', 'remember', 'calc', 'weak', 'exam'];
+  var MODE_ORDER = ['recap', 'remember', 'calc', 'sheet', 'weak', 'exam'];
 
   // One suggested step, driven by days to the exam. Returns { mode, text, week } (mode may be null).
   function suggestion(avail) {
@@ -384,8 +385,8 @@
     var d = Sched.daysBetween(t, D.curriculum.examDate);
     if (d < 0) return null;
     if (!coveredCount()) return { mode: null, text: 'Tick the readings you’ve finished in the books, and their questions start coming.' };
-    if (d === 0) return { mode: 'remember', text: 'Exam day. A quick Must-remember if you want a warm-up. Good luck, Ishita.', week: true };
-    if (d === 1) return { mode: 'remember', text: 'Tomorrow. Must-remember and a Recap sweep; nothing new tonight.', week: true };
+    if (d === 0) return { mode: 'sheet', text: 'Exam day. A quick sweep of the Formula sheet if you want a warm-up. Good luck, Ishita.', week: true };
+    if (d === 1) return { mode: 'sheet', text: 'Tomorrow. Sweep the Formula sheet and Recap anything shaky, then stop. Nothing new tonight.', week: true };
     if (d <= 3) return { mode: 'exam', text: 'Exam week. Mix Today’s 15 with Exam practice; sweep Recap for anything shaky.', week: true };
     // Readings ticked in the last 3 days that have a card but no recap yet.
     var fresh = Object.keys(st.coverage).filter(function (r) {
@@ -409,7 +410,8 @@
       remember: modePool('remember') > 0,
       calc: modePool('calc') > 0,
       weak: modePool('weak') > 0,
-      exam: modePool('exam') > 0
+      exam: modePool('exam') > 0,
+      sheet: Object.keys(sheetLines(false)).length > 0
     };
     var sug = suggestion(avail);
     var order = MODE_ORDER.slice();
@@ -419,7 +421,7 @@
       var c = MODE_CARDS[m], ok = avail[m];
       var tagged = !!(sug && sug.mode === m && ok);
       return h('button', { class: 'mode' + (tagged ? ' suggested' : ''), 'aria-disabled': ok ? null : 'true',
-        onclick: function () { if (!ok) return; if (m === 'recap') Recap.start(); else Session.start(m); } },
+        onclick: function () { if (!ok) return; if (m === 'recap') Recap.start(); else if (m === 'sheet') Router.go('sheet'); else Session.start(m); } },
         h('div', { class: 'mode-head' }, h('div', { class: 'mode-name', text: NAMES[m] }), tagged ? h('span', { class: 'tag', text: 'Suggested' }) : null),
         h('div', { class: 'mode-note', text: c.note }),
         ok ? null : h('div', { class: 'mode-reason', text: c.empty }));
@@ -434,6 +436,12 @@
           h('span', { class: 'ms-i' }, h('span', { class: 'sw shaky' }), mc.shaky + ' shaky'),
           h('span', { class: 'ms-i' }, h('span', { class: 'sw untested' }), mc.untested + ' untested'))),
       h('span', { class: 'ms-link' }, 'Your map', icon('chev')));
+    var nx = readNext(1)[0];
+    var standStrip = h('button', { class: 'map-strip', onclick: function () { Router.go('standing'); } },
+      h('div', { class: 'ms-text' },
+        h('div', { text: weightCovered() + '% of the exam covered, by weight' }),
+        h('div', { class: 'ms-sub', text: nx ? 'Read next: ' + nx.t.name + ' R' + nx.r.n : 'Everything ticked. Now make it stick.' })),
+      h('span', { class: 'ms-link', 'aria-label': 'Where you stand' }, icon('chev')));
 
     var nudges = [];
     if (st.sessions.length >= 5 && !st.nudge.export) {
@@ -454,7 +462,8 @@
       sug ? h('div', { class: 'suggest' + (sug.week ? ' week' : '') }, h('div', { class: 'eyebrow', text: 'Suggested' }), h('p', { text: sug.text })) : null,
       nudges,
       modes,
-      strip
+      strip,
+      standStrip
     ];
     var bar = h('div', { class: 'bar hero' },
       h('button', { class: 'btn btn-primary', text: NAMES.daily, onclick: function () { Session.start('daily'); } }),
@@ -833,7 +842,8 @@
     var legend = h('div', { class: 'legend', role: 'group', 'aria-label': 'Colour key' },
       legendItem('solid', 'Solid'), legendItem('shaky', 'Shaky'), legendItem('untested', 'Covered, not tested yet'), legendItem('none', 'Not covered'));
     var foot = h('button', { class: 'btn-link map-foot', text: 'Update what you’ve covered', onclick: function () { Router.go('coverage'); } });
-    var scroll = screenFrame(root, [head, summary, legend, list, foot]);
+    var standLink = h('button', { class: 'btn-link', text: 'Where you stand, by exam weight', onclick: function () { Router.go('standing'); } });
+    var scroll = screenFrame(root, [head, summary, standLink, legend, list, foot]);
     scroll.style.paddingBottom = 'calc(28px + env(safe-area-inset-bottom))';
 
     function draw() {
@@ -852,6 +862,148 @@
           }))));
       });
       scroll.scrollTop = top;
+    }
+    draw();
+  }
+
+  /* =====================================================================
+     Screen: Where you stand. Exam weight covered, per-topic accuracy, what to read next.
+     ===================================================================== */
+  function midWeight(t) { return (t.weightMin + t.weightMax) / 2; }
+  function weightCovered() {
+    var st = Store.state, tot = 0, got = 0;
+    D.curriculum.topics.forEach(function (t) {
+      var n = t.readings.filter(function (r) { return st.coverage[r.id]; }).length;
+      tot += midWeight(t); got += midWeight(t) * n / t.readings.length;
+    });
+    return tot ? Math.round(100 * got / tot) : 0;
+  }
+  // Unread readings worth the most exam weight each (topic weight shared across its readings).
+  function readNext(k) {
+    var st = Store.state, out = [];
+    D.curriculum.topics.forEach(function (t) {
+      t.readings.forEach(function (r) {
+        if (!st.coverage[r.id]) out.push({ r: r, t: t, per: midWeight(t) / t.readings.length });
+      });
+    });
+    out.sort(function (a, b) { return b.per - a.per || a.r.n - b.r.n; });
+    return out.slice(0, k);
+  }
+
+  function renderStanding(root) {
+    var st = Store.state;
+    var head = h('div', { class: 'cov-head' },
+      h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: function () { history.length > 1 ? history.back() : Router.go('home'); } }, icon('back')),
+      h('div', null, h('h1', { class: 'title', text: 'Where you stand' }),
+        h('p', { class: 'subtitle', text: 'The exam counts topics unevenly. Ethics, FSA, Equity and Fixed Income are about half the paper.' })));
+    var body = h('div');
+    var scroll = screenFrame(root, [head, body]);
+    scroll.style.paddingBottom = 'calc(28px + env(safe-area-inset-bottom))';
+
+    function draw() {
+      body.innerHTML = '';
+      var stats = Sched.readingStats(D.questions, st);
+      body.appendChild(h('p', { class: 'stand-big', text: 'About ' + weightCovered() + '% of the exam covered, by weight.' }));
+
+      var next = readNext(3);
+      if (next.length) {
+        body.appendChild(h('section', { class: 'stand-next' },
+          h('div', { class: 'eyebrow', text: 'Read next in the books' }),
+          h('p', { class: 'fact muted', text: 'The unread readings worth the most exam marks each. Tap one to mark it covered when you finish it.' }),
+          next.map(function (x) {
+            return h('button', { class: 'next-row', onclick: function () { openReadingSheet(x.r.id, draw); } },
+              h('span', null, h('b', { text: x.t.name }), ' · Reading ' + x.r.n + ': ' + x.r.title),
+              icon('chev'));
+          })));
+      }
+
+      body.appendChild(h('div', { class: 'eyebrow stand-eyebrow', text: 'By topic' }));
+      D.curriculum.topics.forEach(function (t) {
+        var n = 0, att = 0, right = 0;
+        t.readings.forEach(function (r) {
+          if (st.coverage[r.id]) n++;
+          var s = stats[r.id]; if (s) { att += s.attempts; right += s.right; }
+        });
+        var acc = att >= 5 ? Math.round(100 * right / att) : null;
+        var accText = acc === null ? (n ? 'not enough answers yet' : '') : acc + '% right';
+        body.appendChild(h('div', { class: 'stand-row' },
+          h('div', { class: 'stand-top' },
+            h('span', { class: 'stand-name', text: t.name }),
+            h('span', { class: 'stand-w', text: t.weightMin + '–' + t.weightMax + '%' })),
+          h('div', { class: 'stand-bar' }, h('span', { style: 'width:' + Math.round(100 * n / t.readings.length) + '%' })),
+          h('div', { class: 'stand-sub' },
+            h('span', { text: n + ' of ' + t.readings.length + ' read' }),
+            accText ? h('span', { class: acc === null ? '' : acc < 70 ? 'acc-low' : 'acc-ok', text: accText }) : null)));
+      });
+      body.appendChild(h('p', { class: 'fact muted stand-foot', text: 'Aim for 70% or more in every topic you’ve read. Below that, use Weak spots or Practice this from Your map.' }));
+    }
+    draw();
+  }
+
+  /* =====================================================================
+     Screen: Formula sheet. Every formula and must-remember line from covered readings,
+     cue shown and answer blurred: say it, then tap. Retrieval, not rereading.
+     ===================================================================== */
+  var sheetAll = false, sheetShown = false;
+
+  function sheetLines(all) {
+    var st = Store.state, by = {}, seen = {};
+    function add(rid, cue, text) {
+      var key = text.trim().toLowerCase();
+      if (seen[key]) return; seen[key] = true;
+      (by[rid] = by[rid] || []).push({ cue: cue, text: text });
+    }
+    D.recapList.forEach(function (c) {
+      if (!c.formula || (!all && !st.coverage[c.reading])) return;
+      c.formula.split(/;\s+/).forEach(function (part) {
+        var i = part.indexOf('=');
+        add(c.reading, i > 0 ? part.slice(0, i).trim() : D.reading[c.reading].reading.short, part.trim());
+      });
+    });
+    D.questions.forEach(function (q) {
+      if (!q.remember || (!all && !st.coverage[q.reading])) return;
+      var i = q.remember.indexOf(':');
+      var lo = D.lo[q.los];
+      add(q.reading, i > 0 && i <= 40 ? q.remember.slice(0, i) : (lo ? lo.text : D.reading[q.reading].reading.short), q.remember);
+    });
+    return by;
+  }
+
+  function renderFormulaSheet(root) {
+    var head = h('div', { class: 'cov-head' },
+      h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: function () { history.length > 1 ? history.back() : Router.go('home'); } }, icon('back')),
+      h('div', null, h('h1', { class: 'title', text: NAMES.sheet }),
+        h('p', { class: 'subtitle', text: 'Every formula and must-remember fact. Read the cue, say the answer out loud, then tap to check.' })));
+    var controls = h('div', { class: 'sheet-ctl' });
+    var body = h('div');
+    var scroll = screenFrame(root, [head, controls, body]);
+    scroll.style.paddingBottom = 'calc(28px + env(safe-area-inset-bottom))';
+
+    function draw() {
+      var by = sheetLines(sheetAll), total = 0;
+      controls.innerHTML = '';
+      controls.appendChild(h('button', { class: 'btn-small' + (sheetAll ? '' : ' sel'), text: 'What I’ve covered', onclick: function () { sheetAll = false; draw(); } }));
+      controls.appendChild(h('button', { class: 'btn-small' + (sheetAll ? ' sel' : ''), text: 'Everything', onclick: function () { sheetAll = true; draw(); } }));
+      controls.appendChild(h('button', { class: 'btn-link', text: sheetShown ? 'Hide answers' : 'Show all', onclick: function () { sheetShown = !sheetShown; draw(); } }));
+      body.innerHTML = '';
+      D.curriculum.topics.forEach(function (t) {
+        var rows = [];
+        t.readings.forEach(function (r) {
+          (by[r.id] || []).forEach(function (x) {
+            total++;
+            var line = h('button', { class: 'fl' + (sheetShown ? ' open' : ''), 'aria-label': x.cue + '. Tap to reveal.',
+              onclick: function () { line.classList.toggle('open'); } },
+              h('div', { class: 'fl-r', text: 'Reading ' + r.n + ' · ' + r.short }),
+              h('div', { class: 'fl-cue', text: x.cue }),
+              h('div', { class: 'fl-a', text: x.text }));
+            rows.push(line);
+          });
+        });
+        if (rows.length) body.appendChild(h('section', { class: 'map-topic' },
+          h('div', { class: 'map-topic-head' }, h('div', { class: 'map-topic-name', text: t.name }), h('div', { class: 'map-topic-n', text: String(rows.length) })),
+          rows));
+      });
+      if (!total) body.appendChild(h('p', { class: 'fact muted', text: 'Nothing here yet. Tick the readings you’ve covered, or tap Everything.' }));
     }
     draw();
   }
@@ -976,6 +1128,8 @@
   Router.register('recap', renderRecap);
   Router.register('map', renderMap);
   Router.register('settings', renderSettings);
+  Router.register('standing', renderStanding);
+  Router.register('sheet', renderFormulaSheet);
 
   function boot() {
     Store.load();
