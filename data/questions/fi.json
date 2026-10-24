@@ -167,7 +167,7 @@
       ],
       "answer": 0,
       "explanation": "The Z-spread uses the whole spot curve, not one yield. The trap is the G-spread (a single government yield) or I-spread (a single swap rate).",
-      "remember": "G-spread: vs govt yield. I-spread: vs swap rate. Z-spread: flat add-on to spot curve. OAS: Z-spread minus option value."
+      "remember": "G-spread: vs govt yield. I-spread: vs swap rate. Z-spread: flat add-on to spot curve. OAS: Z-spread minus call option cost."
     },
     {
       "id": "fi-012",

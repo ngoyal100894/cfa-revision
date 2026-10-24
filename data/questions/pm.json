@@ -29,8 +29,8 @@
         "Execution"
       ],
       "answer": 0,
-      "explanation": "Feedback covers monitoring, rebalancing and performance evaluation. The trap is calling rebalancing \"execution\" because it involves trading; execution is the initial construction and security selection.",
-      "remember": "Plan (IPS, expectations, SAA); Execute (select, trade); Feedback (monitor, rebalance, evaluate)."
+      "explanation": "Feedback covers monitoring, rebalancing and performance evaluation. The trap is calling rebalancing \"execution\" because it involves trading; execution is asset allocation, security analysis and initial construction.",
+      "remember": "Plan: client needs, IPS. Execute: asset allocation, security selection, construction. Feedback: monitor, rebalance, evaluate."
     },
     {
       "id": "pm-003",
@@ -463,7 +463,7 @@
       "reading": "pm-1",
       "ideas": [
         "Holding many imperfectly correlated assets lowers risk without a matching fall in expected return.",
-        "The process runs plan, execute, feedback: IPS and expectations first, then construction, then monitoring.",
+        "The process runs plan, execute, feedback: client needs and IPS first, then allocation and construction, then monitoring.",
         "Pooled vehicles differ in trading and customisation: ETFs trade intraday, mutual funds at NAV, SMAs are tailored."
       ],
       "trap": "Rebalancing and performance evaluation belong to the feedback step, not to execution."

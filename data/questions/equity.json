@@ -567,7 +567,7 @@
     {
       "reading": "equity-4",
       "ideas": [
-        "Common shares carry votes and residual claims, while preference shares usually pay fixed dividends with priority but few votes.",
+        "Common shares carry votes and residual claims, while preference shares usually pay fixed dividends with priority but no votes.",
         "Cumulative preference shares carry unpaid dividends forward, participating ones share extra profit, and convertibles swap into common.",
         "A firm creates value when ROE exceeds its cost of equity, and book value is historical while market value looks forward."
       ],

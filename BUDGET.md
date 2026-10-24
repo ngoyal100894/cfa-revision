@@ -15,4 +15,4 @@ Cap: 14 subagent runs. Usage ceilings from Nikhil: weekly all-models 75% (46% at
 | 9 | Review R3: Alts, Quant, Econ, Corp, Deriv (fix or delete, incl. recaps) | content-reviewer | fable (override) | L (88k tokens, 2 min) | done; 4 Qs fixed (3 econ answer keys off by one), 2 recaps fixed, 0 deleted |
 | 10 | Builder 2: integrate content + PRODUCT P0 (exam, recap, lucky guess, map, home phasing) | builder | sonnet | L | running |
 | 11 | Review R1: Ethics, FSA (fix or delete, incl. recaps) | content-reviewer | fable (override) | M (52k tokens, 2 min) | done; 2 ethics Qs + 1 recap fixed (sanctions list, I(D) scope), FSA clean, 0 deleted |
-| 12 | Review R2: Equity, FI, PM (fix or delete, incl. recaps) | content-reviewer | fable (override) | L | running |
+| 12 | Review R2: Equity, FI, PM (fix or delete, incl. recaps) | content-reviewer | fable (override) | M (66k tokens, 2 min) | done; 2 Qs + 2 recaps fixed (wording), 0 deleted, all keys verified |
