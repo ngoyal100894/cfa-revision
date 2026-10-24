@@ -120,7 +120,7 @@
         "A common driver such as hot weather probably moves both, so the link may be spurious"
       ],
       "answer": 2,
-      "explanation": "A third factor, like hot sunny weather, can drive both series. Correlation is not causation. The trap on the last option is that variation explained is r², which is 81%, not 90%."
+      "explanation": "A third factor, like hot sunny weather, can drive both series. Correlation is not causation. The 90% option is also wrong: variation explained is r², which is 81%, not 90%."
     },
     {
       "id": "quant-009",
@@ -479,7 +479,7 @@
         "R² is explained variation over total variation; with one regressor it equals the squared correlation.",
         "Test the slope with t = (b − hypothesised value) ÷ standard error of b, using n − 2 degrees of freedom."
       ],
-      "formula": "R² = RSS ÷ SST; t = (b − b0) ÷ s(b); df = n − 2",
+      "formula": "R² = SSR ÷ SST = 1 − SSE ÷ SST; t = (b − b0) ÷ s(b); df = n − 2",
       "trap": "Testing the slope against zero when the question asks about another value, such as a beta of 1."
     },
     {

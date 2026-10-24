@@ -134,7 +134,7 @@
         "Yes, a larger deficit proves the stance is expansionary",
         "No; automatic stabilisers make policy contractionary"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "With no new measures, most of the swing comes from stabilisers reacting to the cycle. The cyclically adjusted balance shows the stance. The trap is reading any bigger deficit as a policy choice."
     },
     {
@@ -180,7 +180,7 @@
         "The multiplier rises, because banks hold more reserves per deposit",
         "Neither changes, because only the policy rate matters"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "The simple multiplier is 1 / reserve requirement, so it falls from 10 to 5 and the change is contractionary. The trap is thinking more reserves means more money creation."
     },
     {
@@ -302,7 +302,7 @@
         "It worsens, because imports cost more in domestic currency",
         "It stays unchanged, because the elasticities offset the exchange rate move"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "When the elasticities sum to more than 1, a depreciation improves the trade balance as volumes adjust. The trap is looking only at the higher import price."
     },
     {
