@@ -62,8 +62,29 @@ files.forEach(file => {
     if (seenStems[sk]) warn(file, `${at}: same stem as ${seenStems[sk]}`); else seenStems[sk] = q.id;
   });
 
+  // Recap cards: one per reading of the file's topic (skipped for the mixed dummy file).
+  const topic = curriculum.topics.find(t => t.id === data.topic);
+  if (topic) {
+    const recaps = data.recaps || [];
+    const have = {};
+    recaps.forEach((c, i) => {
+      const e = m => err(file, `recap #${i} ${c.reading || '?'}: ${m}`);
+      if (readings[c.reading] !== topic.id) return e('reading not in this topic');
+      if (have[c.reading]) e('duplicate recap for reading'); have[c.reading] = true;
+      if (!Array.isArray(c.ideas) || c.ideas.length !== 3) e('ideas must be exactly 3 strings');
+      else c.ideas.forEach((s, k) => { if (typeof s !== 'string' || s.length < 40 || s.length > 140) e(`idea ${k + 1} must be 40-140 chars (${(s || '').length})`); });
+      if (c.formula != null && (typeof c.formula !== 'string' || c.formula.length > 120 || /\\|<[a-z]/i.test(c.formula))) e('formula must be plain text <=120 chars (no LaTeX/HTML)');
+      if (typeof c.trap !== 'string' || c.trap.length < 40 || c.trap.length > 170) e(`trap must be 40-170 chars (${(c.trap || '').length})`);
+    });
+    const missing = topic.readings.filter(r => !have[r.id]).map(r => r.id);
+    if (missing.length) warn(file, `no recap card for: ${missing.join(', ')}`);
+    const noQ = topic.readings.filter(r => !data.questions.some(q => q.reading === r.id)).map(r => r.id);
+    if (noQ.length) warn(file, `no questions for: ${noQ.join(', ')}`);
+    console.log(`${path.basename(file)}: ${recaps.length}/${topic.readings.length} recap cards`);
+  }
+
   const n = data.questions.length;
-  if (n && counts.calc / n > 0.2 && !/quant|fi|deriv/.test(path.basename(file))) warn(file, `calc share ${(100 * counts.calc / n).toFixed(0)}% > 20%`);
+  if (n && counts.calc / n > 0.25) warn(file, `calc share ${(100 * counts.calc / n).toFixed(0)}% > 25%`);
   if (n >= 10) answers.forEach((c, k) => { if (c / n > 0.45) warn(file, `answer ${'ABC'[k]} is correct in ${(100 * c / n).toFixed(0)}% of questions`); });
   console.log(`${path.basename(file)}: ${n} questions (concept ${counts.concept}, calc ${counts.calc}, memorise ${counts.memorise}, exam ${counts.exam}); answers A/B/C = ${answers.join('/')}`);
 });

@@ -6,7 +6,7 @@ Interactive run on 2026-10-24 with Nikhil present. His answers override KICKOFF.
 |---|---|---|
 | 1 | The exam is **13 Nov 2026**, not "today + 14". | Nikhil |
 | 2 | The greeting is **"Hi Ishita"**. | Nikhil |
-| 3 | Deploy to **GitHub Pages**, with a **private repo** requested. | Nikhil. Pages on a private repo needs a paid GitHub plan, and the *site* is public either way. To resolve at the deploy checkpoint. |
+| 3 | Deploy to **GitHub Pages** from a **public repo**. | Nikhil chose this over a private repo: Pages on a private repo needs a paid plan, and the site is public either way. Created at the deploy checkpoint. |
 | 4 | Revision **modes** are Today's 15 (daily mix), Quick-calc, Must-remember, Weak spots and Exam practice. Each carries a one-line note on what it's for. | Nikhil: "choose different modes", "special feature for quick-calc", "some questions remembering-worth", "some sections specific exam practice; the instructions should say such". |
 | 5 | A session is **15 questions** (about 1 min each including the explanation), not 20. Quick-calc, Weak spots and Exam practice have 10. | 15-minute sessions (Nikhil, "your call"). |
 | 6 | Questions carry `kind`: concept / calc / memorise / exam. Quick-calc is a share of at most 20% of the daily mix; Quick-calc mode is calc only. | Supports the modes with one content format. |
