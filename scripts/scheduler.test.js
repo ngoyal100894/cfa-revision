@@ -104,4 +104,30 @@ test('7. deterministic for same day and state; streak counts consecutive days', 
   assert.strictEqual(S.streak(st, '2026-10-26'), 0);
 });
 
+test('8. lucky guess is scheduled as a miss but scored as right', () => {
+  let st = S.emptyState();
+  st.coverage['fi-6'] = '2026-10-01';
+  st = S.finishSession(st, T, 'daily', [{ id: 'fi-6-q1', correct: true, guess: true }, { id: 'fi-6-q2', correct: true }]);
+  assert.deepStrictEqual([st.q['fi-6-q1'].box, st.q['fi-6-q1'].due], [1, T]);
+  assert.strictEqual(st.q['fi-6-q2'].box, 2);
+  assert.strictEqual(st.sessions[0].right, 2);
+});
+
+test('9. shaky pulls a reading forward for 3 days; recap deck puts it first', () => {
+  const recaps = ['ethics-2', 'fi-6', 'deriv-8'].map(reading => ({ reading }));
+  let st = S.emptyState();
+  ['ethics-2', 'fi-6', 'deriv-8'].forEach(r => st.coverage[r] = '2026-10-01');
+  st.lastSessionDate = '2026-10-23';
+  // Everything seen and not due for days.
+  questions.forEach(q => st.q[q.id] = { box: 3, due: '2026-10-30', seen: 2, right: 2, last: '2026-10-22' });
+  st.recap = { 'deriv-8': { last: T, mark: 'shaky' }, 'fi-6': { last: T, mark: 'solid' } };
+  const ids = build(st);
+  assert.ok(ids.filter(id => readingOf(id) === 'deriv-8').length >= 12, 'shaky reading should dominate');
+  assert.strictEqual(S.buildRecapDeck({ recaps, state: st, curriculum, questions, today: T })[0], 'deriv-8');
+  const later = S.buildSession({ questions, curriculum, state: st, today: '2026-10-28' }).ids;
+  assert.ok(later.filter(id => readingOf(id) === 'deriv-8').length < 12, 'shaky effect should expire after 3 days');
+  st.coverage = { 'fi-6': T };
+  assert.deepStrictEqual(S.buildRecapDeck({ recaps, state: st, curriculum, questions, today: T }), ['fi-6']);
+});
+
 console.log(`\n${passed} passed`);

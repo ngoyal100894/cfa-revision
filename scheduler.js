@@ -38,7 +38,7 @@
   }
 
   function emptyState() {
-    return { v: 1, coverage: {}, q: {}, sessions: [], lastSessionDate: null };
+    return { v: 1, coverage: {}, q: {}, recap: {}, sessions: [], lastSessionDate: null };
   }
 
   // Grade one answer. Wrong -> box 1, due today (so it is back next session). Right -> up a box.
@@ -81,6 +81,12 @@
     return w;
   }
 
+  // Marked Shaky in Recap within the last 3 days: pull that reading's questions forward.
+  function isShaky(reading, state, today) {
+    var r = state.recap && state.recap[reading];
+    return !!r && r.mark === 'shaky' && daysBetween(r.last, today) <= 3;
+  }
+
   function isNewlyCovered(reading, state) {
     var c = state.coverage[reading];
     return !!c && (!state.lastSessionDate || c >= state.lastSessionDate);
@@ -103,7 +109,9 @@
         tag = 'later';
         dueness = NOT_DUE;
       }
-      var p = (w[q.topic] || 0.1) * (1 - st[q.reading].acc) * dueness;
+      var shaky = isShaky(q.reading, state, today);
+      if (tag === 'later' && shaky) { tag = 'due'; dueness = BASELINE; }
+      var p = (w[q.topic] || 0.1) * (1 - st[q.reading].acc) * dueness * (shaky ? 1.5 : 1);
       return { q: q, tag: tag, p: p * (1 + (rand() - 0.5) * 0.02) };
     }).sort(function (a, b) { return b.p - a.p; });
   }
@@ -175,10 +183,36 @@
   // Record a finished session; returns new state (does not mutate input).
   function finishSession(state, today, mode, answers) {
     var s = JSON.parse(JSON.stringify(state));
-    answers.forEach(function (a) { s.q[a.id] = grade(s.q[a.id], a.correct, today); });
+    // A lucky guess is scheduled as a miss; the session score still counts it right.
+    answers.forEach(function (a) { s.q[a.id] = grade(s.q[a.id], a.correct && !a.guess, today); });
     s.sessions.push({ date: today, mode: mode, n: answers.length, right: answers.filter(function (a) { return a.correct; }).length });
     s.lastSessionDate = today;
     return s;
+  }
+
+  // Recap deck: covered readings only, deterministic. Shaky first, then weak, then newly ticked,
+  // then never/oldest recapped, then heavier topic, then id.
+  function buildRecapDeck(opts) {
+    var state = opts.state, today = opts.today, size = opts.size || 10;
+    var w = topicWeights(opts.curriculum);
+    function topicOf(reading) { return reading.split('-')[0]; } // reading ids are "<topic>-<n>"
+    var weak = {};
+    weakReadings(opts.questions || [], state, true).forEach(function (x) { weak[x.reading] = true; });
+    var rec = state.recap || {};
+    function key(c) {
+      return [isShaky(c.reading, state, today) ? 0 : 1, weak[c.reading] ? 0 : 1,
+        isNewlyCovered(c.reading, state) ? 0 : 1, rec[c.reading] ? rec[c.reading].last : '0000',
+        -(w[topicOf(c.reading)] || 0), c.reading];
+    }
+    return opts.recaps
+      .filter(function (c) { return state.coverage[c.reading]; })
+      .map(function (c) { return { c: c, k: key(c) }; })
+      .sort(function (a, b) {
+        for (var i = 0; i < a.k.length; i++) { if (a.k[i] < b.k[i]) return -1; if (a.k[i] > b.k[i]) return 1; }
+        return 0;
+      })
+      .slice(0, size)
+      .map(function (x) { return x.c.reading; });
   }
 
   // Consecutive days (ending today or yesterday) with at least one finished session.
@@ -194,6 +228,7 @@
     MODES: MODES, INTERVAL: INTERVAL,
     emptyState: emptyState, grade: grade, readingStats: readingStats, weakReadings: weakReadings,
     buildSession: buildSession, finishSession: finishSession, streak: streak,
+    buildRecapDeck: buildRecapDeck, isShaky: isShaky,
     addDays: addDays, daysBetween: daysBetween, localToday: localToday
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
