@@ -1,6 +1,6 @@
 # HANDOFF
 
-Live link (deployed 24 Oct 2026; v1.4: momentum layer and visual redesign): **https://ngoyal100894.github.io/cfa-revision/**
+Live link (deployed 24 Oct 2026; v1.5: flashcard deck, swipe gestures and an opening prelude): **https://ngoyal100894.github.io/cfa-revision/**
 
 ## What was built
 This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026. It is designed for about 15 minutes a day while she finishes reading the books.
@@ -33,7 +33,12 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
   - Green: solid.
   
   She taps a reading to see it, then "Practice this".
-- **Formula sheet** (new in v1.1). Every formula (52) and must-remember fact (72) from her covered readings, grouped by topic. The cue is shown and the answer is blurred: she says it, then taps. It's a 3-minute sweep for a queue, and it's what Home suggests for exam eve. A toggle shows everything, including unread readings.
+- **Formula sheet** (new in v1.1; a flashcard deck since v1.5). Every formula and must-remember fact from her covered readings, one card at a time:
+  - She reads the cue, says the answer, then taps to flip.
+  - She swipes right if she knew it, or left to see it again a few cards later.
+  - Topic chips filter the deck, and a chip adds unread readings. Shuffle sits in the top corner.
+  - The done screen offers one more pass on the tricky ones.
+  - It's what Home suggests for exam eve. It doesn't change the schedule.
 - **Where you stand** (new in v1.1; Home strip and Map). Shows how much of the exam she has covered by weight, her accuracy per topic (amber below 70%), and **Read next in the books**: the unread readings worth the most exam marks each. Tapping one lets her mark it covered.
 - **Why did you miss it?** (new in v1.1; optional chips on the wrong-answer screen). Didn't know it / Mixed two things up / Misread or rushed. The result screen turns her most common reason into one line of advice. If misreads pile up over a week, Home suggests Exam practice.
 - **Momentum** (new in v1.3). Small rewards to keep her going once she has started:
@@ -46,6 +51,8 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
   - A gradient hero card on Home with the countdown, today's ring and her level.
   - A colour per topic, so she can tell at a glance where a question sits.
   - Varied praise on right answers, and a gentler tone on misses.
+- **Opening prelude** (new in v1.5). The app opens on a calm, dark screen: her greeting, the days to go, readings read, questions answered, her streak or level, and a line that changes as the exam gets closer. The first open of the day runs about 7 seconds; later opens run 3. A tap anywhere goes straight in.
+- **Swipe gestures** (new in v1.5). Flashcards: right for Got it, left for Again. Recap: right for Solid, left for Shaky. After answering a question, swipe left for the next one. Every swipe also has a button.
 - **Home**: a countdown and a suggestion that changes as the exam gets closer (more exam practice in the last stretch). It also shows her streak and a "Tick new readings" link.
 
 ## Opening it on her iPhone and adding it to the Home Screen
@@ -75,7 +82,7 @@ Home → **Tick new readings**, or Settings → Edit what you've covered. Each t
 - **AI-written content.** See below.
 
 ## What was cut, and why
-- **The P1 list was cut by the kickoff rule** ("P1 only if ≤10 subagent runs used"; 12 were used by then). That covers the mistake notebook, swipe gestures, a timed mini-mock and a separate flashcard deck.
+- **The P1 list was cut by the kickoff rule** ("P1 only if ≤10 subagent runs used"; 12 were used by then). That covers the mistake notebook, a timed mini-mock and (until v1.5) swipe gestures and a flashcard deck.
 - **What covers them:**
   - The retry box plus Weak spots cover the mistake notebook.
   - Exam practice covers the mini-mock.

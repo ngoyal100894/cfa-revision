@@ -52,7 +52,11 @@
     calc: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7h7M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01M8.5 15h.01M12 15h.01M15.5 15v2.5M8.5 18h.01M12 18h.01"/></svg>',
     sheet: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
     weak: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg>',
-    exam: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M10 2.5h4M18.5 6l1.5-1.5"/></svg>'
+    exam: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M10 2.5h4M18.5 6l1.5-1.5"/></svg>',
+    // Flashcard deck
+    shuffle: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="m4 4 5 5"/></svg>',
+    again: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4v4.5H8"/></svg>',
+    got: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
   };
   function icon(name) { var s = h('span', { 'aria-hidden': 'true', style: 'display:inline-flex' }); s.innerHTML = ICONS[name]; return s; }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
@@ -245,6 +249,71 @@
     root.appendChild(scroll);
     if (bar) root.appendChild(bar);
     return scroll;
+  }
+
+  // Drag a card sideways: it follows the finger and flies off past a threshold. Vertical scrolling
+  // inside it still works (the axis locks on the first few pixels). Returns { fling(dir) } so buttons
+  // can throw the card the same way. opts: onSwipe(dir), onDrag(dx), dirs (default both), tilt.
+  function swipeable(node, opts) {
+    var dirs = opts.dirs || ['left', 'right'], tilt = opts.tilt !== false;
+    var id = null, x0 = 0, y0 = 0, dx = 0, axis = null, gone = false, dragEnd = 0;
+    node.style.touchAction = 'pan-y';
+    function place(x, anim) {
+      node.style.transition = anim ? 'transform .32s cubic-bezier(.2, .8, .2, 1)' : 'none';
+      node.style.transform = x ? 'translateX(' + x + 'px)' + (tilt ? ' rotate(' + (x / 22).toFixed(2) + 'deg)' : '') : '';
+      if (opts.onDrag) opts.onDrag(x);
+    }
+    function fling(dir) {
+      if (gone) return;
+      gone = true;
+      if (reducedMotion()) { opts.onSwipe(dir); return; }
+      var w = Math.max(node.offsetWidth, 320) * 1.4;
+      place(dir === 'right' ? w : -w, true);
+      setTimeout(function () { opts.onSwipe(dir); }, 210);
+    }
+    node.addEventListener('pointerdown', function (e) {
+      if (gone || (e.pointerType === 'mouse' && e.button !== 0)) return;
+      id = e.pointerId; x0 = e.clientX; y0 = e.clientY; dx = 0; axis = null;
+    });
+    node.addEventListener('pointermove', function (e) {
+      if (e.pointerId !== id || axis === 'y') return;
+      var mx = e.clientX - x0, my = e.clientY - y0;
+      if (!axis) {
+        if (Math.abs(mx) < 10 && Math.abs(my) < 10) return;
+        axis = Math.abs(mx) > Math.abs(my) * 1.2 ? 'x' : 'y';
+        if (axis === 'y') return;
+        try { node.setPointerCapture(id); } catch (err) { /* not capturable: fine */ }
+        node.classList.add('dragging');
+      }
+      dx = mx;
+      if ((dx > 0 && dirs.indexOf('right') < 0) || (dx < 0 && dirs.indexOf('left') < 0)) dx = dx / 4; // resist a direction that does nothing
+      place(dx, false);
+    });
+    function end(e) {
+      if (e.pointerId !== id) return;
+      id = null;
+      if (axis !== 'x') return;
+      axis = null; dragEnd = Date.now();
+      node.classList.remove('dragging');
+      var dir = dx > 0 ? 'right' : 'left';
+      if (e.type === 'pointerup' && Math.abs(dx) > Math.min(110, node.offsetWidth * 0.3) && dirs.indexOf(dir) >= 0) fling(dir);
+      else place(0, true);
+    }
+    node.addEventListener('pointerup', end);
+    node.addEventListener('pointercancel', end);
+    // A drag is not a tap.
+    node.addEventListener('click', function (e) { if (Date.now() - dragEnd < 350) { e.stopPropagation(); e.preventDefault(); } }, true);
+    return { fling: fling };
+  }
+  // "Got it" / "Again" stamps that fade in as the card is dragged.
+  function stamps(node, rightText, leftText) {
+    var r = h('div', { class: 'stamp right', 'aria-hidden': 'true', text: rightText });
+    var l = h('div', { class: 'stamp left', 'aria-hidden': 'true', text: leftText });
+    node.appendChild(r); node.appendChild(l);
+    return function (dx) {
+      r.style.opacity = Math.max(0, Math.min(1, dx / 90));
+      l.style.opacity = Math.max(0, Math.min(1, -dx / 90));
+    };
   }
   function streakChip() {
     var n = Sched.streak(Store.state, today());
@@ -486,12 +555,12 @@
   }
 
   var MODE_CARDS = {
-    recap: { note: 'One minute per reading: the key ideas, the formula, the classic trap. Tap Shaky and its questions come back sooner.', empty: 'Tick some readings first' },
-    remember: { note: "Facts the exam asks directly: rules, lists, thresholds. You can't reason your way to these; learn them cold.", empty: 'No must-remember questions in what you’ve covered yet' },
-    calc: { note: "Formula drills with easy numbers. On exam day you'll have your calculator; this trains knowing which formula and which number goes where.", empty: 'No formula questions in what you’ve covered yet' },
-    weak: { note: 'Only your 3 weakest readings, until they aren’t.', empty: 'Answer a few more first' },
-    exam: { note: '10 exam-style questions at real pace, 90 seconds each. Answers at the end, like the real thing.', empty: 'No questions in what you’ve covered yet' },
-    sheet: { note: 'Every formula and must-remember fact from what you’ve covered, answers hidden. Say it, then tap. Three minutes, anywhere.', empty: 'Tick some readings first' }
+    recap: { note: 'A minute per reading', empty: 'Tick readings first' },
+    remember: { note: 'Facts to know cold', empty: 'None in your readings yet' },
+    calc: { note: 'Pick the formula, fast', empty: 'None in your readings yet' },
+    weak: { note: 'Your 3 weakest readings', empty: 'Answer a few more first' },
+    exam: { note: '10 at real pace, 90 s each', empty: 'None in your readings yet' },
+    sheet: { note: 'Swipe through flashcards', empty: 'Tick readings first' }
   };
   var MODE_ORDER = ['recap', 'remember', 'calc', 'sheet', 'weak', 'exam'];
 
@@ -533,36 +602,34 @@
       sheet: Object.keys(sheetLines(false)).length > 0
     };
     var sug = suggestion(avail);
-    var order = MODE_ORDER.slice();
-    if (sug && sug.mode && avail[sug.mode]) order = [sug.mode].concat(order.filter(function (m) { return m !== sug.mode; }));
-
-    var modes = h('div', { class: 'modes' }, order.map(function (m) {
-      var c = MODE_CARDS[m], ok = avail[m];
-      var tagged = !!(sug && sug.mode === m && ok);
-      return h('button', { class: 'mode' + (tagged ? ' suggested' : ''), 'data-m': m, 'aria-disabled': ok ? null : 'true',
-        onclick: function () { if (!ok) return; if (m === 'recap') Recap.start(); else if (m === 'sheet') Router.go('sheet'); else Session.start(m); } },
+    function go(m) { if (m === 'recap') Recap.start(); else if (m === 'sheet') Router.go('sheet'); else Session.start(m); }
+    // The suggested mode leads as a wide card; the rest sit in a grid of tiles.
+    var feat = sug && sug.mode && avail[sug.mode] ? sug.mode : null;
+    var featured = feat ? h('button', { class: 'feature', 'data-m': feat, onclick: function () { go(feat); } },
+      h('span', { class: 'mode-ic' }, icon(feat)),
+      h('span', { class: 'feat-main' },
+        h('span', { class: 'tag', text: 'Suggested' }),
+        h('span', { class: 'feat-name', text: NAMES[feat] }),
+        h('span', { class: 'feat-note', text: sug.text })),
+      icon('chev')) : null;
+    var tiles = h('div', { class: 'tiles' }, MODE_ORDER.filter(function (m) { return m !== feat; }).map(function (m) {
+      var ok = avail[m];
+      return h('button', { class: 'tile', 'data-m': m, 'aria-disabled': ok ? null : 'true', onclick: function () { if (ok) go(m); } },
         h('span', { class: 'mode-ic' }, icon(m)),
-        h('span', { class: 'mode-main' },
-          h('div', { class: 'mode-head' }, h('div', { class: 'mode-name', text: NAMES[m] }), tagged ? h('span', { class: 'tag', text: 'Suggested' }) : null),
-          h('div', { class: 'mode-note', text: c.note }),
-          ok ? null : h('div', { class: 'mode-reason', text: c.empty })));
+        h('span', { class: 'tile-name', text: NAMES[m] }),
+        h('span', { class: 'tile-sub' + (ok ? '' : ' off'), text: ok ? MODE_CARDS[m].note : MODE_CARDS[m].empty }));
     }));
 
     var mc = mapCounts();
-    var strip = h('button', { class: 'map-strip', onclick: function () { Router.go('map'); } },
-      h('div', { class: 'ms-text' },
-        h('div', { text: mc.covered + ' of ' + D.readingCount + ' covered' }),
-        h('div', { class: 'ms-sub' },
-          h('span', { class: 'ms-i' }, h('span', { class: 'sw solid' }), mc.solid + ' solid'),
-          h('span', { class: 'ms-i' }, h('span', { class: 'sw shaky' }), mc.shaky + ' shaky'),
-          h('span', { class: 'ms-i' }, h('span', { class: 'sw untested' }), mc.untested + ' untested'))),
-      h('span', { class: 'ms-link' }, 'Your map', icon('chev')));
-    var nx = readNext(1)[0];
-    var standStrip = h('button', { class: 'map-strip', onclick: function () { Router.go('standing'); } },
-      h('div', { class: 'ms-text' },
-        h('div', { text: weightCovered() + '% of the exam covered, by weight' }),
-        h('div', { class: 'ms-sub', text: nx ? 'Read next: ' + nx.t.name + ' R' + nx.r.n : 'Everything ticked. Now make it stick.' })),
-      h('span', { class: 'ms-link', 'aria-label': 'Where you stand' }, icon('chev')));
+    var stats = h('div', { class: 'tiles stats' },
+      h('button', { class: 'tile stat', onclick: function () { Router.go('map'); } },
+        h('span', { class: 'stat-n' }, String(mc.covered), h('small', { text: '/' + D.readingCount })),
+        h('span', { class: 'tile-name', text: 'Your map' }),
+        h('span', { class: 'tile-sub', text: mc.solid + ' solid · ' + mc.shaky + ' shaky' })),
+      h('button', { class: 'tile stat', onclick: function () { Router.go('standing'); } },
+        h('span', { class: 'stat-n' }, String(weightCovered()), h('small', { text: '%' })),
+        h('span', { class: 'tile-name', text: 'Where you stand' }),
+        h('span', { class: 'tile-sub', text: 'of the exam, by weight' })));
 
     var nudges = [];
     if (st.sessions.length >= 5 && !st.nudge.export) {
@@ -582,10 +649,11 @@
       h('div', { class: 'cover-row' },
         h('span', { text: coveredCount() + ' of ' + D.readingCount + ' readings' }),
         h('button', { class: 'btn-link', text: 'Tick new readings', onclick: function () { Router.go('coverage'); } })),
-      sug ? h('div', { class: 'suggest' + (sug.week ? ' week' : '') }, h('div', { class: 'eyebrow', text: 'Suggested' }), h('p', { text: sug.text })) : null,
+      sug && !feat ? h('div', { class: 'suggest' + (sug.week ? ' week' : '') }, h('div', { class: 'eyebrow', text: 'Suggested' }), h('p', { text: sug.text })) : null,
       nudges,
-      modes,
-      h('div', { class: 'strips' }, strip, standStrip)
+      featured,
+      tiles,
+      stats
     ];
     var bar = h('div', { class: 'bar hero' },
       h('button', { class: 'btn btn-primary', text: NAMES.daily, onclick: function () { Session.start('daily'); } }),
@@ -811,6 +879,7 @@
     var bar = h('div', { class: 'bar' }, h('button', { class: 'btn btn-primary', text: last ? 'See results' : 'Next', onclick: function () { Session.next(); } }));
     var sc = h('div', { class: 'scroll s-body' }, top, optsFb, fb);
     sc.style.paddingTop = '14px';
+    swipeable(sc, { dirs: ['left'], tilt: false, onSwipe: function () { Session.next(); } });   // swipe left = Next
     root.appendChild(sc); root.appendChild(bar);
     sc.scrollTop = 0;
   }
@@ -986,16 +1055,20 @@
       h('div', { class: 'progress', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': String(c.ids.length), 'aria-valuenow': String(c.i) },
         h('i', { style: 'width:' + Math.round(c.i / c.ids.length * 100) + '%' })),
       h('div', { class: 'count', text: (c.i + 1) + ' / ' + c.ids.length })));
-    var sc = h('div', { class: 'scroll s-body' },
+    var card = h('div', { class: 'rc-card', 'data-t': info.topic.id },
       h('div', { class: 's-label', 'data-t': info.topic.id, text: info.topic.short + ' · Reading ' + info.reading.n }),
       h('h1', { class: 'card-title', text: info.reading.title }),
       h('div', { class: 'recap-card' }, recapBody(rid, false)));
+    // Swipe right = Solid, left = Shaky. The buttons throw the card the same way.
+    var sw = swipeable(card, { onSwipe: function (dir) { Recap.mark(dir === 'right' ? 'solid' : 'shaky'); }, onDrag: stamps(card, 'Solid', 'Shaky') });
+    var sc = h('div', { class: 'scroll s-body' }, card);
     sc.style.paddingTop = '14px';
     root.appendChild(sc);
     root.appendChild(h('div', { class: 'bar' },
       h('div', { class: 'btn-row stack' },
-        h('button', { class: 'btn btn-solid', text: 'Solid', onclick: function () { Recap.mark('solid'); } }),
-        h('button', { class: 'btn btn-shaky', text: 'Shaky · bring its questions forward', onclick: function () { Recap.mark('shaky'); } }))));
+        h('button', { class: 'btn btn-solid', text: 'Solid', onclick: function () { sw.fling('right'); } }),
+        h('button', { class: 'btn btn-shaky', text: 'Shaky · bring its questions forward', onclick: function () { sw.fling('left'); } })),
+      c.i === 0 ? h('p', { class: 'hint', text: 'Or swipe: right for Solid, left for Shaky.' }) : null));
   }
 
   /* =====================================================================
@@ -1137,16 +1210,17 @@
       var stats = Sched.readingStats(D.questions, st);
       body.appendChild(h('p', { class: 'stand-big', text: 'About ' + weightCovered() + '% of the exam covered, by weight.' }));
 
-      var next = readNext(3);
+      var next = readNext(6);
       if (next.length) {
-        body.appendChild(h('section', { class: 'stand-next' },
+        body.appendChild(h('section', { class: 'nx' },
           h('div', { class: 'eyebrow', text: 'Read next in the books' }),
-          h('p', { class: 'fact muted', text: 'The unread readings worth the most exam marks each. Tap one to mark it covered when you finish it.' }),
-          next.map(function (x) {
-            return h('button', { class: 'next-row', onclick: function () { openReadingSheet(x.r.id, draw); } },
-              h('span', null, h('b', { text: x.t.name }), ' · Reading ' + x.r.n + ': ' + x.r.title),
-              icon('chev'));
-          })));
+          h('p', { class: 'fact muted', text: 'The unread readings worth the most exam marks each. Swipe through; tap one to mark it covered when you finish it.' }),
+          h('div', { class: 'carousel' }, next.map(function (x) {
+            return h('button', { class: 'nx-card', 'data-t': x.t.id, onclick: function () { openReadingSheet(x.r.id, draw); } },
+              h('span', { class: 'nx-topic', text: x.t.short + ' · Reading ' + x.r.n }),
+              h('span', { class: 'nx-title', text: x.r.title }),
+              h('span', { class: 'nx-foot', text: '≈ ' + (Math.round(x.per * 10) / 10) + '% of the exam' }));
+          }))));
       }
 
       body.appendChild(h('div', { class: 'eyebrow stand-eyebrow', text: 'By topic' }));
@@ -1173,10 +1247,13 @@
   }
 
   /* =====================================================================
-     Screen: Formula sheet. Every formula and must-remember line from covered readings,
-     cue shown and answer blurred: say it, then tap. Retrieval, not rereading.
+     Screen: Formula sheet, as a flashcard deck. Every formula and must-remember line
+     from covered readings: cue on the front, answer on the back. Say it, flip, swipe.
+     Right = got it. Left = again, a few cards later. Retrieval, not rereading.
+     The deck is practice only: it does not touch the question schedule.
      ===================================================================== */
-  var sheetAll = false, sheetShown = false;
+  var Deck = { all: false, topic: null, shuffled: false, key: null, queue: [], total: 0, again: {}, flipped: false, swiped: false, onKey: null };
+  document.addEventListener('keydown', function (e) { if (Deck.onKey && document.querySelector('.deck-stage')) Deck.onKey(e); });
 
   function sheetLines(all) {
     var st = Store.state, by = {}, seen = {};
@@ -1201,43 +1278,139 @@
     return by;
   }
 
-  function renderFormulaSheet(root) {
-    var head = h('div', { class: 'cov-head' },
-      h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: function () { history.length > 1 ? history.back() : Router.go('home'); } }, icon('back')),
-      h('div', null, h('h1', { class: 'title', text: NAMES.sheet }),
-        h('p', { class: 'subtitle', text: 'Every formula and must-remember fact. Read the cue, say the answer out loud, then tap to check.' })));
-    var controls = h('div', { class: 'sheet-ctl' });
-    var body = h('div');
-    var scroll = screenFrame(root, [head, controls, body]);
-    scroll.style.paddingBottom = 'calc(28px + env(safe-area-inset-bottom))';
-
-    function draw() {
-      var by = sheetLines(sheetAll), total = 0;
-      controls.innerHTML = '';
-      controls.appendChild(h('button', { class: 'btn-small' + (sheetAll ? '' : ' sel'), text: 'What I’ve covered', onclick: function () { sheetAll = false; draw(); } }));
-      controls.appendChild(h('button', { class: 'btn-small' + (sheetAll ? ' sel' : ''), text: 'Everything', onclick: function () { sheetAll = true; draw(); } }));
-      controls.appendChild(h('button', { class: 'btn-link', text: sheetShown ? 'Hide answers' : 'Show all', onclick: function () { sheetShown = !sheetShown; draw(); } }));
-      body.innerHTML = '';
-      D.curriculum.topics.forEach(function (t) {
-        var rows = [];
-        t.readings.forEach(function (r) {
-          (by[r.id] || []).forEach(function (x) {
-            total++;
-            var line = h('button', { class: 'fl' + (sheetShown ? ' open' : ''), 'aria-label': x.cue + '. Tap to reveal.',
-              onclick: function () { line.classList.toggle('open'); } },
-              h('div', { class: 'fl-r', text: 'Reading ' + r.n + ' · ' + r.short }),
-              h('div', { class: 'fl-cue', text: x.cue }),
-              h('div', { class: 'fl-a', text: x.text }));
-            rows.push(line);
-          });
-        });
-        if (rows.length) body.appendChild(h('section', { class: 'map-topic', 'data-t': t.id },
-          h('div', { class: 'map-topic-head' }, h('div', { class: 'map-topic-name', text: t.name }), h('div', { class: 'map-topic-n', text: String(rows.length) })),
-          rows));
+  function deckCards(topic) {
+    var by = sheetLines(Deck.all), out = [];
+    D.curriculum.topics.forEach(function (t) {
+      if (topic && topic !== t.id) return;
+      t.readings.forEach(function (r) {
+        (by[r.id] || []).forEach(function (x) { out.push({ t: t, r: r, cue: x.cue, text: x.text }); });
       });
-      if (!total) body.appendChild(h('p', { class: 'fact muted', text: 'Nothing here yet. Tick the readings you’ve covered, or tap Everything.' }));
+    });
+    return out;
+  }
+  function shuffle(list) {
+    for (var i = list.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = list[i]; list[i] = list[j]; list[j] = t; }
+    return list;
+  }
+  function dealDeck(cards) {
+    Deck.queue = Deck.shuffled ? shuffle(cards.slice()) : cards.slice();
+    Deck.total = cards.length; Deck.again = {}; Deck.flipped = false; Deck.done = false;
+  }
+
+  function renderFormulaSheet(root) {
+    var key = (Deck.all ? 'all' : coveredCount()) + '|' + (Deck.topic || '');
+    if (Deck.key !== key) { Deck.key = key; dealDeck(deckCards(Deck.topic)); }   // otherwise carry on where she left off
+
+    var head = h('div', { class: 'deck-head' },
+      h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: function () { history.length > 1 ? history.back() : Router.go('home'); } }, icon('back')),
+      h('h1', { class: 'deck-title', text: NAMES.sheet }),
+      h('button', { class: 'icon-btn', 'aria-label': 'Shuffle the deck', onclick: function () {
+        Deck.shuffled = true; dealDeck(deckCards(Deck.topic)); drawCard(); notice('Shuffled');
+      } }, icon('shuffle')));
+    var chips = h('div', { class: 'chips', role: 'group', 'aria-label': 'Topics' });
+    var stage = h('div', { class: 'deck-stage' });
+    var bar = h('div', { class: 'bar deck-bar' });
+    root.appendChild(h('div', { class: 'deck-screen' }, h('div', { class: 'glow', 'aria-hidden': 'true' }), head, chips, stage, bar));
+
+    function setFilter(topic, all) {
+      Deck.topic = topic; Deck.all = all;
+      Deck.key = (Deck.all ? 'all' : coveredCount()) + '|' + (Deck.topic || '');
+      dealDeck(deckCards(topic)); drawChips(); drawCard();
     }
-    draw();
+    function drawChips() {
+      var counts = {}, n = 0;
+      deckCards(null).forEach(function (c) { counts[c.t.id] = (counts[c.t.id] || 0) + 1; n++; });
+      chips.innerHTML = '';
+      chips.appendChild(h('button', { class: 'chip' + (Deck.topic ? '' : ' sel'), 'aria-pressed': String(!Deck.topic), onclick: function () { setFilter(null, Deck.all); } },
+        'All ', h('small', { text: String(n) })));
+      D.curriculum.topics.forEach(function (t) {
+        if (!counts[t.id]) return;
+        var on = Deck.topic === t.id;
+        chips.appendChild(h('button', { class: 'chip' + (on ? ' sel' : ''), 'data-t': t.id, 'aria-pressed': String(on), onclick: function () { setFilter(t.id, Deck.all); } },
+          t.short + ' ', h('small', { text: String(counts[t.id]) })));
+      });
+      chips.appendChild(h('button', { class: 'chip ghost' + (Deck.all ? ' sel' : ''), 'aria-pressed': String(Deck.all), onclick: function () { setFilter(null, !Deck.all); } },
+        Deck.all ? 'Including unread' : '+ Unread readings'));
+      var sel = chips.querySelector('.sel');
+      if (sel && sel.scrollIntoView && Deck.topic) sel.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+
+    function drawCard() {
+      stage.innerHTML = ''; bar.innerHTML = ''; Deck.onKey = null;
+      var q = Deck.queue;
+      if (!Deck.total) {
+        stage.appendChild(h('div', { class: 'deck-empty' },
+          h('p', { class: 'fact muted', text: 'Nothing here yet. Tick the readings you’ve covered, or tap “+ Unread readings”.' })));
+        return;
+      }
+      var known = Deck.total - q.length;
+      stage.appendChild(h('div', { class: 'deck-meter' },
+        h('div', { class: 'progress', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': String(Deck.total), 'aria-valuenow': String(known) },
+          h('i', { style: 'width:' + Math.round(known / Deck.total * 100) + '%' })),
+        h('span', { class: 'count', text: q.length ? q.length + ' left' : '' })));
+
+      if (!q.length) return drawDone();
+
+      var x = q[0];
+      // The next two cards peek out underneath, so it reads as a stack.
+      [q[2], q[1]].forEach(function (u, k) { if (u) stage.appendChild(h('div', { class: 'fc-under u' + (2 - k), 'data-t': u.t.id, 'aria-hidden': 'true' })); });
+      var inner = h('div', { class: 'fc-inner' + (Deck.flipped ? ' flipped' : '') },
+        h('div', { class: 'fc-face fc-front' },
+          h('div', { class: 'fc-meta', 'data-t': x.t.id, text: x.t.short + ' · Reading ' + x.r.n }),
+          h('div', { class: 'fc-cue' }, h('span', { text: x.cue })),
+          h('div', { class: 'fc-hint', text: 'Say it out loud, then tap to flip' })),
+        h('div', { class: 'fc-face fc-back' },
+          h('div', { class: 'fc-q', text: x.cue }),
+          h('div', { class: 'fc-a' }, h('span', { text: x.text })),
+          h('div', { class: 'fc-hint', text: x.r.short })));
+      var card = h('div', { class: 'fc enter', 'data-t': x.t.id, role: 'button', tabindex: '0',
+        'aria-label': x.cue + '. Tap to flip.', onclick: flip }, inner);
+      var sw = swipeable(card, { onSwipe: function (dir) { next(dir === 'right'); }, onDrag: stamps(card, 'Got it', 'Again') });
+      stage.appendChild(card);
+
+      function flip() {
+        Deck.flipped = !Deck.flipped;
+        inner.classList.toggle('flipped', Deck.flipped);
+        flipBtn.textContent = Deck.flipped ? 'Hide answer' : 'Show answer';
+      }
+      function next(knew) {
+        var c = Deck.queue.shift();
+        if (!knew) { Deck.again[c.text] = c; Deck.queue.splice(Math.min(Deck.queue.length, 4), 0, c); }  // back in a few cards
+        Deck.flipped = false; Deck.swiped = true;
+        drawCard();
+      }
+      var flipBtn = h('button', { class: 'btn btn-quiet deck-flip', text: Deck.flipped ? 'Hide answer' : 'Show answer', onclick: flip });
+      bar.appendChild(h('div', { class: 'deck-btns' },
+        h('button', { class: 'round left', 'aria-label': 'Again: see it later in this deck', onclick: function () { sw.fling('left'); } }, icon('again')),
+        flipBtn,
+        h('button', { class: 'round right', 'aria-label': 'Got it', onclick: function () { sw.fling('right'); } }, icon('got'))));
+      bar.appendChild(h('p', { class: 'hint', text: Deck.swiped ? '' : 'Swipe right if you knew it, left to see it again.' }));
+      Deck.onKey = function (e) {
+        if (e.key === 'ArrowRight') sw.fling('right');
+        else if (e.key === 'ArrowLeft') sw.fling('left');
+        else if ((e.key === ' ' || e.key === 'Enter') && e.target.tagName !== 'BUTTON') { e.preventDefault(); flip(); }
+      };
+    }
+
+    function drawDone() {
+      var tricky = Object.keys(Deck.again).map(function (k) { return Deck.again[k]; });
+      if (!Deck.done) { Deck.done = true; if (!tricky.length) burst(40); }
+      stage.appendChild(h('div', { class: 'deck-done' },
+        h('div', { class: 'score-card great' },
+          h('div', { class: 'eyebrow', text: NAMES.sheet }),
+          h('h1', { class: 'headline', text: tricky.length ? 'Deck done' : 'Every one, first time!' }),
+          h('div', { class: 'score' }, String(Deck.total), ' ', h('small', { text: Deck.total === 1 ? 'card' : 'cards' })),
+          h('p', { class: 'result-line', text: tricky.length
+            ? plural(tricky.length, 'card', 'cards') + ' needed a second look. One more pass makes them stick.'
+            : 'Nothing needed a second look. Lovely.' }))));
+      bar.appendChild(tricky.length
+        ? h('button', { class: 'btn btn-primary', text: 'Again with the ' + plural(tricky.length, 'tricky one', 'tricky ones'), onclick: function () { Deck.shuffled = true; dealDeck(tricky); drawCard(); } })
+        : h('button', { class: 'btn btn-primary', text: 'Shuffle and go again', onclick: function () { Deck.shuffled = true; dealDeck(deckCards(Deck.topic)); drawCard(); } }));
+      bar.appendChild(h('button', { class: 'btn btn-quiet', text: 'Done', onclick: function () { Router.go('home'); } }));
+    }
+
+    drawChips();
+    drawCard();
   }
 
   /* =====================================================================
@@ -1363,11 +1536,108 @@
   Router.register('standing', renderStanding);
   Router.register('sheet', renderFormulaSheet);
 
+  /* =====================================================================
+     Prelude: a slow, calm opening that shows her how far she has come before Home appears.
+     Full version on the first open of the day; a short one on later opens. Tap anywhere to go in.
+     ===================================================================== */
+  var PRELUDE_KEY = 'cfa-prelude';
+  var THEMES = [
+    { min: 22, lines: ['Plenty of runway. Steady days win this.', 'One reading at a time. It all adds up.'] },
+    { min: 15, lines: ['Under three weeks. This is where it comes together.', 'Every session now is one you’ll feel in the exam room.', 'Small steps, every day. You’re building something.'] },
+    { min: 8, lines: ['Two weeks. Now we make it stick.', 'Every mistake today is a mark saved on exam day.', 'Steady and focused. You’ve got this.'] },
+    { min: 2, lines: ['The final stretch. Trust the work you’ve done.', 'Less new, more review. Calm and clear.', 'You know more than you think.'] },
+    { min: 1, lines: ['Tomorrow. A light review, then an early night.'] },
+    { min: 0, lines: ['Today’s the day. Breathe. You’re ready.'] },
+    { min: -1e9, lines: ['It’s done. Be proud of the work.'] }
+  ];
+  function themeLine(d) {
+    var band = THEMES.filter(function (b) { return d >= b.min; })[0];
+    return band.lines[Math.abs(d) % band.lines.length];   // changes day to day, steady within a day
+  }
+  function prelude() {
+    var st = Store.state, t = today();
+    var last = null;
+    try { last = localStorage.getItem(PRELUDE_KEY); localStorage.setItem(PRELUDE_KEY, t); } catch (e) { /* private mode: always full */ }
+    var full = last !== t, calm = reducedMotion();
+    var d = Sched.daysBetween(t, D.curriculum.examDate);
+    var dateText = new Date(D.curriculum.examDate + 'T12:00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+
+    var facts = [];
+    var cov = coveredCount(), ans = answeredEver(), streakN = Sched.streak(st, t), xp = st.xp || 0;
+    if (cov) facts.push(['recap', cov + ' of ' + D.readingCount + ' readings read']);
+    if (ans) facts.push(['tickCircle', ans.toLocaleString('en-GB') + ' questions answered']);
+    if (streakN >= 2) facts.push(['flame', streakN + ' days in a row']);
+    else if (xp) facts.push(['got', 'Level ' + levelOf(xp) + ' · ' + levelName(levelOf(xp))]);
+
+    var num = h('span', { class: 'pl-n', text: String(Math.max(d, 0)) });
+    var stars = h('div', { class: 'pl-stars', 'aria-hidden': 'true' });
+    for (var i = 0; i < 26; i++) {
+      var s = h('i');
+      s.style.cssText = 'left:' + (Math.random() * 100).toFixed(1) + '%;top:' + (Math.random() * 100).toFixed(1) + '%;--s:' + (1 + Math.random() * 2.2).toFixed(1) + 'px' +
+        ';animation-delay:-' + (Math.random() * 16).toFixed(1) + 's;animation-duration:' + (12 + Math.random() * 10).toFixed(1) + 's';
+      stars.appendChild(s);
+    }
+    var steps = [
+      h('p', { class: 'pl-greet pl-step', text: greeting() + ', Ishita' }),
+      h('div', { class: 'pl-count pl-step' },
+        d > 0 ? [num, h('span', { class: 'pl-l', text: d === 1 ? 'day to go' : 'days to go' }), h('span', { class: 'pl-date', text: dateText })]
+          : h('span', { class: 'pl-l big', text: d === 0 ? 'Exam day' : 'Exam done' }))
+    ];
+    if (full && facts.length) {
+      steps.push(h('ul', { class: 'pl-facts' }, facts.map(function (f) { return h('li', { class: 'pl-step' }, icon(f[0]), h('span', { text: f[1] })); })));
+    }
+    steps.push(h('p', { class: 'pl-theme pl-step', text: themeLine(d) }));
+    var go = h('button', { class: 'pl-go pl-step', text: 'Let’s begin' });
+    if (full) steps.push(go);
+
+    var layer = h('div', { class: 'prelude' + (full ? '' : ' short'), role: 'dialog', 'aria-label': 'Welcome back' },
+      h('div', { class: 'pl-orb', 'aria-hidden': 'true' }), h('div', { class: 'pl-orb b', 'aria-hidden': 'true' }), stars,
+      h('div', { class: 'pl-stage' }, steps));
+    document.body.appendChild(layer);
+    document.documentElement.classList.add('pl-on');
+
+    // Reveal one step at a time, slowly.
+    var seq = [].slice.call(layer.querySelectorAll('.pl-step'));
+    var gaps = full ? [400, 1500, 1400, 700, 700, 1100, 1200] : [150, 450, 700];
+    var at = 0, timers = [];
+    seq.forEach(function (n, k) {
+      at += calm ? 0 : (gaps[k] != null ? gaps[k] : 700);
+      timers.push(setTimeout(function () { n.classList.add('on'); if (n.classList.contains('pl-count') && d > 0 && full) countDown(); }, at));
+    });
+    function countDown() {
+      if (calm) return;
+      var from = d + 9, t0 = Date.now();
+      function f() { var k = Math.min(1, (Date.now() - t0) / 1700); num.textContent = String(Math.round(from - (from - d) * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(f); }
+      requestAnimationFrame(f);
+      timers.push(setTimeout(function () { num.textContent = String(d); }, 1900));
+    }
+    if (!full) timers.push(setTimeout(leave, at + 1900));
+
+    var gone = false;
+    function leave() {
+      if (gone) return;
+      gone = true;
+      timers.forEach(clearTimeout);
+      num.textContent = String(Math.max(d, 0));
+      document.documentElement.classList.remove('pl-on');
+      var app = el('app');
+      app.classList.add('arrive');
+      Router.render();                                     // Home rises in underneath as the curtain lifts
+      layer.classList.add('out');
+      setTimeout(function () { if (layer.parentNode) layer.parentNode.removeChild(layer); app.classList.remove('arrive'); }, 1100);
+    }
+    layer.addEventListener('click', leave);
+    layer.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { e.preventDefault(); leave(); } });
+    setTimeout(function () { try { go.focus({ preventScroll: true }); } catch (e) { /* fine */ } }, full ? at : 0);
+  }
+
   function boot() {
     Store.load();
     loadData().then(function () {
       window.addEventListener('hashchange', function () { Router.render(); });
       Router.render();
+      var name = Router.parse().name;
+      if (Store.state.onboarded && (!name || name === 'home')) prelude();
     }).catch(function (err) {
       var root = el('screen');
       root.innerHTML = '';
