@@ -18,7 +18,7 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
   - Heavier-weighted topics count for more.
   - Quick-calc is capped at 20% of the mix.
   - This is the "solidify what I've read" engine.
-- **After every answer** she gets the explanation plus a one-line LOS. A wrong answer gets the fullest screen: why her pick was wrong, why the key is right, and a "Recap this reading" button.
+- **After every answer** she gets the explanation plus a one-line LOS. A wrong answer gets the fullest screen: her pick and the right answer marked, a "Why" explanation, the must-remember line where there is one, a "Recap this reading" button, and a calm note that it comes back next session.
 - **Lucky guess**: she taps this when she got it right but wasn't sure. It counts as right in the score but comes back as if it were a miss. Guessing doesn't build memory.
 - **Recap** (about 1 minute per reading). Each card shows 3 key ideas, the formula and the classic trap. She marks each card Solid or Shaky. Shaky pulls that reading's questions forward for 3 days.
 - **Must-remember**: facts the exam asks directly (rules, lists, thresholds). These have to be learned cold.
@@ -55,7 +55,7 @@ Home → **Tick new readings**, or Settings → Edit what you've covered. Each t
 
 ## Known gaps
 - **Needs internet to open.** There is no offline mode.
-- **Small question pools for some readings.** 300 questions spread over 93 readings means some readings have only 1 or 2 questions. "Practice this" on such a reading gives a very short session. The Recap cards cover every reading.
+- **Small question pools for some readings.** 300 questions spread over 93 readings means 41 of the 93 readings have only 1 or 2 questions. "Practice this" on such a reading gives a very short session. The Recap cards cover every reading.
 - **Swiping back mid-session.** If she swipes back out of a session, the answers she gave are still saved and counted.
 - **No sync between devices.** It is one phone. Backup and restore is manual (see above).
 - **AI-written content.** See below.
