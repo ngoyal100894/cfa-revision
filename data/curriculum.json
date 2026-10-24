@@ -1,0 +1,1250 @@
+{
+  "version": "2026-L1",
+  "source": "CFA Institute 2026 Level I topic outline (topic names, weights, module titles). Learning objectives paraphrased, not official wording.",
+  "examDate": "2026-11-13",
+  "topics": [
+    {
+      "id": "ethics",
+      "name": "Ethical and Professional Standards",
+      "short": "Ethics",
+      "weightMin": 15,
+      "weightMax": 20,
+      "session": 1,
+      "readings": [
+        {
+          "id": "ethics-1",
+          "n": 1,
+          "title": "Ethics and Trust in the Investment Profession",
+          "short": "Ethics and Trust",
+          "los": [
+            { "id": "ethics-1-a", "text": "Explain what ethics is and why trust matters so much in investment work", "calc": false },
+            { "id": "ethics-1-b", "text": "Tell apart ethical standards from legal rules, and know why laws alone are not enough", "calc": false },
+            { "id": "ethics-1-c", "text": "Know the common pressures that lead decent people to behave unethically", "calc": false },
+            { "id": "ethics-1-d", "text": "Apply a step-by-step ethical decision-making framework to a work situation", "calc": false }
+          ]
+        },
+        {
+          "id": "ethics-2",
+          "n": 2,
+          "title": "Code of Ethics and Standards of Professional Conduct",
+          "short": "Code and Standards",
+          "los": [
+            { "id": "ethics-2-a", "text": "Know the six parts of the Code of Ethics in your own words", "calc": false },
+            { "id": "ethics-2-b", "text": "Name the seven Standards of Professional Conduct and what each one covers", "calc": false },
+            { "id": "ethics-2-c", "text": "Explain how the Professional Conduct Program investigates and sanctions members", "calc": false },
+            { "id": "ethics-2-d", "text": "Know who must follow the Code and Standards, including candidates", "calc": false }
+          ]
+        },
+        {
+          "id": "ethics-3",
+          "n": 3,
+          "title": "Guidance for Standards I-VII",
+          "short": "Standards I-VII Guidance",
+          "los": [
+            { "id": "ethics-3-a", "text": "Spot violations of Standard I: law, independence, misrepresentation, misconduct", "calc": false },
+            { "id": "ethics-3-b", "text": "Spot violations of Standard II: material nonpublic info and market manipulation", "calc": false },
+            { "id": "ethics-3-c", "text": "Spot violations of Standard III: loyalty to clients, fair dealing, suitability", "calc": false },
+            { "id": "ethics-3-d", "text": "Spot violations of Standards IV and V: duties to employers, diligence, records", "calc": false },
+            { "id": "ethics-3-e", "text": "Spot violations of Standards VI and VII: conflicts, priority, CFA program conduct", "calc": false }
+          ]
+        },
+        {
+          "id": "ethics-4",
+          "n": 4,
+          "title": "Introduction to the Global Investment Performance Standards (GIPS)",
+          "short": "GIPS Intro",
+          "los": [
+            { "id": "ethics-4-a", "text": "Explain why GIPS exists and the problems it solves in reporting performance", "calc": false },
+            { "id": "ethics-4-b", "text": "Know who can claim GIPS compliance and that it applies firm-wide, not per fund", "calc": false },
+            { "id": "ethics-4-c", "text": "Explain what a composite is and why all fee-paying discretionary accounts go in one", "calc": false },
+            { "id": "ethics-4-d", "text": "Know the role of verification and that it is optional, not required", "calc": false }
+          ]
+        },
+        {
+          "id": "ethics-5",
+          "n": 5,
+          "title": "Ethics Application",
+          "short": "Ethics Application",
+          "los": [
+            { "id": "ethics-5-a", "text": "Work through realistic scenarios and decide which Standard applies", "calc": false },
+            { "id": "ethics-5-b", "text": "Judge whether a given action is a violation, and what the person should have done", "calc": false },
+            { "id": "ethics-5-c", "text": "Recognise grey areas where disclosure or consent makes an action acceptable", "calc": false },
+            { "id": "ethics-5-d", "text": "Suggest firm policies that would prevent the violations described in cases", "calc": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quant",
+      "name": "Quantitative Methods",
+      "short": "Quant",
+      "weightMin": 6,
+      "weightMax": 9,
+      "session": 1,
+      "readings": [
+        {
+          "id": "quant-1",
+          "n": 1,
+          "title": "Rates and Returns",
+          "short": "Rates and Returns",
+          "los": [
+            { "id": "quant-1-a", "text": "Explain interest rates as required return, discount rate, or opportunity cost", "calc": false },
+            { "id": "quant-1-b", "text": "Break a nominal rate into real rate, inflation, and risk premiums", "calc": false },
+            { "id": "quant-1-c", "text": "Calculate holding period, arithmetic, geometric, and money-weighted returns", "calc": true },
+            { "id": "quant-1-d", "text": "Calculate annualised returns and tell apart gross, net, pre-tax, real returns", "calc": true },
+            { "id": "quant-1-e", "text": "Know when arithmetic vs geometric vs harmonic mean is the right average", "calc": false }
+          ]
+        },
+        {
+          "id": "quant-2",
+          "n": 2,
+          "title": "The Time Value of Money in Finance",
+          "short": "Time Value of Money",
+          "los": [
+            { "id": "quant-2-a", "text": "Calculate present and future values of single sums, annuities, and perpetuities", "calc": true },
+            { "id": "quant-2-b", "text": "Price a bond or a stock as the present value of its expected cash flows", "calc": true },
+            { "id": "quant-2-c", "text": "Back out an implied return or growth rate from a known price and cash flows", "calc": true },
+            { "id": "quant-2-d", "text": "Handle different compounding frequencies, including continuous compounding", "calc": true }
+          ]
+        },
+        {
+          "id": "quant-3",
+          "n": 3,
+          "title": "Statistical Measures of Asset Returns",
+          "short": "Statistical Measures",
+          "los": [
+            { "id": "quant-3-a", "text": "Calculate mean, median, mode, and trimmed or winsorised means from return data", "calc": true },
+            { "id": "quant-3-b", "text": "Calculate range, MAD, variance, standard deviation, and target downside deviation", "calc": true },
+            { "id": "quant-3-c", "text": "Calculate the coefficient of variation and use it to compare risk per unit return", "calc": true },
+            { "id": "quant-3-d", "text": "Interpret skewness and kurtosis and what they mean for a return distribution", "calc": false },
+            { "id": "quant-3-e", "text": "Interpret correlation, its limits, and spot spurious correlation", "calc": false }
+          ]
+        },
+        {
+          "id": "quant-4",
+          "n": 4,
+          "title": "Probability Trees and Conditional Expectations",
+          "short": "Probability Trees",
+          "los": [
+            { "id": "quant-4-a", "text": "Calculate expected value, variance, and standard deviation of a random variable", "calc": true },
+            { "id": "quant-4-b", "text": "Use the total probability rule to get an unconditional expected value", "calc": true },
+            { "id": "quant-4-c", "text": "Build a probability tree and read conditional expectations off it", "calc": true },
+            { "id": "quant-4-d", "text": "Apply Bayes' formula to update a probability after new information", "calc": true }
+          ]
+        },
+        {
+          "id": "quant-5",
+          "n": 5,
+          "title": "Portfolio Mathematics",
+          "short": "Portfolio Maths",
+          "los": [
+            { "id": "quant-5-a", "text": "Calculate covariance and correlation between two assets' returns", "calc": true },
+            { "id": "quant-5-b", "text": "Calculate expected return and variance of a portfolio from weights and covariances", "calc": true },
+            { "id": "quant-5-c", "text": "Use the normal distribution to find the chance a return falls below a level", "calc": true },
+            { "id": "quant-5-d", "text": "Calculate and rank portfolios with Roy's safety-first ratio", "calc": true }
+          ]
+        },
+        {
+          "id": "quant-6",
+          "n": 6,
+          "title": "Simulation Methods",
+          "short": "Simulation Methods",
+          "los": [
+            { "id": "quant-6-a", "text": "Explain the lognormal distribution and why it suits asset prices", "calc": false },
+            { "id": "quant-6-b", "text": "Tell apart discrete and continuous compounding of returns", "calc": true },
+            { "id": "quant-6-c", "text": "Describe how Monte Carlo simulation works and where it is useful or limited", "calc": false },
+            { "id": "quant-6-d", "text": "Describe bootstrap resampling and how it differs from Monte Carlo", "calc": false }
+          ]
+        },
+        {
+          "id": "quant-7",
+          "n": 7,
+          "title": "Estimation and Inference",
+          "short": "Estimation and Inference",
+          "los": [
+            { "id": "quant-7-a", "text": "Tell apart simple random, stratified, cluster, convenience, and judgmental sampling", "calc": false },
+            { "id": "quant-7-b", "text": "Explain the central limit theorem and why sample means are roughly normal", "calc": false },
+            { "id": "quant-7-c", "text": "Calculate the standard error of the sample mean", "calc": true },
+            { "id": "quant-7-d", "text": "Describe bootstrap and jackknife resampling for estimating standard errors", "calc": false }
+          ]
+        },
+        {
+          "id": "quant-8",
+          "n": 8,
+          "title": "Hypothesis Testing",
+          "short": "Hypothesis Testing",
+          "los": [
+            { "id": "quant-8-a", "text": "Set up null and alternative hypotheses, one-tailed or two-tailed", "calc": false },
+            { "id": "quant-8-b", "text": "Tell apart Type I and Type II errors, significance level, and power", "calc": false },
+            { "id": "quant-8-c", "text": "Calculate a test statistic and decide using critical values or p-values", "calc": true },
+            { "id": "quant-8-d", "text": "Pick the right test (z, t, chi-square, F) for means, variances, and two samples", "calc": false },
+            { "id": "quant-8-e", "text": "Know when to use a non-parametric test instead of a parametric one", "calc": false }
+          ]
+        },
+        {
+          "id": "quant-9",
+          "n": 9,
+          "title": "Parametric and Non-Parametric Tests of Independence",
+          "short": "Tests of Independence",
+          "los": [
+            { "id": "quant-9-a", "text": "Test whether a correlation coefficient is significantly different from zero", "calc": true },
+            { "id": "quant-9-b", "text": "Explain the Spearman rank correlation test and when it is preferred", "calc": false },
+            { "id": "quant-9-c", "text": "Use a contingency table and chi-square test to check if two categories are independent", "calc": true }
+          ]
+        },
+        {
+          "id": "quant-10",
+          "n": 10,
+          "title": "Simple Linear Regression",
+          "short": "Simple Regression",
+          "los": [
+            { "id": "quant-10-a", "text": "Explain what a regression line estimates and the assumptions behind it", "calc": false },
+            { "id": "quant-10-b", "text": "Interpret the slope and intercept and test if the slope is significant", "calc": true },
+            { "id": "quant-10-c", "text": "Read an ANOVA table and calculate R-squared and the standard error of estimate", "calc": true },
+            { "id": "quant-10-d", "text": "Calculate a predicted value and its confidence interval", "calc": true },
+            { "id": "quant-10-e", "text": "Know when to use log-linear, linear-log, or log-log functional forms", "calc": false }
+          ]
+        },
+        {
+          "id": "quant-11",
+          "n": 11,
+          "title": "Introduction to Big Data Techniques",
+          "short": "Big Data Intro",
+          "los": [
+            { "id": "quant-11-a", "text": "Describe what makes data 'big' (volume, velocity, variety) and its sources", "calc": false },
+            { "id": "quant-11-b", "text": "Tell apart supervised, unsupervised, and deep learning approaches", "calc": false },
+            { "id": "quant-11-c", "text": "Explain overfitting and how training and test data help avoid it", "calc": false },
+            { "id": "quant-11-d", "text": "Describe how fintech, text analysis, and alternative data are used in investing", "calc": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "econ",
+      "name": "Economics",
+      "short": "Econ",
+      "weightMin": 6,
+      "weightMax": 9,
+      "session": 1,
+      "readings": [
+        {
+          "id": "econ-1",
+          "n": 1,
+          "title": "The Firm and Market Structures",
+          "short": "Firm and Market Structures",
+          "los": [
+            { "id": "econ-1-a", "text": "Tell apart breakeven and shutdown points using revenue and cost curves", "calc": true },
+            { "id": "econ-1-b", "text": "Explain economies and diseconomies of scale and the long-run cost curve", "calc": false },
+            { "id": "econ-1-c", "text": "Compare perfect competition, monopolistic competition, oligopoly, and monopoly", "calc": false },
+            { "id": "econ-1-d", "text": "Explain how price and output are set in each market structure", "calc": false },
+            { "id": "econ-1-e", "text": "Use concentration measures (N-firm, HHI) to judge market structure, and their limits", "calc": true }
+          ]
+        },
+        {
+          "id": "econ-2",
+          "n": 2,
+          "title": "Understanding Business Cycles",
+          "short": "Business Cycles",
+          "los": [
+            { "id": "econ-2-a", "text": "Describe the phases of the business cycle and what happens in each", "calc": false },
+            { "id": "econ-2-b", "text": "Explain how credit cycles relate to business cycles", "calc": false },
+            { "id": "econ-2-c", "text": "Describe how inventory, housing, and capital spending behave over the cycle", "calc": false },
+            { "id": "econ-2-d", "text": "Tell apart leading, coincident, and lagging economic indicators", "calc": false },
+            { "id": "econ-2-e", "text": "Explain unemployment types and how inflation is measured and categorised", "calc": false }
+          ]
+        },
+        {
+          "id": "econ-3",
+          "n": 3,
+          "title": "Fiscal Policy",
+          "short": "Fiscal Policy",
+          "los": [
+            { "id": "econ-3-a", "text": "Explain the goals of fiscal policy and its tools (spending, taxes, transfers)", "calc": false },
+            { "id": "econ-3-b", "text": "Know the arguments about whether government debt is a problem", "calc": false },
+            { "id": "econ-3-c", "text": "Explain automatic stabilisers versus discretionary policy and the lags involved", "calc": false },
+            { "id": "econ-3-d", "text": "Judge whether a fiscal stance is expansionary or contractionary", "calc": false }
+          ]
+        },
+        {
+          "id": "econ-4",
+          "n": 4,
+          "title": "Monetary Policy",
+          "short": "Monetary Policy",
+          "los": [
+            { "id": "econ-4-a", "text": "Explain what money is, how banks create it, and the quantity theory of money", "calc": false },
+            { "id": "econ-4-b", "text": "Describe central bank roles, goals, and the tools used to set policy", "calc": false },
+            { "id": "econ-4-c", "text": "Explain the transmission mechanism from policy rates to the economy", "calc": false },
+            { "id": "econ-4-d", "text": "Tell apart expansionary and contractionary policy using the neutral rate", "calc": false },
+            { "id": "econ-4-e", "text": "Explain how fiscal and monetary policy interact and their limits", "calc": false }
+          ]
+        },
+        {
+          "id": "econ-5",
+          "n": 5,
+          "title": "Introduction to Geopolitics",
+          "short": "Geopolitics Intro",
+          "los": [
+            { "id": "econ-5-a", "text": "Describe how countries cooperate or compete and the actors involved", "calc": false },
+            { "id": "econ-5-b", "text": "Classify countries by globalisation and cooperation (autarky to hegemony)", "calc": false },
+            { "id": "econ-5-c", "text": "Describe tools of geopolitics: national security, economic, and financial", "calc": false },
+            { "id": "econ-5-d", "text": "Assess geopolitical risk by likelihood, speed, and impact on investments", "calc": false }
+          ]
+        },
+        {
+          "id": "econ-6",
+          "n": 6,
+          "title": "International Trade",
+          "short": "International Trade",
+          "los": [
+            { "id": "econ-6-a", "text": "Explain the benefits and costs of trade and who wins or loses from it", "calc": false },
+            { "id": "econ-6-b", "text": "Compare the effects of tariffs, quotas, export subsidies, and VERs", "calc": false },
+            { "id": "econ-6-c", "text": "Tell apart types of trading blocs from free trade area to economic union", "calc": false },
+            { "id": "econ-6-d", "text": "Describe capital restrictions and why countries impose them", "calc": false }
+          ]
+        },
+        {
+          "id": "econ-7",
+          "n": 7,
+          "title": "Capital Flows and the FX Market",
+          "short": "Capital Flows and FX",
+          "los": [
+            { "id": "econ-7-a", "text": "Describe the FX market, its participants, and why they trade currencies", "calc": false },
+            { "id": "econ-7-b", "text": "Tell apart nominal and real exchange rates and read a currency quote", "calc": true },
+            { "id": "econ-7-c", "text": "Compare exchange rate regimes from dollarisation to free float", "calc": false },
+            { "id": "econ-7-d", "text": "Explain how exchange rates affect the trade balance and capital flows", "calc": false }
+          ]
+        },
+        {
+          "id": "econ-8",
+          "n": 8,
+          "title": "Exchange Rate Calculations",
+          "short": "FX Calculations",
+          "los": [
+            { "id": "econ-8-a", "text": "Calculate the percentage change in a currency from a change in the quote", "calc": true },
+            { "id": "econ-8-b", "text": "Calculate a cross rate from two quotes against a common currency", "calc": true },
+            { "id": "econ-8-c", "text": "Calculate a forward rate or forward points from spot and the two interest rates", "calc": true },
+            { "id": "econ-8-d", "text": "Tell whether a currency trades at a forward premium or discount and why", "calc": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fsa",
+      "name": "Financial Statement Analysis",
+      "short": "FSA",
+      "weightMin": 11,
+      "weightMax": 14,
+      "session": 1,
+      "readings": [
+        {
+          "id": "fsa-1",
+          "n": 1,
+          "title": "Introduction to Financial Statement Analysis",
+          "short": "FSA Intro",
+          "los": [
+            { "id": "fsa-1-a", "text": "Describe the role of each financial statement and how they fit together", "calc": false },
+            { "id": "fsa-1-b", "text": "Know what sits in the notes, MD&A, and auditor's report, and the audit opinions", "calc": false },
+            { "id": "fsa-1-c", "text": "Describe other information sources: filings, earnings calls, and alternative data", "calc": false },
+            { "id": "fsa-1-d", "text": "Explain the steps of the financial analysis framework from purpose to follow-up", "calc": false }
+          ]
+        },
+        {
+          "id": "fsa-2",
+          "n": 2,
+          "title": "Analyzing Income Statements",
+          "short": "Income Statements",
+          "los": [
+            { "id": "fsa-2-a", "text": "Explain the five-step revenue recognition model and common judgment areas", "calc": false },
+            { "id": "fsa-2-b", "text": "Know how expenses are recognised: matching, capitalising vs expensing, depreciation", "calc": true },
+            { "id": "fsa-2-c", "text": "Spot non-recurring items and discontinued operations when judging earnings", "calc": false },
+            { "id": "fsa-2-d", "text": "Calculate basic and diluted EPS, including the treasury stock method", "calc": true },
+            { "id": "fsa-2-e", "text": "Prepare a common-size income statement and use margin ratios", "calc": true }
+          ]
+        },
+        {
+          "id": "fsa-3",
+          "n": 3,
+          "title": "Analyzing Balance Sheets",
+          "short": "Balance Sheets",
+          "los": [
+            { "id": "fsa-3-a", "text": "Explain how intangibles and goodwill are recorded and tested for impairment", "calc": false },
+            { "id": "fsa-3-b", "text": "Describe how financial instruments are measured: amortised cost, FVOCI, FVPL", "calc": false },
+            { "id": "fsa-3-c", "text": "Describe non-current liabilities and the components of shareholders' equity", "calc": false },
+            { "id": "fsa-3-d", "text": "Prepare a common-size balance sheet and calculate liquidity and solvency ratios", "calc": true }
+          ]
+        },
+        {
+          "id": "fsa-4",
+          "n": 4,
+          "title": "Analyzing Statements of Cash Flows I",
+          "short": "Cash Flows I",
+          "los": [
+            { "id": "fsa-4-a", "text": "Classify cash flows as operating, investing, or financing under IFRS and US GAAP", "calc": false },
+            { "id": "fsa-4-b", "text": "Tell apart direct and indirect presentation of operating cash flow", "calc": false },
+            { "id": "fsa-4-c", "text": "Calculate operating cash flow using the indirect method from net income", "calc": true },
+            { "id": "fsa-4-d", "text": "Calculate cash paid or received for an item from income statement and balance sheet", "calc": true },
+            { "id": "fsa-4-e", "text": "Convert an indirect cash flow statement to the direct format", "calc": true }
+          ]
+        },
+        {
+          "id": "fsa-5",
+          "n": 5,
+          "title": "Analyzing Statements of Cash Flows II",
+          "short": "Cash Flows II",
+          "los": [
+            { "id": "fsa-5-a", "text": "Analyse the sources and uses of cash and trends across the three sections", "calc": false },
+            { "id": "fsa-5-b", "text": "Prepare a common-size cash flow statement", "calc": true },
+            { "id": "fsa-5-c", "text": "Calculate free cash flow to the firm and free cash flow to equity", "calc": true },
+            { "id": "fsa-5-d", "text": "Calculate and interpret cash flow performance and coverage ratios", "calc": true }
+          ]
+        },
+        {
+          "id": "fsa-6",
+          "n": 6,
+          "title": "Analysis of Inventories",
+          "short": "Inventories",
+          "los": [
+            { "id": "fsa-6-a", "text": "Compare FIFO, LIFO, and weighted average cost and their effects on COGS and profit", "calc": true },
+            { "id": "fsa-6-b", "text": "Convert LIFO figures to FIFO using the LIFO reserve", "calc": true },
+            { "id": "fsa-6-c", "text": "Explain inventory write-downs under IFRS and US GAAP and their ratio effects", "calc": false },
+            { "id": "fsa-6-d", "text": "Use inventory ratios and disclosures to judge how well inventory is managed", "calc": true }
+          ]
+        },
+        {
+          "id": "fsa-7",
+          "n": 7,
+          "title": "Analysis of Long-Term Assets",
+          "short": "Long-Term Assets",
+          "los": [
+            { "id": "fsa-7-a", "text": "Tell apart capitalising and expensing a cost and the effect on statements", "calc": false },
+            { "id": "fsa-7-b", "text": "Know how intangibles are treated when bought, developed in-house, or acquired", "calc": false },
+            { "id": "fsa-7-c", "text": "Explain impairment, revaluation, and derecognition of long-lived assets", "calc": false },
+            { "id": "fsa-7-d", "text": "Estimate the average age and remaining life of assets from disclosures", "calc": true }
+          ]
+        },
+        {
+          "id": "fsa-8",
+          "n": 8,
+          "title": "Topics in Long-Term Liabilities and Equity",
+          "short": "LT Liabilities and Equity",
+          "los": [
+            { "id": "fsa-8-a", "text": "Calculate bond carrying value and interest expense using the effective rate", "calc": true },
+            { "id": "fsa-8-b", "text": "Explain how leases are reported by lessees and lessors under IFRS and US GAAP", "calc": false },
+            { "id": "fsa-8-c", "text": "Tell apart defined contribution and defined benefit pension reporting", "calc": false },
+            { "id": "fsa-8-d", "text": "Describe how share-based compensation is reported", "calc": false },
+            { "id": "fsa-8-e", "text": "Know the key disclosures for debt, leases, and pensions that analysts use", "calc": false }
+          ]
+        },
+        {
+          "id": "fsa-9",
+          "n": 9,
+          "title": "Analysis of Income Taxes",
+          "short": "Income Taxes",
+          "los": [
+            { "id": "fsa-9-a", "text": "Tell apart accounting profit from taxable income and tax expense from tax payable", "calc": false },
+            { "id": "fsa-9-b", "text": "Explain how deferred tax assets and liabilities arise from temporary differences", "calc": true },
+            { "id": "fsa-9-c", "text": "Calculate the effect of a tax rate change on deferred taxes and expense", "calc": true },
+            { "id": "fsa-9-d", "text": "Explain valuation allowances and reconcile the effective and statutory tax rates", "calc": true }
+          ]
+        },
+        {
+          "id": "fsa-10",
+          "n": 10,
+          "title": "Financial Reporting Quality",
+          "short": "Reporting Quality",
+          "los": [
+            { "id": "fsa-10-a", "text": "Tell apart reporting quality from earnings quality and rank reports on a spectrum", "calc": false },
+            { "id": "fsa-10-b", "text": "Explain conservative vs aggressive accounting and the motives for manipulation", "calc": false },
+            { "id": "fsa-10-c", "text": "Describe the fraud triangle and the conditions that allow low-quality reporting", "calc": false },
+            { "id": "fsa-10-d", "text": "Spot warning signs of manipulation in revenue, expenses, and cash flows", "calc": false },
+            { "id": "fsa-10-e", "text": "Explain the accounting choices that shift earnings between periods", "calc": false }
+          ]
+        },
+        {
+          "id": "fsa-11",
+          "n": 11,
+          "title": "Financial Analysis Techniques",
+          "short": "Analysis Techniques",
+          "los": [
+            { "id": "fsa-11-a", "text": "Calculate and interpret activity, liquidity, solvency, and profitability ratios", "calc": true },
+            { "id": "fsa-11-b", "text": "Break down ROE with the three- and five-step DuPont decomposition", "calc": true },
+            { "id": "fsa-11-c", "text": "Calculate valuation ratios and per-share measures like EPS and dividend payout", "calc": true },
+            { "id": "fsa-11-d", "text": "Explain segment reporting and ratios used in credit analysis", "calc": false },
+            { "id": "fsa-11-e", "text": "Know the limits of ratio analysis and how to use it in forecasting", "calc": false }
+          ]
+        },
+        {
+          "id": "fsa-12",
+          "n": 12,
+          "title": "Introduction to Financial Statement Modeling",
+          "short": "FS Modeling Intro",
+          "los": [
+            { "id": "fsa-12-a", "text": "Forecast revenue using top-down, bottom-up, and hybrid approaches", "calc": true },
+            { "id": "fsa-12-b", "text": "Forecast operating costs and the balance sheet using margins and efficiency ratios", "calc": true },
+            { "id": "fsa-12-c", "text": "Explain how inflation, deflation, and input prices affect cost and revenue forecasts", "calc": false },
+            { "id": "fsa-12-d", "text": "Describe behavioural biases that creep into analyst forecasts", "calc": false },
+            { "id": "fsa-12-e", "text": "Explain how to model technological disruption and its effect on demand", "calc": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "corp",
+      "name": "Corporate Issuers",
+      "short": "Corporate",
+      "weightMin": 6,
+      "weightMax": 9,
+      "session": 1,
+      "readings": [
+        {
+          "id": "corp-1",
+          "n": 1,
+          "title": "Organizational Forms, Corporate Issuer Features, and Ownership",
+          "short": "Org Forms and Ownership",
+          "los": [
+            { "id": "corp-1-a", "text": "Compare sole proprietorships, partnerships, limited companies, and corporations", "calc": false },
+            { "id": "corp-1-b", "text": "Explain limited liability, separate legal identity, and double taxation", "calc": false },
+            { "id": "corp-1-c", "text": "Tell apart public and private companies and how shares move between them", "calc": false },
+            { "id": "corp-1-d", "text": "Describe how equity and debt holders' claims and returns differ", "calc": false }
+          ]
+        },
+        {
+          "id": "corp-2",
+          "n": 2,
+          "title": "Investors and Other Stakeholders",
+          "short": "Stakeholders",
+          "los": [
+            { "id": "corp-2-a", "text": "Tell apart shareholder theory and stakeholder theory of corporate purpose", "calc": false },
+            { "id": "corp-2-b", "text": "Name the main stakeholder groups and what each wants from the company", "calc": false },
+            { "id": "corp-2-c", "text": "Explain principal-agent conflicts between managers, owners, and creditors", "calc": false },
+            { "id": "corp-2-d", "text": "Describe ESG factors and how they affect investor decisions and company risk", "calc": false }
+          ]
+        },
+        {
+          "id": "corp-3",
+          "n": 3,
+          "title": "Corporate Governance: Conflicts, Mechanisms, Risks, and Benefits",
+          "short": "Corporate Governance",
+          "los": [
+            { "id": "corp-3-a", "text": "Describe the conflicts between shareholders, managers, creditors, and other groups", "calc": false },
+            { "id": "corp-3-b", "text": "Explain governance mechanisms: shareholder votes, boards, committees, audit", "calc": false },
+            { "id": "corp-3-c", "text": "Know what makes a board effective: independence, committees, dual roles", "calc": false },
+            { "id": "corp-3-d", "text": "Explain the risks of weak governance and the benefits of strong governance", "calc": false }
+          ]
+        },
+        {
+          "id": "corp-4",
+          "n": 4,
+          "title": "Working Capital and Liquidity",
+          "short": "Working Capital",
+          "los": [
+            { "id": "corp-4-a", "text": "Tell apart primary and secondary sources of liquidity and the drags on it", "calc": false },
+            { "id": "corp-4-b", "text": "Calculate the operating and cash conversion cycles from turnover days", "calc": true },
+            { "id": "corp-4-c", "text": "Compare conservative, moderate, and aggressive working capital policies", "calc": false },
+            { "id": "corp-4-d", "text": "Describe short-term funding choices and the cost of trade credit discounts", "calc": true }
+          ]
+        },
+        {
+          "id": "corp-5",
+          "n": 5,
+          "title": "Capital Investments and Capital Allocation",
+          "short": "Capital Allocation",
+          "los": [
+            { "id": "corp-5-a", "text": "Classify capital projects: maintenance, regulatory, expansion, and new ventures", "calc": false },
+            { "id": "corp-5-b", "text": "Calculate NPV and IRR and know when they disagree and which to trust", "calc": true },
+            { "id": "corp-5-c", "text": "Calculate the return on invested capital and compare it with the cost of capital", "calc": true },
+            { "id": "corp-5-d", "text": "Spot common capital allocation mistakes and behavioural pitfalls", "calc": false },
+            { "id": "corp-5-e", "text": "Describe real options (timing, abandonment, expansion) and their value", "calc": false }
+          ]
+        },
+        {
+          "id": "corp-6",
+          "n": 6,
+          "title": "Capital Structure",
+          "short": "Capital Structure",
+          "los": [
+            { "id": "corp-6-a", "text": "Calculate the weighted average cost of capital using target weights", "calc": true },
+            { "id": "corp-6-b", "text": "Explain how a firm's life-cycle stage shapes its financing choices", "calc": false },
+            { "id": "corp-6-c", "text": "Explain Modigliani-Miller with and without taxes and the trade-off theory", "calc": false },
+            { "id": "corp-6-d", "text": "Describe the pecking order theory and why firms deviate from a target structure", "calc": false },
+            { "id": "corp-6-e", "text": "Explain agency costs of debt and how leverage affects stakeholder conflicts", "calc": false }
+          ]
+        },
+        {
+          "id": "corp-7",
+          "n": 7,
+          "title": "Business Models",
+          "short": "Business Models",
+          "los": [
+            { "id": "corp-7-a", "text": "Describe the parts of a business model: customers, product, channel, pricing", "calc": false },
+            { "id": "corp-7-b", "text": "Tell apart pricing approaches like tiered, bundling, freemium, and subscription", "calc": false },
+            { "id": "corp-7-c", "text": "Recognise business model types: platforms, franchises, marketplaces, direct sales", "calc": false },
+            { "id": "corp-7-d", "text": "Explain how digital technology and network effects change business models", "calc": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "equity",
+      "name": "Equity Investments",
+      "short": "Equity",
+      "weightMin": 11,
+      "weightMax": 14,
+      "session": 2,
+      "readings": [
+        {
+          "id": "equity-1",
+          "n": 1,
+          "title": "Market Organization and Structure",
+          "short": "Market Structure",
+          "los": [
+            { "id": "equity-1-a", "text": "Describe the functions of the financial system and the main asset classes", "calc": false },
+            { "id": "equity-1-b", "text": "Calculate margin returns and the price that triggers a margin call", "calc": true },
+            { "id": "equity-1-c", "text": "Tell apart market, limit, stop, and other order types and their instructions", "calc": false },
+            { "id": "equity-1-d", "text": "Compare primary and secondary markets, and quote-, order-, and brokered markets", "calc": false },
+            { "id": "equity-1-e", "text": "Describe what makes a market well functioning and the aims of regulation", "calc": false }
+          ]
+        },
+        {
+          "id": "equity-2",
+          "n": 2,
+          "title": "Security Market Indexes",
+          "short": "Market Indexes",
+          "los": [
+            { "id": "equity-2-a", "text": "Calculate price return and total return of an index", "calc": true },
+            { "id": "equity-2-b", "text": "Compare price-, equal-, market-cap-, and fundamental-weighted indexes", "calc": true },
+            { "id": "equity-2-c", "text": "Explain rebalancing and reconstitution and why they matter", "calc": false },
+            { "id": "equity-2-d", "text": "Describe the uses of indexes and the main types across asset classes", "calc": false }
+          ]
+        },
+        {
+          "id": "equity-3",
+          "n": 3,
+          "title": "Market Efficiency",
+          "short": "Market Efficiency",
+          "los": [
+            { "id": "equity-3-a", "text": "Tell apart market value from intrinsic value and what efficiency means", "calc": false },
+            { "id": "equity-3-b", "text": "Describe weak, semi-strong, and strong forms and what each rules out", "calc": false },
+            { "id": "equity-3-c", "text": "Know the factors that make a market more or less efficient", "calc": false },
+            { "id": "equity-3-d", "text": "Describe market anomalies and why many are not exploitable", "calc": false },
+            { "id": "equity-3-e", "text": "Explain how behavioural finance challenges the efficient market view", "calc": false }
+          ]
+        },
+        {
+          "id": "equity-4",
+          "n": 4,
+          "title": "Overview of Equity Securities",
+          "short": "Equity Securities",
+          "los": [
+            { "id": "equity-4-a", "text": "Compare common and preference shares and their voting and dividend features", "calc": false },
+            { "id": "equity-4-b", "text": "Tell apart private equity types: venture capital, buyouts, PIPEs", "calc": false },
+            { "id": "equity-4-c", "text": "Describe ways to invest abroad: direct, depository receipts, global shares, ETFs", "calc": false },
+            { "id": "equity-4-d", "text": "Explain the risk and return of equities and how book value differs from market value", "calc": false },
+            { "id": "equity-4-e", "text": "Compare a firm's return on equity with its cost of equity to judge value creation", "calc": true }
+          ]
+        },
+        {
+          "id": "equity-5",
+          "n": 5,
+          "title": "Company Analysis: Past and Present",
+          "short": "Company Analysis: Past",
+          "los": [
+            { "id": "equity-5-a", "text": "Describe what goes into a company research report and its main sections", "calc": false },
+            { "id": "equity-5-b", "text": "Analyse revenue drivers: volume, price, product mix, and geographic exposure", "calc": false },
+            { "id": "equity-5-c", "text": "Analyse operating profitability and working capital versus peers", "calc": true },
+            { "id": "equity-5-d", "text": "Explain how capital investment and capital structure shape a company's results", "calc": false }
+          ]
+        },
+        {
+          "id": "equity-6",
+          "n": 6,
+          "title": "Industry and Competitive Analysis",
+          "short": "Industry Analysis",
+          "los": [
+            { "id": "equity-6-a", "text": "Describe how industries are classified and the limits of standard classifications", "calc": false },
+            { "id": "equity-6-b", "text": "Analyse industry size, growth, profitability, and market share trends", "calc": false },
+            { "id": "equity-6-c", "text": "Apply Porter's five forces to judge industry attractiveness", "calc": false },
+            { "id": "equity-6-d", "text": "Explain how external forces like regulation, demographics, and tech affect industries", "calc": false },
+            { "id": "equity-6-e", "text": "Assess a company's competitive position and strategy within its industry", "calc": false }
+          ]
+        },
+        {
+          "id": "equity-7",
+          "n": 7,
+          "title": "Company Analysis: Forecasting",
+          "short": "Company Forecasting",
+          "los": [
+            { "id": "equity-7-a", "text": "Compare forecasting approaches and pick a horizon that fits the purpose", "calc": false },
+            { "id": "equity-7-b", "text": "Forecast revenue, costs, and margins using drivers and historical patterns", "calc": true },
+            { "id": "equity-7-c", "text": "Forecast capital investments, working capital, and the balance sheet", "calc": true },
+            { "id": "equity-7-d", "text": "Build scenarios and sensitivity analysis around a base-case forecast", "calc": false }
+          ]
+        },
+        {
+          "id": "equity-8",
+          "n": 8,
+          "title": "Equity Valuation: Concepts and Basic Tools",
+          "short": "Equity Valuation Tools",
+          "los": [
+            { "id": "equity-8-a", "text": "Judge if a stock is over-, under-, or fairly valued from an intrinsic estimate", "calc": false },
+            { "id": "equity-8-b", "text": "Calculate value with dividend discount models and the Gordon growth formula", "calc": true },
+            { "id": "equity-8-c", "text": "Calculate value from multiples (P/E, P/B, EV/EBITDA) and know their limits", "calc": true },
+            { "id": "equity-8-d", "text": "Explain asset-based valuation and when it is appropriate", "calc": false },
+            { "id": "equity-8-e", "text": "Estimate the sustainable growth rate and a justified forward P/E", "calc": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fi",
+      "name": "Fixed Income",
+      "short": "Fixed Income",
+      "weightMin": 11,
+      "weightMax": 14,
+      "session": 2,
+      "readings": [
+        {
+          "id": "fi-1",
+          "n": 1,
+          "title": "Fixed-Income Instrument Features",
+          "short": "Bond Features",
+          "los": [
+            { "id": "fi-1-a", "text": "Describe the basic features of a bond: issuer, maturity, par, coupon, currency", "calc": false },
+            { "id": "fi-1-b", "text": "Explain the bond indenture, trustee role, and sources of repayment", "calc": false },
+            { "id": "fi-1-c", "text": "Tell apart affirmative and negative covenants and what they protect", "calc": false },
+            { "id": "fi-1-d", "text": "Describe seniority ranking, security, and collateral types", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-2",
+          "n": 2,
+          "title": "Fixed-Income Cash Flows and Types",
+          "short": "Bond Cash Flows",
+          "los": [
+            { "id": "fi-2-a", "text": "Compare bullet, amortising, and sinking fund repayment structures", "calc": true },
+            { "id": "fi-2-b", "text": "Describe floating-rate, step-up, deferred coupon, and index-linked coupons", "calc": true },
+            { "id": "fi-2-c", "text": "Explain call, put, and conversion features and who benefits from each", "calc": false },
+            { "id": "fi-2-d", "text": "Know how legal and tax issues such as domicile and withholding affect bonds", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-3",
+          "n": 3,
+          "title": "Fixed-Income Issuance and Trading",
+          "short": "Issuance and Trading",
+          "los": [
+            { "id": "fi-3-a", "text": "Classify bond markets by issuer type, credit quality, maturity, and currency", "calc": false },
+            { "id": "fi-3-b", "text": "Tell apart investment grade and high yield and the role of rating agencies", "calc": false },
+            { "id": "fi-3-c", "text": "Describe primary issuance: underwritten, best efforts, auction, private placement", "calc": false },
+            { "id": "fi-3-d", "text": "Explain how bonds trade in secondary markets and the role of dealers and spreads", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-4",
+          "n": 4,
+          "title": "Fixed-Income Markets for Corporate Issuers",
+          "short": "Corporate Bond Markets",
+          "los": [
+            { "id": "fi-4-a", "text": "Compare short-term funding: bank lines, commercial paper, repos, and deposits", "calc": false },
+            { "id": "fi-4-b", "text": "Explain repurchase agreements, the repo rate, haircuts, and repo risks", "calc": true },
+            { "id": "fi-4-c", "text": "Describe long-term corporate debt: notes, bonds, and syndicated loans", "calc": false },
+            { "id": "fi-4-d", "text": "Explain how a firm's size and credit quality shape its debt funding options", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-5",
+          "n": 5,
+          "title": "Fixed-Income Markets for Government Issuers",
+          "short": "Government Bond Markets",
+          "los": [
+            { "id": "fi-5-a", "text": "Describe sovereign debt types and how governments issue and manage it", "calc": false },
+            { "id": "fi-5-b", "text": "Tell apart sovereign, non-sovereign, quasi-government, and supranational issuers", "calc": false },
+            { "id": "fi-5-c", "text": "Explain how government bond auctions work and the role of primary dealers", "calc": false },
+            { "id": "fi-5-d", "text": "Describe on-the-run versus off-the-run issues and why they trade differently", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-6",
+          "n": 6,
+          "title": "Fixed-Income Bond Valuation: Prices and Yields",
+          "short": "Bond Prices and Yields",
+          "los": [
+            { "id": "fi-6-a", "text": "Calculate a bond's price from its yield and its yield from its price", "calc": true },
+            { "id": "fi-6-b", "text": "Explain how price moves with yield, coupon, and maturity (the inverse relation)", "calc": false },
+            { "id": "fi-6-c", "text": "Calculate price using spot rates and explain the pull to par", "calc": true },
+            { "id": "fi-6-d", "text": "Calculate flat and full price with accrued interest between coupon dates", "calc": true },
+            { "id": "fi-6-e", "text": "Explain matrix pricing for bonds that do not trade often", "calc": true }
+          ]
+        },
+        {
+          "id": "fi-7",
+          "n": 7,
+          "title": "Yield and Yield Spread Measures for Fixed-Rate Bonds",
+          "short": "Fixed-Rate Yield Measures",
+          "los": [
+            { "id": "fi-7-a", "text": "Convert between periodicities and compare yields with different compounding", "calc": true },
+            { "id": "fi-7-b", "text": "Calculate current yield, yield to maturity, yield to call, and yield to worst", "calc": true },
+            { "id": "fi-7-c", "text": "Tell apart street convention, true yield, and government equivalent yield", "calc": false },
+            { "id": "fi-7-d", "text": "Calculate G-spread, I-spread, Z-spread, and OAS and know what each measures", "calc": true }
+          ]
+        },
+        {
+          "id": "fi-8",
+          "n": 8,
+          "title": "Yield and Yield Spread Measures for Floating-Rate Instruments",
+          "short": "Floating-Rate Yields",
+          "los": [
+            { "id": "fi-8-a", "text": "Explain how a floating-rate note resets and why its price stays near par", "calc": false },
+            { "id": "fi-8-b", "text": "Calculate an FRN's price from its quoted margin and required margin", "calc": true },
+            { "id": "fi-8-c", "text": "Calculate discount and add-on yields for money market instruments", "calc": true },
+            { "id": "fi-8-d", "text": "Convert money market yields to a bond-equivalent basis for comparison", "calc": true }
+          ]
+        },
+        {
+          "id": "fi-9",
+          "n": 9,
+          "title": "The Term Structure of Interest Rates: Spot, Par, and Forward Curves",
+          "short": "Spot, Par, Forward Curves",
+          "los": [
+            { "id": "fi-9-a", "text": "Tell apart spot, par, and forward curves and how each is built", "calc": false },
+            { "id": "fi-9-b", "text": "Calculate a forward rate from two spot rates and a spot rate from forwards", "calc": true },
+            { "id": "fi-9-c", "text": "Price a bond using forward rates", "calc": true },
+            { "id": "fi-9-d", "text": "Explain yield curve shapes and what they are thought to signal", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-10",
+          "n": 10,
+          "title": "Interest Rate Risk and Return",
+          "short": "Interest Rate Risk",
+          "los": [
+            { "id": "fi-10-a", "text": "Break a bond's total return into coupons, reinvestment income, and price change", "calc": true },
+            { "id": "fi-10-b", "text": "Explain how reinvestment risk and price risk offset each other over time", "calc": false },
+            { "id": "fi-10-c", "text": "Calculate the horizon yield for a given holding period and rate change", "calc": true },
+            { "id": "fi-10-d", "text": "Explain the investment horizon, Macaulay duration, and the duration gap", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-11",
+          "n": 11,
+          "title": "Yield-Based Bond Duration Measures and Properties",
+          "short": "Duration Measures",
+          "los": [
+            { "id": "fi-11-a", "text": "Calculate Macaulay, modified, and approximate modified duration", "calc": true },
+            { "id": "fi-11-b", "text": "Calculate money duration and the price value of a basis point", "calc": true },
+            { "id": "fi-11-c", "text": "Explain how coupon, maturity, and yield affect duration", "calc": false },
+            { "id": "fi-11-d", "text": "Estimate the percentage price change of a bond from a yield change using duration", "calc": true }
+          ]
+        },
+        {
+          "id": "fi-12",
+          "n": 12,
+          "title": "Yield-Based Bond Convexity and Portfolio Properties",
+          "short": "Convexity and Portfolios",
+          "los": [
+            { "id": "fi-12-a", "text": "Calculate approximate convexity and money convexity", "calc": true },
+            { "id": "fi-12-b", "text": "Estimate price change using both duration and convexity adjustments", "calc": true },
+            { "id": "fi-12-c", "text": "Explain why convexity is valuable and how it differs across bonds", "calc": false },
+            { "id": "fi-12-d", "text": "Calculate portfolio duration and convexity and know the limits of weighting", "calc": true }
+          ]
+        },
+        {
+          "id": "fi-13",
+          "n": 13,
+          "title": "Curve-Based and Empirical Fixed-Income Risk Measures",
+          "short": "Curve-Based Risk Measures",
+          "los": [
+            { "id": "fi-13-a", "text": "Explain effective duration and convexity and when to use them over yield-based", "calc": true },
+            { "id": "fi-13-b", "text": "Describe key rate durations and how they capture non-parallel curve shifts", "calc": false },
+            { "id": "fi-13-c", "text": "Tell apart analytical and empirical duration and when empirical is lower", "calc": false },
+            { "id": "fi-13-d", "text": "Explain how callable and putable bond duration and convexity behave", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-14",
+          "n": 14,
+          "title": "Credit Risk",
+          "short": "Credit Risk",
+          "los": [
+            { "id": "fi-14-a", "text": "Tell apart default risk, loss severity, and expected loss", "calc": true },
+            { "id": "fi-14-b", "text": "Explain credit spreads and why they change with the cycle and liquidity", "calc": false },
+            { "id": "fi-14-c", "text": "Estimate a bond's price change from a credit spread change using duration", "calc": true },
+            { "id": "fi-14-d", "text": "Describe credit migration risk and how it is measured", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-15",
+          "n": 15,
+          "title": "Credit Analysis for Government Issuers",
+          "short": "Sovereign Credit Analysis",
+          "los": [
+            { "id": "fi-15-a", "text": "Explain the qualitative factors in sovereign credit analysis: institutions, politics", "calc": false },
+            { "id": "fi-15-b", "text": "Use quantitative factors such as debt-to-GDP, growth, and external position", "calc": false },
+            { "id": "fi-15-c", "text": "Tell apart local-currency and foreign-currency sovereign risk", "calc": false },
+            { "id": "fi-15-d", "text": "Describe how non-sovereign governments are analysed differently", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-16",
+          "n": 16,
+          "title": "Credit Analysis for Corporate Issuers",
+          "short": "Corporate Credit Analysis",
+          "los": [
+            { "id": "fi-16-a", "text": "Describe the qualitative factors: business model, industry, governance", "calc": false },
+            { "id": "fi-16-b", "text": "Calculate leverage and coverage ratios used in corporate credit analysis", "calc": true },
+            { "id": "fi-16-c", "text": "Tell apart issuer and issue ratings and the effect of structural subordination", "calc": false },
+            { "id": "fi-16-d", "text": "Explain how seniority and security affect recovery rates", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-17",
+          "n": 17,
+          "title": "Fixed-Income Securitization",
+          "short": "Securitization",
+          "los": [
+            { "id": "fi-17-a", "text": "Explain the benefits of securitisation for issuers, investors, and the economy", "calc": false },
+            { "id": "fi-17-b", "text": "Describe the parties and the role of the special purpose entity", "calc": false },
+            { "id": "fi-17-c", "text": "Explain tranching, credit enhancement, and how losses are allocated", "calc": false },
+            { "id": "fi-17-d", "text": "Tell apart securitisation from covered bonds and other collateralised debt", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-18",
+          "n": 18,
+          "title": "Asset-Backed Security (ABS) Instrument and Market Features",
+          "short": "ABS Features",
+          "los": [
+            { "id": "fi-18-a", "text": "Describe covered bonds and how they differ from ABS", "calc": false },
+            { "id": "fi-18-b", "text": "Explain the structure of auto loan ABS and amortising collateral", "calc": false },
+            { "id": "fi-18-c", "text": "Explain credit card ABS and non-amortising collateral with a lockout period", "calc": false },
+            { "id": "fi-18-d", "text": "Describe CDOs and CLOs, their collateral, and the manager's role", "calc": false }
+          ]
+        },
+        {
+          "id": "fi-19",
+          "n": 19,
+          "title": "Mortgage-Backed Security (MBS) Instrument and Market Features",
+          "short": "MBS Features",
+          "los": [
+            { "id": "fi-19-a", "text": "Describe residential mortgage features: amortisation, recourse, LTV, prepayment", "calc": true },
+            { "id": "fi-19-b", "text": "Explain prepayment risk, contraction and extension risk, and the PSA benchmark", "calc": false },
+            { "id": "fi-19-c", "text": "Describe agency and non-agency RMBS and how CMOs redistribute prepayment risk", "calc": false },
+            { "id": "fi-19-d", "text": "Describe commercial MBS, balloon risk, and call protection at the loan level", "calc": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deriv",
+      "name": "Derivatives",
+      "short": "Derivatives",
+      "weightMin": 5,
+      "weightMax": 8,
+      "session": 2,
+      "readings": [
+        {
+          "id": "deriv-1",
+          "n": 1,
+          "title": "Derivative Instrument and Derivative Market Features",
+          "short": "Derivative Features",
+          "los": [
+            { "id": "deriv-1-a", "text": "Define a derivative and describe the common underlyings", "calc": false },
+            { "id": "deriv-1-b", "text": "Compare exchange-traded and over-the-counter derivatives", "calc": false },
+            { "id": "deriv-1-c", "text": "Explain the role of clearinghouses, margin, and central clearing in OTC markets", "calc": false },
+            { "id": "deriv-1-d", "text": "Describe how derivatives are regulated and why", "calc": false }
+          ]
+        },
+        {
+          "id": "deriv-2",
+          "n": 2,
+          "title": "Forward Commitment and Contingent Claim Features and Instruments",
+          "short": "Forwards vs Options",
+          "los": [
+            { "id": "deriv-2-a", "text": "Tell apart forward commitments and contingent claims", "calc": false },
+            { "id": "deriv-2-b", "text": "Describe forwards, futures, and swaps and calculate their payoffs", "calc": true },
+            { "id": "deriv-2-c", "text": "Describe calls and puts and calculate payoff and profit at expiry", "calc": true },
+            { "id": "deriv-2-d", "text": "Explain credit default swaps and how protection buyers and sellers are paid", "calc": false }
+          ]
+        },
+        {
+          "id": "deriv-3",
+          "n": 3,
+          "title": "Derivative Benefits, Risks, and Issuer and Investor Uses",
+          "short": "Benefits, Risks, Uses",
+          "los": [
+            { "id": "deriv-3-a", "text": "Explain the benefits of derivatives: risk transfer, price discovery, efficiency", "calc": false },
+            { "id": "deriv-3-b", "text": "Describe the risks: leverage, counterparty, liquidity, basis, and systemic", "calc": false },
+            { "id": "deriv-3-c", "text": "Describe how corporate issuers use derivatives to hedge rates, FX, commodities", "calc": false },
+            { "id": "deriv-3-d", "text": "Describe how investors use derivatives to hedge, speculate, or get exposure", "calc": false }
+          ]
+        },
+        {
+          "id": "deriv-4",
+          "n": 4,
+          "title": "Arbitrage, Replication, and the Cost of Carry in Pricing Derivatives",
+          "short": "Arbitrage and Carry",
+          "los": [
+            { "id": "deriv-4-a", "text": "Explain how arbitrage and the law of one price set derivative prices", "calc": false },
+            { "id": "deriv-4-b", "text": "Explain replication: building a derivative from the underlying and borrowing", "calc": false },
+            { "id": "deriv-4-c", "text": "Calculate a forward price from spot using the cost of carry and benefits", "calc": true },
+            { "id": "deriv-4-d", "text": "Explain why the forward price is not the expected future spot price", "calc": false }
+          ]
+        },
+        {
+          "id": "deriv-5",
+          "n": 5,
+          "title": "Pricing and Valuation of Forward Contracts and for an Underlying with Varying Maturities",
+          "short": "Forward Pricing",
+          "los": [
+            { "id": "deriv-5-a", "text": "Tell apart the price and the value of a forward at start, during, and at expiry", "calc": true },
+            { "id": "deriv-5-b", "text": "Calculate the value of a forward position before expiry", "calc": true },
+            { "id": "deriv-5-c", "text": "Explain how to price a forward on a bond or on an interest rate (FRA)", "calc": true },
+            { "id": "deriv-5-d", "text": "Describe how forward rates imply spot rates for different maturities", "calc": true }
+          ]
+        },
+        {
+          "id": "deriv-6",
+          "n": 6,
+          "title": "Pricing and Valuation of Futures Contracts",
+          "short": "Futures Pricing",
+          "los": [
+            { "id": "deriv-6-a", "text": "Compare futures and forwards: daily settlement, margin, and value resets", "calc": false },
+            { "id": "deriv-6-b", "text": "Calculate the mark-to-market cash flow on a futures position", "calc": true },
+            { "id": "deriv-6-c", "text": "Explain when futures and forward prices differ and the role of rate correlation", "calc": false },
+            { "id": "deriv-6-d", "text": "Explain interest rate futures and how their prices relate to forward rates", "calc": true }
+          ]
+        },
+        {
+          "id": "deriv-7",
+          "n": 7,
+          "title": "Pricing and Valuation of Interest Rates and Other Swaps",
+          "short": "Swap Pricing",
+          "los": [
+            { "id": "deriv-7-a", "text": "Describe an interest rate swap as a series of forward rate agreements", "calc": false },
+            { "id": "deriv-7-b", "text": "Explain how the fixed swap rate is set so the swap has zero value at start", "calc": true },
+            { "id": "deriv-7-c", "text": "Calculate the value of a swap to each side after rates change", "calc": true },
+            { "id": "deriv-7-d", "text": "Compare swaps with forwards and explain how currency and equity swaps work", "calc": false }
+          ]
+        },
+        {
+          "id": "deriv-8",
+          "n": 8,
+          "title": "Pricing and Valuation of Options",
+          "short": "Option Pricing",
+          "los": [
+            { "id": "deriv-8-a", "text": "Tell apart exercise value, time value, and moneyness of an option", "calc": true },
+            { "id": "deriv-8-b", "text": "Explain how the underlying price, strike, time, volatility, rates, and income affect value", "calc": false },
+            { "id": "deriv-8-c", "text": "Know the upper and lower bounds on call and put prices", "calc": true },
+            { "id": "deriv-8-d", "text": "Compare American and European option values and when early exercise makes sense", "calc": false }
+          ]
+        },
+        {
+          "id": "deriv-9",
+          "n": 9,
+          "title": "Option Replication Using Put-Call Parity",
+          "short": "Put-Call Parity",
+          "los": [
+            { "id": "deriv-9-a", "text": "State put-call parity and explain the fiduciary call and protective put", "calc": true },
+            { "id": "deriv-9-b", "text": "Use parity to replicate a call, put, stock, or bond from the other three", "calc": true },
+            { "id": "deriv-9-c", "text": "Apply put-call-forward parity to options on a forward", "calc": true },
+            { "id": "deriv-9-d", "text": "Explain how parity shows equity as a call and debt as a put on firm assets", "calc": false }
+          ]
+        },
+        {
+          "id": "deriv-10",
+          "n": 10,
+          "title": "Valuing a Derivative Using a One-Period Binomial Model",
+          "short": "One-Period Binomial",
+          "los": [
+            { "id": "deriv-10-a", "text": "Set up a one-period binomial tree with up and down moves for the underlying", "calc": true },
+            { "id": "deriv-10-b", "text": "Calculate the hedge ratio and the risk-neutral probabilities", "calc": true },
+            { "id": "deriv-10-c", "text": "Calculate the value of a call or put using the binomial model", "calc": true },
+            { "id": "deriv-10-d", "text": "Explain why real-world probabilities and risk preferences do not matter in pricing", "calc": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alts",
+      "name": "Alternative Investments",
+      "short": "Alts",
+      "weightMin": 7,
+      "weightMax": 10,
+      "session": 2,
+      "readings": [
+        {
+          "id": "alts-1",
+          "n": 1,
+          "title": "Alternative Investment Features, Methods, and Structures",
+          "short": "Alts Features",
+          "los": [
+            { "id": "alts-1-a", "text": "Describe what makes an investment 'alternative' and the main categories", "calc": false },
+            { "id": "alts-1-b", "text": "Compare direct investing, co-investing, and fund investing", "calc": false },
+            { "id": "alts-1-c", "text": "Explain the limited partnership structure, GP and LP roles, and fee terms", "calc": false },
+            { "id": "alts-1-d", "text": "Describe the limits of alternative investments: liquidity, transparency, fees", "calc": false }
+          ]
+        },
+        {
+          "id": "alts-2",
+          "n": 2,
+          "title": "Alternative Investment Performance and Returns",
+          "short": "Alts Performance",
+          "los": [
+            { "id": "alts-2-a", "text": "Explain why alternatives need different performance measures and the appraisal issues", "calc": false },
+            { "id": "alts-2-b", "text": "Calculate management and incentive fees including hurdle rates and high-water marks", "calc": true },
+            { "id": "alts-2-c", "text": "Calculate returns to investors net of fees under different fee structures", "calc": true },
+            { "id": "alts-2-d", "text": "Explain the J-curve, IRR and multiples (DPI, RVPI, TVPI) used for private funds", "calc": true }
+          ]
+        },
+        {
+          "id": "alts-3",
+          "n": 3,
+          "title": "Investments in Private Capital: Equity and Debt",
+          "short": "Private Capital",
+          "los": [
+            { "id": "alts-3-a", "text": "Describe private equity strategies: venture capital, growth, and buyouts", "calc": false },
+            { "id": "alts-3-b", "text": "Describe private debt: direct lending, mezzanine, distressed, venture debt", "calc": false },
+            { "id": "alts-3-c", "text": "Explain exit routes for private equity: IPO, trade sale, secondary, recap", "calc": false },
+            { "id": "alts-3-d", "text": "Explain how private capital fits in a portfolio and its risk and return", "calc": false }
+          ]
+        },
+        {
+          "id": "alts-4",
+          "n": 4,
+          "title": "Real Estate and Infrastructure",
+          "short": "Real Estate and Infra",
+          "los": [
+            { "id": "alts-4-a", "text": "Compare real estate investment routes: direct, REITs, funds, debt", "calc": false },
+            { "id": "alts-4-b", "text": "Describe real estate property types and their return sources and risks", "calc": false },
+            { "id": "alts-4-c", "text": "Describe infrastructure types: greenfield vs brownfield, economic vs social", "calc": false },
+            { "id": "alts-4-d", "text": "Explain how real estate and infrastructure add diversification and inflation protection", "calc": false }
+          ]
+        },
+        {
+          "id": "alts-5",
+          "n": 5,
+          "title": "Natural Resources",
+          "short": "Natural Resources",
+          "los": [
+            { "id": "alts-5-a", "text": "Describe farmland, timberland, and commodities as investments", "calc": false },
+            { "id": "alts-5-b", "text": "Explain how commodity futures prices relate to spot via contango and backwardation", "calc": false },
+            { "id": "alts-5-c", "text": "Break commodity index returns into spot, roll, and collateral yield", "calc": true },
+            { "id": "alts-5-d", "text": "Explain the role of natural resources in inflation hedging and diversification", "calc": false }
+          ]
+        },
+        {
+          "id": "alts-6",
+          "n": 6,
+          "title": "Hedge Funds",
+          "short": "Hedge Funds",
+          "los": [
+            { "id": "alts-6-a", "text": "Describe hedge fund features: leverage, short selling, lockups, and gates", "calc": false },
+            { "id": "alts-6-b", "text": "Classify strategies: equity, event-driven, relative value, macro, multi-strategy", "calc": false },
+            { "id": "alts-6-c", "text": "Explain funds of funds, their extra fee layer, and due diligence role", "calc": false },
+            { "id": "alts-6-d", "text": "Describe the risk and return profile of hedge funds and biases in their indexes", "calc": false }
+          ]
+        },
+        {
+          "id": "alts-7",
+          "n": 7,
+          "title": "Introduction to Digital Assets",
+          "short": "Digital Assets",
+          "los": [
+            { "id": "alts-7-a", "text": "Explain blockchain, distributed ledgers, and consensus (proof of work and stake)", "calc": false },
+            { "id": "alts-7-b", "text": "Describe digital asset types: cryptocurrencies, stablecoins, tokens, NFTs", "calc": false },
+            { "id": "alts-7-c", "text": "Compare ways to invest: direct ownership, ETFs, futures, trusts, and equities", "calc": false },
+            { "id": "alts-7-d", "text": "Describe the risks of digital assets: fraud, custody, regulation, volatility", "calc": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pm",
+      "name": "Portfolio Management",
+      "short": "Portfolio Mgmt",
+      "weightMin": 8,
+      "weightMax": 12,
+      "session": 2,
+      "readings": [
+        {
+          "id": "pm-1",
+          "n": 1,
+          "title": "Portfolio Management: An Overview",
+          "short": "PM Overview",
+          "los": [
+            { "id": "pm-1-a", "text": "Explain why a portfolio approach beats picking assets one by one", "calc": false },
+            { "id": "pm-1-b", "text": "Describe the steps of the portfolio management process", "calc": false },
+            { "id": "pm-1-c", "text": "Compare the needs of individual and institutional investors", "calc": false },
+            { "id": "pm-1-d", "text": "Compare mutual funds, ETFs, separately managed accounts, and other pooled vehicles", "calc": false },
+            { "id": "pm-1-e", "text": "Describe the asset management industry and active versus passive trends", "calc": false }
+          ]
+        },
+        {
+          "id": "pm-2",
+          "n": 2,
+          "title": "Portfolio Risk and Return: Part I",
+          "short": "Risk and Return I",
+          "los": [
+            { "id": "pm-2-a", "text": "Calculate holding period and expected return and risk for an asset", "calc": true },
+            { "id": "pm-2-b", "text": "Explain risk aversion and how utility and indifference curves show preferences", "calc": false },
+            { "id": "pm-2-c", "text": "Calculate portfolio risk and return and show how correlation drives diversification", "calc": true },
+            { "id": "pm-2-d", "text": "Describe the efficient frontier, the minimum-variance portfolio, and the CAL", "calc": false },
+            { "id": "pm-2-e", "text": "Pick the optimal portfolio on the CAL from an investor's indifference curve", "calc": false }
+          ]
+        },
+        {
+          "id": "pm-3",
+          "n": 3,
+          "title": "Portfolio Risk and Return: Part II",
+          "short": "Risk and Return II",
+          "los": [
+            { "id": "pm-3-a", "text": "Describe the capital market line and the assumptions behind it", "calc": true },
+            { "id": "pm-3-b", "text": "Tell apart systematic and unsystematic risk and why only one is rewarded", "calc": false },
+            { "id": "pm-3-c", "text": "Calculate and interpret beta and use the CAPM to find expected return", "calc": true },
+            { "id": "pm-3-d", "text": "Use the SML to spot over- and undervalued assets and the model's limits", "calc": true },
+            { "id": "pm-3-e", "text": "Calculate Sharpe, Treynor, M-squared, and Jensen's alpha", "calc": true }
+          ]
+        },
+        {
+          "id": "pm-4",
+          "n": 4,
+          "title": "Basics of Portfolio Planning and Construction",
+          "short": "Planning and Construction",
+          "los": [
+            { "id": "pm-4-a", "text": "Describe the purpose and sections of an investment policy statement", "calc": false },
+            { "id": "pm-4-b", "text": "Tell apart ability and willingness to take risk and set return objectives", "calc": false },
+            { "id": "pm-4-c", "text": "Describe constraints: liquidity, time horizon, tax, legal, and unique needs", "calc": false },
+            { "id": "pm-4-d", "text": "Explain strategic asset allocation and how it is set and rebalanced", "calc": false },
+            { "id": "pm-4-e", "text": "Describe how ESG considerations can be built into portfolio construction", "calc": false }
+          ]
+        },
+        {
+          "id": "pm-5",
+          "n": 5,
+          "title": "The Behavioral Biases of Individuals",
+          "short": "Behavioral Biases",
+          "los": [
+            { "id": "pm-5-a", "text": "Tell apart cognitive errors and emotional biases and why that matters", "calc": false },
+            { "id": "pm-5-b", "text": "Recognise belief-perseverance biases: conservatism, confirmation, hindsight", "calc": false },
+            { "id": "pm-5-c", "text": "Recognise processing errors: anchoring, framing, mental accounting, availability", "calc": false },
+            { "id": "pm-5-d", "text": "Recognise emotional biases: loss aversion, overconfidence, regret, endowment", "calc": false },
+            { "id": "pm-5-e", "text": "Explain how biases show up in market anomalies like bubbles and momentum", "calc": false }
+          ]
+        },
+        {
+          "id": "pm-6",
+          "n": 6,
+          "title": "Introduction to Risk Management",
+          "short": "Risk Management Intro",
+          "los": [
+            { "id": "pm-6-a", "text": "Describe the risk management process and the parts of a risk framework", "calc": false },
+            { "id": "pm-6-b", "text": "Tell apart risk tolerance, risk budgeting, and risk governance", "calc": false },
+            { "id": "pm-6-c", "text": "Classify financial and non-financial risks and how they interact", "calc": false },
+            { "id": "pm-6-d", "text": "Describe risk measures like standard deviation, beta, VaR, and stress tests", "calc": false },
+            { "id": "pm-6-e", "text": "Compare ways to change risk: avoid, accept, transfer, or shift", "calc": false }
+          ]
+        }
+      ]
+    }
+  ]
+}
