@@ -398,6 +398,9 @@
     if (lastDone && lastDone.right / lastDone.n < 0.6 && Sched.daysBetween(lastDone.date, t) <= 1 && avail.weak) {
       return { mode: 'weak', text: 'Last session was a tough one. Weak spots will firm up the readings that need it.' };
     }
+    var rush = 0, tagged = 0;
+    st.sessions.forEach(function (x) { if (x.errs && Sched.daysBetween(x.date, t) <= 7) { rush += x.errs.rush; tagged += x.errs.know + x.errs.mix + x.errs.rush; } });
+    if (rush >= 3 && rush / tagged >= 0.4 && avail.exam) return { mode: 'exam', text: 'Lots of your recent misses were misreads. Exam practice trains careful reading at real pace.' };
     var recentExam = st.sessions.some(function (x) { return x.mode === 'exam' && Sched.daysBetween(x.date, t) <= 7; });
     if (d <= 14 && !recentExam && avail.exam) return { mode: 'exam', text: 'Try Exam practice once this week to feel the pace.' };
     return { mode: null, text: 'Start with Today’s 15. It picks what needs you most.' };
@@ -512,13 +515,23 @@
       Store.save();
       return a.guess;
     },
+    // Optional reason for the miss just given: know | mix | rush. Tap the same one again to clear.
+    tagMiss: function (tag) {
+      var c = this.cur, a = c && c.answers[c.answers.length - 1];
+      if (!a || a.correct) return null;
+      a.err = a.err === tag ? null : tag;
+      return a.err;
+    },
     // Add the session record (once). Called at the end, or on quit if anything was answered.
     record: function () {
       var c = this.cur, st = Store.state;
       if (!c || c.recorded || !c.answers.length) return;
       c.recorded = true;
       var right = c.answers.filter(function (a) { return a.correct; }).length;
-      st.sessions.push({ date: today(), mode: c.mode, n: c.answers.length, right: right });
+      var rec = { date: today(), mode: c.mode, n: c.answers.length, right: right };
+      var errs = errCounts(c.answers);
+      if (errs.total) rec.errs = { know: errs.know, mix: errs.mix, rush: errs.rush };
+      st.sessions.push(rec);
       st.lastSessionDate = today();
       Store.save();
       this.last = { mode: c.mode, opts: c.opts, n: c.answers.length, right: right, answers: c.answers.slice() };
@@ -536,6 +549,28 @@
       });
     }
   };
+
+  var ERR_TAGS = [['know', 'Didn’t know it'], ['mix', 'Mixed two things up'], ['rush', 'Misread or rushed']];
+  var ERR_ADVICE = {
+    know: 'Most misses were things you didn’t know yet. Recap those readings; the questions come back next session.',
+    mix: 'Most misses were mix-ups. The trap line on each Recap card is written for exactly this.',
+    rush: 'Most misses were misreads. Read the last line of the question first, then the options. You have 90 seconds each.'
+  };
+  function errCounts(answers) {
+    var c = { know: 0, mix: 0, rush: 0, total: 0 };
+    answers.forEach(function (a) { if (!a.correct && a.err && c[a.err] !== undefined) { c[a.err]++; c.total++; } });
+    return c;
+  }
+  // Wrong-answer screen: optional one-tap reason. Updates in place.
+  function missControl() {
+    var chips = ERR_TAGS.map(function (t) {
+      return h('button', { class: 'btn-small chip', 'aria-pressed': 'false', text: t[1], onclick: function () {
+        var cur = Session.tagMiss(t[0]);
+        chips.forEach(function (b, i) { var on = ERR_TAGS[i][0] === cur; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', String(on)); });
+      } });
+    });
+    return h('div', { class: 'miss-why' }, h('div', { class: 'eyebrow', text: 'Why did you miss it? Optional' }), h('div', { class: 'chips' }, chips));
+  }
 
   function optionEl(letter, text, cls, tag, onclick) {
     var inner = [h('span', { class: 'opt-key', text: letter }),
@@ -620,7 +655,7 @@
       }
       fb = h('div', { class: 'fb' },
         h('div', { class: 'why' }, h('div', { class: 'eyebrow', text: 'Why' }), h('p', { text: q.explanation })),
-        extras, tests, remember,
+        extras, tests, remember, missControl(),
         h('p', { class: 'calm', text: 'This one comes back next session.' }));
     }
     var last = c.i + 1 >= c.ids.length;
@@ -677,6 +712,11 @@
       h('div', { class: 'eyebrow', text: resultTitle(r) }),
       h('div', { class: 'score' }, r.right + ' ', h('small', { text: '/ ' + r.n })),
       h('p', { class: 'result-line', text: line }),
+      (function () {
+        var e = errCounts(r.answers), top = null;
+        ['know', 'mix', 'rush'].forEach(function (k) { if (e[k] && (!top || e[k] > e[top])) top = k; });
+        return top && e.total >= 2 ? h('p', { class: 'err-line', text: ERR_ADVICE[top] }) : null;
+      })(),
       streakN ? h('div', null, streakChip(), streakN >= 3 ? h('span', { class: 'muted small', style: 'margin-left:10px', text: 'Nice streak!' }) : null) : null
     ];
     if (exam) {

@@ -396,3 +396,9 @@ button.opt:active { transform: scale(.985); border-color: var(--accent); }
 .fl-a { margin-top: 6px; line-height: 1.45; color: var(--text); filter: blur(6px); user-select: none; transition: filter .15s; }
 .fl.open .fl-a { filter: none; user-select: text; }
 @media (prefers-reduced-motion: reduce) { .fl-a { transition: none; } }
+
+/* ---------- Why did you miss it ---------- */
+.miss-why { margin-top: 16px; }
+.miss-why .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.chip { font-size: 15px; padding: 6px 14px; }
+.err-line { background: var(--note-soft); border: 1px solid var(--note-line); color: var(--note-ink); border-radius: 14px; padding: 12px 14px; margin: 12px 0 0; line-height: 1.45; }

@@ -32,6 +32,9 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
   - Green: solid.
   
   She taps a reading to see it, then "Practice this".
+- **Formula sheet** (new in v1.1). Every formula (52) and must-remember fact (67) from her covered readings, grouped by topic. The cue is shown and the answer is blurred: she says it, then taps. It's a 3-minute sweep for a queue, and it's what Home suggests for exam eve. A toggle shows everything, including unread readings.
+- **Where you stand** (new in v1.1; Home strip and Map). Shows how much of the exam she has covered by weight, her accuracy per topic (amber below 70%), and **Read next in the books**: the unread readings worth the most exam marks each. Tapping one lets her mark it covered.
+- **Why did you miss it?** (new in v1.1; optional chips on the wrong-answer screen). Didn't know it / Mixed two things up / Misread or rushed. The result screen turns her most common reason into one line of advice. If misreads pile up over a week, Home suggests Exam practice.
 - **Home**: a countdown and a suggestion that changes as the exam gets closer (more exam practice in the last stretch). It also shows her streak and a "Tick new readings" link.
 
 ## Opening it on her iPhone and adding it to the Home Screen
@@ -70,6 +73,13 @@ Home → **Tick new readings**, or Settings → Edit what you've covered. Each t
 
 ## About the questions
 The questions are AI-written and AI-reviewed. They are not official CFA Institute material. Official CFA mock exams remain the real readiness check. If something looks wrong, she should trust the curriculum book and tell you which question. Every question has an id, so it can be fixed quickly.
+
+## v2 ideas (from the Fable research, not built)
+- A 30-question weighted half-mock with a per-topic result.
+- A Sure/Unsure tap before answering, feeding the scheduler.
+- Offline mode.
+- 60–80 more questions for the thin readings, Ethics vignettes first.
+- A "report this question" button.
 
 ## v2 in one line
 If v1 sticks, v2 could add the following, all on the same link with her progress kept:

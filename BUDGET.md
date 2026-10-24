@@ -17,3 +17,4 @@ Cap: 14 subagent runs. Usage ceilings from Nikhil: weekly all-models 75% (46% at
 | 11 | Review R1: Ethics, FSA (fix or delete, incl. recaps) | content-reviewer | fable (override) | M (52k tokens, 2 min) | done; 2 ethics Qs + 1 recap fixed (sanctions list, I(D) scope), FSA clean, 0 deleted |
 | 12 | Review R2: Equity, FI, PM (fix or delete, incl. recaps) | content-reviewer | fable (override) | M (66k tokens, 2 min) | done; 2 Qs + 2 recaps fixed (wording), 0 deleted, all keys verified |
 | 13 | QA: end-to-end, subpath, export/import, edge cases | qa | sonnet | M | done: 11/11 pass. Fixes applied by me: paste restore, swipe-back records session, empty-coverage suggestion, home-screen icon |
+| 14 | v1.1 product research + feature picks (user asked to employ Fable) | general-purpose | fable | M (94k tokens, 2.5 min) | done; 3 features picked, built by me: Where you stand, Formula sheet, miss-reason tags |
