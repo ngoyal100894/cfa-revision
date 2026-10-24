@@ -16,3 +16,4 @@ Cap: 14 subagent runs. Usage ceilings from Nikhil: weekly all-models 75% (46% at
 | 10 | Builder 2: integrate content + PRODUCT P0 (exam, recap, lucky guess, map, home phasing) | builder | sonnet | L (160k tokens, 7 min) | done; P0 items 1-7 built, P1 cut |
 | 11 | Review R1: Ethics, FSA (fix or delete, incl. recaps) | content-reviewer | fable (override) | M (52k tokens, 2 min) | done; 2 ethics Qs + 1 recap fixed (sanctions list, I(D) scope), FSA clean, 0 deleted |
 | 12 | Review R2: Equity, FI, PM (fix or delete, incl. recaps) | content-reviewer | fable (override) | M (66k tokens, 2 min) | done; 2 Qs + 2 recaps fixed (wording), 0 deleted, all keys verified |
+| 13 | QA: end-to-end, subpath, export/import, edge cases | qa | sonnet | M | running |

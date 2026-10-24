@@ -169,6 +169,7 @@ svg { display: block; }
 .home-top { display: flex; align-items: flex-start; justify-content: space-between; margin-right: -10px; }
 .hello { font-size: 32px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
 .exam-line { color: var(--muted); margin-top: 6px; }
+.cover-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 15px; margin: 2px 0 10px; }
 .streak { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 6px 14px 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 16px; }
 .streak .dot { width: 8px; height: 8px; border-radius: 4px; background: var(--accent); }
 .cov-sum { margin: 22px 0 8px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
