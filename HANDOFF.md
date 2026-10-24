@@ -73,7 +73,7 @@ Why step 3 matters: on iPhone, the Home Screen icon keeps its own storage, separ
 
 **Restoring after a lost or new phone:** Settings → **Restore from a progress file**, or copy the text from Notes and use **Restore from copied progress**.
 
-**Updates:** any later version is pushed to the same link. Her progress stays because it lives on her phone, not in the app files.
+**Updates:** any later version is pushed to the same link. When releasing, bump the `?v=` on the CSS and JS links in `index.html`, or a phone can mix a new script with a cached old stylesheet. Her progress stays because it lives on her phone, not in the app files.
 
 ## Ticking new readings as she covers them
 Home → **Tick new readings**, or Settings → Edit what you've covered. Tap a topic, then tick readings; **Tick all** covers the whole topic. Newly ticked readings take up to 60% of the next Today's 15 and go near the front of the Recap deck.

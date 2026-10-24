@@ -419,7 +419,7 @@
   function topicRing(n, total) {
     var C = 2 * Math.PI * 17, f = total ? n / total : 0;
     var w = h('span', { class: 'cv-ring' + (f >= 1 ? ' done' : ''), 'aria-hidden': 'true' });
-    w.innerHTML = '<svg viewBox="0 0 40 40"><circle class="cv-ring-bg" cx="20" cy="20" r="17"/><circle class="cv-ring-fg" cx="20" cy="20" r="17" stroke-dasharray="' +
+    w.innerHTML = '<svg viewBox="0 0 40 40" width="42" height="42"><circle class="cv-ring-bg" cx="20" cy="20" r="17"/><circle class="cv-ring-fg" cx="20" cy="20" r="17" stroke-dasharray="' +
       C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - f)).toFixed(1) + '" transform="rotate(-90 20 20)"/></svg>';
     w.appendChild(h('span', { class: 'cv-ring-n' }, f >= 1 ? icon('tick') : String(n)));
     return w;
