@@ -1,0 +1,332 @@
+{
+  "topic": "deriv",
+  "questions": [
+    {
+      "id": "deriv-001",
+      "topic": "deriv",
+      "reading": "deriv-1",
+      "los": "deriv-1-c",
+      "kind": "memorise",
+      "stem": "A futures account falls below the maintenance margin. How much must the trader deposit?",
+      "options": [
+        "Enough to restore the account to the maintenance margin",
+        "Enough to restore the account to the initial margin",
+        "Only the loss recorded that day"
+      ],
+      "answer": 1,
+      "explanation": "A margin call requires variation margin that brings the balance back up to the initial margin. The trap is topping up only to maintenance level, which would leave the account one bad day from another call.",
+      "remember": "Below maintenance margin: deposit variation margin to restore INITIAL margin, not maintenance."
+    },
+    {
+      "id": "deriv-002",
+      "topic": "deriv",
+      "reading": "deriv-1",
+      "los": "deriv-1-b",
+      "kind": "concept",
+      "stem": "Which statement about exchange-traded and over-the-counter derivatives is correct?",
+      "options": [
+        "Exchange-traded contracts are tailored to each party and are not guaranteed by anyone",
+        "OTC contracts are standardised and settled through the exchange's clearinghouse",
+        "OTC contracts can be customised, but each party bears the other's credit risk"
+      ],
+      "answer": 2,
+      "explanation": "OTC deals are bilateral and flexible, so default by the counterparty is a real risk. The trap is swapping the labels; standardisation and clearinghouse backing belong to exchange-traded contracts."
+    },
+    {
+      "id": "deriv-003",
+      "topic": "deriv",
+      "reading": "deriv-2",
+      "los": "deriv-2-c",
+      "kind": "calc",
+      "stem": "An investor buys a call with strike 50 for a premium of 3. At expiry the underlying is at 58. What is the investor's profit?",
+      "options": [
+        "5",
+        "8",
+        "11"
+      ],
+      "answer": 0,
+      "explanation": "Payoff is 58 - 50 = 8; profit subtracts the premium paid, so 8 - 3 = 5. The traps are quoting the payoff (8) as profit, or adding the premium (11)."
+    },
+    {
+      "id": "deriv-004",
+      "topic": "deriv",
+      "reading": "deriv-2",
+      "los": "deriv-2-d",
+      "kind": "memorise",
+      "stem": "In a credit default swap, what does the protection buyer do?",
+      "options": [
+        "Receives periodic premiums and pays out on default",
+        "Pays a lump sum at default and receives periodic premiums",
+        "Pays periodic premiums and is compensated if a credit event occurs"
+      ],
+      "answer": 2,
+      "explanation": "The buyer pays a regular spread and the seller covers the loss on a credit event. The trap is reversing the roles; the seller, not the buyer, collects premiums and takes the credit risk.",
+      "remember": "CDS: buyer pays a periodic premium; seller compensates the loss if a credit event occurs."
+    },
+    {
+      "id": "deriv-005",
+      "topic": "deriv",
+      "reading": "deriv-3",
+      "los": "deriv-3-b",
+      "kind": "concept",
+      "stem": "A firm hedges jet-fuel purchases with crude-oil futures. Which risk remains even though the futures are exchange-cleared?",
+      "options": [
+        "Basis risk, because jet fuel and crude oil do not always move one-for-one",
+        "Counterparty risk, because futures are bilateral contracts with the other trader",
+        "Leverage risk, because futures require the full contract value up front"
+      ],
+      "answer": 0,
+      "explanation": "A hedge on a related, not identical, asset leaves a gap between the two prices. The traps are counterparty risk, which the clearinghouse largely removes, and full upfront payment, since futures need only margin."
+    },
+    {
+      "id": "deriv-006",
+      "topic": "deriv",
+      "reading": "deriv-3",
+      "los": "deriv-3-c",
+      "kind": "exam",
+      "stem": "Dhruv Exports will receive US dollars from a customer in six months and reports in rupees. The finance head fears the dollar will weaken. Which action hedges this exposure?",
+      "options": [
+        "Enter a forward to buy dollars in six months at today's rate",
+        "Enter a forward to sell dollars in six months at today's rate",
+        "Enter a pay-fixed swap on rupee interest rates"
+      ],
+      "answer": 1,
+      "explanation": "Selling dollars forward locks in the rupee value of the coming receipt. The trap is buying dollars forward, which doubles the existing long-dollar exposure instead of offsetting it."
+    },
+    {
+      "id": "deriv-007",
+      "topic": "deriv",
+      "reading": "deriv-4",
+      "los": "deriv-4-c",
+      "kind": "calc",
+      "stem": "A non-dividend stock is at 100 and the risk-free rate is 10% a year. What is the no-arbitrage price of a 2-year forward on the stock?",
+      "options": [
+        "120",
+        "110",
+        "121"
+      ],
+      "answer": 2,
+      "explanation": "Forward price = 100 × 1.1² = 121, compounding the spot at the risk-free rate. The trap is simple interest (120) or one year of growth (110)."
+    },
+    {
+      "id": "deriv-008",
+      "topic": "deriv",
+      "reading": "deriv-4",
+      "los": "deriv-4-d",
+      "kind": "concept",
+      "stem": "Why is the forward price of an asset not simply the market's expected future spot price?",
+      "options": [
+        "It is tied to spot by a no-arbitrage link through interest and carry costs, so forecasts do not enter it",
+        "The exchange resets it each day to match the average analyst forecast of spot",
+        "It always sits below expected spot, because sellers need payment for taking the risk"
+      ],
+      "answer": 0,
+      "explanation": "Arbitrage fixes the forward from spot, interest rates and carry costs, whatever anyone expects. The trap is thinking forwards embed forecasts or a risk discount."
+    },
+    {
+      "id": "deriv-009",
+      "topic": "deriv",
+      "reading": "deriv-5",
+      "los": "deriv-5-a",
+      "kind": "concept",
+      "stem": "At the moment a forward contract is initiated, which statement is correct?",
+      "options": [
+        "Both the contract's value and its forward price are zero",
+        "The contract's value is zero, while the forward price is the nonzero delivery price fixed in the contract",
+        "The contract's value equals spot minus the forward price"
+      ],
+      "answer": 1,
+      "explanation": "The forward price is set so neither side pays anything, giving value zero at the start. Afterward the price stays fixed while the value moves with spot. The trap is merging price and value."
+    },
+    {
+      "id": "deriv-010",
+      "topic": "deriv",
+      "reading": "deriv-6",
+      "los": "deriv-6-b",
+      "kind": "exam",
+      "stem": "Nisha is long one futures contract on 100 units, bought at 200. The day-1 settlement price is 203 and the day-2 settlement price is 199. What is her day-2 mark-to-market cash flow?",
+      "options": [
+        "A debit of 400",
+        "A credit of 300",
+        "A debit of 100"
+      ],
+      "answer": 0,
+      "explanation": "Each day resets from the previous settlement: (199 - 203) × 100 = -400. The trap is measuring from the original 200, which gives the cumulative -100, not the day's flow."
+    },
+    {
+      "id": "deriv-011",
+      "topic": "deriv",
+      "reading": "deriv-7",
+      "los": "deriv-7-b",
+      "kind": "concept",
+      "stem": "A plain-vanilla interest rate swap is a series of forward rate agreements. How is its fixed rate set at initiation?",
+      "options": [
+        "The fixed payer receives an upfront payment to offset paying a rate above today's floating rate",
+        "It equals the current floating rate, so every fixed and floating payment is equal",
+        "Present value of the fixed payments equals present value of expected floating payments, so initial value is zero"
+      ],
+      "answer": 2,
+      "explanation": "One fixed rate is chosen across all dates so the expected payments balance in present value terms. The trap is equating it with today's floating rate, which holds only if the curve is flat."
+    },
+    {
+      "id": "deriv-012",
+      "topic": "deriv",
+      "reading": "deriv-8",
+      "los": "deriv-8-a",
+      "kind": "memorise",
+      "stem": "A stock trades at 45. Which option is in the money?",
+      "options": [
+        "A put with strike 40",
+        "A call with strike 40",
+        "A call with strike 50"
+      ],
+      "answer": 1,
+      "explanation": "A call is in the money when spot exceeds strike; 45 > 40 gives exercise value 5. The trap is mixing up the direction for puts, which are in the money only when spot is below strike.",
+      "remember": "Call ITM when S > X; put ITM when S < X. Exercise value: call max(0, S − X), put max(0, X − S)."
+    },
+    {
+      "id": "deriv-013",
+      "topic": "deriv",
+      "reading": "deriv-9",
+      "los": "deriv-9-b",
+      "kind": "calc",
+      "stem": "A stock is at 50. A European call is priced at 7 and a European put at 5, same strike and expiry. By put-call parity, what is the present value of the strike?",
+      "options": [
+        "48",
+        "52",
+        "62"
+      ],
+      "answer": 0,
+      "explanation": "Parity: call + PV(strike) = put + stock, so PV(strike) = 5 + 50 - 7 = 48. The trap is flipping signs when rearranging, which gives 52 or adding everything for 62."
+    },
+    {
+      "id": "deriv-014",
+      "topic": "deriv",
+      "reading": "deriv-10",
+      "los": "deriv-10-b",
+      "kind": "calc",
+      "stem": "In a one-period tree, a stock can go up by 20% or down by 20%, and the risk-free rate is 10%. What is the risk-neutral probability of the up move?",
+      "options": [
+        "0.50",
+        "0.75",
+        "0.25"
+      ],
+      "answer": 1,
+      "explanation": "π = (1 + r - d) ÷ (u - d) = (1.10 - 0.80) ÷ 0.40 = 0.75. The traps are ignoring the rate (0.50) and reporting the down-move probability (0.25)."
+    },
+    {
+      "id": "deriv-015",
+      "topic": "deriv",
+      "reading": "deriv-8",
+      "los": "deriv-8-b",
+      "kind": "exam",
+      "stem": "Rahul holds a European call and a European put on the same non-dividend stock, with the same strike and expiry. The stock's expected volatility rises while everything else stays the same. What happens to the two option values?",
+      "options": [
+        "The call rises and the put falls",
+        "The call falls and the put rises",
+        "Both rise"
+      ],
+      "answer": 2,
+      "explanation": "Higher volatility widens the range of outcomes while the buyer's loss stays capped at the premium, so both options gain. The trap is treating volatility as directional, which it is not."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "deriv-1",
+      "ideas": [
+        "A derivative is a contract whose value comes from an underlying such as a stock, bond, rate, currency or commodity.",
+        "Exchange-traded contracts are standardised and cleared centrally; OTC contracts are customised but carry counterparty risk.",
+        "Clearinghouses guarantee trades using margin, and regulation aims to limit systemic risk and improve transparency."
+      ],
+      "trap": "Assuming exchange-traded contracts can be tailored; standardisation is what makes them tradable and clearable."
+    },
+    {
+      "reading": "deriv-2",
+      "ideas": [
+        "Forwards, futures and swaps are forward commitments: both sides are bound to transact at an agreed price.",
+        "Options give the buyer a right for a premium; a CDS buyer pays periodic premiums and is paid if a credit event occurs.",
+        "Call payoff is max(0, S − X) and put payoff is max(0, X − S); profit is the payoff less the premium paid."
+      ],
+      "formula": "Call payoff = max(0, S − X); put payoff = max(0, X − S); profit = payoff − premium",
+      "trap": "Reporting an option's payoff as the buyer's profit; the premium paid up front must be subtracted."
+    },
+    {
+      "reading": "deriv-3",
+      "ideas": [
+        "Derivatives transfer risk to those who want it, help price discovery and give cheap, efficient market exposure.",
+        "The main risks are leverage, counterparty default, liquidity, basis mismatch and systemic spillovers.",
+        "Issuers hedge rate, currency and commodity exposures; investors hedge, speculate or gain exposure cheaply."
+      ],
+      "trap": "Treating a hedge as risk-free; basis risk and counterparty risk remain even when the main exposure is offset."
+    },
+    {
+      "reading": "deriv-4",
+      "ideas": [
+        "Under no-arbitrage pricing, two assets with identical payoffs must sell for the same price, or free profit would exist.",
+        "A forward is replicated by buying the asset with borrowed money, so its price is spot grown at the risk-free rate plus carry.",
+        "The forward price is a no-arbitrage level fixed by spot and carry, not a forecast of the future spot price."
+      ],
+      "formula": "F0 = S0 × (1 + r)^T (add storage costs, subtract income from the asset)",
+      "trap": "Reading the forward price as the market's forecast of spot; it is set by spot, carry costs and interest rates."
+    },
+    {
+      "reading": "deriv-5",
+      "ideas": [
+        "At initiation a forward has zero value; the forward price is the fixed delivery price that makes it so.",
+        "Afterward, the long's value is the current spot less the present value of the original forward price.",
+        "At expiry the long's value is spot minus the agreed price, and forward rates link interest rates across maturities."
+      ],
+      "formula": "Vt (long) = St − F0 ÷ (1 + r)^(T − t), with no income or storage costs",
+      "trap": "Confusing the forward price, set once, with the forward value, which changes daily and can be negative."
+    },
+    {
+      "reading": "deriv-6",
+      "ideas": [
+        "Futures are marked to market daily, so gains and losses are paid in cash and the contract resets to zero value.",
+        "A margin account must be topped up to initial margin when its balance falls below the maintenance margin.",
+        "Futures and forward prices differ mainly when interest rates are correlated with futures prices; otherwise they are close."
+      ],
+      "formula": "Daily MTM cash flow (long) = (today's settlement − yesterday's settlement) × contract size",
+      "trap": "Measuring a day's futures gain from the original trade price instead of yesterday's settlement price."
+    },
+    {
+      "reading": "deriv-7",
+      "ideas": [
+        "A plain-vanilla swap is a series of forward rate agreements priced with one fixed rate across all payment dates.",
+        "The fixed swap rate makes the present value of fixed payments equal that of expected floating payments, so value starts at zero.",
+        "Later rate moves make the swap an asset for one side and a liability for the other; currency swaps also exchange principal."
+      ],
+      "trap": "Thinking a swap has value at initiation; its fixed rate is set so neither party pays anything upfront."
+    },
+    {
+      "reading": "deriv-8",
+      "ideas": [
+        "Exercise value is the immediate in-the-money amount, and an option's price equals exercise value plus time value.",
+        "Higher volatility raises both calls and puts; a higher spot price helps calls and hurts puts.",
+        "A European option cannot be exercised early; an American option is worth at least as much as its European twin."
+      ],
+      "formula": "Call exercise value = max(0, S − X); put = max(0, X − S); price = exercise value + time value",
+      "trap": "Assuming more volatility helps only one side; the buyer's loss is capped at the premium, so calls and puts both gain."
+    },
+    {
+      "reading": "deriv-9",
+      "ideas": [
+        "Put-call parity says a fiduciary call (call plus bond) equals a protective put (put plus stock) in value.",
+        "Rearranging parity lets you replicate any one of the call, put, stock or bond from the other three.",
+        "Equity behaves like a call on the firm's assets, while risky debt is risk-free debt less a put on those assets."
+      ],
+      "formula": "c + X ÷ (1 + r)^T = p + S",
+      "trap": "Sign errors when rearranging parity; call and bond sit on one side, put and stock on the other, so moving a term flips its sign."
+    },
+    {
+      "reading": "deriv-10",
+      "ideas": [
+        "A one-period binomial tree gives the underlying only an up value or a down value, from which option payoffs follow.",
+        "The risk-neutral probability of an up move uses the risk-free rate and the up and down factors; discount the expected payoff.",
+        "Real-world probabilities and risk appetite do not enter the price because stock and bonds can replicate the option."
+      ],
+      "formula": "π = (1 + r − d) ÷ (u − d); option = [π × Cu + (1 − π) × Cd] ÷ (1 + r)",
+      "trap": "Using the real-world chance of an up move to value the option; only the risk-neutral probability belongs in the formula."
+    }
+  ]
+}

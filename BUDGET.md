@@ -11,4 +11,4 @@ Cap: 14 subagent runs. Usage ceilings from Nikhil: weekly all-models 75% (46% at
 | 5 | Equity 35 + FI 35: questions + recap cards | content-writer | sonnet | L | running |
 | 6 | PM 30 + Alts 25: questions + recap cards | content-writer | sonnet | L | running |
 | 7 | Quant 25 + Econ 25: questions + recap cards | content-writer | sonnet | L | running |
-| 8 | Corp 20 + Deriv 15: questions + recap cards | content-writer | sonnet | L | running |
+| 8 | Corp 20 + Deriv 15: questions + recap cards | content-writer | sonnet | L | done; 35 Qs, 17 recaps, 0 errors |

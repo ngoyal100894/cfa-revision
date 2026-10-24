@@ -1,0 +1,377 @@
+{
+  "topic": "corp",
+  "questions": [
+    {
+      "id": "corp-001",
+      "topic": "corp",
+      "reading": "corp-1",
+      "los": "corp-1-a",
+      "kind": "memorise",
+      "stem": "In a limited partnership, which party's loss is capped at the capital it contributed?",
+      "options": [
+        "The general partner",
+        "The limited partner",
+        "Every partner, whatever the structure"
+      ],
+      "answer": 1,
+      "explanation": "Limited partners are passive investors whose loss stops at what they put in. The trap is giving that cap to the general partner, who runs the firm and carries unlimited liability.",
+      "remember": "General partner: unlimited liability, runs the firm. Limited partner: loss capped at capital, passive."
+    },
+    {
+      "id": "corp-002",
+      "topic": "corp",
+      "reading": "corp-1",
+      "los": "corp-1-b",
+      "kind": "concept",
+      "stem": "A corporation earns a profit and pays part of it out as a dividend. Which statement describes double taxation?",
+      "options": [
+        "Profit is taxed in the company, then the dividend is taxed again in the shareholder's hands",
+        "The dividend is taxed once in the company's country and once in the shareholder's country on the same day",
+        "Profit is taxed when it is earned and again when the company keeps it as retained earnings"
+      ],
+      "answer": 0,
+      "explanation": "The two layers are corporate income tax and then tax on the owner's dividend. The trap is thinking it means two countries or retention; partnerships pass income through and are taxed once at owner level."
+    },
+    {
+      "id": "corp-003",
+      "topic": "corp",
+      "reading": "corp-2",
+      "los": "corp-2-a",
+      "kind": "concept",
+      "stem": "Which statement best separates shareholder theory from stakeholder theory of corporate purpose?",
+      "options": [
+        "Shareholder theory favours creditors, while stakeholder theory favours owners",
+        "Shareholder theory ignores legal duties, while stakeholder theory covers only employees and customers",
+        "Shareholder theory says managers should maximise owner value; stakeholder theory says they should balance all groups with a stake"
+      ],
+      "answer": 2,
+      "explanation": "Shareholder theory has one objective, owner value; stakeholder theory spreads managers' duty across employees, customers, creditors, suppliers and society. The trap is thinking shareholder theory lets managers break laws or ignore creditors."
+    },
+    {
+      "id": "corp-004",
+      "topic": "corp",
+      "reading": "corp-2",
+      "los": "corp-2-d",
+      "kind": "concept",
+      "stem": "An investor excludes a company for poor workplace safety and for a board dominated by the founder's relatives. Which ESG categories do these concerns fall under?",
+      "options": [
+        "Environmental and social",
+        "Social and governance",
+        "Environmental and governance"
+      ],
+      "answer": 1,
+      "explanation": "Workplace safety is a social issue and a family-dominated board is a governance issue. The trap is to file anything about 'employees' under environmental; environmental means climate, pollution, resources and waste."
+    },
+    {
+      "id": "corp-005",
+      "topic": "corp",
+      "reading": "corp-2",
+      "los": "corp-2-c",
+      "kind": "exam",
+      "stem": "Kavita is a bond analyst. Ashoka Mills issued bonds last year. Management has since paid a large special dividend funded by asset sales and started a far riskier expansion. Which conflict does Kavita's analysis most directly point to?",
+      "options": [
+        "A shareholder-creditor conflict, because owners are moving value and risk onto bondholders",
+        "A manager-shareholder conflict, because managers are overpaying themselves",
+        "A controlling-versus-minority shareholder conflict, because the dividend is unequal"
+      ],
+      "answer": 0,
+      "explanation": "Paying out assets and taking more risk helps shareholders, who keep upside, while creditors hold fixed claims. The trap is labelling it a manager-owner problem; here managers are acting for the owners, against the creditors."
+    },
+    {
+      "id": "corp-006",
+      "topic": "corp",
+      "reading": "corp-3",
+      "los": "corp-3-c",
+      "kind": "memorise",
+      "stem": "Which board committee is expected to be made up of independent directors and to oversee financial reporting, internal controls and the external auditor?",
+      "options": [
+        "Executive committee",
+        "Strategy committee",
+        "Audit committee"
+      ],
+      "answer": 2,
+      "explanation": "The audit committee checks the numbers and the auditor on behalf of shareholders, so its independence matters most. The trap is the executive committee, which is usually insiders and cannot monitor management objectively.",
+      "remember": "Audit committee: independent directors, oversees reporting, internal controls and the external auditor."
+    },
+    {
+      "id": "corp-007",
+      "topic": "corp",
+      "reading": "corp-3",
+      "los": "corp-3-d",
+      "kind": "concept",
+      "stem": "Which outcome is most consistent with strong corporate governance?",
+      "options": [
+        "A higher cost of capital, because oversight adds cost and slows decisions",
+        "A lower cost of capital, because investors see less risk of value being diverted",
+        "No agency conflicts, because owners can see every management decision"
+      ],
+      "answer": 1,
+      "explanation": "Better oversight and disclosure lower investors' required return and cut the odds of fraud or self-dealing. The trap is believing governance removes agency conflicts; it only reduces and monitors them."
+    },
+    {
+      "id": "corp-008",
+      "topic": "corp",
+      "reading": "corp-4",
+      "los": "corp-4-b",
+      "kind": "calc",
+      "stem": "A firm holds inventory for 40 days on average, collects from customers in 30 days and pays suppliers in 20 days. What is its cash conversion cycle?",
+      "options": [
+        "70 days",
+        "90 days",
+        "50 days"
+      ],
+      "answer": 2,
+      "explanation": "Cash conversion cycle = 40 + 30 - 20 = 50 days. The trap is stopping at 70, which is the operating cycle, or adding payables days to get 90."
+    },
+    {
+      "id": "corp-009",
+      "topic": "corp",
+      "reading": "corp-4",
+      "los": "corp-4-a",
+      "kind": "memorise",
+      "stem": "Which is a secondary source of liquidity for a company?",
+      "options": [
+        "Renegotiating debt terms with lenders",
+        "Cash held on the balance sheet",
+        "Collecting receivables faster through tighter cash management"
+      ],
+      "answer": 0,
+      "explanation": "Secondary sources are costlier and can signal distress: renegotiating debt, selling assets or restructuring. The trap is calling faster collections secondary; cash, short-term funds and cash flow management are primary.",
+      "remember": "Primary: cash, short-term funds, cash-flow management. Secondary: renegotiate debt, sell assets, restructure."
+    },
+    {
+      "id": "corp-010",
+      "topic": "corp",
+      "reading": "corp-4",
+      "los": "corp-4-d",
+      "kind": "exam",
+      "stem": "Ananya Traders is offered 2/10 net 30 by its main supplier. She has no spare cash, and her bank overdraft costs 8% a year. Which action is best?",
+      "options": [
+        "Pay on day 30, because trade credit carries no interest and is cheaper than the bank",
+        "Borrow from the bank and pay on day 10, because the forgone discount costs far more than 8% annualised",
+        "Pay on day 30, because a 2% discount is smaller than the bank's 8% rate"
+      ],
+      "answer": 1,
+      "explanation": "Giving up 2% to gain 20 days of credit annualises to roughly 45%, so borrowing at 8% to take the discount wins. The trap is comparing 2% with 8% without annualising, or treating trade credit as free."
+    },
+    {
+      "id": "corp-011",
+      "topic": "corp",
+      "reading": "corp-5",
+      "los": "corp-5-b",
+      "kind": "calc",
+      "stem": "A project costs 90 today and returns a single cash flow of 121 at the end of year 2. The cost of capital is 10%. What is its NPV?",
+      "options": [
+        "31",
+        "100",
+        "10"
+      ],
+      "answer": 2,
+      "explanation": "PV of 121 two years out at 10% is 121 ÷ 1.21 = 100, so NPV = 100 - 90 = 10. The trap is 31, which skips discounting, or 100, which forgets to subtract the outlay."
+    },
+    {
+      "id": "corp-012",
+      "topic": "corp",
+      "reading": "corp-5",
+      "los": "corp-5-c",
+      "kind": "calc",
+      "stem": "A firm has NOPAT of 18 and invested capital of 150. Its WACC is 10% and its cost of equity is 14%. What does ROIC tell us?",
+      "options": [
+        "ROIC is 12%, above the 10% WACC, so the firm earns more than its capital costs",
+        "ROIC is 12%, below the 14% cost of equity, so value is being destroyed",
+        "ROIC is 8.3%, below WACC, so value is being destroyed"
+      ],
+      "answer": 0,
+      "explanation": "ROIC = 18 ÷ 150 = 12%, which beats the 10% WACC, so the firm creates value. The traps are comparing ROIC with the cost of equity (it is a return on all capital) and inverting the ratio to 8.3%."
+    },
+    {
+      "id": "corp-013",
+      "topic": "corp",
+      "reading": "corp-5",
+      "los": "corp-5-b",
+      "kind": "exam",
+      "stem": "Meera must pick one of two mutually exclusive projects. Project X has IRR 18% and NPV 40. Project Y has IRR 25% and NPV 25. The cost of capital is 10%. Which choice is right?",
+      "options": [
+        "Neither, because the two rules disagree and no decision can be made",
+        "Project Y, because its higher IRR means a better return per rupee invested",
+        "Project X, because the larger NPV adds more value to shareholders"
+      ],
+      "answer": 2,
+      "explanation": "When mutually exclusive projects rank differently, NPV decides because it measures absolute value added. The trap is following the higher IRR, which ignores project size and timing."
+    },
+    {
+      "id": "corp-014",
+      "topic": "corp",
+      "reading": "corp-5",
+      "los": "corp-5-e",
+      "kind": "concept",
+      "stem": "A firm can sell a plant's assets and exit if demand disappoints. How does this abandonment option affect the project's value?",
+      "options": [
+        "It adds value, because it limits losses, so project value is above the static NPV",
+        "It has no effect on NPV, because the option may never be exercised",
+        "It lowers value by the cost of keeping the assets in saleable condition"
+      ],
+      "answer": 0,
+      "explanation": "Managerial flexibility has value even if unused, since it cuts downside without capping upside. The trap is ignoring options because they are uncertain; static NPV understates projects with real options."
+    },
+    {
+      "id": "corp-015",
+      "topic": "corp",
+      "reading": "corp-6",
+      "los": "corp-6-a",
+      "kind": "calc",
+      "stem": "A firm's target weights are 40% debt and 60% equity. Pre-tax cost of debt is 5%, tax rate 20%, cost of equity 10%. What is its WACC?",
+      "options": [
+        "8.0%",
+        "7.6%",
+        "6.4%"
+      ],
+      "answer": 1,
+      "explanation": "After-tax debt cost is 4%, so WACC = 0.4 × 4% + 0.6 × 10% = 7.6%. The traps are skipping the tax adjustment (8.0%) and swapping the weights (6.4%)."
+    },
+    {
+      "id": "corp-016",
+      "topic": "corp",
+      "reading": "corp-6",
+      "los": "corp-6-c",
+      "kind": "memorise",
+      "stem": "Under Modigliani-Miller Proposition I with corporate taxes, the value of a levered firm equals which expression?",
+      "options": [
+        "Unlevered value, because capital structure is irrelevant",
+        "Unlevered value minus tax rate × debt",
+        "Unlevered value plus tax rate × debt"
+      ],
+      "answer": 2,
+      "explanation": "Interest is tax-deductible, so debt adds a tax shield worth tax rate × debt. The trap is the no-tax result (irrelevance); in practice distress costs offset the shield, which is trade-off theory.",
+      "remember": "MM with taxes: V(levered) = V(unlevered) + tax rate × debt. No taxes: capital structure is irrelevant."
+    },
+    {
+      "id": "corp-017",
+      "topic": "corp",
+      "reading": "corp-6",
+      "los": "corp-6-c",
+      "kind": "concept",
+      "stem": "In the Modigliani-Miller world with no taxes, a firm swaps equity for debt, which is cheaper than equity. What happens to WACC?",
+      "options": [
+        "It is unchanged, because the cost of equity rises to offset the cheaper debt",
+        "It falls, because debt is cheaper than equity",
+        "It rises, because debt adds distress risk to every source of funds"
+      ],
+      "answer": 0,
+      "explanation": "Proposition II says the cost of equity climbs with leverage, leaving WACC and firm value flat. The trap is mixing in taxes or distress costs, neither of which exists in the no-tax baseline."
+    },
+    {
+      "id": "corp-018",
+      "topic": "corp",
+      "reading": "corp-6",
+      "los": "corp-6-d",
+      "kind": "exam",
+      "stem": "Orbit Foods needs 50m for a new plant. It has 20m of retained earnings available, a bank willing to lend, and investors who would buy new shares. Management thinks its shares are undervalued. Under pecking order theory, how should it fund the rest?",
+      "options": [
+        "Issue new shares next, since equity carries no repayment obligation",
+        "Borrow the remaining 30m and keep new equity as the last resort",
+        "Skip retained earnings and issue shares to preserve financial flexibility"
+      ],
+      "answer": 1,
+      "explanation": "Pecking order ranks internal funds, then debt, then new equity, because outside investors read share issues as a sign of overvaluation. The trap is choosing equity for flexibility; the theory ranks by information cost."
+    },
+    {
+      "id": "corp-019",
+      "topic": "corp",
+      "reading": "corp-7",
+      "los": "corp-7-b",
+      "kind": "concept",
+      "stem": "A software company gives away a basic version for free and charges for advanced features. Which pricing approach is this?",
+      "options": [
+        "Freemium",
+        "Tiered pricing",
+        "Bundling"
+      ],
+      "answer": 0,
+      "explanation": "Freemium offers a free core product and monetises upgrades. The trap is tiered pricing, where each level carries a fee, or bundling, which packages several products into one price."
+    },
+    {
+      "id": "corp-020",
+      "topic": "corp",
+      "reading": "corp-7",
+      "los": "corp-7-d",
+      "kind": "concept",
+      "stem": "Which description best fits a network effect?",
+      "options": [
+        "Unit costs fall as production volume rises",
+        "Each added user makes the service more valuable to the existing users",
+        "A larger sales force raises the number of customers each rep reaches"
+      ],
+      "answer": 1,
+      "explanation": "In a network effect, value grows with the number of users, which can lock in a winner. The trap is confusing it with economies of scale, which lower cost and do not depend on other users."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "corp-1",
+      "ideas": [
+        "Sole proprietors and general partners carry unlimited liability; corporations and limited partners are protected beyond their stake.",
+        "A corporation is a separate legal person, which brings limited liability but can mean profits are taxed twice.",
+        "Debt holders have a fixed claim that ranks first; shareholders hold the residual claim with unlimited upside."
+      ],
+      "trap": "Double taxation hits corporations only; partnerships and sole proprietorships pass income through to owners and are taxed once."
+    },
+    {
+      "reading": "corp-2",
+      "ideas": [
+        "Shareholder theory focuses managers on owner value; stakeholder theory asks them to balance all groups with a stake.",
+        "Agency conflicts arise when one party decides and another bears the risk: managers versus owners, owners versus creditors.",
+        "ESG factors cover environment, social issues and governance, and they feed into investor risk views and cost of capital."
+      ],
+      "trap": "Mixing up whose interests clash: shifting risk onto bondholders is an owner-creditor conflict, not a manager-owner one."
+    },
+    {
+      "reading": "corp-3",
+      "ideas": [
+        "Governance is the set of votes, boards, committees and audits that keep managers working for owners rather than themselves.",
+        "A strong board has independent directors, a chair separate from the CEO, and independent audit, pay and nomination committees.",
+        "Weak governance invites fraud, poor decisions and a higher cost of capital; strong governance lowers risk in investors' eyes."
+      ],
+      "trap": "Treating strong governance as the end of conflicts of interest; it only reduces them and keeps them visible."
+    },
+    {
+      "reading": "corp-4",
+      "ideas": [
+        "Primary liquidity comes from cash, short-term funds and cash flow management; secondary sources mean selling assets or restructuring.",
+        "Operating cycle is days of inventory plus days of receivables; the cash conversion cycle then subtracts days of payables.",
+        "A conservative policy holds more liquid assets and long-term funding; an aggressive one runs lean and leans on short-term funds."
+      ],
+      "formula": "CCC = DIO + DSO − DPO; operating cycle = DIO + DSO",
+      "trap": "Forgetting to subtract payables days, which turns the cash conversion cycle into the operating cycle."
+    },
+    {
+      "reading": "corp-5",
+      "ideas": [
+        "Accept a project when NPV is positive; IRR is the rate that sets NPV to zero and should exceed the cost of capital.",
+        "When mutually exclusive projects rank differently on NPV and IRR, trust NPV because it measures the value added.",
+        "ROIC above WACC signals value creation, and real options such as waiting, expanding or abandoning add value beyond NPV."
+      ],
+      "formula": "NPV = PV of inflows − initial outlay; ROIC = NOPAT ÷ invested capital",
+      "trap": "Choosing the higher-IRR project when projects are mutually exclusive, instead of the one with the higher NPV."
+    },
+    {
+      "reading": "corp-6",
+      "ideas": [
+        "WACC weights each source of capital by its target share and uses the after-tax cost of debt.",
+        "MM without taxes says structure does not change value; with taxes, debt adds a shield, and distress costs set a trade-off optimum.",
+        "Pecking order says firms prefer retained earnings, then debt, then new equity, so actual structures drift from targets."
+      ],
+      "formula": "WACC = wd × rd × (1 − t) + we × re",
+      "trap": "Using the pre-tax cost of debt in WACC, or weighting by book values instead of target market weights."
+    },
+    {
+      "reading": "corp-7",
+      "ideas": [
+        "A business model describes who the customers are, what is sold, through which channel and how the firm earns its money.",
+        "Common pricing approaches include subscription, freemium, tiered and bundled offers, each shaping revenue and behaviour.",
+        "Digital models use network effects: each extra user raises value for others, often producing platform or marketplace winners."
+      ],
+      "trap": "Confusing pricing labels: freemium gives a free core product, tiered sets fee levels, and bundling packages items together."
+    }
+  ]
+}
