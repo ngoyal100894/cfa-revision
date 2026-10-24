@@ -106,8 +106,8 @@
         "Suspension of membership"
       ],
       "answer": 1,
-      "explanation": "Sanctions include private or public censure, suspension of membership or candidacy, and revocation of the charter. Fines are not on the list. The trap is assuming the program works like a regulator that fines.",
-      "remember": "Sanctions: private censure, public censure, suspension, charter revocation. No fines."
+      "explanation": "Sanctions include public censure, suspension of membership or of the right to use the designation, suspension from the CFA Program, and revocation of the charter. Fines are not on the list. The trap is assuming the program works like a regulator that fines.",
+      "remember": "Sanctions: public censure, suspension (membership, designation, candidacy), charter revocation. No fines."
     },
     {
       "id": "ethics-008",
@@ -238,12 +238,12 @@
       "stem": "Standard I(D), Misconduct, covers which of these?",
       "options": [
         "Only dishonest acts committed during working hours for the employer",
-        "Dishonesty, fraud or deceit, even when unrelated to the member's work",
+        "Dishonesty, fraud or deceit, even outside work, when it reflects badly on professional reputation, integrity or competence",
         "Any private lawful behaviour a colleague finds embarrassing"
       ],
       "answer": 1,
-      "explanation": "Misconduct means dishonesty, fraud, deceit or acts reflecting badly on honesty, trustworthiness or competence, wherever they occur. It is not a general morality test. The trap is limiting it to on-the-job acts.",
-      "remember": "I(D): dishonesty, fraud or deceit counts even outside work; mere private embarrassment does not."
+      "explanation": "Misconduct means dishonesty, fraud or deceit, or any act that reflects badly on professional reputation, integrity or competence, even outside work. It is not a general morality test. The trap is limiting it to on-the-job acts.",
+      "remember": "I(D): dishonesty, fraud or deceit, even outside work, if it reflects on professional integrity; mere embarrassment does not."
     },
     {
       "id": "ethics-017",
@@ -782,7 +782,7 @@
       "ideas": [
         "The Code has six parts, led by acting with integrity and putting clients and the profession ahead of your own interests.",
         "The seven Standards: I Professionalism, II Markets, III Clients, IV Employers, V Analysis, VI Conflicts, VII CFA conduct.",
-        "Members and candidates are both bound; sanctions run from private censure to suspension or charter revocation."
+        "Members and candidates are both bound; sanctions run from public censure to suspension or charter revocation."
       ],
       "trap": "Do not think only charterholders are bound: candidates are covered too, and CFA Institute sanctions do not include fines."
     },
