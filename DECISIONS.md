@@ -19,3 +19,5 @@ Interactive run on 2026-10-24 with Nikhil present. His answers override KICKOFF.
 | 13 | Module titles come from the official topic weights page plus a secondary listing (UWorld). The learning objectives are paraphrased by Fable. | The official module PDF wasn't fetchable as text, and the module structure is unchanged from 2025 (93 modules). |
 | 14 | Models: Fable for curriculum grounding and all content review; Sonnet for builder, writer and qa; Opus orchestrates. | Nikhil's usage ceilings: weekly 75%, Fable 60%. |
 | 15 | The scheduler is a pure module (`scheduler.js`) written in Phase 1 with tests, so the builder only wires UI. | It's the riskiest logic, so it was tested first. |
+| 16 | P1 (service worker, Add-to-Home-Screen hint, exam per-topic breakdown) is **cut**. | KICKOFF rule: P1 only if at most 10 subagent runs are used. 12 were used by the time content review finished. |
+| 17 | Content review ran on **all 10 topics** (3 Fable runs), not only Ethics + FSA. | Budget allowed it. The first run found 3 Economics answer keys off by one, so full coverage was worth it. |
