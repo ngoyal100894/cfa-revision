@@ -1,0 +1,455 @@
+{
+  "topic": "alts",
+  "questions": [
+    {
+      "id": "alts-001",
+      "topic": "alts",
+      "reading": "alts-1",
+      "los": "alts-1-a",
+      "kind": "concept",
+      "stem": "Which feature is most typical of alternative investments compared with listed stocks and bonds?",
+      "options": [
+        "Daily exchange pricing and tight standardised disclosure",
+        "Low fees because managers rarely need specialist skills",
+        "Lower liquidity and less standardised, less transparent reporting"
+      ],
+      "answer": 2,
+      "explanation": "Alternatives are often illiquid, harder to value and costlier. The trap is assuming exchange-style pricing and transparency apply to private structures."
+    },
+    {
+      "id": "alts-002",
+      "topic": "alts",
+      "reading": "alts-1",
+      "los": "alts-1-c",
+      "kind": "memorise",
+      "stem": "In a private fund organised as a limited partnership, which statement is correct?",
+      "options": [
+        "The GP manages the fund with unlimited liability; LPs are passive with liability limited to their commitment",
+        "LPs manage the fund daily and carry unlimited liability while the GP is passive",
+        "The GP's liability is capped at its capital and LPs vote on each investment"
+      ],
+      "answer": 0,
+      "explanation": "The GP runs the fund and bears unlimited liability; LPs supply capital and are protected as long as they stay passive. The trap is reversing the roles.",
+      "remember": "GP manages, unlimited liability. LPs passive, liability limited to capital committed."
+    },
+    {
+      "id": "alts-003",
+      "topic": "alts",
+      "reading": "alts-1",
+      "los": "alts-1-b",
+      "kind": "exam",
+      "stem": "Lakeview Pension invests through a buyout fund. The fund offers it extra capital to invest directly alongside the fund in a single deal. What is the main trade-off versus holding only the fund interest?",
+      "options": [
+        "Higher fees in return for greater diversification",
+        "Usually lower or no fees, but more concentrated exposure to one company",
+        "Full control of the deal at the same fee level"
+      ],
+      "answer": 1,
+      "explanation": "Co-investing often skips or reduces the fund's fees, but the pension is exposed to a single deal. The trap is expecting fund-like diversification from one position."
+    },
+    {
+      "id": "alts-004",
+      "topic": "alts",
+      "reading": "alts-2",
+      "los": "alts-2-a",
+      "kind": "concept",
+      "stem": "A real estate fund reports quarterly values based on appraisals. What is the usual effect on its reported return statistics?",
+      "options": [
+        "Overstated volatility because appraisers over-adjust each quarter",
+        "Smoothed returns that understate volatility and correlation with public markets",
+        "No distortion because appraisals match market prices exactly"
+      ],
+      "answer": 1,
+      "explanation": "Appraisers update slowly, which spreads gains and losses over time. The trap is believing low measured volatility means low risk."
+    },
+    {
+      "id": "alts-005",
+      "topic": "alts",
+      "reading": "alts-2",
+      "los": "alts-2-b",
+      "kind": "calc",
+      "stem": "A fund starts at $100m and earns $10m before fees. Management fee is 2% of starting value. Incentive fee is 20% of profit after the management fee, with no hurdle. What is the investor's net return?",
+      "options": [
+        "6.0%",
+        "8.0%",
+        "6.4%"
+      ],
+      "answer": 2,
+      "explanation": "Management fee = $2m, so profit after it is $8m and the incentive fee is $1.6m. Net = 10 − 2 − 1.6 = $6.4m. The traps are charging the incentive on gross profit (6.0%) and forgetting it (8.0%)."
+    },
+    {
+      "id": "alts-006",
+      "topic": "alts",
+      "reading": "alts-2",
+      "los": "alts-2-b",
+      "kind": "memorise",
+      "stem": "What does a high-water mark do in a performance fee structure?",
+      "options": [
+        "Blocks an incentive fee until the fund's value climbs back above its previous peak",
+        "Sets the minimum return that must be earned before any incentive fee applies",
+        "Caps total management fees at a percentage of assets"
+      ],
+      "answer": 0,
+      "explanation": "It protects investors from paying twice for the same gains after a drawdown. The trap is mixing it up with the hurdle rate, which is a minimum return.",
+      "remember": "High-water mark: no incentive fee until value recovers its prior peak. Hurdle: minimum return first."
+    },
+    {
+      "id": "alts-007",
+      "topic": "alts",
+      "reading": "alts-2",
+      "los": "alts-2-d",
+      "kind": "memorise",
+      "stem": "Which private fund multiple measures only cash already returned to investors relative to paid-in capital?",
+      "options": [
+        "RVPI",
+        "TVPI",
+        "DPI"
+      ],
+      "answer": 2,
+      "explanation": "DPI counts realised distributions only. The trap is TVPI, which adds the unrealised remaining value as well.",
+      "remember": "DPI = cash returned ÷ paid-in. RVPI = remaining NAV ÷ paid-in. TVPI = DPI + RVPI."
+    },
+    {
+      "id": "alts-008",
+      "topic": "alts",
+      "reading": "alts-3",
+      "los": "alts-3-a",
+      "kind": "concept",
+      "stem": "Which private equity strategy typically buys a mature business using substantial borrowing secured on that company's cash flows?",
+      "options": [
+        "Venture capital",
+        "Leveraged buyout",
+        "Growth equity"
+      ],
+      "answer": 1,
+      "explanation": "Buyouts rely on leverage and stable cash flows to service the debt. The trap is venture capital, which funds young firms and uses little or no leverage."
+    },
+    {
+      "id": "alts-009",
+      "topic": "alts",
+      "reading": "alts-3",
+      "los": "alts-3-b",
+      "kind": "exam",
+      "stem": "Greenbridge Capital lends to a profitable mid-sized firm in a position subordinated to senior lenders. It earns a high coupon, part paid in kind, plus warrants over a small equity stake. Which private debt type is this?",
+      "options": [
+        "Mezzanine debt",
+        "Direct senior lending",
+        "Distressed debt"
+      ],
+      "answer": 0,
+      "explanation": "Subordination plus an equity kicker is the signature of mezzanine debt. The trap is senior direct lending, which ranks first and carries no equity upside."
+    },
+    {
+      "id": "alts-010",
+      "topic": "alts",
+      "reading": "alts-3",
+      "los": "alts-3-c",
+      "kind": "memorise",
+      "stem": "Which is not a typical exit route for a private equity investment?",
+      "options": [
+        "Redemption at NAV whenever investors request it",
+        "Trade sale to a strategic buyer",
+        "Initial public offering"
+      ],
+      "answer": 0,
+      "explanation": "Private equity funds are closed-end, so investors cannot redeem on demand. Exits come through the portfolio companies being sold or listed.",
+      "remember": "PE exits: IPO, trade sale, secondary sale, recapitalisation, or write-off. No on-demand redemption."
+    },
+    {
+      "id": "alts-011",
+      "topic": "alts",
+      "reading": "alts-3",
+      "los": "alts-3-d",
+      "kind": "concept",
+      "stem": "Why do investors in private capital funds expect a higher return than on comparable public assets?",
+      "options": [
+        "Private fund valuations are less volatile, so the risk is lower",
+        "They are compensated for tying up capital for many years, an illiquidity premium",
+        "The GP guarantees a minimum return after fees"
+      ],
+      "answer": 1,
+      "explanation": "The extra return pays for illiquidity and manager risk. The trap is taking smoothed private marks as proof of lower risk."
+    },
+    {
+      "id": "alts-012",
+      "topic": "alts",
+      "reading": "alts-4",
+      "los": "alts-4-a",
+      "kind": "concept",
+      "stem": "How do listed REITs differ from directly owned property for an investor?",
+      "options": [
+        "REITs use appraisal pricing, so they move independently of stocks",
+        "Direct ownership gives daily liquidity at low transaction cost",
+        "REIT shares trade on exchanges with low minimums, but prices track equities more closely in the short run"
+      ],
+      "answer": 2,
+      "explanation": "REITs trade daily like stocks, so they carry equity market sentiment. The trap is thinking direct property is more liquid; it is slow and costly to trade."
+    },
+    {
+      "id": "alts-013",
+      "topic": "alts",
+      "reading": "alts-4",
+      "los": "alts-4-c",
+      "kind": "memorise",
+      "stem": "Which description fits a greenfield infrastructure project?",
+      "options": [
+        "Buying an operating asset with an established revenue history",
+        "Providing social services such as schools and hospitals",
+        "Building a new asset, with construction risk and no existing cash flows"
+      ],
+      "answer": 2,
+      "explanation": "Greenfield means new build, so risk and potential return are higher. The trap is brownfield, which is an existing operating asset.",
+      "remember": "Greenfield = build new (construction risk). Brownfield = existing asset with operating cash flows."
+    },
+    {
+      "id": "alts-014",
+      "topic": "alts",
+      "reading": "alts-4",
+      "los": "alts-4-d",
+      "kind": "exam",
+      "stem": "Dana's pension liabilities rise with inflation. She weighs a toll road whose tariffs are indexed to CPI against an office building leased for 15 years at fixed rents with no escalators. Which is the better inflation hedge and why?",
+      "options": [
+        "The toll road, because its revenue is linked to inflation while the fixed leases cannot adjust",
+        "The office building, because property values always track inflation immediately",
+        "Both equally, since all real assets hedge inflation fully"
+      ],
+      "answer": 0,
+      "explanation": "Inflation protection comes from contract terms that reset with prices. The trap is assuming every real asset hedges inflation regardless of its cash flow design."
+    },
+    {
+      "id": "alts-015",
+      "topic": "alts",
+      "reading": "alts-5",
+      "los": "alts-5-a",
+      "kind": "concept",
+      "stem": "What is a distinctive feature of timberland as an investment?",
+      "options": [
+        "Harvest timing is fixed by law, so owners must sell in weak markets",
+        "Trees keep growing biologically, so owners can delay harvest when timber prices are weak",
+        "Returns come only from land appreciation, with no operating income"
+      ],
+      "answer": 1,
+      "explanation": "Biological growth adds value while the harvest is deferred, giving timing flexibility. The trap is thinking harvest is forced or that income is absent."
+    },
+    {
+      "id": "alts-016",
+      "topic": "alts",
+      "reading": "alts-5",
+      "los": "alts-5-b",
+      "kind": "memorise",
+      "stem": "Futures prices sit below the spot price. What is this called, and what is the likely roll yield for a long position?",
+      "options": [
+        "Contango; positive roll yield",
+        "Backwardation; positive roll yield",
+        "Backwardation; negative roll yield"
+      ],
+      "answer": 1,
+      "explanation": "Rolling into cheaper longer-dated contracts earns a positive roll yield. The trap is flipping contango and backwardation or their roll signs.",
+      "remember": "Contango: futures > spot, roll yield negative. Backwardation: futures < spot, roll yield positive."
+    },
+    {
+      "id": "alts-017",
+      "topic": "alts",
+      "reading": "alts-5",
+      "los": "alts-5-c",
+      "kind": "calc",
+      "stem": "In one year a commodity index's spot prices rise 4%, its roll yield is −2% and the collateral earns 3%. What is the total return?",
+      "options": [
+        "5%",
+        "9%",
+        "2%"
+      ],
+      "answer": 0,
+      "explanation": "Total = spot + roll + collateral = 4% − 2% + 3% = 5%. The traps are adding the roll yield as positive (9%) and omitting the collateral yield (2%)."
+    },
+    {
+      "id": "alts-018",
+      "topic": "alts",
+      "reading": "alts-5",
+      "los": "alts-5-d",
+      "kind": "concept",
+      "stem": "Why can commodities help a portfolio when inflation surprises to the upside?",
+      "options": [
+        "Commodity returns are negatively correlated with inflation, offsetting bond losses",
+        "Commodities pay fixed coupons that adjust with the CPI",
+        "Commodity prices feed into inflation, so returns tend to rise with unexpected inflation and add diversification"
+      ],
+      "answer": 2,
+      "explanation": "Commodities are inputs to price indices, giving them a positive link to inflation. The trap is believing they hedge inflation through contractual indexing."
+    },
+    {
+      "id": "alts-019",
+      "topic": "alts",
+      "reading": "alts-6",
+      "los": "alts-6-a",
+      "kind": "memorise",
+      "stem": "A hedge fund prevents investors from redeeming at all during their first year. What is this called?",
+      "options": [
+        "A lock-up",
+        "A gate",
+        "A redemption notice period"
+      ],
+      "answer": 0,
+      "explanation": "A lock-up blocks redemptions for an initial period. The trap is the gate, which caps the share of the fund that can be redeemed on a given date.",
+      "remember": "Lock-up: no redemptions for an initial period. Gate: caps total redemptions per date."
+    },
+    {
+      "id": "alts-020",
+      "topic": "alts",
+      "reading": "alts-6",
+      "los": "alts-6-b",
+      "kind": "exam",
+      "stem": "Orion Partners buys shares in a company that has received a takeover offer and sells short the acquirer's stock, hoping to profit when the deal closes. Which hedge fund category is this?",
+      "options": [
+        "Global macro",
+        "Relative value",
+        "Event-driven (merger arbitrage)"
+      ],
+      "answer": 2,
+      "explanation": "Profits depend on a corporate event completing, which is the event-driven family. The trap is relative value, which exploits price gaps between related securities without relying on an event."
+    },
+    {
+      "id": "alts-021",
+      "topic": "alts",
+      "reading": "alts-6",
+      "los": "alts-6-c",
+      "kind": "concept",
+      "stem": "What does investing through a fund of funds offer, and what extra cost does it bring?",
+      "options": [
+        "Lower total fees through bulk discounts, at the cost of lower diversification",
+        "Manager diversification and due diligence, at the cost of a second layer of fees",
+        "Guaranteed removal of manager risk, at the cost of shorter lock-ups"
+      ],
+      "answer": 1,
+      "explanation": "The fund of funds picks and monitors managers but charges its own fees on top of the underlying funds. The trap is expecting the layering to lower costs."
+    },
+    {
+      "id": "alts-022",
+      "topic": "alts",
+      "reading": "alts-6",
+      "los": "alts-6-d",
+      "kind": "concept",
+      "stem": "Which pair of biases tends to overstate the historical returns shown by a hedge fund index?",
+      "options": [
+        "Appraisal smoothing and leverage bias",
+        "Survivorship bias and backfill bias",
+        "Benchmark selection and currency bias"
+      ],
+      "answer": 1,
+      "explanation": "Failed funds drop out and funds that join add their good past results, both lifting the average. The trap is appraisal smoothing, which affects volatility more than average return."
+    },
+    {
+      "id": "alts-023",
+      "topic": "alts",
+      "reading": "alts-7",
+      "los": "alts-7-a",
+      "kind": "memorise",
+      "stem": "In a proof-of-stake network, who validates new blocks and how are they chosen?",
+      "options": [
+        "Miners who race to solve computational puzzles",
+        "A central operator trusted by all participants",
+        "Validators who lock up coins as a stake, chosen in proportion to the stake"
+      ],
+      "answer": 2,
+      "explanation": "Proof of stake ties validation rights to committed capital and uses far less energy. The trap is proof of work, where miners compete using computing power.",
+      "remember": "Proof of work: miners spend computing power. Proof of stake: validators lock up coins."
+    },
+    {
+      "id": "alts-024",
+      "topic": "alts",
+      "reading": "alts-7",
+      "los": "alts-7-b",
+      "kind": "concept",
+      "stem": "What is a stablecoin designed to do?",
+      "options": [
+        "Hold a steady value by being pegged to a reference asset, often backed by reserves",
+        "Be issued only by central banks as digital legal tender",
+        "Represent a unique, non-interchangeable asset recorded on a blockchain"
+      ],
+      "answer": 0,
+      "explanation": "Stablecoins aim to track a reference such as a currency. The traps are central bank digital currency, which is state-issued, and NFTs, which are unique tokens."
+    },
+    {
+      "id": "alts-025",
+      "topic": "alts",
+      "reading": "alts-7",
+      "los": "alts-7-d",
+      "kind": "exam",
+      "stem": "Asha keeps her coins in a self-custody wallet and saved the private key only in a note on her phone, which she then lost. Which statement is correct?",
+      "options": [
+        "The network operator can reissue her coins after identity checks",
+        "Her coins are covered by deposit insurance and can be refunded",
+        "The coins are probably unrecoverable, because control rests on the key and no intermediary can reset it"
+      ],
+      "answer": 2,
+      "explanation": "Self-custody puts key security entirely on the holder. The trap is assuming a bank-style safety net exists for crypto held without an intermediary."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "alts-1",
+      "ideas": [
+        "Alternatives differ from traditional assets through illiquidity, limited transparency and specialised structures.",
+        "In a limited partnership the GP manages with unlimited liability while LPs are passive with limited liability.",
+        "Investors can go direct, co-invest beside a sponsor, or buy fund interests, trading control against cost and diversification."
+      ],
+      "trap": "Co-investment usually cuts fees but concentrates risk in one deal; it is not free diversification."
+    },
+    {
+      "reading": "alts-2",
+      "ideas": [
+        "Appraisal-based values smooth returns, so measured volatility and correlation look lower than reality.",
+        "A hurdle sets the return needed before an incentive fee; a high-water mark blocks fees until NAV exceeds its prior peak.",
+        "TVPI equals DPI plus RVPI, and early J-curve returns are negative because fees hit before gains arrive."
+      ],
+      "formula": "TVPI = DPI + RVPI;  net return = gross − management fee − incentive fee",
+      "trap": "Check whether the incentive fee is charged before or after the management fee; the base changes the answer."
+    },
+    {
+      "reading": "alts-3",
+      "ideas": [
+        "Venture capital funds young firms with little leverage, while buyouts use heavy debt to acquire mature companies.",
+        "Private debt runs from senior direct lending to mezzanine and distressed, with risk and return rising down the stack.",
+        "Exits include IPO, trade sale, secondary sale and recapitalisation; investors earn an illiquidity premium for waiting."
+      ],
+      "trap": "Smooth private-fund valuations are not evidence of lower risk; they are an accounting effect."
+    },
+    {
+      "reading": "alts-4",
+      "ideas": [
+        "Real estate can be held directly, through listed REITs, through funds, or through mortgage debt.",
+        "Greenfield infrastructure means building new assets, while brownfield means existing assets with operating history.",
+        "Leases and tariffs linked to inflation help real assets hedge inflation; fixed contracts do not."
+      ],
+      "trap": "Greenfield is the construction-risk new build; brownfield is the operating asset. Do not swap them."
+    },
+    {
+      "reading": "alts-5",
+      "ideas": [
+        "Timberland owners can delay harvest as trees keep growing, while farmland earns crop income and land appreciation.",
+        "Contango means futures above spot with a negative roll yield; backwardation is the reverse.",
+        "A commodity index return splits into spot return, roll yield and collateral yield."
+      ],
+      "formula": "Total return = spot return + roll yield + collateral yield",
+      "trap": "Contango gives a negative roll yield for a long holder; candidates often flip the sign."
+    },
+    {
+      "reading": "alts-6",
+      "ideas": [
+        "Hedge funds use leverage and short selling, and limit redemptions with lock-ups, gates and notice periods.",
+        "Strategies fall into equity, event-driven, relative value, macro and multi-strategy families.",
+        "A fund of funds adds diversification and due diligence but a second fee layer, and index data carry survivorship bias."
+      ],
+      "trap": "A lock-up blocks redemption for an initial period; a gate caps how much can leave on one date."
+    },
+    {
+      "reading": "alts-7",
+      "ideas": [
+        "A blockchain is a shared ledger secured by consensus; proof of work uses computing power, proof of stake uses locked coins.",
+        "Cryptocurrencies, stablecoins, tokens and NFTs differ by purpose: money-like, pegged, utility or unique.",
+        "Key risks are fraud, custody and key loss, regulation, and extreme volatility."
+      ],
+      "trap": "Stablecoins are privately issued pegged tokens, not central bank digital currency, and the peg can still break."
+    }
+  ]
+}

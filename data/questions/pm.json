@@ -1,0 +1,519 @@
+{
+  "topic": "pm",
+  "questions": [
+    {
+      "id": "pm-001",
+      "topic": "pm",
+      "reading": "pm-1",
+      "los": "pm-1-a",
+      "kind": "concept",
+      "stem": "Why does a diversified portfolio usually beat holding one or two securities, for a given level of expected return?",
+      "options": [
+        "Portfolio risk equals the weighted average of the holdings' risks, so diversification only lowers risk by adding safer assets",
+        "Imperfectly correlated holdings partly offset each other, so portfolio risk can be lower than the average of the individual risks",
+        "Diversification raises expected return because many securities each add their own risk premium"
+      ],
+      "answer": 1,
+      "explanation": "Offsetting price moves cut volatility without a matching cut in expected return. The trap is treating risk as a weighted average; that is true only when correlation is +1."
+    },
+    {
+      "id": "pm-002",
+      "topic": "pm",
+      "reading": "pm-1",
+      "los": "pm-1-b",
+      "kind": "memorise",
+      "stem": "In the portfolio management process, which step contains monitoring, rebalancing and performance evaluation?",
+      "options": [
+        "Feedback",
+        "Planning",
+        "Execution"
+      ],
+      "answer": 0,
+      "explanation": "Feedback covers monitoring, rebalancing and performance evaluation. The trap is calling rebalancing \"execution\" because it involves trading; execution is the initial construction and security selection.",
+      "remember": "Plan (IPS, expectations, SAA); Execute (select, trade); Feedback (monitor, rebalance, evaluate)."
+    },
+    {
+      "id": "pm-003",
+      "topic": "pm",
+      "reading": "pm-1",
+      "los": "pm-1-c",
+      "kind": "concept",
+      "stem": "Which investor's portfolio objectives are most directly set by a stream of promised future payments to beneficiaries?",
+      "options": [
+        "A defined contribution plan, because the employer promises a fixed retirement income",
+        "A retail investor saving for a house deposit, because the deadline fixes the required return",
+        "A defined benefit pension plan, because the sponsor owes set benefits"
+      ],
+      "answer": 2,
+      "explanation": "A DB plan has liabilities that drive its return and risk needs. The trap is the DC plan: the employer promises contributions, and the participant carries the investment risk."
+    },
+    {
+      "id": "pm-004",
+      "topic": "pm",
+      "reading": "pm-1",
+      "los": "pm-1-d",
+      "kind": "memorise",
+      "stem": "Which statement correctly separates an ETF from an open-end mutual fund?",
+      "options": [
+        "ETF investors redeem shares directly with the fund at NAV, while mutual fund shares trade on exchanges",
+        "ETFs are always actively managed, while open-end mutual funds are always index trackers",
+        "ETF shares trade on an exchange throughout the day at a market price; mutual fund shares transact at end-of-day NAV"
+      ],
+      "answer": 2,
+      "explanation": "ETFs trade like stocks, so their price can drift from NAV. The trap is thinking either structure is tied to a management style; both can be active or passive.",
+      "remember": "ETF: intraday exchange price (can differ from NAV). Open-end fund: transacts at end-of-day NAV."
+    },
+    {
+      "id": "pm-005",
+      "topic": "pm",
+      "reading": "pm-1",
+      "los": "pm-1-d",
+      "kind": "exam",
+      "stem": "Marcus is a high-net-worth client in a high tax bracket. He wants a portfolio that excludes tobacco stocks and lets his adviser sell individual losing holdings to offset gains. Which vehicle best fits these needs?",
+      "options": [
+        "An open-end mutual fund with a growth mandate",
+        "A separately managed account holding the securities in his own name",
+        "A broad market index ETF"
+      ],
+      "answer": 1,
+      "explanation": "An SMA lets the manager tailor holdings and harvest losses security by security. The trap is a pooled fund: the investor cannot exclude stocks or realise losses on individual holdings."
+    },
+    {
+      "id": "pm-006",
+      "topic": "pm",
+      "reading": "pm-2",
+      "los": "pm-2-a",
+      "kind": "calc",
+      "stem": "An investor buys a share at 40, receives a dividend of 2, and sells it at 42 one year later. What is the holding period return?",
+      "options": [
+        "10.0%",
+        "5.0%",
+        "9.5%"
+      ],
+      "answer": 0,
+      "explanation": "HPR = (42 − 40 + 2) ÷ 40 = 10%. The traps are ignoring the dividend (5%) and dividing by the ending price (9.5%)."
+    },
+    {
+      "id": "pm-007",
+      "topic": "pm",
+      "reading": "pm-2",
+      "los": "pm-2-c",
+      "kind": "calc",
+      "stem": "A portfolio holds 60% in Asset X, expected return 10%, and 40% in Asset Y, expected return 5%. What is the portfolio's expected return?",
+      "options": [
+        "7.0%",
+        "8.0%",
+        "7.5%"
+      ],
+      "answer": 1,
+      "explanation": "Weights multiply their own asset: 0.6 × 10% + 0.4 × 5% = 8%. The traps are swapping the weights (7%) and averaging the two returns equally (7.5%)."
+    },
+    {
+      "id": "pm-008",
+      "topic": "pm",
+      "reading": "pm-2",
+      "los": "pm-2-c",
+      "kind": "concept",
+      "stem": "Two assets have equal risk and are held 50/50. Which correlation between them gives the largest diversification benefit?",
+      "options": [
+        "+0.3",
+        "0.0",
+        "−0.3"
+      ],
+      "answer": 2,
+      "explanation": "The lower the correlation, the more the assets offset each other, and negative beats zero. The trap is thinking zero correlation is the best case."
+    },
+    {
+      "id": "pm-009",
+      "topic": "pm",
+      "reading": "pm-2",
+      "los": "pm-2-d",
+      "kind": "memorise",
+      "stem": "Which part of the minimum-variance frontier is called the efficient frontier?",
+      "options": [
+        "The segment from the global minimum-variance portfolio upward",
+        "The entire minimum-variance frontier",
+        "The segment below the global minimum-variance portfolio"
+      ],
+      "answer": 0,
+      "explanation": "Below the global minimum-variance portfolio, there is always a portfolio with higher return for the same risk. The trap is calling the whole curve efficient.",
+      "remember": "Efficient frontier = min-variance frontier from the global minimum-variance portfolio upward."
+    },
+    {
+      "id": "pm-010",
+      "topic": "pm",
+      "reading": "pm-2",
+      "los": "pm-2-e",
+      "kind": "exam",
+      "stem": "Priya and Rahul face the same capital allocation line. Priya's indifference curves are steeper than Rahul's. Which conclusion is correct?",
+      "options": [
+        "Priya is less risk-averse and will hold a larger share in the risky portfolio",
+        "They will choose the same point because the CAL is identical",
+        "Priya is more risk-averse and will hold a smaller share of her wealth in the risky portfolio"
+      ],
+      "answer": 2,
+      "explanation": "Steeper curves mean more extra return is needed per unit of added risk, so Priya sits lower on the CAL. The trap is assuming a shared CAL forces a shared choice; preferences pick the point."
+    },
+    {
+      "id": "pm-011",
+      "topic": "pm",
+      "reading": "pm-3",
+      "los": "pm-3-c",
+      "kind": "calc",
+      "stem": "The risk-free rate is 3%, the expected market return is 8%, and a stock's beta is 1.2. What return does the CAPM require?",
+      "options": [
+        "6.0%",
+        "9.0%",
+        "9.6%"
+      ],
+      "answer": 1,
+      "explanation": "Required return = 3% + 1.2 × (8% − 3%) = 9%. The traps are leaving out the risk-free rate (6%) and multiplying beta by the full market return (9.6%)."
+    },
+    {
+      "id": "pm-012",
+      "topic": "pm",
+      "reading": "pm-3",
+      "los": "pm-3-e",
+      "kind": "calc",
+      "stem": "A portfolio returns 10% with a standard deviation of 16%. The risk-free rate is 2%. What is its Sharpe ratio?",
+      "options": [
+        "0.50",
+        "0.63",
+        "0.80"
+      ],
+      "answer": 0,
+      "explanation": "Sharpe = (10% − 2%) ÷ 16% = 0.50. The traps are skipping the risk-free rate (0.63) and dividing excess return by return instead of risk (0.80)."
+    },
+    {
+      "id": "pm-013",
+      "topic": "pm",
+      "reading": "pm-3",
+      "los": "pm-3-d",
+      "kind": "calc",
+      "stem": "Risk-free rate 2%, market return 8%. An analyst forecasts 12% for a stock with beta 1.5. What does the security market line say about the stock?",
+      "options": [
+        "Undervalued: the forecast exceeds the 11% the SML requires",
+        "Overvalued: a beta of 1.5 means the stock is too risky",
+        "Fairly valued: 12% beats the 8% market return"
+      ],
+      "answer": 0,
+      "explanation": "Required return = 2% + 1.5 × 6% = 11%, so the stock plots above the SML. The trap is comparing the forecast with the market return instead of the required return."
+    },
+    {
+      "id": "pm-014",
+      "topic": "pm",
+      "reading": "pm-3",
+      "los": "pm-3-a",
+      "kind": "calc",
+      "stem": "The risk-free rate is 2%, the market portfolio returns 8% with a standard deviation of 12%. What return does the CML give a portfolio with a standard deviation of 18%?",
+      "options": [
+        "12.0%",
+        "14.0%",
+        "11.0%"
+      ],
+      "answer": 2,
+      "explanation": "CML slope = 6% ÷ 12% = 0.5, so return = 2% + 0.5 × 18% = 11%. The traps are scaling the market return by 1.5 (12%) and scaling it then adding the risk-free rate (14%)."
+    },
+    {
+      "id": "pm-015",
+      "topic": "pm",
+      "reading": "pm-3",
+      "los": "pm-3-b",
+      "kind": "concept",
+      "stem": "Under the CAPM, which statement about risk and expected return is correct?",
+      "options": [
+        "Total risk earns a premium, because investors dislike both market and firm-specific risk equally",
+        "Only systematic risk earns a premium, because investors can diversify unsystematic risk away for free",
+        "Unsystematic risk earns the largest premium, because it is unique to each firm"
+      ],
+      "answer": 1,
+      "explanation": "The market pays only for risk that cannot be diversified away. The trap is rewarding total risk, which would pay investors for risk they could remove at no cost."
+    },
+    {
+      "id": "pm-016",
+      "topic": "pm",
+      "reading": "pm-4",
+      "los": "pm-4-b",
+      "kind": "exam",
+      "stem": "Anika, 35, has a high stable income and a large emergency fund, so she could absorb big losses. Her father lost his savings in a crash, and she says a 10% drop would keep her awake. How should her adviser set her risk objective?",
+      "options": [
+        "Aggressive, because her ability to take risk is high",
+        "Average, by blending her ability and willingness",
+        "Conservative, because when ability and willingness conflict the lower one should govern"
+      ],
+      "answer": 2,
+      "explanation": "Ability is high but willingness is low, so the plan should respect the more cautious one. The trap is averaging or letting ability alone drive the decision."
+    },
+    {
+      "id": "pm-017",
+      "topic": "pm",
+      "reading": "pm-4",
+      "los": "pm-4-a",
+      "kind": "concept",
+      "stem": "Why does a written investment policy statement help an adviser when markets panic?",
+      "options": [
+        "It sets an agreed framework that discourages impulsive changes and gives a basis for judging results",
+        "It guarantees returns stay within the stated risk objective",
+        "It removes the need for review because objectives never change"
+      ],
+      "answer": 0,
+      "explanation": "An IPS records objectives and constraints agreed in calm conditions. The trap is treating it as fixed: it should be reviewed when client circumstances change."
+    },
+    {
+      "id": "pm-018",
+      "topic": "pm",
+      "reading": "pm-4",
+      "los": "pm-4-c",
+      "kind": "memorise",
+      "stem": "Which of these is not one of the standard IPS constraints?",
+      "options": [
+        "Liquidity needs",
+        "Return objective",
+        "Tax situation"
+      ],
+      "answer": 1,
+      "explanation": "Return and risk are objectives. The constraints are liquidity, time horizon, tax, legal and regulatory, and unique circumstances.",
+      "remember": "Constraints: liquidity, horizon, tax, legal/regulatory, unique. Return and risk are objectives, not constraints."
+    },
+    {
+      "id": "pm-019",
+      "topic": "pm",
+      "reading": "pm-4",
+      "los": "pm-4-d",
+      "kind": "concept",
+      "stem": "A rally lifts a portfolio's equity weight to 70% against a 60% strategic target. What does rebalancing involve?",
+      "options": [
+        "Keeping the weights because equities are outperforming",
+        "Selling some equities and buying other assets to move back toward 60%",
+        "Raising the target to 70% so it matches the market value"
+      ],
+      "answer": 1,
+      "explanation": "Rebalancing restores the risk profile set in the strategic allocation. The trap is letting drift reset the target, which quietly raises portfolio risk."
+    },
+    {
+      "id": "pm-020",
+      "topic": "pm",
+      "reading": "pm-4",
+      "los": "pm-4-e",
+      "kind": "concept",
+      "stem": "A fund refuses to hold any company that earns revenue from tobacco or controversial weapons. Which ESG approach is this?",
+      "options": [
+        "Negative screening",
+        "Thematic investing",
+        "Best-in-class selection"
+      ],
+      "answer": 0,
+      "explanation": "Negative screening excludes sectors or companies outright. The trap is best-in-class, which keeps the leaders within each sector rather than banning whole industries."
+    },
+    {
+      "id": "pm-021",
+      "topic": "pm",
+      "reading": "pm-5",
+      "los": "pm-5-a",
+      "kind": "memorise",
+      "stem": "Which statement about correcting behavioural biases is most accurate?",
+      "options": [
+        "Emotional biases are easiest to fix with more data, while cognitive errors cannot be fixed",
+        "Both types respond equally well to training",
+        "Cognitive errors can often be reduced with better information and education"
+      ],
+      "answer": 2,
+      "explanation": "Cognitive errors come from faulty reasoning, so facts and training help. Emotional biases stem from feelings, so advisers often adapt the plan to them instead.",
+      "remember": "Cognitive errors: faulty reasoning, fixable with education. Emotional biases: feelings, often must be accommodated."
+    },
+    {
+      "id": "pm-022",
+      "topic": "pm",
+      "reading": "pm-5",
+      "los": "pm-5-b",
+      "kind": "exam",
+      "stem": "Ravi holds a large position in a tech company. He reads only bullish analyst notes and dismisses a short seller's data-rich report as biased, though he cannot rebut its numbers. Which bias best fits?",
+      "options": [
+        "Conservatism",
+        "Hindsight bias",
+        "Confirmation bias"
+      ],
+      "answer": 2,
+      "explanation": "Ravi seeks and favours evidence that supports his view while rejecting the rest. The trap is conservatism, which is slow updating of beliefs, not a selective search for agreeable evidence."
+    },
+    {
+      "id": "pm-023",
+      "topic": "pm",
+      "reading": "pm-5",
+      "los": "pm-5-c",
+      "kind": "concept",
+      "stem": "An analyst keeps this year's earnings forecast very close to last year's figure, even though new data points to a big change. Which bias is this?",
+      "options": [
+        "Anchoring and adjustment",
+        "Availability bias",
+        "Framing bias"
+      ],
+      "answer": 0,
+      "explanation": "The prior number acts as an anchor and the adjustment is too small. The trap is availability, which is judging likelihood by how easily examples come to mind."
+    },
+    {
+      "id": "pm-024",
+      "topic": "pm",
+      "reading": "pm-5",
+      "los": "pm-5-d",
+      "kind": "exam",
+      "stem": "Meera inherited shares in her late father's employer. Prospects look poor and her adviser urges diversification, but she refuses to sell because the shares feel like part of the family. Which bias is this?",
+      "options": [
+        "Anchoring, a cognitive error",
+        "Endowment bias, an emotional bias",
+        "Mental accounting, a cognitive error"
+      ],
+      "answer": 1,
+      "explanation": "Endowment bias is overvaluing something simply because you own it, and it is emotional. The trap is labelling it a cognitive error and expecting new facts to change her mind."
+    },
+    {
+      "id": "pm-025",
+      "topic": "pm",
+      "reading": "pm-5",
+      "los": "pm-5-d",
+      "kind": "concept",
+      "stem": "A trader credits wins to skill and losses to bad luck, then trades more often with larger positions. Which bias and category fit?",
+      "options": [
+        "Hindsight bias, a cognitive error",
+        "Overconfidence, an emotional bias",
+        "Regret aversion, an emotional bias"
+      ],
+      "answer": 1,
+      "explanation": "Overestimating one's own skill and judgement is overconfidence, which drives excess trading. The trap is hindsight, which is believing after the event that the outcome was predictable."
+    },
+    {
+      "id": "pm-026",
+      "topic": "pm",
+      "reading": "pm-5",
+      "los": "pm-5-e",
+      "kind": "memorise",
+      "stem": "Which behaviour describes the disposition effect?",
+      "options": [
+        "Holding winners too long while cutting losers quickly",
+        "Selling both winners and losers at the same time each year",
+        "Selling winning positions too early while holding losing positions too long"
+      ],
+      "answer": 2,
+      "explanation": "The disposition effect reflects reluctance to realise losses and eagerness to lock in gains. The trap is reversing it, which would actually be good discipline.",
+      "remember": "Disposition effect: sell winners too soon, hold losers too long."
+    },
+    {
+      "id": "pm-027",
+      "topic": "pm",
+      "reading": "pm-6",
+      "los": "pm-6-b",
+      "kind": "concept",
+      "stem": "Which description fits risk budgeting?",
+      "options": [
+        "Dividing the total risk an organisation will accept among portfolios or activities",
+        "Setting who has oversight and accountability for risk decisions",
+        "Defining the overall amount of loss the organisation can bear"
+      ],
+      "answer": 0,
+      "explanation": "Risk budgeting allocates the acceptable risk across units. The traps are governance, which assigns oversight, and risk tolerance, which sets the overall limit."
+    },
+    {
+      "id": "pm-028",
+      "topic": "pm",
+      "reading": "pm-6",
+      "los": "pm-6-c",
+      "kind": "concept",
+      "stem": "A trader's keying error and a system outage cause a large loss. Which risk category does this fall under?",
+      "options": [
+        "Market risk, a financial risk",
+        "Operational risk, a non-financial risk",
+        "Liquidity risk, a financial risk"
+      ],
+      "answer": 1,
+      "explanation": "Losses from people, processes and systems are operational risk. The trap is calling it market risk because the loss shows up in trading results."
+    },
+    {
+      "id": "pm-029",
+      "topic": "pm",
+      "reading": "pm-6",
+      "los": "pm-6-d",
+      "kind": "concept",
+      "stem": "A portfolio has a one-day 5% VaR of $2 million. Which interpretation is correct?",
+      "options": [
+        "Losses will never exceed $2 million in a day",
+        "The portfolio loses exactly $2 million on 95% of days",
+        "On about 5% of days, losses are expected to be at least $2 million"
+      ],
+      "answer": 2,
+      "explanation": "VaR is a loss threshold tied to a probability and a time frame. The trap is reading it as the worst possible loss; tail losses beyond VaR can be far larger."
+    },
+    {
+      "id": "pm-030",
+      "topic": "pm",
+      "reading": "pm-6",
+      "los": "pm-6-e",
+      "kind": "exam",
+      "stem": "Sunrise Air locks in fuel costs with forward contracts and also buys property insurance on its hangars. How should these two actions be classified?",
+      "options": [
+        "The forwards shift risk and the insurance transfers risk",
+        "The forwards transfer risk and the insurance shifts risk",
+        "Both actions avoid risk"
+      ],
+      "answer": 0,
+      "explanation": "Derivatives change the distribution of outcomes (shifting), while insurance moves the loss to another party for a premium (transfer). The trap is swapping the two labels."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "pm-1",
+      "ideas": [
+        "Holding many imperfectly correlated assets lowers risk without a matching fall in expected return.",
+        "The process runs plan, execute, feedback: IPS and expectations first, then construction, then monitoring.",
+        "Pooled vehicles differ in trading and customisation: ETFs trade intraday, mutual funds at NAV, SMAs are tailored."
+      ],
+      "trap": "Rebalancing and performance evaluation belong to the feedback step, not to execution."
+    },
+    {
+      "reading": "pm-2",
+      "ideas": [
+        "Holding period return adds income to the price change and divides by the beginning price.",
+        "Portfolio risk depends on weights, volatilities and correlation; lower correlation means more diversification.",
+        "The efficient frontier starts at the global minimum-variance portfolio, and the CAL joins the risk-free asset to a risky portfolio."
+      ],
+      "formula": "HPR = (P1 − P0 + income) ÷ P0;  E(Rp) = w1 × R1 + w2 × R2",
+      "trap": "Portfolio standard deviation is a weighted average of asset risks only when correlation is exactly +1."
+    },
+    {
+      "reading": "pm-3",
+      "ideas": [
+        "The CML prices efficient portfolios using total risk, while the SML prices individual assets using beta.",
+        "Only systematic risk earns a premium because unsystematic risk can be diversified away.",
+        "Sharpe uses total risk, Treynor uses beta, and Jensen's alpha is return above the CAPM requirement."
+      ],
+      "formula": "CAPM: E(R) = Rf + β × (Rm − Rf);  Sharpe = (Rp − Rf) ÷ σp",
+      "trap": "Mixing up Sharpe (standard deviation) with Treynor (beta) is the classic slip; compare required return, not market return."
+    },
+    {
+      "reading": "pm-4",
+      "ideas": [
+        "An IPS records return and risk objectives plus constraints, and it is reviewed when circumstances change.",
+        "Risk tolerance combines ability and willingness; when they conflict, follow the more conservative one.",
+        "Strategic allocation sets long-run target weights, and rebalancing pulls drifting weights back to them."
+      ],
+      "trap": "Constraints are liquidity, time horizon, tax, legal and regulatory, and unique needs; return is an objective."
+    },
+    {
+      "reading": "pm-5",
+      "ideas": [
+        "Cognitive errors come from faulty reasoning and can be reduced with better information.",
+        "Emotional biases come from feelings and are harder to fix, so advisers often adapt the plan around them.",
+        "Match the scenario to the label: confirmation seeks agreeing evidence, anchoring clings to a number, endowment overvalues owned assets."
+      ],
+      "trap": "Overconfidence, loss aversion and endowment are emotional; anchoring, framing and confirmation are cognitive."
+    },
+    {
+      "reading": "pm-6",
+      "ideas": [
+        "Risk management sets what risk to take, measures it, and then modifies it within a defined framework.",
+        "Governance assigns oversight, tolerance sets acceptable limits, and budgeting divides the risk among activities.",
+        "Risk can be avoided, accepted, transferred through insurance, or shifted through derivatives."
+      ],
+      "trap": "VaR gives a loss threshold at a stated probability; it is not the maximum possible loss."
+    }
+  ]
+}
