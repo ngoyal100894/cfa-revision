@@ -1,0 +1,616 @@
+{
+  "topic": "equity",
+  "questions": [
+    {
+      "id": "equity-001",
+      "topic": "equity",
+      "reading": "equity-1",
+      "los": "equity-1-b",
+      "kind": "calc",
+      "stem": "An investor buys 100 shares at $40, using $2,000 of her own money and $2,000 borrowed. Ignoring interest and commissions, the price rises to $50. What is her return on her own money?",
+      "options": [
+        "25%",
+        "20%",
+        "50%"
+      ],
+      "answer": 2,
+      "explanation": "The gain is $1,000 on $2,000 of her own equity, so 50%. The trap is quoting the stock's own 25% rise, or dividing the gain by the whole $5,000 position (20%)."
+    },
+    {
+      "id": "equity-002",
+      "topic": "equity",
+      "reading": "equity-1",
+      "los": "equity-1-b",
+      "kind": "calc",
+      "stem": "An investor buys shares at $60 with 50% initial margin. Maintenance margin is 25%. Ignoring interest and dividends, at what price does a margin call occur?",
+      "options": [
+        "$45",
+        "$40",
+        "$30"
+      ],
+      "answer": 1,
+      "explanation": "Call price = 60 × (1 − 0.50) ÷ (1 − 0.25) = $40. Check: equity is 40 − 30 = 10, which is 25% of 40. The trap is applying only a 25% drop ($45), which ignores the loan."
+    },
+    {
+      "id": "equity-003",
+      "topic": "equity",
+      "reading": "equity-1",
+      "los": "equity-1-c",
+      "kind": "concept",
+      "stem": "Nisha owns shares trading at $50 and wants protection if they fall. She wants a sell order that only becomes active if the price drops to $45. Which order fits?",
+      "options": [
+        "A limit sell order at $45",
+        "A stop-loss (stop-sell) order at $45",
+        "A market order to sell now"
+      ],
+      "answer": 1,
+      "explanation": "A stop order lies dormant until the stop price trades, then becomes a market order. The trap is the limit sell at $45: with the market at $50 it fills immediately at the better price, so it gives no protection."
+    },
+    {
+      "id": "equity-004",
+      "topic": "equity",
+      "reading": "equity-1",
+      "los": "equity-1-d",
+      "kind": "memorise",
+      "stem": "In which market structure do dealers post bid and ask prices and trade from their own inventory?",
+      "options": [
+        "Order-driven",
+        "Brokered",
+        "Quote-driven"
+      ],
+      "answer": 2,
+      "explanation": "Dealers quoting two-way prices and taking the other side define a quote-driven market. The trap is order-driven, where a rule-based system matches buy and sell orders and no dealer needs to be the counterparty.",
+      "remember": "Quote-driven: dealers quote. Order-driven: rules match orders. Brokered: a broker finds a counterparty for unique assets."
+    },
+    {
+      "id": "equity-005",
+      "topic": "equity",
+      "reading": "equity-1",
+      "los": "equity-1-d",
+      "kind": "exam",
+      "stem": "Greenleaf Ltd raises capital by selling 10 million newly issued shares to investors through an underwriter. Three months later, Dev buys 500 of those shares from another investor on the exchange. Which statement is correct?",
+      "options": [
+        "Greenleaf received proceeds from both sales because the shares carry its name",
+        "Both sales were primary market trades because the shares originated from Greenleaf",
+        "Greenleaf received proceeds only from the first sale; Dev's purchase was a secondary market trade"
+      ],
+      "answer": 2,
+      "explanation": "The issuer is paid only when it sells new securities (primary market). Later trades just transfer ownership between investors. The trap is thinking the issuer benefits whenever its shares change hands."
+    },
+    {
+      "id": "equity-006",
+      "topic": "equity",
+      "reading": "equity-2",
+      "los": "equity-2-b",
+      "kind": "calc",
+      "stem": "A price-weighted index holds two stocks. A rises from $10 to $12 and B falls from $50 to $45. With no splits or divisor change, what is the index return?",
+      "options": [
+        "+5%",
+        "-5%",
+        "-10%"
+      ],
+      "answer": 1,
+      "explanation": "The sum of prices goes from 60 to 57, a fall of 5%. The higher-priced stock B dominates. The trap is averaging the stock returns (+20% and -10%), which gives +5%, the equal-weighted answer."
+    },
+    {
+      "id": "equity-007",
+      "topic": "equity",
+      "reading": "equity-2",
+      "los": "equity-2-b",
+      "kind": "calc",
+      "stem": "A market-cap-weighted index holds stock P with a $600m market cap, up 10%, and stock Q with a $400m market cap, down 5%. What is the index return?",
+      "options": [
+        "2.5%",
+        "4%",
+        "1%"
+      ],
+      "answer": 1,
+      "explanation": "Weighted return = 0.6 × 10% + 0.4 × (-5%) = 4%. The trap is the simple average of 2.5% (equal weighting), or flipping the weights, which gives 1%."
+    },
+    {
+      "id": "equity-008",
+      "topic": "equity",
+      "reading": "equity-2",
+      "los": "equity-2-b",
+      "kind": "concept",
+      "stem": "Relative to a market-cap-weighted index of the same stocks, an equal-weighted index:",
+      "options": [
+        "Gives more weight to smaller companies and must be rebalanced as prices drift",
+        "Holds larger weights in the stocks that have recently risen in price",
+        "Needs no rebalancing because each weight is fixed at the start"
+      ],
+      "answer": 0,
+      "explanation": "Equal weights lift small companies and cut large ones relative to cap weighting. Price moves push weights away from equal, so rebalancing is needed. The trap is thinking equal weights stay equal automatically."
+    },
+    {
+      "id": "equity-009",
+      "topic": "equity",
+      "reading": "equity-2",
+      "los": "equity-2-c",
+      "kind": "memorise",
+      "stem": "What is index reconstitution?",
+      "options": [
+        "Resetting constituent weights back to their target proportions",
+        "Periodically adding and removing constituent securities that no longer fit the index rules",
+        "Adjusting the divisor after a stock split so the index value stays continuous"
+      ],
+      "answer": 1,
+      "explanation": "Reconstitution changes which securities are in the index. The trap is mixing it up with rebalancing, which only resets the weights of securities already in the index.",
+      "remember": "Reconstitution = change the constituents. Rebalancing = reset the weights."
+    },
+    {
+      "id": "equity-010",
+      "topic": "equity",
+      "reading": "equity-2",
+      "los": "equity-2-b",
+      "kind": "exam",
+      "stem": "Tomas runs a fund and wants a benchmark whose weights are tied to company size measures such as sales, earnings or dividends, so that share-price run-ups do not drive the weights. Which index weighting method best fits?",
+      "options": [
+        "Market-cap weighting",
+        "Price weighting",
+        "Fundamental weighting"
+      ],
+      "answer": 2,
+      "explanation": "Fundamental weighting sets weights from sales, earnings, dividends or book value. The trap is market-cap weighting, which puts the biggest weights in stocks whose prices have already risen the most."
+    },
+    {
+      "id": "equity-011",
+      "topic": "equity",
+      "reading": "equity-3",
+      "los": "equity-3-b",
+      "kind": "memorise",
+      "stem": "Under the semi-strong form of market efficiency, share prices reflect:",
+      "options": [
+        "All publicly available information, including past prices",
+        "Only past price and volume data",
+        "All information, public and private"
+      ],
+      "answer": 0,
+      "explanation": "Semi-strong efficiency covers all public information, so analysing public statements cannot earn abnormal returns. The trap is the strong form, which adds private (insider) information.",
+      "remember": "Weak: past prices. Semi-strong: all public info. Strong: public plus private info."
+    },
+    {
+      "id": "equity-012",
+      "topic": "equity",
+      "reading": "equity-3",
+      "los": "equity-3-b",
+      "kind": "concept",
+      "stem": "Studies find that analysts using public financial statements cannot earn abnormal returns, but corporate insiders consistently do. This evidence supports:",
+      "options": [
+        "Semi-strong form efficiency but not strong form",
+        "Strong form efficiency",
+        "Weak form efficiency only, since fundamental analysis can add value"
+      ],
+      "answer": 0,
+      "explanation": "Public information is already priced (semi-strong holds), but insiders profit from private information (strong fails). The trap is weak-form only: that would imply public fundamental analysis can beat the market."
+    },
+    {
+      "id": "equity-013",
+      "topic": "equity",
+      "reading": "equity-3",
+      "los": "equity-3-d",
+      "kind": "concept",
+      "stem": "A researcher finds a stock-picking rule that earned excess returns in past data. Why might this not refute market efficiency?",
+      "options": [
+        "Efficient markets guarantee that no investor ever earns an above-average return in any period",
+        "The pattern may vanish after transaction costs and risk adjustment, or reflect data mining",
+        "Anomalies only count as evidence against the strong form, never the weak or semi-strong"
+      ],
+      "answer": 1,
+      "explanation": "Many anomalies disappear after costs, risk adjustment, or once published, and some are chance results from data mining. The trap is believing efficiency forbids any single period of luck."
+    },
+    {
+      "id": "equity-014",
+      "topic": "equity",
+      "reading": "equity-3",
+      "los": "equity-3-e",
+      "kind": "concept",
+      "stem": "Dana refuses to sell a stock bought at $80 and now at $50 until it climbs back to $80, yet she sells her winning stocks quickly. Which behavioural tendency best explains this?",
+      "options": [
+        "Loss aversion",
+        "Herding",
+        "Overconfidence"
+      ],
+      "answer": 0,
+      "explanation": "Losses hurt more than equal gains please, so people avoid realising losses. The trap is overconfidence, which is excess belief in one's own skill, not a reluctance to lock in a loss."
+    },
+    {
+      "id": "equity-015",
+      "topic": "equity",
+      "reading": "equity-4",
+      "los": "equity-4-a",
+      "kind": "memorise",
+      "stem": "What does the cumulative feature of preference shares mean?",
+      "options": [
+        "Holders can convert the shares into common shares at a set ratio",
+        "Missed dividends accrue and must be paid before any common dividend",
+        "Holders receive an extra payout when profits exceed a set level"
+      ],
+      "answer": 1,
+      "explanation": "Cumulative shares carry forward unpaid dividends ahead of common holders. The trap is confusing it with participating (extra share of profits) or convertible (swap into common).",
+      "remember": "Cumulative: missed dividends accrue. Participating: extra profit share. Convertible: swap into common."
+    },
+    {
+      "id": "equity-016",
+      "topic": "equity",
+      "reading": "equity-4",
+      "los": "equity-4-d",
+      "kind": "concept",
+      "stem": "A firm's market value of equity is well above its book value. What is the most sensible reading?",
+      "options": [
+        "Investors expect earning power beyond what historical-cost book value records",
+        "The shares must be overvalued, because market value should not exceed book value",
+        "Book value is updated daily to fair value, so the gap is just noise"
+      ],
+      "answer": 0,
+      "explanation": "Book equity is assets minus liabilities at mostly historical cost, while market value reflects expected future cash flows. The trap is treating book value as a ceiling or a fair-value measure."
+    },
+    {
+      "id": "equity-017",
+      "topic": "equity",
+      "reading": "equity-4",
+      "los": "equity-4-b",
+      "kind": "exam",
+      "stem": "Hartwell Capital buys a block of newly issued shares in a listed small-cap company at a negotiated price below the quoted market price. The shares are issued privately and cannot be resold publicly right away. Which private equity type is this?",
+      "options": [
+        "Venture capital",
+        "PIPE (private investment in public equity)",
+        "Leveraged buyout"
+      ],
+      "answer": 1,
+      "explanation": "A PIPE is a negotiated, often discounted private placement into a listed company. The trap is the word \"private\": the investor is private, but the issuer is public. Venture capital backs young unlisted firms."
+    },
+    {
+      "id": "equity-018",
+      "topic": "equity",
+      "reading": "equity-4",
+      "los": "equity-4-e",
+      "kind": "concept",
+      "stem": "A company earns an ROE of 9% on its book equity, while its cost of equity is 12%. What does this imply?",
+      "options": [
+        "It creates value, because ROE is positive",
+        "ROE and cost of equity are unrelated, so nothing can be inferred about value",
+        "It earns less than shareholders require, so it is destroying value and tends to trade below book"
+      ],
+      "answer": 2,
+      "explanation": "Value is created only when ROE exceeds the cost of equity. The trap is treating a positive accounting return as value creation, when the hurdle is the investors' required return."
+    },
+    {
+      "id": "equity-019",
+      "topic": "equity",
+      "reading": "equity-5",
+      "los": "equity-5-b",
+      "kind": "concept",
+      "stem": "A retailer sells the same number of units at the same prices, yet revenue rises as customers shift toward its premium range. Which revenue driver explains this?",
+      "options": [
+        "Product mix",
+        "Volume",
+        "Price"
+      ],
+      "answer": 0,
+      "explanation": "Revenue per unit sold rose because the mix moved to higher-priced products. The trap is calling it a price rise: list prices and units sold were unchanged."
+    },
+    {
+      "id": "equity-020",
+      "topic": "equity",
+      "reading": "equity-5",
+      "los": "equity-5-c",
+      "kind": "memorise",
+      "stem": "In the cash conversion cycle, which item is subtracted?",
+      "options": [
+        "Days sales outstanding",
+        "Days payables outstanding",
+        "Days inventory outstanding"
+      ],
+      "answer": 1,
+      "explanation": "Payables are supplier credit, which shortens the time cash is tied up. The trap is adding all three: inventory and receivable days add, payable days subtract.",
+      "remember": "Cash conversion cycle = days inventory + days receivable − days payable."
+    },
+    {
+      "id": "equity-021",
+      "topic": "equity",
+      "reading": "equity-5",
+      "los": "equity-5-d",
+      "kind": "exam",
+      "stem": "Heron Co funds 60% of its assets with debt, while Finch Co has no debt. They have similar operations and the same operating profit. Revenue falls 10% at both. What is the most likely result?",
+      "options": [
+        "Heron's net income falls by a larger percentage, because fixed interest costs magnify the decline",
+        "Finch's net income falls by a larger percentage, because it has no interest tax shield",
+        "Both firms' net income falls by the same percentage because operating profit is identical"
+      ],
+      "answer": 0,
+      "explanation": "Interest is a fixed charge, so leverage magnifies swings in net income. The trap is assuming equal operating profit means equal net income outcomes."
+    },
+    {
+      "id": "equity-022",
+      "topic": "equity",
+      "reading": "equity-6",
+      "los": "equity-6-c",
+      "kind": "memorise",
+      "stem": "Which of the following is NOT one of Porter's five forces?",
+      "options": [
+        "Threat of substitutes",
+        "Bargaining power of buyers",
+        "Cyclicality of industry revenue"
+      ],
+      "answer": 2,
+      "explanation": "The five forces are new entrants, supplier power, buyer power, substitutes and rivalry. Cyclicality can affect profits but is not a force. The trap is picking a plausible industry trait that is not on the list.",
+      "remember": "Five forces: new entrants, suppliers, buyers, substitutes, rivalry."
+    },
+    {
+      "id": "equity-023",
+      "topic": "equity",
+      "reading": "equity-6",
+      "los": "equity-6-a",
+      "kind": "concept",
+      "stem": "An analyst treats every firm in the same sector classification as a direct peer. What is the main risk?",
+      "options": [
+        "Firms in one classification always face identical regulation, so differences must be accounting-driven",
+        "Classification schemes rank firms by profitability, which biases peer comparison",
+        "Classification usually follows the main revenue source, so a diversified firm's exposures may differ from its \"peers\""
+      ],
+      "answer": 2,
+      "explanation": "Most schemes assign a firm by its principal revenue source, so conglomerates and mixed businesses can be poor comparables. The trap is assuming the label guarantees identical economics."
+    },
+    {
+      "id": "equity-024",
+      "topic": "equity",
+      "reading": "equity-6",
+      "los": "equity-6-c",
+      "kind": "concept",
+      "stem": "The few suppliers of a critical input to an industry merge into one dominant firm. Which force strengthens, and what is the likely effect on industry profitability?",
+      "options": [
+        "Supplier bargaining power rises; industry margins are likely to fall",
+        "Threat of new entrants rises; industry margins are likely to fall",
+        "Buyer bargaining power rises; industry margins are likely to rise"
+      ],
+      "answer": 0,
+      "explanation": "A single supplier of a key input can raise prices, squeezing industry margins. The trap is picking a force that is unaffected, or forgetting that stronger forces lower profitability."
+    },
+    {
+      "id": "equity-025",
+      "topic": "equity",
+      "reading": "equity-6",
+      "los": "equity-6-b",
+      "kind": "exam",
+      "stem": "Orion's revenue grew 6% last year in a market that expanded 10%. Its operating margin was unchanged. What should the analyst conclude?",
+      "options": [
+        "Orion gained share because its revenue growth was positive",
+        "Orion lost market share despite growing sales",
+        "Orion's share is unchanged because its margin was stable"
+      ],
+      "answer": 1,
+      "explanation": "Share = company revenue ÷ market revenue, and 1.06 ÷ 1.10 is below 1, so share fell. The trap is equating positive growth with share gain; margins measure profitability, not share."
+    },
+    {
+      "id": "equity-026",
+      "topic": "equity",
+      "reading": "equity-7",
+      "los": "equity-7-a",
+      "kind": "concept",
+      "stem": "Which description fits a bottom-up revenue forecast?",
+      "options": [
+        "Build revenue from segment-level drivers such as units and prices, then add the segments up",
+        "Start from forecast GDP and industry growth, then apply an assumed market share",
+        "Extrapolate last year's total revenue growth rate into future years"
+      ],
+      "answer": 0,
+      "explanation": "Bottom-up builds from the company's own segments and drivers. The trap is the reverse: starting from the economy and industry and working down to the firm is top-down."
+    },
+    {
+      "id": "equity-027",
+      "topic": "equity",
+      "reading": "equity-7",
+      "los": "equity-7-d",
+      "kind": "concept",
+      "stem": "An analyst re-runs her EPS forecast changing only the gross margin assumption, by plus and minus 2 points, with everything else fixed. What is this?",
+      "options": [
+        "Sensitivity analysis",
+        "Scenario analysis",
+        "Base-case forecasting"
+      ],
+      "answer": 0,
+      "explanation": "Sensitivity analysis flexes one input at a time. The trap is calling it scenario analysis, which changes several linked inputs together in a coherent story, such as recession or boom."
+    },
+    {
+      "id": "equity-028",
+      "topic": "equity",
+      "reading": "equity-7",
+      "los": "equity-7-c",
+      "kind": "exam",
+      "stem": "Sasha forecasts next year's revenue at 10% above this year's. Her model holds days sales outstanding constant at 45 days. What does the model imply for year-end accounts receivable?",
+      "options": [
+        "Receivables stay flat because the collection period is unchanged",
+        "Receivables rise about 10%, in line with sales",
+        "Receivables rise by less than 10% because collections improve with scale"
+      ],
+      "answer": 1,
+      "explanation": "Receivables = DSO × revenue ÷ 365, so constant days means receivables scale with sales. The trap is thinking constant days means a constant balance."
+    },
+    {
+      "id": "equity-029",
+      "topic": "equity",
+      "reading": "equity-8",
+      "los": "equity-8-b",
+      "kind": "calc",
+      "stem": "A stock has just paid a dividend of $2.00. Dividends are expected to grow 5% forever and the required return is 15%. By the Gordon growth model, what is the value now?",
+      "options": [
+        "$20",
+        "$14",
+        "$21"
+      ],
+      "answer": 2,
+      "explanation": "D1 = 2.00 × 1.05 = 2.10, and V0 = 2.10 ÷ (0.15 − 0.05) = $21. The trap is using D0 ($20), or dividing by r alone ($14)."
+    },
+    {
+      "id": "equity-030",
+      "topic": "equity",
+      "reading": "equity-8",
+      "los": "equity-8-e",
+      "kind": "calc",
+      "stem": "A firm has a 60% dividend payout ratio, a 12% required return and a constant 6% growth rate. What is its justified leading (forward) P/E?",
+      "options": [
+        "10.6",
+        "5.0",
+        "10.0"
+      ],
+      "answer": 2,
+      "explanation": "Leading P/E = payout ÷ (r − g) = 0.6 ÷ 0.06 = 10. The trap is dividing by r alone (5.0), or multiplying by 1.06, which gives the trailing P/E (10.6)."
+    },
+    {
+      "id": "equity-031",
+      "topic": "equity",
+      "reading": "equity-8",
+      "los": "equity-8-e",
+      "kind": "calc",
+      "stem": "A firm earns an ROE of 15% and pays out 40% of earnings as dividends. What sustainable growth rate follows?",
+      "options": [
+        "6%",
+        "9%",
+        "15%"
+      ],
+      "answer": 1,
+      "explanation": "Sustainable growth = retention rate × ROE = 0.60 × 15% = 9%. The trap is using the payout ratio instead of retention (6%)."
+    },
+    {
+      "id": "equity-032",
+      "topic": "equity",
+      "reading": "equity-8",
+      "los": "equity-8-b",
+      "kind": "memorise",
+      "stem": "Which condition must hold for the Gordon growth model to give a sensible value?",
+      "options": [
+        "Constant growth forever, with the growth rate below the required return",
+        "The growth rate must be above the required return, so value is positive",
+        "The firm must have started paying dividends this year"
+      ],
+      "answer": 0,
+      "explanation": "The model divides D1 by (r − g), so g must stay below r or the value is infinite or negative. The trap is reversing the inequality.",
+      "remember": "Gordon: V0 = D1 ÷ (r − g). Needs constant g forever and r > g."
+    },
+    {
+      "id": "equity-033",
+      "topic": "equity",
+      "reading": "equity-8",
+      "los": "equity-8-c",
+      "kind": "concept",
+      "stem": "Why is EV/EBITDA often preferred to P/E when comparing companies with very different debt levels?",
+      "options": [
+        "EBITDA is after interest and tax, which removes capital structure effects",
+        "EV excludes debt, which makes leveraged and unleveraged firms directly comparable",
+        "EV includes both debt and equity, and EBITDA is before interest, so capital structure distorts it less"
+      ],
+      "answer": 2,
+      "explanation": "EV and EBITDA both sit on the \"whole firm\" side, before debt service. P/E is after interest, so leverage distorts it. The trap is thinking EBITDA is net of interest."
+    },
+    {
+      "id": "equity-034",
+      "topic": "equity",
+      "reading": "equity-8",
+      "los": "equity-8-a",
+      "kind": "concept",
+      "stem": "A model gives an intrinsic value of $45 for a stock trading at $50, and the analyst calls it overvalued. What does that conclusion rest on?",
+      "options": [
+        "Her inputs and model being reliable, since the price may reflect information her estimate misses",
+        "Nothing more: any gap between price and intrinsic value proves the market is wrong",
+        "The stock's own historical average price, which sets the right benchmark"
+      ],
+      "answer": 0,
+      "explanation": "Intrinsic value is an estimate, so over- or undervaluation is only as good as the inputs and model. The trap is treating her estimate as fact and the market price as the error."
+    },
+    {
+      "id": "equity-035",
+      "topic": "equity",
+      "reading": "equity-8",
+      "los": "equity-8-d",
+      "kind": "exam",
+      "stem": "Marlow values a software company whose worth lies in its code, brand and customer relationships, with few tangible assets. A colleague suggests asset-based valuation using balance-sheet assets. What is the main weakness here?",
+      "options": [
+        "Asset-based valuation only works for firms in liquidation, never for going concerns",
+        "Balance-sheet assets are always reported above market value, so the estimate would be too high",
+        "Much of the value is intangible and not carried at fair value on the balance sheet, so the estimate would be too low"
+      ],
+      "answer": 2,
+      "explanation": "Asset-based valuation suits firms whose assets are tangible or liquid and measurable. The trap is assuming book assets capture value for every firm, including asset-light ones."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "equity-1",
+      "ideas": [
+        "Margin buying uses borrowed money to magnify both gains and losses on your own equity.",
+        "Market orders favour speed, limit orders favour price, and stop orders only activate once the stop price trades.",
+        "Dealers quote in quote-driven markets, rules match orders in order-driven ones, and issuers raise money only in primary markets."
+      ],
+      "formula": "Margin call price (long) = P0 × (1 − initial margin) ÷ (1 − maintenance margin)",
+      "trap": "Margin return is measured on your own equity, not the whole position, so a 25% stock gain at 2x leverage is a 50% return."
+    },
+    {
+      "reading": "equity-2",
+      "ideas": [
+        "Price-weighted indexes follow the sum of share prices, so high-priced stocks dominate whatever the company size.",
+        "Cap weighting adjusts itself as prices move, while equal and fundamental weighting need rebalancing and add turnover.",
+        "Reconstitution changes which securities are in the index, while rebalancing resets the weights of those already in."
+      ],
+      "formula": "Total return = price return + income return (dividends or interest)",
+      "trap": "The average of stock returns is the equal-weighted result, not the price-weighted one, because price weighting favours the high-priced stocks."
+    },
+    {
+      "reading": "equity-3",
+      "ideas": [
+        "In an efficient market prices reflect available information quickly, so only new information moves them.",
+        "Weak form covers past prices, semi-strong covers all public information, and strong adds private or insider information.",
+        "Many anomalies fade after costs, risk adjustment or publication, so they rarely give lasting profits."
+      ],
+      "trap": "Efficiency does not mean prices are always right; it means no consistent abnormal return from the information set in question."
+    },
+    {
+      "reading": "equity-4",
+      "ideas": [
+        "Common shares carry votes and residual claims, while preference shares usually pay fixed dividends with priority but few votes.",
+        "Cumulative preference shares carry unpaid dividends forward, participating ones share extra profit, and convertibles swap into common.",
+        "A firm creates value when ROE exceeds its cost of equity, and book value is historical while market value looks forward."
+      ],
+      "formula": "Book value of equity = total assets − total liabilities",
+      "trap": "Private equity describes the investor, not the target: a PIPE is private money placed into a company that is already listed."
+    },
+    {
+      "reading": "equity-5",
+      "ideas": [
+        "Break revenue growth into volume, price, product mix and geography to see what really drives it.",
+        "Compare margins and working capital days with peers, because a long cash conversion cycle ties up cash.",
+        "Capital spending and debt funding shape returns, and more leverage magnifies profits and losses alike."
+      ],
+      "formula": "Cash conversion cycle = days inventory + days receivable − days payable",
+      "trap": "Growth is not automatically good: check whether it came from price, volume, mix or acquisitions, and at what margin."
+    },
+    {
+      "reading": "equity-6",
+      "ideas": [
+        "Classifications group firms by main revenue source, so diversified firms are imperfect peers.",
+        "Porter's five forces are entrants, suppliers, buyers, substitutes and rivalry, and stronger forces mean lower industry profit.",
+        "A firm competes through cost leadership or differentiation, and its market share trend shows who is winning."
+      ],
+      "trap": "Industry growth is not company growth: rising sales in a faster-growing market can still mean a falling market share."
+    },
+    {
+      "reading": "equity-7",
+      "ideas": [
+        "Top-down forecasts start from the economy and industry, while bottom-up forecasts build from segments, units and prices.",
+        "Forecast working capital and capex from sales-linked drivers such as days outstanding, so the balance sheet stays consistent.",
+        "Use sensitivity analysis for one variable at a time and scenarios for several variables moving together."
+      ],
+      "trap": "Changing one input is sensitivity analysis; changing a coherent set of inputs together is scenario analysis."
+    },
+    {
+      "reading": "equity-8",
+      "ideas": [
+        "Intrinsic value above price suggests undervaluation, but only if your inputs and model are reliable.",
+        "Gordon growth values a stock as next year's dividend over required return minus growth, with growth below the return.",
+        "Justified forward P/E is payout ÷ (r − g), and sustainable growth equals retention rate × ROE."
+      ],
+      "formula": "V0 = D1 ÷ (r − g); justified P/E = payout ÷ (r − g); g = retention × ROE",
+      "trap": "Use next year's dividend D1 in the Gordon growth model, not the dividend just paid, or you will understate the value."
+    }
+  ]
+}

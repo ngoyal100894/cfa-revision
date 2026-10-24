@@ -1,0 +1,719 @@
+{
+  "topic": "fi",
+  "questions": [
+    {
+      "id": "fi-001",
+      "topic": "fi",
+      "reading": "fi-1",
+      "los": "fi-1-c",
+      "kind": "memorise",
+      "stem": "Which of the following is a negative covenant in a bond indenture?",
+      "options": [
+        "Requiring the issuer to pay taxes and make interest payments on time",
+        "Requiring the issuer to maintain insurance on pledged assets",
+        "Limiting the issuer's additional borrowing to a stated debt-to-EBITDA ratio"
+      ],
+      "answer": 2,
+      "explanation": "Negative covenants restrict what the issuer may do, such as capping extra debt. The trap is reading paying taxes or insuring assets as negative; those are affirmative, must-do promises.",
+      "remember": "Affirmative = what the issuer must do. Negative = what the issuer must not do."
+    },
+    {
+      "id": "fi-002",
+      "topic": "fi",
+      "reading": "fi-2",
+      "los": "fi-2-c",
+      "kind": "concept",
+      "stem": "Compared with an otherwise identical non-callable bond, a callable bond will typically offer:",
+      "options": [
+        "A lower yield, because the call option benefits the bondholder",
+        "A higher yield, because the issuer holds the option and investors need compensation",
+        "The same yield, since the call price is set at par"
+      ],
+      "answer": 1,
+      "explanation": "The issuer can refinance when rates fall, so investors demand extra yield for that option. The trap is giving the call to the bondholder: put and conversion options help investors, the call helps the issuer."
+    },
+    {
+      "id": "fi-003",
+      "topic": "fi",
+      "reading": "fi-2",
+      "los": "fi-2-a",
+      "kind": "concept",
+      "stem": "Compared with a bullet bond of the same maturity, a fully amortising bond:",
+      "options": [
+        "Has a longer average life, since early payments are mostly interest",
+        "Has less credit exposure over time and a shorter average life, since principal is repaid gradually",
+        "Leaves a large final payment, so repayment risk is concentrated at maturity"
+      ],
+      "answer": 1,
+      "explanation": "Amortising payments return principal along the way, so the balance and the exposure shrink. The trap is the lump-sum final payment, which belongs to a bullet bond."
+    },
+    {
+      "id": "fi-004",
+      "topic": "fi",
+      "reading": "fi-3",
+      "los": "fi-3-b",
+      "kind": "memorise",
+      "stem": "What is the lowest rating that still counts as investment grade?",
+      "options": [
+        "BB+ (S&P/Fitch) or Ba1 (Moody's)",
+        "BBB+ (S&P/Fitch) or Baa1 (Moody's)",
+        "BBB− (S&P/Fitch) or Baa3 (Moody's)"
+      ],
+      "answer": 2,
+      "explanation": "Investment grade runs down to BBB−/Baa3. The trap is BB+/Ba1, which is the top of high yield, or stopping at BBB+/Baa1, which is investment grade but not the lowest.",
+      "remember": "Investment grade = Baa3/BBB− or higher. Ba1/BB+ and below is high yield."
+    },
+    {
+      "id": "fi-005",
+      "topic": "fi",
+      "reading": "fi-4",
+      "los": "fi-4-b",
+      "kind": "exam",
+      "stem": "Rexford Securities sells $10m of bonds and agrees to buy them back tomorrow at a slightly higher price, receiving $9.5m today. Which statement is correct?",
+      "options": [
+        "Rexford is lending cash, and the haircut protects Rexford",
+        "The higher repurchase price is a capital gain unrelated to the cost of borrowing",
+        "It is collateralised borrowing, and the 5% haircut protects the cash lender if the collateral falls in value"
+      ],
+      "answer": 2,
+      "explanation": "A repo is a sale with a repurchase promise: the extra price is interest (the repo rate). The haircut is (10 − 9.5) ÷ 10 = 5%. The trap is thinking the haircut protects the borrower."
+    },
+    {
+      "id": "fi-006",
+      "topic": "fi",
+      "reading": "fi-5",
+      "los": "fi-5-d",
+      "kind": "concept",
+      "stem": "An on-the-run government bond usually trades at a lower yield than a similar off-the-run bond. What best explains this?",
+      "options": [
+        "It has a shorter maturity, so investors demand less term premium",
+        "Higher liquidity, because it is the newest benchmark issue and trades most actively",
+        "Off-the-run bonds carry higher default risk because they were issued earlier"
+      ],
+      "answer": 1,
+      "explanation": "On-the-run issues carry a liquidity premium in price, so they yield less. The trap is blaming credit: both bonds are obligations of the same government."
+    },
+    {
+      "id": "fi-007",
+      "topic": "fi",
+      "reading": "fi-6",
+      "los": "fi-6-b",
+      "kind": "concept",
+      "stem": "Two bonds have the same maturity and yield but different coupons. If yields rise by 1%, which falls more in percentage terms?",
+      "options": [
+        "The higher-coupon bond",
+        "The lower-coupon bond",
+        "Both fall by the same percentage because maturity is equal"
+      ],
+      "answer": 1,
+      "explanation": "A lower coupon puts more of the value in the distant principal, so price is more sensitive to yield. The trap is thinking maturity alone sets sensitivity."
+    },
+    {
+      "id": "fi-008",
+      "topic": "fi",
+      "reading": "fi-6",
+      "los": "fi-6-d",
+      "kind": "calc",
+      "stem": "A 6% annual-coupon bond pays 3 per 100 par every six months. It is 60 days into a 180-day coupon period, and the flat price is 98. What is the full price?",
+      "options": [
+        "99",
+        "98",
+        "101"
+      ],
+      "answer": 0,
+      "explanation": "Accrued interest = 3 × 60 ÷ 180 = 1, so full price = 98 + 1 = 99. The trap is paying the quoted flat price (98), or adding a whole coupon (101)."
+    },
+    {
+      "id": "fi-009",
+      "topic": "fi",
+      "reading": "fi-6",
+      "los": "fi-6-e",
+      "kind": "exam",
+      "stem": "Meera must value a thinly traded 7-year A-rated corporate bond that has no recent quotes. Liquid A-rated bonds from other issuers trade at 5-year and 10-year maturities. How should she estimate the price?",
+      "options": [
+        "Discount the cash flows at the bond's own coupon rate, since no trades exist",
+        "Interpolate the yields of comparable bonds of similar credit quality, then discount the cash flows at that yield",
+        "Use the 7-year government yield, because it is the only quoted rate at that maturity"
+      ],
+      "answer": 1,
+      "explanation": "This is matrix pricing: borrow yields from liquid comparables of similar credit quality and discount the cash flows. The trap is ignoring the credit spread, as the government yield or coupon rate does."
+    },
+    {
+      "id": "fi-010",
+      "topic": "fi",
+      "reading": "fi-7",
+      "los": "fi-7-b",
+      "kind": "calc",
+      "stem": "A bond with a 4% annual coupon on 100 par is priced at 80. What is its current yield?",
+      "options": [
+        "4.0%",
+        "3.2%",
+        "5.0%"
+      ],
+      "answer": 2,
+      "explanation": "Current yield = annual coupon ÷ price = 4 ÷ 80 = 5%. The trap is quoting the 4% coupon rate, which is based on par. Note that current yield ignores the pull-to-par gain."
+    },
+    {
+      "id": "fi-011",
+      "topic": "fi",
+      "reading": "fi-7",
+      "los": "fi-7-d",
+      "kind": "memorise",
+      "stem": "What does a Z-spread measure?",
+      "options": [
+        "The constant spread added to every spot rate on the benchmark curve so discounted cash flows equal the price",
+        "The yield difference between the bond and a government bond of similar maturity",
+        "The bond's yield spread over the interpolated swap rate at the same maturity"
+      ],
+      "answer": 0,
+      "explanation": "The Z-spread uses the whole spot curve, not one yield. The trap is the G-spread (a single government yield) or I-spread (a single swap rate).",
+      "remember": "G-spread: vs govt yield. I-spread: vs swap rate. Z-spread: flat add-on to spot curve. OAS: Z-spread minus option value."
+    },
+    {
+      "id": "fi-012",
+      "topic": "fi",
+      "reading": "fi-8",
+      "los": "fi-8-b",
+      "kind": "exam",
+      "stem": "Calder Ltd has a floating-rate note paying the reference rate plus 0.60%. After a downgrade, investors demand the reference rate plus 0.90% for similar risk. Where should the note trade relative to par?",
+      "options": [
+        "Below par, because its quoted margin is less than the required margin",
+        "At par, because the coupon resets to the reference rate each period",
+        "Above par, because the quoted margin is positive"
+      ],
+      "answer": 0,
+      "explanation": "The reset removes rate risk, but the margin is fixed, so a higher required margin lowers the price. The trap is assuming FRNs always sit at par regardless of credit."
+    },
+    {
+      "id": "fi-013",
+      "topic": "fi",
+      "reading": "fi-8",
+      "los": "fi-8-c",
+      "kind": "calc",
+      "stem": "A 90-day bill with 100 face value is priced at 99. Using a 360-day year, what is its discount yield?",
+      "options": [
+        "4.04%",
+        "4.00%",
+        "1.00%"
+      ],
+      "answer": 1,
+      "explanation": "Discount yield = (100 − 99) ÷ 100 × 360 ÷ 90 = 4.00%. The trap is 4.04%, the add-on yield, which divides by price. Also 1.00% is the unannualised return."
+    },
+    {
+      "id": "fi-014",
+      "topic": "fi",
+      "reading": "fi-9",
+      "los": "fi-9-b",
+      "kind": "calc",
+      "stem": "The 1-year spot rate is 4% and the 2-year spot rate is 5%. Which is closest to the 1-year forward rate one year from now?",
+      "options": [
+        "6.0%",
+        "5.0%",
+        "4.5%"
+      ],
+      "answer": 0,
+      "explanation": "Forward = 1.05² ÷ 1.04 − 1 ≈ 6.0%. With an upward-sloping curve the forward sits above the longer spot. The trap is averaging the spots (4.5%) or reusing the 2-year spot (5%)."
+    },
+    {
+      "id": "fi-015",
+      "topic": "fi",
+      "reading": "fi-9",
+      "los": "fi-9-d",
+      "kind": "concept",
+      "stem": "An inverted yield curve, with short-term yields above long-term yields, is most often read as a sign that:",
+      "options": [
+        "Inflation is expected to rise sharply",
+        "Markets expect short-term rates to fall, often in a slowdown",
+        "Investors want more compensation for holding long bonds"
+      ],
+      "answer": 1,
+      "explanation": "Long yields below short yields point to expected rate cuts, which often accompany weaker growth. The trap is confusing it with a steep curve, where long-term compensation or inflation is rising."
+    },
+    {
+      "id": "fi-016",
+      "topic": "fi",
+      "reading": "fi-9",
+      "los": "fi-9-c",
+      "kind": "exam",
+      "stem": "Lena prices a 2-year annual-coupon bond using today's 1-year rate of 4% and the 1-year forward rate one year from now of 6%. Which discount factor applies to the year-2 cash flow?",
+      "options": [
+        "1 ÷ (1.04 × 1.06)",
+        "1 ÷ 1.04²",
+        "1 ÷ 1.06²"
+      ],
+      "answer": 0,
+      "explanation": "Forward rates chain: money is discounted at 4% for year one, then 6% for year two. The trap is applying the forward rate (or today's rate) alone for both years."
+    },
+    {
+      "id": "fi-017",
+      "topic": "fi",
+      "reading": "fi-10",
+      "los": "fi-10-b",
+      "kind": "concept",
+      "stem": "An investor buys a bond planning to hold it longer than its Macaulay duration. Yields then rise immediately by 1%. Compared with the original yield, her realised return will most likely be:",
+      "options": [
+        "Lower, because the price decline outweighs reinvestment income",
+        "Higher, because reinvestment income outweighs the price decline",
+        "Unchanged, because the two effects exactly offset"
+      ],
+      "answer": 1,
+      "explanation": "When the horizon exceeds Macaulay duration, reinvestment risk dominates, so a rate rise helps. The effects offset only when horizon equals Macaulay duration. The trap is assuming a rate rise always hurts."
+    },
+    {
+      "id": "fi-018",
+      "topic": "fi",
+      "reading": "fi-10",
+      "los": "fi-10-d",
+      "kind": "memorise",
+      "stem": "How is the duration gap defined?",
+      "options": [
+        "Modified duration minus Macaulay duration",
+        "Investment horizon minus modified duration",
+        "Macaulay duration minus the investment horizon"
+      ],
+      "answer": 2,
+      "explanation": "The gap compares Macaulay duration with the holding period. Near zero, price and reinvestment risk roughly offset. The trap is using modified duration, which measures price sensitivity, not time.",
+      "remember": "Duration gap = Macaulay duration − investment horizon. Near zero: price and reinvestment risks offset."
+    },
+    {
+      "id": "fi-019",
+      "topic": "fi",
+      "reading": "fi-11",
+      "los": "fi-11-d",
+      "kind": "calc",
+      "stem": "A bond has a modified duration of 5. Its yield rises by 50 bps. What is the approximate percentage price change?",
+      "options": [
+        "-2.5%",
+        "+2.5%",
+        "-5.0%"
+      ],
+      "answer": 0,
+      "explanation": "% change ≈ −ModDur × Δy = −5 × 0.5% = −2.5%. The trap is the sign (price falls when yield rises), or treating 50 bps as 1%, which gives −5.0%."
+    },
+    {
+      "id": "fi-020",
+      "topic": "fi",
+      "reading": "fi-11",
+      "los": "fi-11-b",
+      "kind": "calc",
+      "stem": "A $200,000 position has a modified duration of 6. About how much does its value change for a 1 bp move in yield (PVBP)?",
+      "options": [
+        "$1,200",
+        "$120",
+        "$12"
+      ],
+      "answer": 1,
+      "explanation": "PVBP = ModDur × value × 0.0001 = 6 × 200,000 × 0.0001 = $120. The trap is using a 1% move instead of 1 bp, which gives $1,200."
+    },
+    {
+      "id": "fi-021",
+      "topic": "fi",
+      "reading": "fi-11",
+      "los": "fi-11-c",
+      "kind": "concept",
+      "stem": "Which bond has the highest Macaulay duration?",
+      "options": [
+        "A 20-year zero-coupon bond",
+        "A 20-year bond with an 8% annual coupon",
+        "A 15-year zero-coupon bond"
+      ],
+      "answer": 0,
+      "explanation": "A zero pays everything at maturity, so its duration equals its maturity (20). Coupons pull the average timing of cash flows earlier. The trap is picking the coupon bond because of its higher cash payments."
+    },
+    {
+      "id": "fi-022",
+      "topic": "fi",
+      "reading": "fi-12",
+      "los": "fi-12-b",
+      "kind": "calc",
+      "stem": "A bond has a modified duration of 8 and a convexity of 100. Yields rise 100 bps. Using duration plus convexity, what is the approximate price change?",
+      "options": [
+        "-8.5%",
+        "-8.0%",
+        "-7.5%"
+      ],
+      "answer": 2,
+      "explanation": "Duration effect = −8 × 1% = −8%. Convexity adds ½ × 100 × 0.01² = +0.5%, so about −7.5%. The trap is subtracting the convexity term; it helps in both directions."
+    },
+    {
+      "id": "fi-023",
+      "topic": "fi",
+      "reading": "fi-12",
+      "los": "fi-12-c",
+      "kind": "concept",
+      "stem": "Two bonds have the same duration and yield, but bond X has higher convexity. After a large yield move in either direction, bond X will perform:",
+      "options": [
+        "Better only when yields fall; it loses more when yields rise",
+        "The same, since duration determines the price change",
+        "Better than Y: it gains more when yields fall and loses less when they rise"
+      ],
+      "answer": 2,
+      "explanation": "Convexity is the curvature that duration misses, and more of it helps whichever way yields move. The trap is believing duration alone sets price change for large moves."
+    },
+    {
+      "id": "fi-024",
+      "topic": "fi",
+      "reading": "fi-13",
+      "los": "fi-13-a",
+      "kind": "concept",
+      "stem": "Why is effective duration preferred to modified duration for a callable bond?",
+      "options": [
+        "Its cash flows change with yields because the call may be exercised, which yield-based measures ignore",
+        "It measures sensitivity to credit spread rather than benchmark yield changes",
+        "Modified duration cannot be calculated for bonds with coupons above 5%"
+      ],
+      "answer": 0,
+      "explanation": "Yield-based measures assume fixed cash flows. Effective duration reprices the bond under curve shifts, so it captures option effects. The trap is thinking the issue is calculation, when it is the changing cash flows."
+    },
+    {
+      "id": "fi-025",
+      "topic": "fi",
+      "reading": "fi-14",
+      "los": "fi-14-a",
+      "kind": "calc",
+      "stem": "A bond has a 2% probability of default and an expected recovery of 40% of par if it defaults. What is the expected loss as a percentage of par?",
+      "options": [
+        "0.8%",
+        "1.2%",
+        "2.0%"
+      ],
+      "answer": 1,
+      "explanation": "Loss given default = 1 − 0.40 = 60%, so expected loss = 2% × 60% = 1.2%. The trap is multiplying by the recovery rate (0.8%) or ignoring recovery (2.0%)."
+    },
+    {
+      "id": "fi-026",
+      "topic": "fi",
+      "reading": "fi-14",
+      "los": "fi-14-c",
+      "kind": "calc",
+      "stem": "A bond has a modified duration of 7. Its credit spread widens by 20 bps and the benchmark yield is unchanged. What is the approximate price change?",
+      "options": [
+        "-1.4%",
+        "+1.4%",
+        "-0.14%"
+      ],
+      "answer": 0,
+      "explanation": "% change ≈ −ModDur × Δspread = −7 × 0.20% = −1.4%. Wider spreads cut prices. The trap is a decimal slip: 20 bps is 0.20%, not 0.02%."
+    },
+    {
+      "id": "fi-027",
+      "topic": "fi",
+      "reading": "fi-15",
+      "los": "fi-15-c",
+      "kind": "concept",
+      "stem": "Why is a government's default risk usually lower on its local-currency debt than on its foreign-currency debt?",
+      "options": [
+        "It can tax and, if needed, create local currency, but it cannot print foreign currency",
+        "Local-currency debt always ranks senior to foreign-currency debt in default",
+        "Local-currency bonds are guaranteed by the central bank's gold reserves"
+      ],
+      "answer": 0,
+      "explanation": "A sovereign controls its own currency supply, so it can meet local obligations, at the cost of possible inflation. The trap is believing local debt is risk-free or legally senior."
+    },
+    {
+      "id": "fi-028",
+      "topic": "fi",
+      "reading": "fi-16",
+      "los": "fi-16-c",
+      "kind": "exam",
+      "stem": "Altair Holdings is a parent with no operations of its own, and its bonds are unsecured. Its operating subsidiary has bank loans secured on its factories. If the subsidiary fails, what is likely for Altair's bondholders?",
+      "options": [
+        "They rank equally with the subsidiary's bank lenders because both lend to the same group",
+        "They are structurally subordinated: the subsidiary's creditors are paid from its assets first, so recovery is likely lower",
+        "They are senior, since the parent owns the subsidiary's assets"
+      ],
+      "answer": 1,
+      "explanation": "Parent bondholders have a claim only on what is left after subsidiary creditors are paid. The trap is treating the group as one pool; this gap is why issuer and issue ratings can differ."
+    },
+    {
+      "id": "fi-029",
+      "topic": "fi",
+      "reading": "fi-16",
+      "los": "fi-16-d",
+      "kind": "memorise",
+      "stem": "Which ordering of expected recovery, highest to lowest, is the usual pattern?",
+      "options": [
+        "Senior unsecured, senior secured, subordinated",
+        "Subordinated, senior unsecured, senior secured",
+        "Senior secured, senior unsecured, subordinated"
+      ],
+      "answer": 2,
+      "explanation": "Collateral and seniority both lift recovery, so secured senior debt recovers most. The trap is swapping secured and unsecured; security beats an unsecured claim of equal rank.",
+      "remember": "Recovery: senior secured > senior unsecured > subordinated. Lower rank = lower recovery."
+    },
+    {
+      "id": "fi-030",
+      "topic": "fi",
+      "reading": "fi-17",
+      "los": "fi-17-b",
+      "kind": "concept",
+      "stem": "What is the main purpose of transferring loans into a special purpose entity (SPE) in a securitisation?",
+      "options": [
+        "To let the originator keep the credit risk on its own balance sheet",
+        "To avoid paying interest to investors until the loans mature",
+        "To legally isolate the assets so they are protected from the originator's bankruptcy"
+      ],
+      "answer": 2,
+      "explanation": "A true-sale transfer makes the SPE bankruptcy-remote, so investors rely on the pool, not the originator's credit. The trap is thinking the risk stays with the originator."
+    },
+    {
+      "id": "fi-031",
+      "topic": "fi",
+      "reading": "fi-17",
+      "los": "fi-17-c",
+      "kind": "exam",
+      "stem": "Sundar buys the senior tranche of a securitisation that also has a mezzanine tranche and a 5% equity tranche. Defaults cause a 3% loss of the pool's principal. How is that loss allocated?",
+      "options": [
+        "All tranches share the loss pro rata to their size",
+        "The equity tranche absorbs it first, because losses are allocated from the bottom of the structure up",
+        "The senior tranche takes it first, since it holds the most principal"
+      ],
+      "answer": 1,
+      "explanation": "Subordination means junior tranches absorb losses before senior ones, so Sundar is untouched until equity and mezzanine are wiped out. The trap is pro rata sharing."
+    },
+    {
+      "id": "fi-032",
+      "topic": "fi",
+      "reading": "fi-18",
+      "los": "fi-18-c",
+      "kind": "memorise",
+      "stem": "In a credit card ABS, what happens to principal collected on receivables during the lockout period?",
+      "options": [
+        "It is reinvested in new receivables, so bondholders' principal is not yet repaid",
+        "It is paid to bondholders, so the bonds amortise from day one",
+        "It is held in cash until the lockout period ends"
+      ],
+      "answer": 0,
+      "explanation": "Card balances are non-amortising and revolving, so collections buy new receivables during lockout. The trap is applying auto-loan logic, where principal amortises through the life.",
+      "remember": "Credit card ABS: pool does not amortise. During lockout, principal collections buy new receivables."
+    },
+    {
+      "id": "fi-033",
+      "topic": "fi",
+      "reading": "fi-19",
+      "los": "fi-19-b",
+      "kind": "memorise",
+      "stem": "Under 100 PSA, the assumed conditional prepayment rate (CPR) is:",
+      "options": [
+        "6% from the first month onward",
+        "0.2% a year for the first year, rising to 6% over 30 years",
+        "0.2% in month 1, rising 0.2% each month to 6% at month 30, then flat"
+      ],
+      "answer": 2,
+      "explanation": "The PSA benchmark ramps CPR up for 30 months, then holds it at 6%. Faster or slower speeds are multiples, such as 200 PSA. The trap is a flat 6% from day one.",
+      "remember": "100 PSA: CPR 0.2% in month 1, +0.2% a month to 6% at month 30, then 6%."
+    },
+    {
+      "id": "fi-034",
+      "topic": "fi",
+      "reading": "fi-19",
+      "los": "fi-19-c",
+      "kind": "exam",
+      "stem": "Nadia holds the PAC tranche and Tom holds the support tranche of the same CMO. Prepayment speeds stay inside the PSA band that defines the PAC. Which statement is correct?",
+      "options": [
+        "Nadia's cash flows stay close to the schedule, while Tom's absorb the variation",
+        "Both tranches' cash flows fluctuate equally with prepayments",
+        "Nadia's tranche absorbs the prepayment variation, which is why it carries less risk"
+      ],
+      "answer": 0,
+      "explanation": "The support tranche takes the surplus or shortfall of principal, protecting the PAC from contraction and extension within its band. The trap is reversing the roles."
+    },
+    {
+      "id": "fi-035",
+      "topic": "fi",
+      "reading": "fi-19",
+      "los": "fi-19-d",
+      "kind": "concept",
+      "stem": "Why is call protection for CMBS typically stronger than for a residential pass-through?",
+      "options": [
+        "CMBS loans are fully amortising, so no balloon payment is due",
+        "CMBS loans are made with recourse to the borrower's personal assets",
+        "Commercial loans often carry lockouts, defeasance or prepayment penalties at the loan level"
+      ],
+      "answer": 2,
+      "explanation": "Commercial mortgages usually restrict prepayment through lockout, defeasance or yield maintenance. The trap is the other two points: CMBS loans are typically non-recourse and often balloon."
+    }
+  ],
+  "recaps": [
+    {
+      "reading": "fi-1",
+      "ideas": [
+        "A bond's basic features are issuer, maturity, par value, coupon rate and frequency, and currency of payment.",
+        "The indenture is the legal contract, a trustee enforces it for bondholders, and repayment comes from cash flow or asset sales.",
+        "Covenants protect creditors, and seniority and collateral decide who is paid first if the issuer defaults."
+      ],
+      "trap": "Affirmative means must-do and negative means must-not-do; \"negative\" does not mean bad for investors."
+    },
+    {
+      "reading": "fi-2",
+      "ideas": [
+        "Bullet bonds repay all principal at maturity, while amortising and sinking fund bonds repay it gradually and lower credit risk.",
+        "Floating, step-up, deferred and index-linked coupons change how and when interest is paid or reset.",
+        "A call option benefits the issuer, while put and conversion options benefit the bondholder and cost the issuer."
+      ],
+      "trap": "Callable bonds must yield more than straight bonds, while putable and convertible bonds accept a lower yield."
+    },
+    {
+      "reading": "fi-3",
+      "ideas": [
+        "Bond markets are classified by issuer type, credit quality, maturity and currency, with domestic, foreign and Eurobond segments.",
+        "Investment grade is BBB−/Baa3 or higher, and BB+/Ba1 or lower is high yield; rating agencies assess default risk.",
+        "Primary issuance can be underwritten, best efforts, auctioned or privately placed, and dealers give secondary-market liquidity."
+      ],
+      "trap": "In an underwritten deal the bank carries the risk of unsold bonds; in best efforts it does not, and it only tries to sell."
+    },
+    {
+      "reading": "fi-4",
+      "ideas": [
+        "Short-term funding includes bank lines, commercial paper, repos and deposits; long-term funding includes notes, bonds and syndicated loans.",
+        "A repo is collateralised borrowing: sell securities now, repurchase later at a higher price, and the difference is the repo rate.",
+        "Large, highly rated firms can use bonds and commercial paper, while smaller or weaker firms rely more on bank loans."
+      ],
+      "trap": "A bigger haircut means safer lending for the cash lender: the cash lent is below the collateral value, not equal to it."
+    },
+    {
+      "reading": "fi-5",
+      "ideas": [
+        "Sovereign debt is issued by national governments, with non-sovereign, quasi-government and supranational issuers as separate groups.",
+        "Governments mostly sell bonds by auction, with primary dealers bidding and then distributing the securities to investors.",
+        "On-the-run issues are the newest and most liquid, so they trade at higher prices (lower yields) than off-the-run issues."
+      ],
+      "trap": "Supranationals such as the World Bank are owned by several countries, while quasi-government agencies are created by one government."
+    },
+    {
+      "reading": "fi-6",
+      "ideas": [
+        "Price is the present value of a bond's cash flows discounted at its yield, so price and yield move in opposite directions.",
+        "Lower coupons and longer maturities raise price sensitivity, and a discount bond pulls up to par as maturity nears.",
+        "Full price is flat price plus accrued interest, and matrix pricing estimates yields for thinly traded bonds from comparables."
+      ],
+      "formula": "Full price = flat price + accrued interest; accrued = coupon × days since last coupon ÷ days in period",
+      "trap": "Quoted bond prices are flat, so the cash paid at settlement is the full price including accrued interest."
+    },
+    {
+      "reading": "fi-7",
+      "ideas": [
+        "Current yield is annual coupon ÷ price; it ignores the pull-to-par gain, so it differs from yield to maturity.",
+        "Yield to worst is the lowest of the yields to each call date and to maturity, and premium callable bonds are likely to be called.",
+        "G-spread is over governments, I-spread over swaps, Z-spread over the whole spot curve, and OAS strips out option value."
+      ],
+      "formula": "Current yield = annual coupon ÷ price",
+      "trap": "Yields quoted with different periodicities are not comparable until converted to the same compounding basis."
+    },
+    {
+      "reading": "fi-8",
+      "ideas": [
+        "A floating-rate note resets its coupon to a reference rate plus a margin, so its price stays near par between resets.",
+        "If the quoted margin differs from the required margin, the FRN trades above or below par, as credit quality changes.",
+        "Money market instruments are quoted as discount or add-on yields, so convert to a bond-equivalent basis before comparing."
+      ],
+      "formula": "Discount yield = (face − price) ÷ face × 360 ÷ days; add-on yield = (face − price) ÷ price × 360 ÷ days",
+      "trap": "Discount yield divides by face value and add-on yield by price, so the discount yield always understates the true return."
+    },
+    {
+      "reading": "fi-9",
+      "ideas": [
+        "Spot rates are zero-coupon yields, par rates are coupon yields at par, and forward rates are agreed today for future periods.",
+        "A forward rate comes from chaining spot rates, so a 2-year spot is the geometric average of the 1-year rate and the forward rate.",
+        "Normal curves slope up, inverted curves slope down and often precede slowdowns, and flat curves signal a transition."
+      ],
+      "formula": "(1 + s2)² = (1 + s1) × (1 + f1,1)",
+      "trap": "A forward rate is not a forecast that is guaranteed to come true; it is the breakeven rate implied by today's spot curve."
+    },
+    {
+      "reading": "fi-10",
+      "ideas": [
+        "Total return comes from coupons, reinvestment income on those coupons, and the price at the sale date or at maturity.",
+        "Rising yields cut price but raise reinvestment income, so price risk and reinvestment risk work against each other.",
+        "When the horizon equals Macaulay duration the two effects roughly offset, so the duration gap is near zero."
+      ],
+      "formula": "Duration gap = Macaulay duration − investment horizon",
+      "trap": "Horizon longer than Macaulay duration means reinvestment risk dominates; shorter means price risk dominates."
+    },
+    {
+      "reading": "fi-11",
+      "ideas": [
+        "Macaulay duration is the weighted average time to receive cash flows, and modified duration converts it into price sensitivity.",
+        "Duration rises with longer maturity and lower coupon and falls as yield rises, and zero-coupon bonds have the highest.",
+        "Money duration and PVBP turn duration into currency terms: the change in value for a one-basis-point yield move."
+      ],
+      "formula": "ModDur = MacDur ÷ (1 + y/m); %ΔP ≈ −ModDur × Δy; PVBP = ModDur × value × 0.0001",
+      "trap": "Convert yield changes carefully: 50 bps is 0.5%, so a duration of 5 gives a 2.5% move, not 5%."
+    },
+    {
+      "reading": "fi-12",
+      "ideas": [
+        "Convexity captures the curvature that duration misses, and its adjustment is positive for both yield rises and falls.",
+        "At equal duration, the higher-convexity bond gains more when yields fall and loses less when they rise.",
+        "Portfolio duration is the market-value-weighted average of bond durations, but it assumes parallel yield shifts."
+      ],
+      "formula": "%ΔP ≈ −ModDur × Δy + ½ × Convexity × Δy²",
+      "trap": "Do not subtract the convexity term when yields rise: it always adds to the duration-only estimate."
+    },
+    {
+      "reading": "fi-13",
+      "ideas": [
+        "Effective duration reprices the bond under curve shifts, so it handles bonds whose cash flows change with yields.",
+        "Key rate durations measure sensitivity to individual maturities, so they capture non-parallel yield curve moves.",
+        "A callable bond shows negative convexity as yields fall, while a putable bond's price is cushioned by the put."
+      ],
+      "trap": "Yield-based duration assumes fixed cash flows, so using it on a callable bond overstates the price gain when yields fall."
+    },
+    {
+      "reading": "fi-14",
+      "ideas": [
+        "Credit risk has two parts, probability of default and loss given default, and their product is the expected loss.",
+        "Credit spreads widen in downturns and when liquidity is poor, as investors seek more pay for default and liquidity risk.",
+        "A spread move changes price by about −ModDur × Δspread, and downgrades (migration) widen spreads and cut prices."
+      ],
+      "formula": "Expected loss = PD × LGD; LGD = 1 − recovery rate; %ΔP ≈ −ModDur × Δspread",
+      "trap": "Loss given default is 1 minus the recovery rate; using the recovery rate itself in expected loss is the classic slip."
+    },
+    {
+      "reading": "fi-15",
+      "ideas": [
+        "Sovereign analysis combines qualitative factors, such as institutions, politics and policy credibility, with quantitative ones.",
+        "Debt-to-GDP, growth, the fiscal balance and the external position (reserves, current account) are the key numbers.",
+        "Local-currency debt is safer than foreign-currency debt, since a government can tax and create its own currency, not foreign currency."
+      ],
+      "trap": "Non-sovereign issuers such as cities cannot print money, so analysis focuses on tax base, budget and support from higher government."
+    },
+    {
+      "reading": "fi-16",
+      "ideas": [
+        "Qualitative corporate credit analysis looks at business model, industry structure, competitive position and governance.",
+        "Key ratios are leverage (debt ÷ EBITDA) and coverage (EBITDA ÷ interest); higher leverage and lower coverage mean more risk.",
+        "Seniority and security drive recovery: senior secured debt recovers the most and subordinated debt the least."
+      ],
+      "formula": "Leverage = debt ÷ EBITDA; coverage = EBITDA ÷ interest expense",
+      "trap": "A parent's bonds are structurally subordinated to its subsidiaries' debt, so issuer and issue ratings can differ by notches."
+    },
+    {
+      "reading": "fi-17",
+      "ideas": [
+        "Securitisation pools loans into a special purpose entity and sells tradable securities, spreading credit risk beyond the originator.",
+        "The SPE is bankruptcy-remote, so investors depend on the pool's cash flows, not on the originator's credit.",
+        "Tranching and credit enhancement allocate losses from the equity tranche upward, protecting senior tranches first."
+      ],
+      "trap": "Covered bonds stay on the issuer's balance sheet with dual recourse, while securitised assets are sold to an SPE."
+    },
+    {
+      "reading": "fi-18",
+      "ideas": [
+        "Covered bonds are issuer obligations backed by a cover pool, with dual recourse, while ABS rely only on the pool.",
+        "Auto loan ABS collateral amortises, whereas credit card ABS pools do not and use a lockout period before principal is repaid.",
+        "CDOs repackage debt and CLOs hold leveraged loans, with a manager who actively buys and sells the collateral."
+      ],
+      "trap": "In a credit card ABS lockout, principal collections are reinvested in new receivables, not paid to investors, until amortisation starts."
+    },
+    {
+      "reading": "fi-19",
+      "ideas": [
+        "Residential mortgages amortise, differ in LTV and recourse, and can be prepaid, which makes their cash flows uncertain.",
+        "Falling rates speed prepayments (contraction risk) and rising rates slow them (extension risk); 100 PSA is the benchmark pace.",
+        "CMOs redistribute prepayment risk across tranches such as PAC and support, while CMBS loans use lockouts and carry balloon risk."
+      ],
+      "trap": "Contraction risk hits when rates fall and prepayments rise, and extension risk when rates rise; do not swap them."
+    }
+  ]
+}
