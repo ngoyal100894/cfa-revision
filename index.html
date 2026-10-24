@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="CFA Revision">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)">
+<title>CFA Revision</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app" class="app">
+  <div id="banner" class="banner" role="status" hidden></div>
+  <main id="screen" class="screen" aria-live="polite"></main>
+  <div id="toast" class="toast" role="status" hidden></div>
+</div>
+<div id="modal-root"></div>
+<noscript><p style="padding:24px;font:17px system-ui">This app needs JavaScript to run.</p></noscript>
+<script src="scheduler.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
