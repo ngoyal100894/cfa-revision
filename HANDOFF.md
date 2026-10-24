@@ -1,6 +1,6 @@
 # HANDOFF
 
-Live link (deployed 24 Oct 2026, verified: 300 questions, 93 recaps load): **https://ngoyal100894.github.io/cfa-revision/**
+Live link (deployed 24 Oct 2026; v1.2 with 353 questions and UI polish verified live): **https://ngoyal100894.github.io/cfa-revision/**
 
 ## What was built
 This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026. It is designed for about 15 minutes a day while she finishes reading the books.
