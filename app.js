@@ -9,6 +9,12 @@
   var NAMES = { daily: "Today's 15", recap: 'Recap', calc: 'Quick-calc', remember: 'Must-remember', weak: 'Weak spots', exam: 'Exam practice', sheet: 'Formula sheet' };
   var LETTERS = ['A', 'B', 'C', 'D'];
   var PACE_SECONDS = 90;   // exam practice pace bar (visual only)
+  // Momentum: XP, levels and a daily goal. Rewards practice, not just being right, so effort always counts.
+  var GOAL = 25;           // questions a day: one Today's 15 plus a couple of short rounds
+  var XP = { right: 10, wrong: 4, finish: 20, recap: 5 };
+  var LUCKY_CHANCE = 0.12; // occasional 2x on a right answer (variable reward)
+  var MILESTONES = [25, 50, 100, 200, 300, 500, 750, 1000, 1500];
+  var LEVELS = ['Starter', 'Reader', 'Reviser', 'Analyst', 'Associate', 'Senior Analyst', 'Portfolio Manager', 'Head of Research', 'CIO', 'Exam-ready'];
 
   /* =====================================================================
      Helpers
@@ -65,6 +71,20 @@
     });
   }
 
+  // "Keep going?" sheet. Resolves true only if she chooses to leave.
+  function stayDialog(title, body, stayLabel, leaveLabel) {
+    return new Promise(function (resolve) {
+      var root = el('modal-root');
+      function close(v) { root.innerHTML = ''; resolve(v); }
+      var stay = h('button', { class: 'btn btn-primary', text: stayLabel, onclick: function () { close(false); } });
+      var leave = h('button', { class: 'btn btn-quiet', text: leaveLabel, onclick: function () { close(true); } });
+      var dlg = h('div', { class: 'dialog', role: 'alertdialog', 'aria-modal': 'true' },
+        h('h2', { text: title }), body ? h('p', { text: body }) : null, h('div', { class: 'btn-row stay-row' }, stay, leave));
+      var scrim = h('div', { class: 'scrim', onclick: function (e) { if (e.target === scrim) close(false); } }, dlg);
+      root.innerHTML = ''; root.appendChild(scrim); stay.focus();
+    });
+  }
+
   /* =====================================================================
      Store: the one place that touches localStorage
      ===================================================================== */
@@ -84,7 +104,16 @@
     out.onboarded = !!s.onboarded;
     out.recap = isObj(s.recap) ? s.recap : {};
     out.nudge = isObj(s.nudge) ? s.nudge : {};
+    out.xp = typeof s.xp === 'number' ? s.xp : seedXp(out.sessions);
+    out.bestRun = typeof s.bestRun === 'number' ? s.bestRun : 0;
     return out;
+  }
+  function seedXp(sessions) {
+    return sessions.reduce(function (t, x) {
+      if (!isObj(x) || typeof x.n !== 'number') return t;
+      if (x.right === null) return t + x.n * XP.recap;
+      return t + x.right * XP.right + (x.n - x.right) * XP.wrong + (x.n >= 10 ? XP.finish : 0);
+    }, 0);
   }
   // Does this look like a progress file from this app?
   function looksLikeState(o) {
@@ -213,6 +242,63 @@
     var n = Sched.streak(Store.state, today());
     if (!n) return null;
     return h('div', { class: 'streak' }, h('span', { class: 'dot' }), n + '-day streak');
+  }
+
+  /* ---------- Momentum: levels, daily goal ring, celebrations ---------- */
+  function levelFloor(L) { return 50 * L * (L - 1); }   // XP needed to reach level L: 0, 100, 300, 600, 1000...
+  function levelOf(xp) { var L = 1; while (xp >= levelFloor(L + 1)) L++; return L; }
+  function levelName(L) { return LEVELS[Math.min(L, LEVELS.length) - 1]; }
+  function answeredOn(day) {
+    return Store.state.sessions.reduce(function (t, x) { return t + (x.date === day && x.right !== null && typeof x.n === 'number' ? x.n : 0); }, 0);
+  }
+  function answeredEver() {
+    return Store.state.sessions.reduce(function (t, x) { return t + (x.right !== null && typeof x.n === 'number' ? x.n : 0); }, 0);
+  }
+  function reducedMotion() { return !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); }
+  function levelBar(xp) {
+    var L = levelOf(xp), lo = levelFloor(L), hi = levelFloor(L + 1);
+    return h('div', { class: 'lvl' },
+      h('div', { class: 'lvl-top' }, h('b', { text: 'Level ' + L + ' · ' + levelName(L) }), h('span', { class: 'lvl-to', text: (hi - xp) + ' XP to level ' + (L + 1) })),
+      h('div', { class: 'lvl-track', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.round((xp - lo) / (hi - lo) * 100) + '%' })));
+  }
+  function goalRing(n) {
+    var C = 2 * Math.PI * 26, f = Math.min(1, n / GOAL);
+    var w = h('div', { class: 'ring' + (f >= 1 ? ' done' : ''), role: 'img', 'aria-label': n + ' of ' + GOAL + ' questions today' });
+    w.innerHTML = '<svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="26"/><circle class="ring-fg" cx="32" cy="32" r="26" stroke-dasharray="' +
+      C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - f)).toFixed(1) + '" transform="rotate(-90 32 32)"/></svg>';
+    w.appendChild(h('span', { class: 'ring-n' }, f >= 1 ? icon('tick') : String(n), f >= 1 ? null : h('small', { text: '/' + GOAL })));
+    return w;
+  }
+  function momentumCard() {
+    var st = Store.state, t = today(), n = answeredOn(t), left = Math.max(0, GOAL - n);
+    var streakN = Sched.streak(st, t), doneToday = st.sessions.some(function (x) { return x.date === t; });
+    var msg = !left ? 'Today’s goal done. Anything more is a bonus.'
+      : streakN && !doneToday ? 'Practise today to keep your ' + streakN + '-day streak going.'
+      : n ? left + ' more to today’s goal of ' + GOAL + '.'
+      : 'Today’s goal: ' + GOAL + ' questions.';
+    return h('div', { class: 'momentum' }, goalRing(n), h('div', { class: 'mo-body' }, levelBar(st.xp || 0), h('p', { class: 'mo-msg', text: msg })));
+  }
+  // Confetti from the top of the screen. Skipped when the phone asks for reduced motion.
+  function burst(n) {
+    if (reducedMotion()) return;
+    var colors = ['#4553d6', '#f5b301', '#2fb36d', '#ff6b6b', '#8a5cff', '#22b8cf'];
+    var layer = h('div', { class: 'confetti', 'aria-hidden': 'true' });
+    for (var i = 0; i < n; i++) {
+      var p = h('i');
+      p.style.cssText = 'left:' + (4 + Math.random() * 92).toFixed(1) + '%;background:' + colors[i % colors.length] +
+        ';--dx:' + ((Math.random() - 0.5) * 180).toFixed(0) + 'px;--rot:' + (Math.random() * 900 - 450).toFixed(0) + 'deg' +
+        ';animation-delay:' + (Math.random() * 0.3).toFixed(2) + 's;animation-duration:' + (1.2 + Math.random() * 0.9).toFixed(2) + 's';
+      layer.appendChild(p);
+    }
+    document.body.appendChild(layer);
+    setTimeout(function () { if (layer.parentNode) layer.parentNode.removeChild(layer); }, 2800);
+  }
+  function countUp(node, to) {
+    if (reducedMotion() || to <= 0) { node.textContent = '+' + to; return; }
+    var t0 = null;
+    function f(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / 800); node.textContent = '+' + Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); }
+    node.textContent = '+0'; requestAnimationFrame(f);
+    setTimeout(function () { node.textContent = '+' + to; }, 1000); // in case frames are paused
   }
 
   /* =====================================================================
@@ -459,6 +545,7 @@
         h('div', null, h('h1', { class: 'hello', text: 'Hi Ishita' }),
           h('div', { class: 'home-meta' }, h('p', { class: 'exam-line', text: daysToExamText() }), streakChip())),
         h('button', { class: 'icon-btn', 'aria-label': 'Settings', onclick: function () { Router.go('settings'); } }, icon('gear'))),
+      coveredCount() ? momentumCard() : null,
       h('div', { class: 'cover-row' },
         h('span', { text: coveredCount() + ' of ' + D.readingCount + ' readings ticked' }),
         h('button', { class: 'btn-link', text: 'Tick new readings', onclick: function () { Router.go('coverage'); } })),
@@ -488,9 +575,13 @@
     },
     start: function (mode, opts) {
       opts = opts || {};
-      var b = Sched.buildSession({ questions: D.questions, curriculum: D.curriculum, state: Store.state, today: today(), mode: mode, readings: opts.readings, size: opts.size });
-      if (!b.ids.length) { notice(this.EMPTY[mode] || this.EMPTY.daily); return false; }
-      this.cur = { mode: mode, opts: opts, ids: b.ids, i: 0, answers: [], picked: null, recorded: false };
+      // opts.ids: a fixed list (Retry the ones I missed); otherwise the scheduler picks.
+      var ids = opts.ids ? opts.ids.filter(function (id) { return D.q[id]; })
+        : Sched.buildSession({ questions: D.questions, curriculum: D.curriculum, state: Store.state, today: today(), mode: mode, readings: opts.readings, size: opts.size }).ids;
+      if (!ids.length) { notice(this.EMPTY[mode] || this.EMPTY.daily); return false; }
+      var st = Store.state;
+      this.cur = { mode: mode, opts: opts, ids: ids, i: 0, answers: [], picked: null, recorded: false,
+        combo: 0, run: 0, xp: 0, finished: false, startXp: st.xp || 0, startToday: answeredOn(today()), startEver: answeredEver(), startBest: st.bestRun || 0 };
       Router.go('session');
       return true;
     },
@@ -501,9 +592,16 @@
       var correct = pick === q.answer;
       var prev = st.q[q.id];
       st.q[q.id] = Sched.grade(prev, correct, today());
+      c.combo = correct ? c.combo + 1 : 0;
+      c.run = Math.max(c.run, c.combo);
+      var lucky = correct && Math.random() < LUCKY_CHANCE;
+      var gain = correct ? XP.right + Math.min(10, Math.max(0, c.combo - 2) * 2) : XP.wrong;
+      if (lucky) gain *= 2;
+      c.xp += gain; st.xp = (st.xp || 0) + gain;
+      if (c.run > (st.bestRun || 0)) st.bestRun = c.run;
       Store.save();
       c.picked = pick;
-      c.answers.push({ id: q.id, pick: pick, correct: correct, guess: false, prev: prev });
+      c.answers.push({ id: q.id, pick: pick, correct: correct, guess: false, prev: prev, xp: gain, lucky: lucky, combo: c.combo });
     },
     // Lucky guess on the answer just given: scheduled as a miss, still counted right in the score. Tap again to undo.
     toggleGuess: function () {
@@ -527,23 +625,33 @@
       if (!c || c.recorded || !c.answers.length) return;
       c.recorded = true;
       var right = c.answers.filter(function (a) { return a.correct; }).length;
-      var rec = { date: today(), mode: c.mode, n: c.answers.length, right: right };
+      var rec = { date: today(), mode: c.mode, n: c.answers.length, right: right, xp: c.xp };
       var errs = errCounts(c.answers);
       if (errs.total) rec.errs = { know: errs.know, mix: errs.mix, rush: errs.rush };
       st.sessions.push(rec);
       st.lastSessionDate = today();
       Store.save();
-      this.last = { mode: c.mode, opts: c.opts, n: c.answers.length, right: right, answers: c.answers.slice() };
+      this.last = { mode: c.mode, opts: c.opts, n: c.answers.length, right: right, answers: c.answers.slice(),
+        xp: c.xp, finished: c.finished, run: c.run, startXp: c.startXp, startToday: c.startToday, startEver: c.startEver, startBest: c.startBest };
     },
     next: function () {
       var c = this.cur;
-      if (c.i + 1 >= c.ids.length) { this.record(); this.cur = null; Router.go('result', true); return; }
+      if (c.i + 1 >= c.ids.length) {
+        c.finished = true; c.xp += XP.finish; Store.state.xp = (Store.state.xp || 0) + XP.finish;
+        this.record(); this.cur = null; Router.go('result', true); return;
+      }
       c.i++; c.picked = null; Router.render();
     },
     quit: function () {
-      var self = this;
-      confirmDialog('Stop here?', 'Answers so far are saved.', 'Stop and go home', 'Keep going').then(function (yes) {
-        if (!yes) return;
+      var self = this, c = this.cur;
+      var left = c.ids.length - c.answers.length;
+      if (left <= 0) { this.next(); return; }   // last one answered: just show the results
+      var title = c.answers.length && left <= 5 ? (left === 1 ? 'Just 1 to go' : 'Only ' + left + ' to go') : 'Stop here?';
+      var body = c.answers.length
+        ? 'Finish the round for +' + XP.finish + ' XP' + (c.combo >= 2 ? ' and keep your ' + c.combo + '-in-a-row run' : '') + '. Your answers so far are saved either way.'
+        : 'Nothing answered yet.';
+      stayDialog(title, body, 'Keep going', 'Stop for now').then(function (leave) {
+        if (!leave) return;
         self.record(); self.cur = null; self.last = null; Router.go('home', true);
       });
     }
@@ -632,6 +740,13 @@
     }
 
     var correct = c.picked === q.answer;
+    var a = c.answers[c.answers.length - 1] || {};
+    var fresh = !c.shown || c.shown !== c.answers.length;   // celebrate once per answer, not on every re-render
+    c.shown = c.answers.length;
+    if (fresh) {
+      if (c.startToday < GOAL && c.startToday + c.answers.length === GOAL) { notice('Daily goal reached: ' + GOAL + ' questions today!'); burst(70); }
+      else if (correct && (a.combo === 5 || a.combo === 10 || a.combo === 15)) burst(40);
+    }
     var optsFb = h('div', { class: 'options' }, q.options.map(function (t, i) {
       if (i === q.answer) return optionEl(LETTERS[i], t, 'right', correct ? null : 'Correct answer');
       if (i === c.picked) return optionEl(LETTERS[i], t, 'wrong', 'Your answer');
@@ -646,7 +761,9 @@
     if (correct) {
       extras.appendChild(luckyControl());
       fb = h('div', { class: 'fb' },
-        h('div', { class: 'verdict' }, icon('tickCircle'), 'Correct'),
+        h('div', { class: 'verdict' + (fresh ? ' pop' : '') }, icon('tickCircle'), 'Correct',
+          h('span', { class: 'xp-chip' + (a.lucky ? ' lucky' : ''), text: '+' + a.xp + ' XP' + (a.lucky ? ' · 2× bonus' : '') }),
+          a.combo >= 3 ? h('span', { class: 'combo', text: '🔥 ' + a.combo + ' in a row' }) : null),
         h('p', { class: 'plain-expl', text: q.explanation }), extras, tests, remember);
     } else {
       if (D.recaps[q.reading]) {
@@ -655,7 +772,7 @@
       fb = h('div', { class: 'fb' },
         h('div', { class: 'why' }, h('div', { class: 'eyebrow', text: 'Why' }), h('p', { text: q.explanation })),
         extras, tests, remember, missControl(),
-        h('p', { class: 'calm', text: 'This one comes back next session.' }));
+        h('p', { class: 'calm', text: 'This one comes back next session. +' + (a.xp || XP.wrong) + ' XP for the attempt.' }));
     }
     var last = c.i + 1 >= c.ids.length;
     var bar = h('div', { class: 'bar' }, h('button', { class: 'btn btn-primary', text: last ? 'See results' : 'Next', onclick: function () { Session.next(); } }));
@@ -693,6 +810,8 @@
   }
 
   function resultTitle(r) {
+    if (r.opts && r.opts.retry) return 'Retry round';
+    if (r.opts && r.opts.bonus) return 'Bonus round';
     if (r.opts && r.opts.readings && r.opts.readings.length === 1 && D.reading[r.opts.readings[0]]) return 'Practice · ' + D.reading[r.opts.readings[0]].reading.short;
     return NAMES[r.mode] || 'Session';
   }
@@ -707,12 +826,33 @@
     var line = missed.length || guesses
       ? 'Wrong ones' + (guesses ? ' and lucky guesses' : '') + ' come back next session'
       : 'A clean round. Nothing to repeat.';
+    // Momentum: XP this round, level-ups, records, milestones, daily goal.
+    var xpNum = h('span', { class: 'xp-num', text: '+' + (r.xp || 0) });
+    var xpRow = h('div', { class: 'xp-gain' }, xpNum, ' XP', r.finished ? h('span', { class: 'xp-note', text: ' incl. +' + XP.finish + ' for finishing' }) : null);
+    var st = Store.state, lvBefore = levelOf(r.startXp || 0), lvNow = levelOf(st.xp || 0);
+    var todayN = answeredOn(today()), goalLeft = Math.max(0, GOAL - todayN);
+    var goalHit = (r.startToday || 0) < GOAL && todayN >= GOAL;
+    var goalText = goalHit ? 'Daily goal done: ' + todayN + ' questions today.' : goalLeft ? todayN + ' of ' + GOAL + ' today. ' + goalLeft + ' more to hit your goal.' : todayN + ' questions today. Goal done; this is all bonus.';
+    var wins = [];
+    if (lvNow > lvBefore) wins.push(h('div', { class: 'win big' }, h('b', { text: 'Level up!' }), ' You’re now Level ' + lvNow + ': ' + levelName(lvNow) + '.'));
+    if (r.run >= 3 && r.run > (r.startBest || 0)) wins.push(h('div', { class: 'win' }, h('b', { text: 'New record: ' }), r.run + ' right in a row.'));
+    MILESTONES.forEach(function (m) { if ((r.startEver || 0) < m && (r.startEver || 0) + r.n >= m) wins.push(h('div', { class: 'win' }, h('b', { text: 'Milestone: ' }), m + ' questions answered.')); });
+    wins.push(levelBar(st.xp || 0));
+    if (!r.celebrated) {
+      r.celebrated = true;
+      setTimeout(function () { countUp(xpNum, r.xp || 0); }, 150);
+      if (lvNow > lvBefore || goalHit || (!missed.length && r.n >= 5)) burst(90);
+      else if (r.finished) burst(30);
+    }
     var body = [
       h('div', { class: 'score-card' },
         h('div', { class: 'eyebrow', text: resultTitle(r) }),
         h('div', { class: 'score' }, r.right + ' ', h('small', { text: '/ ' + r.n })),
         h('div', { class: 'score-track', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.round(r.right / r.n * 100) + '%' })),
-        h('p', { class: 'result-line', text: line })),
+        h('p', { class: 'result-line', text: line }),
+        xpRow),
+      wins.length ? h('div', { class: 'wins' }, wins) : null,
+      h('div', { class: 'goal-row' }, goalRing(todayN), h('p', { text: goalText })),
       (function () {
         var e = errCounts(r.answers), top = null;
         ['know', 'mix', 'rush'].forEach(function (k) { if (e[k] && (!top || e[k] > e[top])) top = k; });
@@ -729,9 +869,17 @@
     } else {
       body.push(h('div', { class: 'perfect', text: 'Everything you answered was right. These will show up less often now.' }));
     }
-    var bar = h('div', { class: 'bar' },
-      h('button', { class: 'btn btn-primary', text: 'Another round', onclick: function () { Session.start(r.mode, r.opts); } }),
-      h('button', { class: 'btn btn-quiet', text: 'Done', onclick: function () { Session.last = null; Router.go('home', true); } }));
+    // Keep the momentum: a short 5-question round is the default next step; misses can be retried right away.
+    var moreOpts = { size: 5, bonus: true };
+    if (r.opts && r.opts.readings) moreOpts.readings = r.opts.readings;
+    var moreMode = r.opts && r.opts.retry ? 'daily' : r.mode;
+    var more = h('button', { class: 'btn btn-primary', onclick: function () { Session.start(moreMode, moreOpts); } },
+      goalLeft && goalLeft <= 5 ? 'Hit today’s goal · ' + goalLeft + ' more' : 'Keep going · 5 more');
+    var retry = missed.length ? h('button', { class: 'btn btn-quiet', text: 'Retry ' + missed.length + ' missed',
+      onclick: function () { Session.start('daily', { ids: missed.map(function (a) { return a.id; }), retry: true }); } }) : null;
+    var bar = h('div', { class: 'bar' }, more,
+      h('div', { class: 'btn-row' }, retry,
+        h('button', { class: 'btn btn-quiet', text: 'Done', onclick: function () { Session.last = null; Router.go('home', true); } })));
     screenFrame(root, body, bar);
   }
 
@@ -750,6 +898,7 @@
     mark: function (mark) {
       var c = this.cur, st = Store.state, rid = c.ids[c.i];
       st.recap[rid] = { last: today(), mark: mark };
+      st.xp = (st.xp || 0) + XP.recap;
       c.marks.push(mark);
       Store.save();
       c.i++;
@@ -783,7 +932,9 @@
         h('div', { class: 'score-card' },
           h('div', { class: 'eyebrow', text: 'Recap' }),
           h('div', { class: 'score' }, String(c.marks.length), ' ', h('small', { text: c.marks.length === 1 ? 'reading recapped' : 'readings recapped' })),
-          h('p', { class: 'result-line', text: shaky ? plural(shaky, 'reading', 'readings') + ' marked shaky. Their questions come back sooner.' : 'All marked solid. The questions will tell if that holds.' })),
+          h('p', { class: 'result-line', text: shaky ? plural(shaky, 'reading', 'readings') + ' marked shaky. Their questions come back sooner.' : 'All marked solid. The questions will tell if that holds.' }),
+          h('div', { class: 'xp-gain' }, h('span', { class: 'xp-num', text: '+' + c.marks.length * XP.recap }), ' XP')),
+        h('div', { class: 'wins' }, levelBar(Store.state.xp || 0)),
         streakN ? h('div', null, streakChip(), streakN >= 3 ? h('span', { class: 'muted small', style: 'margin-left:10px', text: 'Nice streak!' }) : null) : null
       ], h('div', { class: 'bar' },
         h('button', { class: 'btn btn-primary', text: NAMES.daily, onclick: function () { Recap.cur = null; Session.start('daily'); } }),

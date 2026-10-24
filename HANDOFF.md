@@ -36,6 +36,12 @@ This is a phone-first revision app for Ishita's CFA Level I exam on 13 Nov 2026.
 - **Formula sheet** (new in v1.1). Every formula (52) and must-remember fact (72) from her covered readings, grouped by topic. The cue is shown and the answer is blurred: she says it, then taps. It's a 3-minute sweep for a queue, and it's what Home suggests for exam eve. A toggle shows everything, including unread readings.
 - **Where you stand** (new in v1.1; Home strip and Map). Shows how much of the exam she has covered by weight, her accuracy per topic (amber below 70%), and **Read next in the books**: the unread readings worth the most exam marks each. Tapping one lets her mark it covered.
 - **Why did you miss it?** (new in v1.1; optional chips on the wrong-answer screen). Didn't know it / Mixed two things up / Misread or rushed. The result screen turns her most common reason into one line of advice. If misreads pile up over a week, Home suggests Exam practice.
+- **Momentum** (new in v1.3). Small rewards to keep her going once she has started:
+  - A **daily goal ring** of 25 questions on Home and the result screen. Today's 15 gets her most of the way; one or two 5-question top-ups finish it.
+  - **XP and levels** (Starter to Exam-ready). 10 XP per right answer, 4 per attempt, bonus XP for runs of right answers, an occasional 2× bonus, +20 for finishing a round, +5 per recap card.
+  - **Combo runs** ("🔥 4 in a row"), personal-best runs, milestones (50, 100, 200… questions answered) and confetti on real wins.
+  - The result screen leads with **Keep going · 5 more** (or **Hit today's goal · N more**) and **Retry N missed**.
+  - Tapping ✕ mid-round asks "Only N to go?" with **Keep going** first. Stopping is always one tap, and her answers are saved either way.
 - **Home**: a countdown and a suggestion that changes as the exam gets closer (more exam practice in the last stretch). It also shows her streak and a "Tick new readings" link.
 
 ## Opening it on her iPhone and adding it to the Home Screen

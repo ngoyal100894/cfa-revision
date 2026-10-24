@@ -552,3 +552,49 @@ button.opt:active { transform: scale(.985); border-color: var(--accent); }
 .sheet-ctl { gap: 6px; }
 .sheet-ctl .btn-small { padding: 8px 11px; font-size: 14.5px; }
 .sheet-ctl .btn-link { font-size: 15px; min-width: 0; }
+
+/* ---------- momentum: goal ring, levels, XP, confetti ---------- */
+.momentum { display: flex; align-items: center; gap: 16px; margin-top: 18px; padding: 14px 16px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); border: 1px solid var(--card-line); }
+.mo-body { flex: 1; min-width: 0; }
+.mo-msg { margin-top: 8px; font-size: 15px; color: var(--muted); line-height: 1.35; }
+.ring { position: relative; width: 64px; height: 64px; flex: none; }
+.ring svg { width: 100%; height: 100%; display: block; }
+.ring circle { fill: none; stroke-width: 7; }
+.ring .ring-bg { stroke: var(--surface-2); }
+.ring .ring-fg { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset .8s cubic-bezier(.2, .8, .2, 1); }
+.ring.done .ring-fg { stroke: var(--good); }
+.ring-n { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 19px; font-variant-numeric: tabular-nums; }
+.ring-n small { font-size: 11px; font-weight: 600; color: var(--muted); margin-left: 1px; align-self: center; margin-top: 4px; }
+.ring.done .ring-n { color: var(--good-ink); }
+.ring.done .ring-n svg { width: 22px; height: 22px; }
+.lvl-top { display: flex; align-items: baseline; justify-content: space-between; gap: 2px 8px; flex-wrap: wrap; font-size: 15px; }
+.lvl-top b { font-weight: 650; }
+.lvl-to { color: var(--muted); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lvl-track { height: 8px; margin-top: 7px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.lvl-track i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), #8a5cff); transition: width .8s ease; }
+
+.verdict { flex-wrap: wrap; row-gap: 6px; }
+.verdict.pop svg { animation: pop .42s cubic-bezier(.2, 1.6, .4, 1) both; }
+@keyframes pop { 0% { transform: scale(.4); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.xp-chip { margin-left: 2px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; animation: rise-chip .5s .08s ease both; }
+.xp-chip.lucky { background: #fff1c2; color: #6b4a00; }
+@media (prefers-color-scheme: dark) { .xp-chip.lucky { background: #4a3a10; color: #ffe08a; } }
+.combo { padding: 3px 10px; border-radius: 999px; background: var(--warn-soft); color: var(--warn-ink); font-size: 14px; font-weight: 700; animation: rise-chip .5s .16s ease both; }
+@keyframes rise-chip { from { transform: translateY(6px) scale(.9); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.xp-gain { margin-top: 14px; display: flex; align-items: baseline; gap: 4px; font-weight: 650; color: var(--accent); font-size: 17px; }
+.xp-num { font-size: 26px; font-weight: 750; font-variant-numeric: tabular-nums; }
+.xp-note { color: var(--muted); font-weight: 500; font-size: 14px; }
+.wins { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); border: 1px solid var(--card-line); }
+.win { font-size: 16px; line-height: 1.4; }
+.win b { font-weight: 700; }
+.win.big { font-size: 17px; padding: 10px 12px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); animation: rise-chip .5s .2s ease both; }
+.goal-row { margin-top: 14px; display: flex; align-items: center; gap: 14px; }
+.goal-row p { font-size: 16px; line-height: 1.4; }
+
+.stay-row { flex-direction: column !important; }
+
+.confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 60; }
+.confetti i { position: absolute; top: -16px; width: 8px; height: 13px; border-radius: 2px; opacity: .95; animation-name: fall; animation-timing-function: cubic-bezier(.25, .6, .45, 1); animation-fill-mode: forwards; }
+.confetti i:nth-child(3n) { width: 10px; height: 10px; border-radius: 50%; }
+@keyframes fall { to { transform: translate(var(--dx), 105vh) rotate(var(--rot)); opacity: .85; } }
