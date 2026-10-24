@@ -5,5 +5,10 @@ Cap: 14 subagent runs. Usage ceilings from Nikhil: weekly all-models 75% (46% at
 | # | Task | Agent | Model | Size | Result |
 |---|---|---|---|---|---|
 | 1 | curriculum.json: 93 readings and paraphrased objectives | general-purpose | fable | M (74k tokens, 5 min) | done: 93 readings, 399 objectives |
-| 2 | PRODUCT.md: feature design for revision + exam prep | general-purpose | fable | M | running |
-| 3 | App core on dummy data | builder | sonnet | L | running |
+| 2 | PRODUCT.md: feature design for revision + exam prep | general-purpose | fable | M (75k tokens, 4 min) | done |
+| 3 | App core on dummy data | builder | sonnet | L | done; verified in browser (coverage, session, wrong-answer, result, reload) |
+| 4 | Ethics 50 + FSA 40: questions + recap cards | content-writer | sonnet | L | running |
+| 5 | Equity 35 + FI 35: questions + recap cards | content-writer | sonnet | L | running |
+| 6 | PM 30 + Alts 25: questions + recap cards | content-writer | sonnet | L | running |
+| 7 | Quant 25 + Econ 25: questions + recap cards | content-writer | sonnet | L | running |
+| 8 | Corp 20 + Deriv 15: questions + recap cards | content-writer | sonnet | L | running |
